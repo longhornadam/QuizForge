@@ -1,0 +1,8 @@
+services:
+  - type: static_site
+    name: quizforge-web
+    root: web
+    buildCommand: ""
+    staticPublishPath: .
+    headers: []
+    routes: []

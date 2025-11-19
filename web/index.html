@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QuizForge | Teacher Productivity Hub</title>
+    <!-- awesomeversion: Geocities-inspired easter egg -->
+    <template id="awesomeversion-style">
+        <style>
+        :root {
+            --bg: #fff0fb;
+            --card: #fffbe5;
+            --text: #2a0436;
+            --accent: #ff00aa;
+            --muted: #5f3b62;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)),
+                repeating-linear-gradient(45deg, #ffe9ff, #ffe9ff 12px, #fff9d8 12px, #fff9d8 24px);
+            color: var(--text);
+            min-height: 100vh;
+            border-top: 12px solid #ff00aa;
+            border-bottom: 12px solid #00c3ff;
+        }
+        header {
+            padding: 3rem 1.5rem 2rem;
+            background: linear-gradient(90deg, #ff0099, #ffdd00, #00e5ff);
+            color: #320052;
+            text-align: center;
+            border-bottom: 8px double #fff;
+            box-shadow: inset 0 0 0 4px #000, inset 0 0 40px rgba(255, 255, 255, 0.8);
+        }
+        header h1 {
+            margin: 0 0 0.5rem;
+            font-size: 3.2rem;
+            text-shadow: 3px 3px 0 #fff, -3px -3px 0 #00c3ff;
+        }
+        header p {
+            margin: 0 auto;
+            max-width: 720px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #320052;
+            text-shadow: 1px 1px 0 #fff;
+        }
+        .retro-marquee {
+            margin-top: 1.25rem;
+            padding: 0.4rem 1rem;
+            border: 4px ridge #fff;
+            background: #000;
+            color: #00ff99;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .layout {
+            max-width: 1200px;
+            margin: -80px auto 3rem;
+            padding: 0 1.5rem 3rem;
+            background: rgba(255, 255, 255, 0.65);
+            border: 4px groove #ff66cc;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+        }
+        .card {
+            background: var(--card);
+            border-radius: 0;
+            border: 4px ridge #fff;
+            box-shadow: 10px 10px 0 rgba(50, 0, 80, 0.25);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
+        }
+        .card h2 {
+            font-size: 1.9rem;
+            text-transform: uppercase;
+            color: #d500f9;
+            text-shadow: 2px 2px 0 #fff, -2px -2px 0 #ff9cd9;
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            border: 4px dashed #ff00aa;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .step {
+            background: #ffffd6;
+            border-radius: 0;
+            border: 2px dotted #ff66cc;
+            padding: 1.25rem;
+            box-shadow: inset 0 0 0 2px #ffd1ff;
+        }
+        .step h3 {
+            margin: 0 0 0.3rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-shadow: 1px 1px 0 #fff;
+        }
+        .step p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        .module-list, .resource-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+        .module-list li, .resource-list li {
+            border: 1px solid #e5e7eb;
+            border-radius: 0;
+            padding: 1.25rem;
+            background: #fff;
+            box-shadow: inset 0 0 0 2px #ffd6ff;
+        }
+        .module-list h4, .resource-list h4 {
+            margin: 0 0 0.4rem;
+            font-size: 1.05rem;
+        }
+        .module-list p, .resource-list p {
+            margin: 0.2rem 0 1rem;
+            color: var(--muted);
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.55rem 1.1rem;
+            border-radius: 0;
+            border: 3px double #fff;
+            background: linear-gradient(90deg, #ff00aa, #ffdd00);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+        }
+        .btn.secondary {
+            background: linear-gradient(90deg, #320052, #7d00b8);
+        }
+        textarea {
+            width: 100%;
+            min-height: 180px;
+            border-radius: 0;
+            border: 3px groove #ff99e6;
+            padding: 1rem;
+            font-family: "Courier New", monospace;
+            font-size: 0.95rem;
+            background: #fffaf1;
+        }
+        input[type="file"] {
+            width: 100%;
+            margin: 0.5rem 0 1.5rem;
+            border: 3px double #ff99e6;
+            padding: 0.5rem;
+            background: #fff;
+        }
+        .status-track {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .status-pill {
+            flex: 1 1 160px;
+            padding: 0.85rem;
+            border-radius: 0;
+            text-align: center;
+            background: #ffe8ff;
+            color: #a000d4;
+            font-weight: 600;
+            border: 2px solid #ff99e6;
+        }
+        .module-download {
+            margin-bottom: 1rem;
+        }
+        .btn.full-width {
+            width: 100%;
+            text-align: center;
+        }
+        .module-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+        .module-option {
+            display: flex;
+            gap: 0.85rem;
+            padding: 1rem;
+            border: 3px double #ffb7ff;
+            border-radius: 0;
+            background: #fffffb;
+            align-items: flex-start;
+        }
+        .module-option h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .module-option p {
+            margin: 0.15rem 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .module-radio {
+            appearance: none;
+            width: 1.1rem;
+            height: 1.1rem;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            margin-top: 0.2rem;
+            position: relative;
+            cursor: pointer;
+            background: #fff;
+        }
+        .module-radio:checked::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .module-radio:disabled {
+            cursor: not-allowed;
+            border-color: #9ca3af;
+        }
+        .module-radio:disabled::after {
+            background: #9ca3af;
+        }
+        .module-badge {
+            display: inline-block;
+            margin-left: 0.35rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            background: #000;
+            color: #0ff;
+            text-transform: uppercase;
+        }
+        .module-select {
+            width: 100%;
+            margin-top: 0.6rem;
+            padding: 0.55rem 0.75rem;
+            border-radius: 0;
+            border: 2px solid #ff99e6;
+            font-size: 0.9rem;
+            background: #fff;
+        }
+        select:focus, textarea:focus, input:focus {
+            outline: 3px dotted #ff00aa;
+            outline-offset: 3px;
+        }
+        .dual-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+        .dual-columns .card {
+            margin-bottom: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 3rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-shadow: 1px 1px 0 #fff;
+        }
+        </style>
+    </template>
+
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f6f7fb;
+            --surface: #ffffff;
+            --text: #1f2328;
+            --muted: #5f636c;
+            --border: #d8dde6;
+            --accent: #0052cc;
+            --accent-soft: #e8f1ff;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.55;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        header {
+            padding: 2.5rem 1.25rem 1.5rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+        header p {
+            margin: 0.5rem 0 0;
+            max-width: 720px;
+            color: var(--muted);
+        }
+        .layout {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem 3rem;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card h2 {
+            margin: 0 0 0.75rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .step {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            background: #fcfdff;
+        }
+        .step h3 {
+            margin: 0 0 0.35rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+        }
+        .step p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.55rem 1.2rem;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+        }
+        .btn.secondary {
+            background: #1f2a37;
+        }
+        .btn.full-width {
+            width: 100%;
+            text-align: center;
+        }
+        textarea, input[type="file"] {
+            width: 100%;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        textarea {
+            min-height: 180px;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            background: #fff;
+        }
+        input[type="file"] {
+            border: 1px dashed var(--border);
+            padding: 0.85rem;
+            border-radius: 10px;
+            background: #fff;
+        }
+        .status-track {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .status-pill {
+            flex: 1 1 150px;
+            padding: 0.7rem;
+            border-radius: 10px;
+            text-align: center;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+        .module-download {
+            margin-bottom: 1rem;
+        }
+        .module-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .module-option {
+            display: flex;
+            gap: 0.85rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+        }
+        .module-option h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .module-option p {
+            margin: 0.2rem 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .module-radio {
+            appearance: none;
+            width: 1rem;
+            height: 1rem;
+            margin-top: 0.25rem;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            position: relative;
+            cursor: pointer;
+        }
+        .module-radio:checked {
+            border-color: var(--accent);
+        }
+        .module-radio:checked::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0.45rem;
+            height: 0.45rem;
+            border-radius: 50%;
+            background: var(--accent);
+            transform: translate(-50%, -50%);
+        }
+        .module-radio:disabled {
+            cursor: not-allowed;
+            border-color: #9ca3af;
+        }
+        .module-radio:disabled::after {
+            background: #9ca3af;
+        }
+        .module-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.1rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+        .module-select {
+            width: 100%;
+            margin-top: 0.6rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            background: #fff;
+        }
+        .dual-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+        .dual-columns .card {
+            margin-bottom: 0;
+        }
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            padding: 0;
+            list-style: none;
+        }
+        .resource-list li {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem;
+            background: #fff;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 3rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>QuizForge</h1>
+        <p>Plan, review, and export Canvas-ready quizzes without fluff&nbsp;&mdash;&nbsp;QuizForge keeps the AI workflow teacher-friendly.</p>
+    </header>
+
+    <main class="layout">
+        <section class="card">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Step 1</h3>
+                    <p>Load <a href="/modules/">modules</a> into your AI and talk to it like your personal Teaching Assistant.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 2</h3>
+                    <p>When you're happy, tell your AI-TA to output the "QuizForge-ready TXT".</p>
+                </div>
+                <div class="step">
+                    <h3>Step 3</h3>
+                    <p>Put the TXT to QuizForge, click "Queue Quiz", and get your .ZIP package.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 4</h3>
+                    <p><a href="https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-import-a-quiz-from-a-QTI-package-in-New-Quizzes/ta-p/880">Import to a New Quiz</a> in Canvas and print your copies! Ready to go!</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="dual-columns">
+            <section class="card module-card">
+                <h2>Download Instruction Modules</h2>
+                <p>Drop these markdown files into your AI workspace when you need extra guidance.</p>
+                <div class="module-download">
+                    <a href="#" class="btn full-width">Download Modules</a>
+                </div>
+                <div class="module-options">
+                    <label class="module-option">
+                        <input type="checkbox" class="module-radio" checked disabled>
+                        <div>
+                            <h4>QF_BASE <span class="module-badge">Required</span></h4>
+                            <p>Core instructions for producing valid TXT specs for QuizForge.</p>
+                        </div>
+                    </label>
+                    <label class="module-option">
+                        <input type="checkbox" class="module-radio" checked>
+                        <div>
+                            <h4>QF_MOD_Rigor</h4>
+                            <p>Bloom’s taxonomy, DOK guidance, and rigor targets for higher-order assessments.</p>
+                        </div>
+                    </label>
+                    <label class="module-option">
+                        <input type="checkbox" class="module-radio">
+                        <div>
+                            <h4>QF_MOD_Differentiation</h4>
+                            <p>Strategies for varied readiness, scaffolds, and UDL-aligned supports.</p>
+                        </div>
+                    </label>
+                    <div class="module-option subject-pack-option">
+                        <input type="checkbox" class="module-radio" id="moduleSubjectPacks">
+                        <div>
+                            <label for="moduleSubjectPacks">
+                                <h4>Subject Packs</h4>
+                            </label>
+                            <p>Math, Science, CompSci, Humanities, and more—each with content-specific reminders.</p>
+                            <select class="module-select" aria-label="Choose subject pack">
+                                <option>Math - Grades 6-8</option>
+                                <option>Math - Grades 9-12</option>
+                                <option>Science - Grades 6-8</option>
+                                <option>Science - Grades 9-12</option>
+                                <option>Computer Science - Grades 9-12</option>
+                                <option>Humanities - Grades 6-12</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card setup-card">
+                <h2>QuizForge Setup</h2>
+                <p>Upload or paste your quiz specification to start generating your package.</p>
+                <input type="file" accept=".txt">
+                <textarea placeholder="Paste your quiz specification here..."></textarea>
+                <div style="margin-top: 1rem;">
+                    <a href="#" class="btn">Queue Quiz</a>
+                    <a href="#" class="btn secondary">Preview Parser Output</a>
+                </div>
+                <div class="status-track">
+                    <div class="status-pill">Queued</div>
+                    <div class="status-pill">Parsing</div>
+                    <div class="status-pill">Validating</div>
+                    <div class="status-pill">Packaging</div>
+                </div>
+            </section>
+        </div>
+
+        <section class="card">
+            <h2>What’s Inside the ZIP?</h2>
+            <ul class="resource-list">
+                <li>
+                    <h4>Canvas Export (QTI)</h4>
+                    <p>Ready-to-import package for New Quizzes. Auto-generated with points and balanced answers.</p>
+                </li>
+                <li>
+                    <h4>Printable Packet + Key</h4>
+                    <p>DOCX or PDF quiz version, answer key, and rationale companion for quick duplication.</p>
+                </li>
+                <li>
+                    <h4>Processing Logs</h4>
+                    <p>PASS/WEAK PASS logs detailing auto-fixes and fairness warnings. Fail logs ready to copy into your AI.</p>
+                </li>
+                <li>
+                    <h4>Answer Distribution</h4>
+                    <p>Optional analytics showing correct answer positions and T/F balance for transparency.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Power Users & Offline Workflow</h2>
+            <p>Prefer to run everything locally? The CLI mirrors the web pipeline.</p>
+            <ol>
+                <li>Clone the repo and set up the Python environment (see README).</li>
+                <li>Drop TXT files into `DropZone/`, run `python engine/orchestrator.py`.</li>
+                <li>Collect packages from `Finished_Exports/`—same “UNZIP THIS FIRST” structure.</li>
+            </ol>
+            <p style="margin-top: 1rem;">Need to keep data offline for testing scenarios? We’ll keep this workflow documented alongside the hosted option.</p>
+        </section>
+    </main>
+
+    <footer>
+        © QuizForge. Built for teachers who need high-quality assessments under impossible timelines.
+    </footer>
+</body>
+</html>

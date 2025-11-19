@@ -314,13 +314,8 @@ def _create_rationale_sheet(quiz: Quiz, output_folder: str) -> str:
         
         question_number += 1
     
-    # Add reminder at bottom
-    doc.add_paragraph()  # small space before footer
-    footer = doc.add_paragraph("Remember to copy these corrections in your own words to reinforce learning.")
-    footer_format = footer.runs[0].font
-    footer_format.name = DOCX_FONT_FAMILY
-    footer_format.size = Pt(DOCX_SMALL_SIZE)
-    footer_format.italic = True
+
+    # Footer removed as per updated requirements
     
     # Save document
     output_path = Path(output_folder) / f"{quiz.title.replace(' ', '_')}_RATIONALE.docx"

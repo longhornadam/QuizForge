@@ -53,6 +53,9 @@ Pipfile.lock
 .env
 .env.*
 
+config.local.py
+secrets.json
+
 # VS Code
 .vscode/
 
