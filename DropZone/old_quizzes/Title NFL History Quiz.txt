@@ -1,0 +1,105 @@
+Title: NFL History Quiz
+TotalPoints: 100
+---
+Type: MC
+Points: 11
+Prompt:
+Under NFL rules, what is the penalty for a second forward pass attempted from behind the line of scrimmage on the same play?
+Choices:
+- [ ] 10-yard penalty and loss of down
+- [ ] 15-yard penalty for unsportsmanlike conduct
+- [x] 5-yard penalty and loss of down
+- [ ] The play is immediately whistled dead, no yardage penalty
+---
+Type: MC
+Points: 11
+Prompt:
+If a defensive player runs into the kicker after a field goal or punt attempt, but does not rough him, what is the penalty?
+Choices:
+- [x] 5-yard penalty
+- [ ] 10-yard penalty
+- [ ] 15-yard penalty
+- [ ] No penalty if the kick is blocked
+---
+Type: STIMULUS
+Prompt:
+The 1972 Miami Dolphins, led by coach Don Shula, achieved a feat that remains unique in NFL history: the only perfect season. They finished the 14-game regular season undefeated and went on to win all three of their playoff games, culminating in a 14-7 victory over the Washington Redskins in Super Bowl VII. A key part of their success was overcoming adversity; when starting quarterback Bob Griese was injured in Week 5, 38-year-old backup Earl Morrall stepped in and led the team for the rest of the regular season. The team featured a powerful rushing attack with Larry Csonka and Mercury Morris, and a formidable "No-Name Defense." This historic 17-0 season cemented their legacy as one of the greatest teams of all time.
+---
+Type: MC
+Points: 11
+Prompt:
+Who was the head coach of the 1972 undefeated Miami Dolphins?
+Choices:
+- [ ] George Wilson
+- [ ] Bill Arnsparger
+- [x] Don Shula
+- [ ] Howard Schnellenberger
+---
+Type: MC
+Points: 11
+Prompt:
+What was the final record of the 1972 Miami Dolphins, including the playoffs?
+Choices:
+- [ ] 14-0
+- [ ] 16-0
+- [x] 17-0
+- [ ] 15-0-1
+---
+Type: MC
+Points: 11
+Prompt:
+Who stepped in as the primary quarterback for the Dolphins during the regular season after Bob Griese's injury?
+Choices:
+- [ ] Dan Marino
+- [x] Earl Morrall
+- [ ] Jim Kiick
+- [ ] Paul Warfield
+---
+Type: STIMULUS_END
+Prompt:
+
+---
+Type: CATEGORIZATION
+Points: 12
+Prompt:
+Sort the following NFL teams into their correct conference.
+Categories:
+- AFC
+- NFC
+Items:
+- Baltimore Ravens => AFC
+- Green Bay Packers => NFC
+- Denver Broncos => AFC
+- New England Patriots => AFC
+- San Francisco 49ers => NFC
+- Dallas Cowboys => NFC
+---
+Type: MC
+Points: 11
+Prompt:
+The 1970 merger combined the NFL with which other professional football league?
+Choices:
+- [ ] United States Football League (USFL)
+- [ ] World Football League (WFL)
+- [x] American Football League (AFL)
+- [ ] All-America Football Conference (AAFC)
+---
+Type: MC
+Points: 11
+Prompt:
+What famous play, involving a last-second, improbable catch by Franco Harris, occurred during a 1972 AFC Divisional Playoff game?
+Choices:
+- [ ] The Catch
+- [x] The Immaculate Reception
+- [ ] The Helmet Catch
+- [ ] The Music City Miracle
+---
+Type: MC
+Points: 11
+Prompt:
+The Green Bay Packers won the first two Super Bowls. Who was their legendary head coach?
+Choices:
+- [ ] Don Shula
+- [ ] George Halas
+- [ ] Paul Brown
+- [x] Vince Lombardi

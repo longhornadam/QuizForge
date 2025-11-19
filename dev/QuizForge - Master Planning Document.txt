@@ -1,0 +1,470 @@
+QuizForge - Master Planning Document
+Version 2.0 | Date: 2025-11-16
+
+GOLDEN RULE
+KEEP ALL DEVELOPMENT, PLANNING, AND VALIDATION OUT OF ROOT AND OUT OF USER-FACING DIRECTORIES.
+EVERYTHING GOES INTO /engine/dev/ UNTIL PRODUCTION READY.
+
+1. Project Overview
+Mission
+To empower teachers by providing a simple, powerful, and reliable tool to convert natural language quiz requirements into ready-to-use digital (Canvas) and physical (printable) assessments.
+Core Concept
+QuizForge utilizes a hybrid approach. It leverages the content generation and pedagogical strengths of Large Language Models (LLMs) for initial quiz creation, while offloading all structural validation, fairness checks, and formatting to robust, deterministic local Python scripts. This ensures a high-quality, consistent, and error-free final product.
+Key Design Principles
+
+Zero-Friction User Experience: The primary user interface is a single "double-click to run" script. No command-line interaction or manual installations are required.
+Robust Automation: A powerful local validator acts as a gatekeeper, catching LLM errors, auto-fixing what it can, and ensuring every quiz meets a high standard of structural integrity.
+Actionable Feedback: When a quiz fails validation in a way that requires content changes, the system generates a single, clear file that contains both the original quiz and a pre-formatted prompt for the teacher to give back to the LLM for revision.
+Portable & Self-Contained: The entire application is packaged with its own portable Python environment and dependencies, allowing it to run on any standard Windows computer after being unzipped, with no further setup.
+Modular Architecture: The system is divided into logical, independent layers (Parsing, Validation, Rendering, Packaging), making it easier to maintain, debug, and extend in the future.
+Clean Separation of Concerns: User-facing directories remain minimal and intuitive. All code, tests, and development work lives in the /engine/ directory, hidden from tech-nervous users.
+
+
+2. Example Workflows
+Workflow A: Successful Processing (The "Happy Path")
+Teacher Action: A teacher saves a quiz from their LLM session as American_Revolution_Quiz.txt and places it into the QuizForge/DropZone/ folder. The LLM was instructed to place the correct answer first in all multiple-choice questions.
+Execution: The teacher double-clicks the run_quizforge.bat file in the main QuizForge/ directory. A command window appears, showing a "Processing..." message.
+Internal Pipeline:
+
+The Orchestrator (engine/orchestrator.py) scans DropZone/ and finds the new file.
+The Parser (engine/parsing/text_parser.py) converts the TXT file into a Quiz object (raw, unvalidated).
+The Validator (engine/validation/validator.py) performs a series of checks and fixes:
+
+Parses the quiz structure and finds no hard errors
+Detects no point values were assigned → calls point_normalizer.py to distribute 100 points across all scorable questions
+Calls choice_randomizer.py to shuffle all multiple-choice answer choices
+Post-shuffle pattern check detects three correct answers in a row are now "C" → automatically re-shuffles one question to break the pattern
+Runs fairness_rules.py and detects that in 40% of questions, the correct answer is the longest → logs this as a "Weak Pass" condition
+Returns Status: WEAK_PASS + cleaned Quiz object + fix log
+
+
+The Orchestrator receives the WEAK_PASS status and proceeds with rendering:
+
+Calls rendering/canvas/canvas_packager.py → generates Canvas QTI .zip
+Calls rendering/physical/physical_packager.py → generates student quiz .docx and answer key .docx
+
+
+The Packaging Layer (packaging/folder_creator.py) creates the output folder structure.
+The Feedback Generator (feedback/log_generator.py) creates log_PASS_WEAK_FIXED.txt with details of all auto-fixes and warnings.
+
+Final Output: A new folder is created in Finished_Exports/:
+Finished_Exports/
+└── American_Revolution_Quiz/
+    ├── American_Revolution_Quiz.zip        # Canvas QTI package
+    ├── American_Revolution_Quiz.docx       # Printable student quiz
+    ├── American_Revolution_Quiz_KEY.docx   # Answer key (final order)
+    └── log_PASS_WEAK_FIXED.txt             # Auto-fixes & warnings
+Cleanup: The original file is moved to DropZone/old_quizzes/ for archival. The command window shows "Complete!" and closes after a few seconds.
+
+Workflow B: Failed Validation (Actionable Feedback)
+Teacher Action: A teacher saves a quiz named Cell_Biology.txt to the DropZone/. The LLM has made a mistake and forgotten to include a Choices: block for one of the multiple-choice questions.
+Execution: The teacher double-clicks run_quizforge.bat.
+Internal Pipeline:
+
+The Orchestrator finds the file and calls the Parser.
+The Parser converts the TXT to a Quiz object.
+The Validator runs structure checks via validation/rules/structure_rules.py:
+
+Detects HARD FAIL: Question #7 is Type: MC but is missing the required Choices: field
+Immediately stops processing and returns Status: FAIL + error details
+
+
+The Orchestrator receives the FAIL status and calls feedback/fail_prompt_generator.py:
+
+Generates a file containing the original quiz text
+Adds a pre-formatted prompt explaining the error and requesting the LLM to fix it
+
+
+
+Final Output: No quiz packages are created. Instead, a single actionable file is generated:
+Finished_Exports/
+└── Cell_Biology_FAIL_REVISE_WITH_AI.txt
+File Contents:
+[ORIGINAL QUIZ TEXT]
+Cell Biology Quiz
+...
+Question #7
+Type: MC
+Prompt: Which organelle produces ATP?
+(missing Choices: block)
+
+---
+[REVISION PROMPT FOR LLM]
+The quiz above has a critical error that must be fixed before it can be processed:
+
+ERROR: Question #7 (Type: MC) is missing the required "Choices:" field.
+
+Please revise the quiz to include a complete "Choices:" block for Question #7 with 2-7 answer options, marking exactly one as correct with [x].
+
+Once fixed, save the revised quiz as a new .txt file and drop it back into the DropZone folder.
+Next Step for Teacher: The teacher opens the _FAIL file, copies the entire contents, and pastes it into their LLM chat to get a corrected version. The LLM sees both the error and the fix instructions in one prompt.
+
+3. System Architecture
+Layer Diagram
+┌─────────────────────────────────────────────────────────────┐
+│                         USER ZONE                            │
+│  DropZone/  →  run_quizforge.bat  →  Finished_Exports/      │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                    ORCHESTRATION LAYER                       │
+│                  engine/orchestrator.py                      │
+│  (File I/O, Pipeline Control, Status Handling)              │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                      PARSING LAYER                           │
+│               engine/parsing/text_parser.py                  │
+│  (TXT → Quiz Object, No Validation)                         │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                    VALIDATION LAYER                          │
+│              engine/validation/validator.py                  │
+│                                                              │
+│  Rules (What to Check):                                      │
+│    ├─ structure_rules.py  (Hard Fails)                      │
+│    ├─ fairness_rules.py   (Pattern Detection)               │
+│    └─ numerical_rules.py  (Bounds Validation)               │
+│                                                              │
+│  Fixers (How to Fix):                                        │
+│    ├─ auto_fixer.py       (Orchestrates all fixes)          │
+│    ├─ point_normalizer.py (Distribute 100 points)           │
+│    ├─ choice_randomizer.py (Shuffle + Pattern Breaking)     │
+│    ├─ text_cleaner.py     (Typo fixes, normalization)       │
+│    └─ bounds_calculator.py (Numerical bounds)               │
+│                                                              │
+│  → Returns: Status (PASS/WEAK_PASS/FAIL) + Quiz + Log       │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+                    ┌─────────┴─────────┐
+                    ↓                   ↓
+         [If FAIL: Generate          [If PASS: Render
+          Revision Prompt]            All Outputs]
+                    ↓                   ↓
+┌──────────────────────────┐  ┌──────────────────────────────┐
+│   FEEDBACK LAYER         │  │    RENDERING LAYER           │
+│  fail_prompt_generator   │  │  canvas/canvas_packager.py   │
+│                          │  │  physical/physical_packager  │
+│  → _FAIL_REVISE.txt      │  │  → .zip, .docx, .docx       │
+└──────────────────────────┘  └──────────────────────────────┘
+                                            ↓
+                              ┌──────────────────────────────┐
+                              │    PACKAGING LAYER           │
+                              │  folder_creator.py           │
+                              │  log_generator.py            │
+                              │                              │
+                              │  → Quiz folder in            │
+                              │    Finished_Exports/         │
+                              └──────────────────────────────┘
+
+4. File Structure
+QuizForge/
+│
+├── run_quizforge.bat                    # USER: Double-click to run
+├── run_quizforge.sh                     # USER: Mac/Linux version
+├── !!!_START_HERE_!!!.txt               # USER: 3-step quick start
+│
+├── DropZone/                            # USER: Input folder
+│   └── old_quizzes/                     # AUTO: Processed files archived
+│
+├── Finished_Exports/                    # USER: Output folder
+│   └── (quiz folders appear here)
+│
+├── User_Docs/                           # USER: Help documentation
+│   ├── Quick_Start.pdf
+│   ├── Question_Types_Guide.pdf
+│   └── Troubleshooting.pdf
+│
+├── LLM_Modules/                         # USER: Prompt modules for ChatGPT/Claude
+│   ├── README.txt
+│   ├── QF_BASE.md
+│   ├── disciplines/
+│   │   ├── QF_MOD_Math.md
+│   │   ├── QF_MOD_Science.md
+│   │   └── ...
+│   └── pedagogy/
+│       ├── QF_MOD_Rigor.md
+│       └── ...
+│
+└── engine/                              # SYSTEM: All code lives here
+    │
+    ├── python/                          # Portable Python interpreter
+    │
+    ├── orchestrator.py                  # Main pipeline controller
+    │
+    ├── core/                            # Domain models
+    │   ├── quiz.py                      # Quiz aggregate
+    │   ├── questions.py                 # All question types
+    │   └── answers.py                   # Answer specifications
+    │
+    ├── parsing/                         # Input → Domain models
+    │   ├── text_parser.py               # TXT → Quiz
+    │   └── parser_utils.py
+    │
+    ├── validation/                      # Quality control engine
+    │   ├── validator.py                 # Main validation orchestrator
+    │   ├── rules/                       # What to check
+    │   │   ├── structure_rules.py       # Hard fails
+    │   │   ├── fairness_rules.py        # Pattern detection
+    │   │   ├── question_rules.py        # Question-level checks
+    │   │   └── numerical_rules.py       # Numerical validation
+    │   └── fixers/                      # How to fix
+    │       ├── auto_fixer.py            # Fix orchestrator
+    │       ├── point_normalizer.py      # Distribute 100 points
+    │       ├── choice_randomizer.py     # Shuffle + pattern breaking
+    │       ├── text_cleaner.py          # Typo fixes
+    │       └── bounds_calculator.py     # Numerical bounds
+    │
+    ├── rendering/                       # Domain models → Output
+    │   ├── canvas/                      # Canvas QTI output
+    │   │   ├── canvas_packager.py       # Main Canvas builder
+    │   │   ├── qti_builder.py           # Core QTI XML
+    │   │   ├── manifest_builder.py      # imsmanifest.xml
+    │   │   ├── metadata_builder.py      # assessment_meta.xml
+    │   │   ├── question_renderers/      # One per question type
+    │   │   │   ├── base_renderer.py
+    │   │   │   ├── mc_renderer.py
+    │   │   │   ├── numerical_renderer.py
+    │   │   │   └── ...
+    │   │   └── formatters/
+    │   │       ├── html_formatter.py
+    │   │       └── xml_utils.py
+    │   │
+    │   └── physical/                    # Physical quiz output
+    │       ├── physical_packager.py     # Main DOCX builder
+    │       ├── quiz_formatter.py        # Student quiz
+    │       ├── key_formatter.py         # Answer key
+    │       └── styles/
+    │
+    ├── packaging/                       # Bundle outputs
+    │   ├── zip_packager.py              # Create Canvas .zip
+    │   ├── folder_creator.py            # Organize output folders
+    │   └── file_writer.py
+    │
+    ├── feedback/                        # User-facing messages
+    │   ├── log_generator.py             # Success logs
+    │   └── fail_prompt_generator.py     # Revision prompts
+    │
+    ├── utils/                           # Shared utilities
+    │   ├── file_utils.py
+    │   └── text_utils.py
+    │
+    ├── web/                             # Optional web interface
+    │   ├── app.py
+    │   ├── static/
+    │   └── templates/
+    │
+    ├── dev/                             # EXPERIMENTAL ONLY
+    │   ├── README.md                    # "Sandbox - not production"
+    │   ├── experiments/
+    │   ├── prototypes/
+    │   └── test_cases/
+    │
+    ├── tests/                           # Automated tests
+    │   ├── unit/
+    │   ├── integration/
+    │   └── fixtures/
+    │
+    └── docs/                            # Developer documentation
+        ├── AGENT_MAP.md                 # LLM navigation guide
+        ├── ARCHITECTURE.md              # System design decisions
+        └── MIGRATION_GUIDE.md
+
+5. Component Descriptions
+engine/orchestrator.py (The Pipeline Controller)
+Purpose: Coordinate the entire automated workflow from a central point.
+Key Responsibilities:
+
+Scan DropZone/ for new .txt files
+Call the Parser to convert TXT → Quiz object
+Call the Validator to check and fix the Quiz
+Evaluate validation status (PASS/WEAK_PASS/FAIL)
+If FAIL: Call Feedback Generator → create _FAIL_REVISE_WITH_AI.txt
+If PASS: Call Canvas + Physical renderers → create output packages
+Manage file system operations (create folders, archive processed files)
+Handle errors gracefully with user-friendly messages
+
+Trust Model: Orchestrator trusts nothing. It handles all error cases and user communication.
+
+engine/validation/validator.py (The Quality Gatekeeper)
+Purpose: Be the single source of truth for quiz validation and auto-fixing.
+Key Responsibilities:
+
+Receive raw Quiz object from Parser
+Run all validation rules in sequence:
+
+Structure Rules (Hard Fails): Missing fields, malformed questions
+Question Rules: Type-specific validation (e.g., MC must have 2-7 choices)
+Numerical Rules: Bounds calculation, tolerance validation
+Fairness Rules (Weak Fails): Pattern detection (longest answer, choice distribution)
+
+
+Call auto-fixers for correctable issues:
+
+Point normalization (total to 100)
+Choice randomization + pattern breaking
+Text cleaning (smart quotes, typos)
+Bounds calculation for numerical questions
+
+
+Return: Status (PASS/WEAK_PASS/FAIL) + Quiz (cleaned) + FixLog (what changed)
+
+Trust Model: Validator trusts Parser output is structurally parseable, but validates all semantic correctness.
+
+engine/validation/fixers/choice_randomizer.py (The Fairness Enforcer)
+Purpose: Shuffle answer choices and break detectable patterns.
+Algorithm:
+
+Initial Shuffle: Randomize all MC/MA question choices
+Pattern Detection: Check for:
+
+Same correct answer position 3+ times in a row (e.g., C-C-C)
+Longest answer is correct >60% of the time
+Shortest answer is correct >60% of the time
+
+
+Pattern Breaking: If patterns detected, re-shuffle specific questions
+Max Retries: Limit re-shuffles to 10 attempts to avoid infinite loops
+Logging: Record all shuffles and pattern breaks in FixLog
+
+Trust Model: Receives validated Quiz object with correct structure.
+
+engine/rendering/canvas/canvas_packager.py (The Canvas Specialist)
+Purpose: Convert validated Quiz object into Canvas-compliant QTI 1.2 ZIP.
+Key Responsibilities:
+
+Receive validated Quiz object from Orchestrator
+Generate QTI XML files (assessment, manifest, metadata)
+Delegate question rendering to type-specific renderers
+Assemble final .zip archive with correct structure
+PERFORMS NO VALIDATION - trusts input is perfect
+
+Trust Model: Assumes Quiz object is fully validated and ready to render.
+
+engine/rendering/physical/physical_packager.py (The Print Specialist)
+Purpose: Convert validated Quiz object into printable DOCX files.
+Key Responsibilities:
+
+Receive validated Quiz object from Orchestrator
+Generate student-facing quiz DOCX (clean, formatted)
+Generate answer key DOCX (includes rationales, reflects final randomized order)
+Apply consistent styling and formatting
+PERFORMS NO VALIDATION - trusts input is perfect
+
+Trust Model: Assumes Quiz object is fully validated and ready to render.
+
+engine/feedback/fail_prompt_generator.py (The User Helper)
+Purpose: Generate actionable revision prompts when validation fails.
+Key Responsibilities:
+
+Receive FAIL status + error details from Validator
+Format original quiz text + error explanation + fix instructions
+Generate QuizName_FAIL_REVISE_WITH_AI.txt file
+Make the prompt clear enough that any LLM can understand and fix the issue
+
+Trust Model: Receives structured error data from Validator.
+
+6. Validation Status Codes
+StatusMeaningActionPASSQuiz is structurally perfect, no fairness issues detectedGenerate all outputs + success logWEAK_PASSQuiz is structurally valid but has fairness warnings (e.g., pattern bias)Generate all outputs + warning logFAILQuiz has critical structural errors that cannot be auto-fixedGenerate revision prompt, no outputs
+
+7. Design Philosophy: Trust Boundaries
+The Validator is the Only Skeptic
+Parser → Quiz (raw)
+         ↓
+Validator → Quiz (validated) + Status
+         ↓
+    [FAIL] → Feedback Generator
+    [PASS] → Renderers (Canvas, Physical)
+Key Principle: Only the Validator questions the data. Everything downstream trusts the validated Quiz object implicitly. This prevents redundant validation logic and makes the codebase easier to reason about.
+Packagers are Pure Renderers
+Canvas and Physical packagers receive pre-validated Quiz objects. They:
+
+Do not check for missing fields
+Do not validate question structure
+Do not calculate numerical bounds
+Do not shuffle choices
+
+They only render what they're given. This makes them:
+
+Simpler to maintain
+Easier to test (mock Quiz objects)
+Impossible to produce invalid output (garbage in = crash, not silent corruption)
+
+
+8. Extension Points
+Adding a New Question Type
+
+Add model to engine/core/questions.py
+Add parsing logic to engine/parsing/text_parser.py
+Add validation rules to engine/validation/rules/question_rules.py
+Add Canvas renderer to engine/rendering/canvas/question_renderers/
+Add Physical formatter to engine/rendering/physical/quiz_formatter.py
+
+Adding a New Output Format (e.g., Moodle)
+
+Create engine/rendering/moodle/ directory
+Implement moodle_packager.py (analogous to canvas_packager.py)
+Update engine/orchestrator.py to call Moodle packager
+No changes needed to Parser, Validator, or Core models
+
+Adding a New Validation Rule
+
+Add rule function to appropriate file in engine/validation/rules/
+Update engine/validation/validator.py to call new rule
+(Optional) Add auto-fixer if the issue is correctable
+
+
+9. Development Workflow
+All Experiments Start in /engine/dev/
+engine/dev/
+├── experiments/
+│   └── numerical_edge_cases/
+│       ├── test_precision_modes.py
+│       ├── test_bound_calculation.py
+│       └── sample_numerical_quizzes.txt
+│
+└── prototypes/
+    └── fairness_analyzer/
+        └── pattern_detector_v2.py
+When code is stable and tested:
+
+Move logic from dev/experiments/ to appropriate production module
+Update tests in engine/tests/
+Document changes in engine/docs/MIGRATION_GUIDE.md
+
+Production Code Never Touches /engine/dev/
+The Orchestrator, Validator, and Renderers have no imports from dev/. This prevents experimental code from accidentally breaking production.
+
+10. Success Metrics
+For Teachers (User Experience)
+
+Time to First Quiz: <2 minutes from LLM generation to Canvas upload
+Fail Rate: <5% of quizzes fail validation (most issues auto-fixed)
+Revision Clarity: 100% of teachers understand the _FAIL_REVISE prompts without help
+
+For Developers (Code Quality)
+
+Test Coverage: >80% for Validator, Parser, and Renderers
+Module Independence: Each component can be tested in isolation
+LLM Agent Success: Lower-tier LLM agents can complete 90% of routine tasks using AGENT_MAP.md
+
+
+=== SESSION UPDATE: 2025-11-16 ===
+
+COMPLETED:
+✅ Physical packaging (student quiz, answer key, rationale sheet)
+✅ Validation system (point calculator, answer balancer)
+✅ Token optimization (QF_BASE slimmed ~800 tokens)
+✅ Dual output (Canvas + Physical always generated)
+
+STATUS: Core functionality COMPLETE
+
+NEXT PRIORITIES:
+- Additional LMS packagers (if needed)
+- Enhanced LLM modules for specific disciplines (if needed)
+- Additional question types (if Canvas adds support)
+
+All foundational work complete. System ready for production use.
+
+End of Master Planning Document v2.0

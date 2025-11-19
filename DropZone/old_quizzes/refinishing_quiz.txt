@@ -1,0 +1,46 @@
+Title: Refinishing Wooden Doors Quiz
+---
+Type: MC
+Prompt:
+What is the first step when refinishing a wooden door?
+Choices:
+- [x] Remove hardware and clean the surface
+- [ ] Begin sanding immediately
+- [ ] Apply stain to test color
+- [ ] Add polyurethane
+---
+Type: MC
+Prompt:
+Which grit range should be used for the final sanding pass before staining?
+Choices:
+- [ ] 60–80 grit
+- [ ] 100–120 grit
+- [x] 220 grit
+- [ ] 400 grit
+---
+Type: MC
+Prompt:
+Why should sanding always follow the direction of the wood grain?
+Choices:
+- [ ] It speeds up drying time
+- [x] It prevents visible scratches in the finish
+- [ ] It makes stain darker
+- [ ] It reduces the number of coats needed
+---
+Type: MC
+Prompt:
+What should you do after applying stain and waiting 5–15 minutes?
+Choices:
+- [ ] Immediately apply polyurethane
+- [x] Wipe off excess stain
+- [ ] Wet the surface again
+- [ ] Start sanding again
+---
+Type: MC
+Prompt:
+Which finish is most appropriate for doors exposed to weather?
+Choices:
+- [ ] Interior lacquer
+- [ ] Basic wood wax
+- [x] Spar urethane
+- [ ] Matte furniture oil

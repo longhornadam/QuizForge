@@ -1,0 +1,51 @@
+# QuizForge
+
+Transform plain-text quiz definitions into ready-to-use digital assessments for Canvas LMS.
+
+## Quick Start
+
+1. Create a quiz with your LLM (ChatGPT, Claude, etc.) using prompts from `LLM_Modules/`
+2. Save the quiz as a `.txt` file in `DropZone/`
+3. Double-click `run_quizforge.bat` (Windows) or `./run_quizforge.sh` (Mac/Linux)
+4. Find your quiz packages in `Finished_Exports/`
+
+## For Users
+
+- **DropZone/**: Put your quiz text files here
+- **Finished_Exports/**: Your completed quizzes appear here
+- **LLM_Modules/**: Prompt templates for generating quizzes with LLMs (QF_Base is required!)
+- **User_Docs/**: Guides and examples
+
+## For Developers
+
+- **engine/**: All code lives here
+  - `core/`: Domain models (Quiz, Question types)
+  - `parsing/`: TXT → Quiz object conversion
+  - `validation/`: Quality checks and auto-fixes
+  - `rendering/`: Quiz → Output format conversion
+  - `orchestrator.py`: Main workflow coordinator
+
+See `/engine/docs/` for detailed documentation:
+- `ARCHITECTURE.md`: System design
+- `AGENT_MAP.md`: Navigation guide
+- `MIGRATION_GUIDE.md`: Migration history
+
+## Testing
+
+```bash
+# Run all tests
+python -m pytest engine/tests/ -v
+
+# Run specific test suite
+python -m pytest engine/tests/unit/ -v
+python -m pytest engine/tests/integration/ -v
+```
+
+## Requirements
+
+- Python 3.8+
+- Dependencies: See `engine/requirements.txt`
+
+## License
+
+[Your License Here]

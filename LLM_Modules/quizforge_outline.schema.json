@@ -1,0 +1,415 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://quizforge.app/schema/quizforge_outline.schema.json",
+  "title": "QuizForge LLM Authoring Outline",
+  "description": "Structured representation of a QuizForge assessment outline with 100% feature parity to the plain-text format.",
+  "type": "object",
+  "required": ["version", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["2.0"]
+    },
+    "title": {
+      "type": "string",
+      "description": "Optional quiz title. Mirrors the optional Title: header in the TXT format."
+    },
+    "total_points": {
+      "type": "number",
+      "description": "Optional override for the global total points target. Equivalent to TotalPoints:."
+    },
+    "keep_points": {
+      "type": "boolean",
+      "description": "When true, per-item points are kept as-authored. Mirrors KeepPoints:."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional quiz-level metadata (audience, notes, source, etc.).",
+      "additionalProperties": {
+        "type": ["string", "number", "boolean"]
+      }
+    },
+    "items": {
+      "type": "array",
+      "description": "Ordered list of quiz blocks (stimuli and questions).",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/quizItem"
+      }
+    }
+  },
+  "definitions": {
+    "commonFields": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable identifier for cross-references. Required for stimuli when they are referenced by other items."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "STIMULUS",
+            "STIMULUS_END",
+            "MC",
+            "TF",
+            "MA",
+            "MATCHING",
+            "FITB",
+            "ESSAY",
+            "FILEUPLOAD",
+            "ORDERING",
+            "CATEGORIZATION"
+          ]
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Rich-text prompt (supports QuizForge markup: code fences, excerpts, blockquotes)."
+        },
+        "points": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Override point value for this item. Omit for default 10 points when keep_points is false."
+        },
+        "stimulus_id": {
+          "type": "string",
+          "description": "Optional ID of the stimulus this item is linked to. When omitted, the item attaches to the most recent stimulus in sequence (TXT parity)."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Authoring notes for teachers or reviewers (ignored by renderer)."
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Extra key/value metadata preserved into QTI extensions.",
+          "additionalProperties": {
+            "type": ["string", "number", "boolean"]
+          }
+        }
+      },
+      "required": ["type", "prompt"]
+    },
+    "choice": {
+      "type": "object",
+      "required": ["text", "correct"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Optional short identifier (e.g., A, B, C)."
+        },
+        "text": {
+          "type": "string",
+          "description": "Displayed option text (supports inline code, formatting)."
+        },
+        "correct": {
+          "type": "boolean",
+          "description": "True when the choice is correct."
+        }
+      }
+    },
+    "matchingPair": {
+      "type": "object",
+      "required": ["left", "right"],
+      "additionalProperties": false,
+      "properties": {
+        "left": {
+          "type": "string",
+          "description": "Term or prompt displayed in the left column."
+        },
+        "right": {
+          "type": "string",
+          "description": "Matching value displayed in the dropdown."
+        }
+      }
+    },
+    "fitbVariant": {
+      "type": "array",
+      "description": "Acceptable responses for a specific blank (case-insensitive compare).",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "categorizationEntry": {
+      "type": "object",
+      "required": ["label", "category"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Item displayed to learners."
+        },
+        "category": {
+          "type": "string",
+          "description": "Category name the item belongs to (must match an entry in categories)."
+        }
+      }
+    },
+    "quizItem": {
+      "allOf": [
+        {"$ref": "#/definitions/commonFields"},
+        {
+          "oneOf": [
+            {"$ref": "#/definitions/stimulusItem"},
+            {"$ref": "#/definitions/stimulusEndItem"},
+            {"$ref": "#/definitions/mcItem"},
+            {"$ref": "#/definitions/tfItem"},
+            {"$ref": "#/definitions/maItem"},
+            {"$ref": "#/definitions/matchingItem"},
+            {"$ref": "#/definitions/fitbItem"},
+            {"$ref": "#/definitions/essayItem"},
+            {"$ref": "#/definitions/fileUploadItem"},
+            {"$ref": "#/definitions/orderingItem"},
+            {"$ref": "#/definitions/categorizationQuestion"}
+          ]
+        }
+      ]
+    },
+    "stimulusItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "STIMULUS"},
+        "id": {
+          "type": "string",
+          "pattern": "^stimulus_[A-Za-z0-9_-]+$",
+          "description": "Stimulus items MUST provide an ID so child items can link explicitly when needed."
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Stimulus body (supports passages, code fences, excerpts)."
+        },
+        "format": {
+          "type": "string",
+          "enum": ["text", "code", "markdown"],
+          "default": "text",
+          "description": "Optional rendering hint for the stimulus block."
+        },
+        "assets": {
+          "type": "array",
+          "description": "Optional list of external assets (tables, images) referenced in prompt.",
+          "items": {
+            "type": "object",
+            "required": ["type", "uri"],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["image", "table", "audio", "video", "data"],
+                "description": "Asset type for downstream rendering."
+              },
+              "uri": {
+                "type": "string",
+                "format": "uri",
+                "description": "Link or identifier for the asset (local path or remote URL)."
+              },
+              "alt_text": {
+                "type": "string",
+                "description": "Accessibility description for the asset."
+              }
+            }
+          }
+        }
+      },
+      "required": ["type", "id", "prompt"]
+    },
+    "stimulusEndItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "STIMULUS_END"},
+        "prompt": {
+          "type": "string",
+          "description": "Optional reminder text. Typically leave blank for parity with TXT format."
+        }
+      },
+      "required": ["type", "prompt"],
+      "additionalProperties": false
+    },
+    "mcItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "MC"},
+        "choices": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 7,
+          "items": {"$ref": "#/definitions/choice"}
+        }
+      },
+      "required": ["type", "prompt", "choices"],
+      "allOf": [
+        {
+          "description": "Exactly one choice must be correct.",
+          "properties": {
+            "choices": {
+              "contains": {
+                "type": "object",
+                "properties": {"correct": {"const": true}},
+                "required": ["correct"]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          }
+        }
+      ]
+    },
+    "tfItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "TF"},
+        "answer": {
+          "type": "boolean",
+          "description": "True when the statement is true, false otherwise."
+        }
+      },
+      "required": ["type", "prompt", "answer"]
+    },
+    "maItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "MA"},
+        "choices": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/definitions/choice"}
+        }
+      },
+      "required": ["type", "prompt", "choices"],
+      "allOf": [
+        {
+          "description": "At least one choice must be correct.",
+          "properties": {
+            "choices": {
+              "contains": {
+                "type": "object",
+                "properties": {"correct": {"const": true}},
+                "required": ["correct"]
+              },
+              "minContains": 1
+            }
+          }
+        }
+      ]
+    },
+    "matchingItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "MATCHING"},
+        "pairs": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/definitions/matchingPair"}
+        }
+      },
+      "required": ["type", "prompt", "pairs"]
+    },
+    "fitbItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "FITB"},
+        "prompt": {
+          "type": "string",
+          "description": "Prompt text containing one or more [blank] tokens indicating answer locations."
+        },
+        "accept": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/definitions/fitbVariant"},
+          "description": "List of acceptable responses per blank, in prompt order."
+        },
+        "case_sensitive": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": ["type", "prompt", "accept"]
+    },
+    "essayItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "ESSAY"},
+        "length_guidance": {
+          "type": "string",
+          "description": "Optional guidance (e.g., '5-8 sentences', '2 paragraphs')."
+        },
+        "rubric_hint": {
+          "type": "string",
+          "description": "Optional summary of grading expectations."
+        }
+      },
+      "required": ["type", "prompt"]
+    },
+    "fileUploadItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "FILEUPLOAD"},
+        "requirements": {
+          "type": "string",
+          "description": "Detailed submission requirements."
+        },
+        "accepted_formats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\.[A-Za-z0-9]+$"
+          },
+          "description": "List of allowed file extensions (e.g., ['.pdf', '.py'])."
+        },
+        "max_file_size_mb": {
+          "type": "number",
+          "description": "Maximum allowed file size in megabytes."
+        }
+      },
+      "required": ["type", "prompt"]
+    },
+    "orderingItem": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "ORDERING"},
+        "header": {
+          "type": "string",
+          "description": "Optional column header shown above the draggable list."
+        },
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          },
+          "description": "Items listed in the correct order (first entry = top position)."
+        }
+      },
+      "required": ["type", "prompt", "items"]
+    },
+    "categorizationQuestion": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "CATEGORIZATION"},
+        "categories": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          },
+          "description": "List of category labels displayed as drop targets."
+        },
+        "items": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/definitions/categorizationEntry"},
+          "description": "Labeled items with their correct category."
+        },
+        "distractors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional list of items that do not belong to any category."
+        }
+      },
+      "required": ["type", "prompt", "categories", "items"]
+    }
+  }
+}

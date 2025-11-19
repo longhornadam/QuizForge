@@ -1,0 +1,21 @@
+Title: Final Migration Test
+
+---
+Type: MC
+Prompt: What is the capital of France?
+Choices:
+- [x] Paris
+- [ ] London
+- [ ] Berlin
+- [ ] Madrid
+---
+
+Type: TF
+Prompt: Python is a programming language.
+Answer: true
+---
+
+Type: NUMERICAL
+Prompt: What is 2 + 2?
+Answer: 4
+---

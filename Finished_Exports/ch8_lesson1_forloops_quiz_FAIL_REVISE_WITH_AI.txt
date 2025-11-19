@@ -1,0 +1,250 @@
+============================================================
+ORIGINAL QUIZ (Contains Errors)
+============================================================
+
+Title: Chapter 8, Lesson 1 – For Loops Quiz
+---
+Type: MC
+Prompt:
+In programming, what is the act of repeating a block of code multiple times called?
+Choices:
+- [ ] Declaration
+- [x] Iteration
+- [ ] Assignment
+- [ ] Condition
+---
+Type: MC
+Prompt:
+Which symbol must the first line of a for loop statement end with in Python?
+Choices:
+- [ ] A semicolon (;)
+- [ ] A period (.)
+- [x] A colon (:)
+- [ ] A comma (,)
+---
+Type: MC
+Prompt:
+What is the block of statements that repeats inside a loop called?
+Choices:
+- [ ] The loop function
+- [x] The loop body
+- [ ] The loop variable
+- [ ] The loop condition
+---
+Type: MC
+Prompt:
+What will the following code print to the screen?
+
+for character in "cup":
+    print(character)
+
+Choices:
+- [ ] cup
+- [ ] c u p
+- [x] c
+u
+p
+- [ ] Nothing, it will cause an error.
+---
+Type: MC
+Prompt:
+What will be the final value of the variable total after this loop finishes?
+
+total = 0
+for i in range(1, 5):
+    total = total + i
+
+Choices:
+- [ ] 5
+- [x] 10
+- [ ] 15
+- [ ] 4
+---
+Type: MC
+Prompt:
+A programmer wants to write a loop that executes exactly 5 times, with an index variable going 1, 2, 3, 4, 5. Which range() function should they use?
+Choices:
+- [ ] range(1, 5)
+- [x] range(1, 6)
+- [ ] range(5)
+- [ ] range(0, 4)
+---
+Type: MC
+Prompt:
+In a for loop, what is the role of indentation in Python?
+Choices:
+- [ ] It is optional and only for readability.
+- [ ] It marks the end of the program.
+- [x] It identifies which statements are inside the loop body.
+- [ ] It creates a new variable.
+---
+Type: MC
+Prompt:
+According to the text, what is the common (but not very descriptive) variable name often used for a numeric index in a loop?
+Choices:
+- [ ] index
+- [ ] num
+- [x] i
+- [ ] x
+---
+Type: ORDERING
+Prompt:
+Arrange the following components into the correct order to form the first line of a for loop that iterates over a string variable named word.
+Items:
+1. for
+2. letter
+3. in
+4. word
+5. :
+---
+Type: MA
+Prompt:
+Select all the code snippets that show a syntactically correct first line of a for loop.
+Choices:
+- [x] for i in range(1, 10):
+- [ ] for i in range(1, 10)
+- [x] for char in "hello":
+- [ ] for i: range(10)
+- [ ] for i in range 1, 10:
+---
+Type: MC
+Prompt:
+What is the primary purpose of the loop variable, like index in for index in range(1, 5):?
+Choices:
+- [ ] To count how many times the loop has run and nothing else.
+- [ ] To store the final result of the loop's calculations.
+- [x] To hold the current value from the data sequence for each iteration.
+- [ ] To determine if the loop should continue running.
+---
+Type: MC
+Prompt:
+Examine the following code. Why will it not work as intended?
+
+word = "test"
+for letter in word:
+print(letter)
+
+Choices:
+- [ ] The variable word is not a valid data type for a loop.
+- [ ] The print() function cannot be used inside a loop.
+- [x] The loop body (the print statement) is not indented.
+- [ ] The variable letter was not declared before the loop.
+---
+Type: MC
+Prompt:
+How does a for loop know when to stop when iterating over a string like "hello"?
+Choices:
+- [ ] It stops when it sees the letter "o".
+- [ ] It runs forever until the user stops it.
+- [x] It runs once for each character and stops automatically after the last one.
+- [ ] It requires a stop command inside the loop body.
+---
+Type: CATEGORIZATION
+Prompt:
+Categorize each code snippet based on whether it iterates over a string or a numeric range.
+Categories:
+- Iterates over a String
+- Iterates over a Numeric Range
+Items:
+- for c in "Python": => Iterates over a String
+- for num in range(50): => Iterates over a Numeric Range
+- for i in range(1, 101): => Iterates over a Numeric Range
+- name = "Ada Lovelace"; for char in name: => Iterates over a String
+---
+Type: FILEUPLOAD
+Prompt:
+Below is a broken Python program. It is supposed to ask the user for a positive integer and calculate its factorial using a for loop. It contains **two errors**, both directly related to concepts taught in Lesson 1 (loop colons, loop ranges, indentation rules).
+
+YOUR TASK:
+1. Create a new text file named **yourname_fix_factorial.txt**.
+2. Copy the code below into that file.
+3. Fix the two errors.
+4. Save the file.
+5. Upload your corrected TXT file here.
+
+BROKEN CODE TO FIX:
+
+# fix_factorial.py
+# GOAL: This program should calculate the factorial of a user-input number.
+# TASK: Find and fix the two errors in the code below.
+
+num = int(input("Enter a positive integer: "))
+factorial = 1
+
+# The loop below has errors.
+for i in range(1, num)
+    factorial = factorial * i
+
+print("Factorial =", factorial)
+
+accepted_formats:
+- .txt
+---
+===RATIONALES===
+---
+Q1:
+The lesson defines iteration as the act of repeating something. Repeating a block of code multiple times is called iteration, not declaration or assignment.
+---
+Q2:
+In Python, a for statement must end with a colon (:) to indicate the start of the indented loop body; semicolons and commas are not used that way.
+---
+Q3:
+The indented block that repeats inside a loop is called the loop body.
+---
+Q4:
+Iterating over "cup" prints c, then u, then p on separate lines.
+---
+Q5:
+range(1, 5) produces 1–4, so total becomes 10.
+---
+Q6:
+range(1, 6) is needed to generate 1–5.
+---
+Q7:
+Indentation defines which statements are inside the loop.
+---
+Q8:
+The variable name i is commonly used for loop indices.
+---
+Q9:
+Correct order: for letter in word :.
+---
+Q10:
+Only syntactically valid loop headers ending with a colon are correct.
+---
+Q11:
+The loop variable holds the current value each iteration.
+---
+Q12:
+print(letter) must be indented to be inside the loop.
+---
+Q13:
+A for loop stops automatically after the last character.
+---
+Q14:
+String loops iterate characters; range() loops iterate numbers.
+
+
+============================================================
+VALIDATION ERRORS DETECTED
+============================================================
+
+The quiz 'ch8_lesson1_forloops_quiz' has critical errors that must be fixed
+before it can be processed. Please fix the following issues:
+
+1. Parse error: Invalid choice line. Use '- [x] text' or '- [ ] text'.
+
+============================================================
+INSTRUCTIONS FOR REVISION
+============================================================
+
+Please revise the quiz above to fix all the errors listed.
+Make sure:
+  - All required fields are present (Type, Prompt, Choices, etc.)
+  - MC questions have 2-7 choices with exactly 1 correct answer
+  - MA questions have at least 1 correct answer
+  - Numerical questions have valid answer/tolerance/range settings
+  - All questions have non-empty prompts
+
+Once fixed, save the revised quiz as a new .txt file and
+drop it back into the DropZone folder.

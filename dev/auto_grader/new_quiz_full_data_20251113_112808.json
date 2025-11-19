@@ -1,0 +1,47 @@
+{
+  "quiz": {
+    "id": "3287398",
+    "title": "\"If You Kill Me\" & \"The Apology\" Quiz",
+    "instructions": "",
+    "assignment_group_id": "237378",
+    "points_possible": 100.0,
+    "due_at": null,
+    "lock_at": null,
+    "unlock_at": null,
+    "published": true,
+    "grading_type": "points",
+    "quiz_settings": {
+      "calculator_type": "none",
+      "filter_ip_address": false,
+      "filters": {
+        "ips": []
+      },
+      "one_at_a_time_type": "none",
+      "allow_backtracking": true,
+      "shuffle_answers": false,
+      "shuffle_questions": false,
+      "require_student_access_code": false,
+      "student_access_code": null,
+      "has_time_limit": false,
+      "session_time_limit_in_seconds": 0,
+      "multiple_attempts": {
+        "score_to_keep": "highest",
+        "build_on_last_attempt": false
+      },
+      "result_view_settings": {
+        "display_items": true,
+        "display_item_feedback": true,
+        "display_item_response": true,
+        "display_points_awarded": true,
+        "result_view_restricted": true,
+        "display_points_possible": true,
+        "display_item_correct_answer": false,
+        "display_item_response_qualifier": "always",
+        "display_item_response_correctness": true,
+        "display_item_response_correctness_qualifier": "always"
+      }
+    }
+  },
+  "items": [],
+  "submissions": []
+}

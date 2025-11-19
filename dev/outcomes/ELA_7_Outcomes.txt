@@ -1,0 +1,328 @@
+Name: ELA.7.1.A [S] - Interpret Messages
+Friendly Name: ELA.7.1.A [S] - Interpret Messages
+Description: listen actively to interpret a message and ask clarifying questions that build on others' ideas;
+Friendly Description: listen actively to interpret a message and ask clarifying questions that build on others' ideas;
+Name: ELA.7.1.B [S] - Follow & Give Instructions
+Friendly Name: ELA.7.1.B [S] - Follow & Give Instructions
+Description: follow and give complex oral instructions to perform specific tasks, answer questions, or solve problems;
+Friendly Description: follow and give complex oral instructions to perform specific tasks, answer questions, or solve problems;
+Name: ELA.7.1.C [S] - Present Critiques
+Friendly Name: ELA.7.1.C [S] - Present Critiques
+Description: present a critique of a literary work, film, or dramatic production, employing eye contact, speaking rate, volume, enunciation, a variety of natural gestures, and conventions of language to communicate ideas effectively; and
+Friendly Description: present a critique of a literary work, film, or dramatic production, employing eye contact, speaking rate, volume, enunciation, a variety of natural gestures, and conventions of language to communicate ideas effectively; and
+Name: ELA.7.1.D [S] - Engage in Discourse & Feedback
+Friendly Name: ELA.7.1.D [S] - Engage in Discourse & Feedback
+Description: engage in meaningful discourse and provide and accept constructive feedback from others.
+Friendly Description: engage in meaningful discourse and provide and accept constructive feedback from others.
+Name: ELA.7.2.A [S] - Use Resources for Word Meaning
+Friendly Name: ELA.7.2.A [S] - Use Resources for Word Meaning
+Description: use print or digital resources to determine the meaning, syllabication, pronunciation, word origin, and part of speech;
+Friendly Description: use print or digital resources to determine the meaning, syllabication, pronunciation, word origin, and part of speech;
+Name: ELA.7.2.B [R] - Use Context for Word Meaning
+Friendly Name: ELA.7.2.B [R] - Use Context for Word Meaning
+Description: use context such as contrast or cause and effect to clarify the meaning of words; and
+Friendly Description: use context such as contrast or cause and effect to clarify the meaning of words; and
+Name: ELA.7.2.C [S] - Determine Meaning of Academic Words
+Friendly Name: ELA.7.2.C [S] - Determine Meaning of Academic Words
+Description: determine the meaning and usage of grade-level academic English words derived from Greek and Latin roots such as omni, log/logue, gen, vid/vis, phil, luc, and sens/sent.
+Friendly Description: determine the meaning and usage of grade-level academic English words derived from Greek and Latin roots such as omni, log/logue, gen, vid/vis, phil, luc, and sens/sent.
+Name: ELA.7.3 [S] - Reading Fluency
+Friendly Name: ELA.7.3 [S] - Reading Fluency
+Description: Developing and sustaining foundational language skills: listening, speaking, reading, writing, and thinking--fluency. The student reads grade-level text with fluency and comprehension. The student is expected to adjust fluency when reading grade-level text based on the reading purpose.
+Friendly Description: Developing and sustaining foundational language skills: listening, speaking, reading, writing, and thinking--fluency. The student reads grade-level text with fluency and comprehension. The student is expected to adjust fluency when reading grade-level text based on the reading purpose.
+Name: ELA.7.4 [S] - Self-Sustained Reading
+Friendly Name: ELA.7.4 [S] - Self-Sustained Reading
+Description: Developing and sustaining foundational language skills: listening, speaking, reading, writing, and thinking--self-sustained reading. The student reads grade-appropriate texts independently. The student is expected to self-select text and read independently for a sustained period of time.
+Friendly Description: Developing and sustaining foundational language skills: listening, speaking, reading, writing, and thinking--self-sustained reading. The student reads grade-appropriate texts independently. The student is expected to self-select text and read independently for a sustained period of time.
+Name: ELA.7.5.A [S] - Establish Purpose for Reading
+Friendly Name: ELA.7.5.A [S] - Establish Purpose for Reading
+Description: establish purpose for reading assigned and self-selected texts;
+Friendly Description: establish purpose for reading assigned and self-selected texts;
+Name: ELA.7.5.B [S] - Generate Questions About Text
+Friendly Name: ELA.7.5.B [S] - Generate Questions About Text
+Description: generate questions about text before, during, and after reading to deepen understanding and gain information;
+Friendly Description: generate questions about text before, during, and after reading to deepen understanding and gain information;
+Name: ELA.7.5.C [S] - Make & Confirm Predictions
+Friendly Name: ELA.7.5.C [S] - Make & Confirm Predictions
+Description: make and correct or confirm predictions using text features, characteristics of genre, and structures;
+Friendly Description: make and correct or confirm predictions using text features, characteristics of genre, and structures;
+Name: ELA.7.5.D [S] - Create Mental Images
+Friendly Name: ELA.7.5.D [S] - Create Mental Images
+Description: create mental images to deepen understanding;
+Friendly Description: create mental images to deepen understanding;
+Name: ELA.7.5.E [R] - Make Connections
+Friendly Name: ELA.7.5.E [R] - Make Connections
+Description: make connections to personal experiences, ideas in other texts, and society;
+Friendly Description: make connections to personal experiences, ideas in other texts, and society;
+Name: ELA.7.5.F [R] - Make Inferences & Use Evidence
+Friendly Name: ELA.7.5.F [R] - Make Inferences & Use Evidence
+Description: make inferences and use evidence to support understanding;
+Friendly Description: make inferences and use evidence to support understanding;
+Name: ELA.7.5.G [R] - Evaluate Details for Key Ideas
+Friendly Name: ELA.7.5.G [R] - Evaluate Details for Key Ideas
+Description: evaluate details read to determine key ideas;
+Friendly Description: evaluate details read to determine key ideas;
+Name: ELA.7.5.H [R] - Synthesize Information
+Friendly Name: ELA.7.5.H [R] - Synthesize Information
+Description: synthesize information to create new understanding; and
+Friendly Description: synthesize information to create new understanding; and
+Name: ELA.7.5.I [S] - Monitor Comprehension
+Friendly Name: ELA.7.5.I [S] - Monitor Comprehension
+Description: monitor comprehension and make adjustments such as re-reading, using background knowledge, asking questions, and annotating when understanding breaks down.
+Friendly Description: monitor comprehension and make adjustments such as re-reading, using background knowledge, asking questions, and annotating when understanding breaks down.
+Name: ELA.7.6.A [S] - Describe Personal Connections
+Friendly Name: ELA.7.6.A [S] - Describe Personal Connections
+Description: describe personal connections to a variety of sources, including self-selected texts;
+Friendly Description: describe personal connections to a variety of sources, including self-selected texts;
+Name: ELA.7.6.B [S] - Write Responses Demonstrating Understanding
+Friendly Name: ELA.7.6.B [S] - Write Responses Demonstrating Understanding
+Description: write responses that demonstrate understanding of texts, including comparing sources within and across genres;
+Friendly Description: write responses that demonstrate understanding of texts, including comparing sources within and across genres;
+Name: ELA.7.6.C [R] - Use Text Evidence
+Friendly Name: ELA.7.6.C [R] - Use Text Evidence
+Description: use text evidence to support an appropriate response;
+Friendly Description: use text evidence to support an appropriate response;
+Name: ELA.7.6.D [R] - Paraphrase & Summarize Texts
+Friendly Name: ELA.7.6.D [R] - Paraphrase & Summarize Texts
+Description: paraphrase and summarize texts in ways that maintain meaning and logical order;
+Friendly Description: paraphrase and summarize texts in ways that maintain meaning and logical order;
+Name: ELA.7.6.E [S] - Interact with Sources
+Friendly Name: ELA.7.6.E [S] - Interact with Sources
+Description: interact with sources in meaningful ways such as notetaking, annotating, freewriting, or illustrating;
+Friendly Description: interact with sources in meaningful ways such as notetaking, annotating, freewriting, or illustrating;
+Name: ELA.7.6.F [S] - Respond with New Vocabulary
+Friendly Name: ELA.7.6.F [S] - Respond with New Vocabulary
+Description: respond using newly acquired vocabulary as appropriate;
+Friendly Description: respond using newly acquired vocabulary as appropriate;
+Name: ELA.7.6.G [R] - Discuss & Write About Text Meanings
+Friendly Name: ELA.7.6.G [R] - Discuss & Write About Text Meanings
+Description: discuss and write about the explicit or implicit meanings of text;
+Friendly Description: discuss and write about the explicit or implicit meanings of text;
+Name: ELA.7.6.H [S] - Respond Orally or in Writing
+Friendly Name: ELA.7.6.H [S] - Respond Orally or in Writing
+Description: respond orally or in writing with appropriate register, vocabulary, tone, and voice; and
+Friendly Description: respond orally or in writing with appropriate register, vocabulary, tone, and voice; and
+Name: ELA.7.6.I [S] - Reflect & Adjust Responses
+Friendly Name: ELA.7.6.I [S] - Reflect & Adjust Responses
+Description: reflect on and adjust responses as new evidence is presented.
+Friendly Description: reflect on and adjust responses as new evidence is presented.
+Name: ELA.7.7.A [R] - Infer Multiple Themes
+Friendly Name: ELA.7.7.A [R] - Infer Multiple Themes
+Description: infer multiple themes within and across texts using text evidence;
+Friendly Description: infer multiple themes within and across texts using text evidence;
+Name: ELA.7.7.B [R] - Analyze Character Qualities & Conflict
+Friendly Name: ELA.7.7.B [R] - Analyze Character Qualities & Conflict
+Description: analyze how characters' qualities influence events and resolution of the conflict;
+Friendly Description: analyze how characters' qualities influence events and resolution of the conflict;
+Name: ELA.7.7.C [R] - Analyze Plot Elements
+Friendly Name: ELA.7.7.C [R] - Analyze Plot Elements
+Description: analyze plot elements, including the use of foreshadowing and suspense, to advance the plot; and
+Friendly Description: analyze plot elements, including the use of foreshadowing and suspense, to advance the plot; and
+Name: ELA.7.7.D [R] - Analyze Setting's Influence
+Friendly Name: ELA.7.7.D [R] - Analyze Setting's Influence
+Description: analyze how the setting influences character and plot development.
+Friendly Description: analyze how the setting influences character and plot development.
+Name: ELA.7.8.A [S] - Demonstrate Knowledge of Literary Genres
+Friendly Name: ELA.7.8.A [S] - Demonstrate Knowledge of Literary Genres
+Description: demonstrate knowledge of literary genres such as realistic fiction, adventure stories, historical fiction, mysteries, humor, myths, fantasy, and science fiction;
+Friendly Description: demonstrate knowledge of literary genres such as realistic fiction, adventure stories, historical fiction, mysteries, humor, myths, fantasy, and science fiction;
+Name: ELA.7.8.B [S] - Analyze Poetic Elements
+Friendly Name: ELA.7.8.B [S] - Analyze Poetic Elements
+Description: analyze the effect of rhyme scheme, meter, and graphical elements such as punctuation and capitalization in poems across a variety of poetic forms;
+Friendly Description: analyze the effect of rhyme scheme, meter, and graphical elements such as punctuation and capitalization in poems across a variety of poetic forms;
+Name: ELA.7.8.C [S] - Analyze Character Development in Plays
+Friendly Name: ELA.7.8.C [S] - Analyze Character Development in Plays
+Description: analyze how playwrights develop characters through dialogue and staging;
+Friendly Description: analyze how playwrights develop characters through dialogue and staging;
+Name: ELA.7.8.D [R] - Analyze Informational Text Characteristics & Structures
+Friendly Name: ELA.7.8.D [R] - Analyze Informational Text Characteristics & Structures
+Description: analyze characteristics and structural elements of informational text, including:
+Friendly Description: analyze characteristics and structural elements of informational text, including:
+Name: ELA.7.8.D.i [R] - Controlling Idea/Thesis with Evidence
+Friendly Name: ELA.7.8.D.i [R] - Controlling Idea/Thesis with Evidence
+Description: the controlling idea or thesis with supporting evidence;
+Friendly Description: the controlling idea or thesis with supporting evidence;
+Name: ELA.7.8.D.ii [S] - Informational Text Features
+Friendly Name: ELA.7.8.D.ii [S] - Informational Text Features
+Description: features such as references or acknowledgements; and
+Friendly Description: features such as references or acknowledgements; and
+Name: ELA.7.8.D.iii [R] - Informational Text Organizational Patterns
+Friendly Name: ELA.7.8.D.iii [R] - Informational Text Organizational Patterns
+Description: organizational patterns that support multiple topics, categories, and subcategories;
+Friendly Description: organizational patterns that support multiple topics, categories, and subcategories;
+Name: ELA.7.8.E [R] - Analyze Argumentative Text Characteristics & Structures
+Friendly Name: ELA.7.8.E [R] - Analyze Argumentative Text Characteristics & Structures
+Description: analyze characteristics and structures of argumentative text by:
+Friendly Description: analyze characteristics and structures of argumentative text by:
+Name: ELA.7.8.E.i [R] - Identify Claim
+Friendly Name: ELA.7.8.E.i [R] - Identify Claim
+Description: identifying the claim;
+Friendly Description: identifying the claim;
+Name: ELA.7.8.E.ii [R] - Explain Evidence & Alternatives
+Friendly Name: ELA.7.8.E.ii [R] - Explain Evidence & Alternatives
+Description: explaining how the author uses various types of evidence and consideration of alternatives to support the argument; and
+Friendly Description: explaining how the author uses various types of evidence and consideration of alternatives to support the argument; and
+Name: ELA.7.8.E.iii [S] - Identify Intended Audience
+Friendly Name: ELA.7.8.E.iii [S] - Identify Intended Audience
+Description: identifying the intended audience or reader; and
+Friendly Description: identifying the intended audience or reader; and
+Name: ELA.7.8.F [S] - Analyze Multimodal & Digital Texts
+Friendly Name: ELA.7.8.F [S] - Analyze Multimodal & Digital Texts
+Description: analyze characteristics of multimodal and digital texts.
+Friendly Description: analyze characteristics of multimodal and digital texts.
+Name: ELA.7.9.A [R] - Explain Author's Purpose & Message
+Friendly Name: ELA.7.9.A [R] - Explain Author's Purpose & Message
+Description: explain the author's purpose and message within a text;
+Friendly Description: explain the author's purpose and message within a text;
+Name: ELA.7.9.B [R] - Analyze Text Structure & Author's Purpose
+Friendly Name: ELA.7.9.B [R] - Analyze Text Structure & Author's Purpose
+Description: analyze how the use of text structure contributes to the author's purpose;
+Friendly Description: analyze how the use of text structure contributes to the author's purpose;
+Name: ELA.7.9.C [S] - Analyze Print & Graphic Features
+Friendly Name: ELA.7.9.C [S] - Analyze Print & Graphic Features
+Description: analyze the author's use of print and graphic features to achieve specific purposes;
+Friendly Description: analyze the author's use of print and graphic features to achieve specific purposes;
+Name: ELA.7.9.D [R] - Describe Figurative Language Purpose
+Friendly Name: ELA.7.9.D [R] - Describe Figurative Language Purpose
+Description: describe how the author's use of figurative language such as metaphor and personification achieves specific purposes;
+Friendly Description: describe how the author's use of figurative language such as metaphor and personification achieves specific purposes;
+Name: ELA.7.9.E [S] - Identify Literary Devices
+Friendly Name: ELA.7.9.E [S] - Identify Literary Devices
+Description: identify the use of literary devices, including subjective and objective point of view;
+Friendly Description: identify the use of literary devices, including subjective and objective point of view;
+Name: ELA.7.9.F [R] - Analyze Language's Contribution to Mood, Voice, Tone
+Friendly Name: ELA.7.9.F [R] - Analyze Language's Contribution to Mood, Voice, Tone
+Description: analyze how the author's use of language contributes to mood, voice, and tone; and
+Friendly Description: analyze how the author's use of language contributes to mood, voice, and tone; and
+Name: ELA.7.9.G [S] - Explain Rhetorical Devices & Fallacies
+Friendly Name: ELA.7.9.G [S] - Explain Rhetorical Devices & Fallacies
+Description: explain the purpose of rhetorical devices such as direct address and rhetorical questions and logical fallacies such as loaded language and sweeping generalizations.
+Friendly Description: explain the purpose of rhetorical devices such as direct address and rhetorical questions and logical fallacies such as loaded language and sweeping generalizations.
+Name: ELA.7.10.A [S] - Plan First Draft
+Friendly Name: ELA.7.10.A [S] - Plan First Draft
+Description: plan a first draft by selecting a genre appropriate for a particular topic, purpose, and audience using a range of strategies such as discussion, background reading, and personal interests;
+Friendly Description: plan a first draft by selecting a genre appropriate for a particular topic, purpose, and audience using a range of strategies such as discussion, background reading, and personal interests;
+Name: ELA.7.10.B [R] - Develop Drafts
+Friendly Name: ELA.7.10.B [R] - Develop Drafts
+Description: develop drafts into a focused, structured, and coherent piece of writing by:
+Friendly Description: develop drafts into a focused, structured, and coherent piece of writing by:
+Name: ELA.7.10.B.i [R] - Organize with Purposeful Structure
+Friendly Name: ELA.7.10.B.i [R] - Organize with Purposeful Structure
+Description: organizing with purposeful structure, including an introduction, transitions, coherence within and across paragraphs, and a conclusion; and
+Friendly Description: organizing with purposeful structure, including an introduction, transitions, coherence within and across paragraphs, and a conclusion; and
+Name: ELA.7.10.B.ii [R] - Develop Engaging Ideas
+Friendly Name: ELA.7.10.B.ii [R] - Develop Engaging Ideas
+Description: developing an engaging idea reflecting depth of thought with specific facts, details, and examples;
+Friendly Description: developing an engaging idea reflecting depth of thought with specific facts, details, and examples;
+Name: ELA.7.10.C [R] - Revise Drafts
+Friendly Name: ELA.7.10.C [R] - Revise Drafts
+Description: revise drafts for clarity, development, organization, style, word choice, and sentence variety;
+Friendly Description: revise drafts for clarity, development, organization, style, word choice, and sentence variety;
+Name: ELA.7.10.D [R] - Edit Drafts for Conventions
+Friendly Name: ELA.7.10.D [R] - Edit Drafts for Conventions
+Description: edit drafts using standard English conventions, including:
+Friendly Description: edit drafts using standard English conventions, including:
+Name: ELA.7.10.D.i [R] - Complete Complex Sentences
+Friendly Name: ELA.7.10.D.i [R] - Complete Complex Sentences
+Description: complete complex sentences with subject-verb agreement and avoidance of splices, run-ons, and fragments;
+Friendly Description: complete complex sentences with subject-verb agreement and avoidance of splices, run-ons, and fragments;
+Name: ELA.7.10.D.ii [S] - Consistent Verb Tenses
+Friendly Name: ELA.7.10.D.ii [S] - Consistent Verb Tenses
+Description: consistent, appropriate use of verb tenses;
+Friendly Description: consistent, appropriate use of verb tenses;
+Name: ELA.7.10.D.iii [S] - Conjunctive Adverbs
+Friendly Name: ELA.7.10.D.iii [S] - Conjunctive Adverbs
+Description: conjunctive adverbs;
+Friendly Description: conjunctive adverbs;
+Name: ELA.7.10.D.iv [S] - Prepositions & Subject-Verb Agreement
+Friendly Name: ELA.7.10.D.iv [S] - Prepositions & Subject-Verb Agreement
+Description: prepositions and prepositional phrases and their influence on subject-verb agreement;
+Friendly Description: prepositions and prepositional phrases and their influence on subject-verb agreement;
+Name: ELA.7.10.D.v [S] - Pronoun-Antecedent Agreement
+Friendly Name: ELA.7.10.D.v [S] - Pronoun-Antecedent Agreement
+Description: pronoun-antecedent agreement;
+Friendly Description: pronoun-antecedent agreement;
+Name: ELA.7.10.D.vi [S] - Subordinating & Correlative Conjunctions
+Friendly Name: ELA.7.10.D.vi [S] - Subordinating & Correlative Conjunctions
+Description: subordinating conjunctions to form complex sentences and correlative conjunctions such as either/or and neither/nor;
+Friendly Description: subordinating conjunctions to form complex sentences and correlative conjunctions such as either/or and neither/nor;
+Name: ELA.7.10.D.vii [S] - Correct Capitalization
+Friendly Name: ELA.7.10.D.vii [S] - Correct Capitalization
+Description: correct capitalization;
+Friendly Description: correct capitalization;
+Name: ELA.7.10.D.viii [S] - Punctuation
+Friendly Name: ELA.7.10.D.viii [S] - Punctuation
+Description: punctuation, including commas to set off words, phrases, and clauses, and semicolons; and
+Friendly Description: punctuation, including commas to set off words, phrases, and clauses, and semicolons; and
+Name: ELA.7.10.D.ix [S] - Correct Spelling
+Friendly Name: ELA.7.10.D.ix [S] - Correct Spelling
+Description: correct spelling, including commonly confused terms such as its/it's, affect/effect, there/their/they're, and to/two/too; and
+Friendly Description: correct spelling, including commonly confused terms such as its/it's, affect/effect, there/their/they're, and to/two/too; and
+Name: ELA.7.10.E [S] - Publish Written Work
+Friendly Name: ELA.7.10.E [S] - Publish Written Work
+Description: publish written work for appropriate audiences.
+Friendly Description: publish written work for appropriate audiences.
+Name: ELA.7.11.A [R] - Compose Literary Texts
+Friendly Name: ELA.7.11.A [R] - Compose Literary Texts
+Description: compose literary texts such as personal narratives, fiction, and poetry using genre characteristics and craft;
+Friendly Description: compose literary texts such as personal narratives, fiction, and poetry using genre characteristics and craft;
+Name: ELA.7.11.B [R] - Compose Informational Texts
+Friendly Name: ELA.7.11.B [R] - Compose Informational Texts
+Description: compose informational texts, including multi-paragraph essays that convey information about a topic, using a clear controlling idea or thesis statement and genre characteristics and craft;
+Friendly Description: compose informational texts, including multi-paragraph essays that convey information about a topic, using a clear controlling idea or thesis statement and genre characteristics and craft;
+Name: ELA.7.11.C [R] - Compose Argumentative Texts
+Friendly Name: ELA.7.11.C [R] - Compose Argumentative Texts
+Description: compose multi-paragraph argumentative texts using genre characteristics and craft; and
+Friendly Description: compose multi-paragraph argumentative texts using genre characteristics and craft; and
+Name: ELA.7.11.D [S] - Compose Correspondence
+Friendly Name: ELA.7.11.D [S] - Compose Correspondence
+Description: compose correspondence that reflects an opinion, registers a complaint, or requests information in a business or friendly structure.
+Friendly Description: compose correspondence that reflects an opinion, registers a complaint, or requests information in a business or friendly structure.
+Name: ELA.7.12.A [S] - Generate Inquiry Questions
+Friendly Name: ELA.7.12.A [S] - Generate Inquiry Questions
+Description: generate student-selected and teacher-guided questions for formal and informal inquiry;
+Friendly Description: generate student-selected and teacher-guided questions for formal and informal inquiry;
+Name: ELA.7.12.B [S] - Develop & Revise Research Plan
+Friendly Name: ELA.7.12.B [S] - Develop & Revise Research Plan
+Description: develop and revise a plan;
+Friendly Description: develop and revise a plan;
+Name: ELA.7.12.C [S] - Refine Major Research Question
+Friendly Name: ELA.7.12.C [S] - Refine Major Research Question
+Description: refine the major research question, if necessary, guided by the answers to a secondary set of questions;
+Friendly Description: refine the major research question, if necessary, guided by the answers to a secondary set of questions;
+Name: ELA.7.12.D [S] - Identify & Gather Relevant Information
+Friendly Name: ELA.7.12.D [S] - Identify & Gather Relevant Information
+Description: identify and gather relevant information from a variety of sources;
+Friendly Description: identify and gather relevant information from a variety of sources;
+Name: ELA.7.12.E [S] - Differentiate Primary & Secondary Sources
+Friendly Name: ELA.7.12.E [S] - Differentiate Primary & Secondary Sources
+Description: differentiate between primary and secondary sources;
+Friendly Description: differentiate between primary and secondary sources;
+Name: ELA.7.12.F [S] - Synthesize Information from Sources
+Friendly Name: ELA.7.12.F [S] - Synthesize Information from Sources
+Description: synthesize information from a variety of sources;
+Friendly Description: synthesize information from a variety of sources;
+Name: ELA.7.12.G [S] - Differentiate Paraphrasing & Plagiarism
+Friendly Name: ELA.7.12.G [S] - Differentiate Paraphrasing & Plagiarism
+Description: differentiate between paraphrasing and plagiarism when using source materials;
+Friendly Description: differentiate between paraphrasing and plagiarism when using source materials;
+Name: ELA.7.12.H [S] - Examine Sources
+Friendly Name: ELA.7.12.H [S] - Examine Sources
+Description: examine sources for:
+Friendly Description: examine sources for:
+Name: ELA.7.12.H.i [S] - Reliability, Credibility, & Bias
+Friendly Name: ELA.7.12.H.i [S] - Reliability, Credibility, & Bias
+Description: reliability, credibility, and bias; and
+Friendly Description: reliability, credibility, and bias; and
+Name: ELA.7.12.H.ii [S] - Faulty Reasoning
+Friendly Name: ELA.7.12.H.ii [S] - Faulty Reasoning
+Description: faulty reasoning such as hyperbole, emotional appeals, and stereotype;
+Friendly Description: faulty reasoning such as hyperbole, emotional appeals, and stereotype;
+Name: ELA.7.12.I [S] - Display Citations & Use Sources Ethically
+Friendly Name: ELA.7.12.I [S] - Display Citations & Use Sources Ethically
+Description: display academic citations and use source materials ethically; and
+Friendly Description: display academic citations and use source materials ethically; and
+Name: ELA.7.12.J [S] - Use Appropriate Mode of Delivery
+Friendly Name: ELA.7.12.J [S] - Use Appropriate Mode of Delivery
+Description: use an appropriate mode of delivery, whether written, oral, or multimodal, to present results.
+Friendly Description: use an appropriate mode of delivery, whether written, oral, or multimodal, to present results.
