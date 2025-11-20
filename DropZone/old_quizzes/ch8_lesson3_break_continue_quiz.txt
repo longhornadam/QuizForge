@@ -1,0 +1,213 @@
+Title: Chapter 8, Lesson 3 - Break, Continue, and Else Quiz
+---
+Type: MC
+Prompt:
+What does the break statement do when Python executes it inside a loop
+Choices:
+- [x] Immediately exits the current loop and continues after the loop
+- [ ] Skips only the rest of the current iteration
+- [ ] Restarts the loop from the top forever
+- [ ] Pauses the loop until the user presses Enter
+---
+Type: MC
+Prompt:
+What does the continue statement do when Python executes it inside a loop
+Choices:
+- [ ] Completely exits the loop forever
+- [x] Skips the rest of the current iteration and goes to the next one
+- [ ] Restarts the whole program
+- [ ] Jumps to the else block after the loop
+---
+Type: MC
+Prompt:
+When will an else block that is attached to a loop actually run
+Choices:
+- [x] Only if the loop finishes all its iterations without hitting a break
+- [ ] Only before the first loop iteration
+- [ ] Only if the loop body never runs at all
+- [ ] Only if the loop condition is always true
+---
+Type: MC
+Prompt:
+In a for loop that searches for the first letter e in a word why would you use break
+Choices:
+- [x] To stop looping as soon as the first e is found
+- [ ] To skip every letter that is not e but still finish the loop
+- [ ] To force the loop to run exactly ten times
+- [ ] To restart the loop whenever e is found
+---
+Type: MC
+Prompt:
+Consider this code idea from the lesson search for the first e in a word. When is it useful to have an else block after the loop
+Choices:
+- [x] When you want to print a message only if no e was found in the entire word
+- [ ] When you want to run code every time e is found
+- [ ] When you want the loop to repeat forever
+- [ ] When you want to skip printing the index of e
+---
+Type: MC
+Prompt:
+What is the main difference between break and continue
+Choices:
+- [x] break exits the whole loop while continue only skips the rest of the current iteration
+- [ ] break only skips the rest of the current iteration while continue exits the loop
+- [ ] break and continue always do the same thing
+- [ ] break can only be used in while loops and continue can only be used in for loops
+---
+Type: MC
+Prompt:
+In a while True loop that checks a password when should you use break
+Choices:
+- [x] When the user finally enters the correct password so you can leave the loop
+- [ ] Whenever the user types anything wrong
+- [ ] At the very top of the loop before any checks
+- [ ] Inside an else block that will never run
+---
+Type: MC
+Prompt:
+In the message sending example from the lesson why is continue a good choice when the message is an empty string
+Choices:
+- [ ] It skips sending an empty message and goes back to ask for the next one
+- [x] It skips sending an empty message and goes back to ask for the next one
+- [ ] It exits the loop forever
+- [ ] It forces the program to crash so the user notices
+---
+Type: MC
+Prompt:
+What will happen in a while True loop if there is no break statement and the condition never changes
+Choices:
+- [x] The loop will run forever unless the program is stopped from the outside
+- [ ] The loop will run exactly once
+- [ ] The loop will change into a for loop automatically
+- [ ] The loop will stop as soon as it prints one line
+---
+Type: MC
+Prompt:
+In a nested loop where a for loop is inside another for loop what happens with the inner loop each time the outer loop runs once
+Choices:
+- [x] The inner loop runs from start to finish for each single iteration of the outer loop
+- [ ] The inner loop runs only once for the entire program
+- [ ] The inner loop and outer loop always run at the same time
+- [ ] The inner loop never runs unless break is used
+---
+Type: MA
+Prompt:
+Which situations are good use cases for break inside a loop
+Choices:
+- [x] Stop searching a list as soon as you find the item you want
+- [x] Leave a password loop when the correct password is entered
+- [ ] Skip empty strings but keep looping for other values
+- [ ] Repeat the same code forever
+- [x] Exit a while True loop when a quit command is given
+---
+Type: MA
+Prompt:
+Which situations are good use cases for continue inside a loop
+Choices:
+- [x] Skip over blank input lines and ask the user again
+- [ ] End a loop as soon as one item is found
+- [x] Skip all even numbers while still looping over the whole range
+- [ ] Restart the whole program from the top
+- [x] Skip printing test lines that start with a special character
+---
+Type: ORDERING
+Prompt:
+Put these steps in a sensible order for a loop that searches for the first e in a word and reports its index if found
+Items:
+1. Set current_index to 0
+2. For each letter in the word
+3. If the letter is e print current_index and use break
+4. Increase current_index by 1
+5. After the loop if no e was found print a message
+---
+Type: CATEGORIZATION
+Prompt:
+Decide whether each task is a better fit for break or for continue
+Categories:
+- Better for break
+- Better for continue
+Items:
+- Leave a loop as soon as a secret code is entered => Better for break
+- Skip printing lines that are blank but keep reading the rest => Better for continue
+- Quit a game loop when the player chooses exit => Better for break
+- Ignore scores that are negative but still process the others => Better for continue
+---
+Type: FILEUPLOAD
+Prompt:
+Below is a broken Python program. It is supposed to act like the messenger example from the lesson.
+
+Goal:
+- Keep asking the user to enter a message to send.
+- If the user types quit the loop should stop and print Program complete.
+- If the user types an empty message nothing should be sent and the loop should just ask again.
+- Otherwise the program should print Sending and the message.
+
+YOUR TASK:
+1. Create a new text file named yourname_fix_messenger.txt.
+2. Copy the code below into that file.
+3. Fix the logic using break and continue so the program behaves as described.
+4. Save the file.
+5. Upload your corrected TXT file here.
+
+BROKEN CODE TO FIX:
+
+message = ""
+
+while True:
+    message = input("Enter message to send: ")
+    if message == "quit":
+        print("Program complete")
+        # BUG 1: loop never actually stops here
+
+    if message == "":
+        # BUG 2: empty messages should be skipped instead of sent
+        print("Sending:", message)
+
+    print("Sending:", message)
+
+accepted_formats:
+- .txt
+---
+===RATIONALES===
+---
+Q1:
+The break statement immediately exits the loop it is in and continues execution with the first statement after the loop.
+---
+Q2:
+The continue statement stops the current loop iteration and jumps to the next evaluation of the loop condition without exiting the loop completely.
+---
+Q3:
+A loop else block runs only if the loop finishes all of its iterations without hitting a break statement, which is how Python defines normal completion for the loop.
+---
+Q4:
+Using break in a search loop lets the program stop looping as soon as the target value is found so it does not waste time checking the rest of the data.
+---
+Q5:
+An else block after a search loop is useful for printing a message if the loop never found the target value, which only happens when the loop finishes normally without break.
+---
+Q6:
+break exits the entire loop, while continue only skips the rest of the current iteration and then allows the loop to continue with the next iteration.
+---
+Q7:
+In a password checking loop you use break when the correct password is entered so that you can leave the while True loop and move on with the program.
+---
+Q8:
+In a messenger program continue is used to skip processing for invalid or empty messages while still keeping the loop running for future input.
+---
+Q9:
+A while True loop with no break and no changing condition will run forever, creating an infinite loop unless something outside the program stops it.
+---
+Q10:
+In a nested loop the inner loop runs to completion for each iteration of the outer loop, which means the inner loop restarts for every outer value.
+---
+Q11:
+Breaking out of a loop early is helpful when you only need to run until you reach a certain condition, such as finding an item, entering a correct password, or typing quit in a menu.
+---
+Q12:
+continue is best when you want to skip certain cases but still process the rest of the sequence, such as blank lines, even numbers, or lines marked to be ignored.
+---
+Q13:
+A search loop typically tracks an index, iterates through the characters, checks for a match, breaks when found, updates the index when not found, and reports if no match was ever found.
+---
+Q14:
+Tasks that need to stop the loop early are better for break, while tasks that only skip specific items but keep looping are better for continue.

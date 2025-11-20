@@ -1,0 +1,27 @@
+Quizforge Explainer (For the user asking questions)
+
+Process to get your Stuff from QuizForge
+1 - You load "QuizForge - Base" into your AI chat along with any content-area objectives that are relevant
+2 - You talk to your AI about the type of Canvas New Quiz you want
+3 - Once you're happy with what the AI is offering, tell it "Give me the QuizForge TXT to download"
+4 - It will either give you a TXT file to download (ideal), or the contents to copy/paste
+5 - You go to <QuizForge Site> and either upload the TXT or copy/paste into the box
+6 - You click "GO!"
+7 - QuizForge either successfully processes the TXT or fails
+-- IF FAIL - copy/paste the error message into your AI so it can fix the problem, back to Step 1
+8 - You download and unzip the .ZIP you were given by QuizForge; there's your stuff
+
+Canvas New Quiz
+1 - Go to your course and manually create a Canvas New Quiz (not a classic quiz)
+2 - Click "Build"
+3 - Click the three dots in the top right of the page
+4 - Click "Import Content"
+5 - Select the .ZIP in the folder (NOT the .ZIP you downloaded, but the .ZIP that was inside the .ZIP and is sitting with all the DOCX files
+6 - Import
+
+Rationales
+1 - In the New Quiz you just created and imported the questions into, click "Settings"
+2 - Click "Show Custom Feedback"
+3 - Copy the contents of the "Rationales" DOCX and paste into "Custom Feedback" in Canvas
+
+Physical Quiz & Answer Key

@@ -73,3 +73,9 @@ Desktop.ini
 
 # Pyre type checker
 .pyre/
+
+# Node / web app artifacts
+web/node_modules/
+web/dist/
+web/.vite/
+server/node_modules/
