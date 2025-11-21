@@ -1,29 +1,40 @@
-# Multi-stage build for QuizForge (newspec-enabled)
+# Build and run a single-container QuizForge web app (Express API + Vite UI + Python engine)
 
-FROM python:3.11-slim AS builder
+# 1) Build the web client
+FROM node:20-bookworm-slim AS web-builder
+WORKDIR /web
+COPY web/package*.json ./
+RUN npm ci --no-fund --no-audit
+COPY web .
+RUN npm run build
 
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
-
-WORKDIR /app
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-FROM python:3.11-slim AS runtime
-
+# 2) Runtime: Node + Python (for the orchestrator)
+FROM node:20-bookworm-slim AS runtime
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    QUIZFORGE_SPEC_MODE=json
-
+    QUIZFORGE_SPEC_MODE=json \
+    NODE_ENV=production \
+    PORT=8000 \
+    PYTHON_BIN=python3
 WORKDIR /app
 
-# Copy installed site-packages from builder
-COPY --from=builder /usr/local/lib/python3.11 /usr/local/lib/python3.11
+# Install Python toolchain for the orchestrator
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3 python3-pip python3-venv \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy application code
+# Python dependencies
+COPY requirements.txt ./
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
+
+# Node dependencies for the API
+COPY server/package*.json server/
+RUN npm --prefix server ci --omit=dev --no-fund --no-audit
+
+# Application code
 COPY . .
+COPY --from=web-builder /web/dist ./server/dist
 
-# Default entrypoint: run CLI wrapper
-ENTRYPOINT ["python", "run_quizforge.py"]
+EXPOSE 8000
+CMD ["node", "server/index.js"]
 

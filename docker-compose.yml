@@ -1,14 +1,26 @@
 version: "3.9"
 
 services:
-  quizforge:
+  quizforge-webapp:
     build: .
+    image: quizforge:latest
     environment:
-      QUIZFORGE_SPEC_MODE: "json"
+      - PORT=8000
+      - QUIZFORGE_SPEC_MODE=json
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  quizforge-cli:
+    build: .
+    image: quizforge:latest
+    entrypoint: ["python3", "run_quizforge.py"]
+    command: ["--input", "/app/input/attempt9_docx_all_types_13q.txt", "--output", "/app/output/attempt9_build"]
+    environment:
+      - QUIZFORGE_SPEC_MODE=json
     volumes:
       - ./spec/inputs:/app/input
       - ./spec/outputs:/app/output
-    command: ["python", "run_quizforge.py", "--input", "/app/input/attempt9_docx_all_types_13q.txt", "--output", "/app/output/attempt9_build"]
-    ports:
-      - "8000:8000"
-# Note: For Cloudflare Tunnel on Unraid, run cloudflared separately and point it to quizforge:8000 (or to a lightweight HTTP wrapper if added later).
+    profiles:
+      - cli
+# For Cloudflare Tunnel on Unraid, point the tunnel to quizforge-webapp:8000 or host:8000.

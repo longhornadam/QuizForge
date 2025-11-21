@@ -102,7 +102,7 @@ function App() {
         <h1>QuizForge</h1>
         <p>
           Upload or paste a QuizForge-ready TXT, and we&apos;ll return the same
-          outputs as the CLI—packaged as a ZIP you can import into Canvas or print.
+          outputs as the CLI - packaged as a ZIP you can import into Canvas or print.
         </p>
       </header>
 
@@ -184,7 +184,7 @@ function App() {
           <section className="card">
             <h2>Progress</h2>
             <p className="helper">
-              We mirror the local flow: parse → validate → package → archive. Jobs are
+              We mirror the local flow: parse -> validate -> package -> archive. Jobs are
               processed synchronously and cleaned up after the ZIP streams.
             </p>
             <div className="status-track">

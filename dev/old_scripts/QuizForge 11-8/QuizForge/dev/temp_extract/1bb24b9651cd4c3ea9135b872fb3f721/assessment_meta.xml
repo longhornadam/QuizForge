@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<quiz xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd" identifier="{}">
+  <title>NUMERICAL Question Type - Real-World Edge Case Testing</title>
+  <description/>
+  <points_possible>442.0</points_possible>
+  <quiz_type>assignment</quiz_type>
+  <shuffle_questions>false</shuffle_questions>
+  <shuffle_answers>false</shuffle_answers>
+  <calculator_type>none</calculator_type>
+  <allowed_attempts>1</allowed_attempts>
+  <hide_results/>
+  <show_correct_answers>false</show_correct_answers>
+  <one_question_at_a_time>false</one_question_at_a_time>
+</quiz>
