@@ -33,8 +33,8 @@ from engine.core.questions import (
 from engine.core.quiz import Quiz
 from engine.parsing.text_parser import TextOutlineParser
 
-from dev.newspec_engine import parser as news_parser
-from dev.newspec_engine import packager as news_packager
+from engine.spec_engine import parser as news_parser
+from engine.spec_engine import packager as news_packager
 
 logger = logging.getLogger(__name__)
 
@@ -62,7 +62,7 @@ class TextImporter:
 
 
 class JsonImporter:
-    """Importer for the JSON 3.0 spec using the dev/newspec_engine sandbox."""
+    """Importer for the JSON 3.0 spec using the spec_engine sandbox."""
 
     def import_quiz(self, raw_spec: str) -> ImportedQuiz:
         logger.debug("JSON spec mode active (QUIZFORGE_SPEC_MODE=json)")
@@ -133,10 +133,10 @@ def _packaged_to_domain(packaged) -> Quiz:
 
         if qtype == "MC":
             choices = [MCChoice(text=c["text"], correct=bool(c.get("correct"))) for c in item.get("choices", [])]
-            q = MCQuestion(qtype="MC", prompt=prompt, points=pts, points_set=pts_set, choices=choices, parent_stimulus_ident=parent_stimulus)
+            q = MCQuestion(qtype="MC", prompt=prompt, points=pts, points_set=pts_set, choices=choices, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "MA":
             choices = [MCChoice(text=c["text"], correct=bool(c.get("correct"))) for c in item.get("choices", [])]
-            q = MAQuestion(qtype="MA", prompt=prompt, points=pts, points_set=pts_set, choices=choices, parent_stimulus_ident=parent_stimulus)
+            q = MAQuestion(qtype="MA", prompt=prompt, points=pts, points_set=pts_set, choices=choices, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "TF":
             answer_raw = item.get("answer")
             q = TFQuestion(
@@ -146,10 +146,11 @@ def _packaged_to_domain(packaged) -> Quiz:
                 points_set=pts_set,
                 answer_true=_parse_tf_answer(answer_raw),
                 parent_stimulus_ident=parent_stimulus,
+                forced_ident=forced_ident,
             )
         elif qtype == "MATCHING":
             pairs = [MatchingPair(prompt=p["left"], answer=p["right"]) for p in item.get("pairs", [])]
-            q = MatchingQuestion(qtype="MATCHING", prompt=prompt, points=pts, points_set=pts_set, pairs=pairs, parent_stimulus_ident=parent_stimulus)
+            q = MatchingQuestion(qtype="MATCHING", prompt=prompt, points=pts, points_set=pts_set, pairs=pairs, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "FITB":
             variants: List[str] = []
             for variant_group in item.get("accept", []):
@@ -168,11 +169,12 @@ def _packaged_to_domain(packaged) -> Quiz:
                 variants=variants,
                 blank_token=blank_token,
                 parent_stimulus_ident=parent_stimulus,
+                forced_ident=forced_ident,
             )
         elif qtype == "ESSAY":
-            q = EssayQuestion(qtype="ESSAY", prompt=prompt, points=pts, points_set=pts_set, parent_stimulus_ident=parent_stimulus)
+            q = EssayQuestion(qtype="ESSAY", prompt=prompt, points=pts, points_set=pts_set, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "FILEUPLOAD":
-            q = FileUploadQuestion(qtype="FILEUPLOAD", prompt=prompt, points=pts, points_set=pts_set, parent_stimulus_ident=parent_stimulus)
+            q = FileUploadQuestion(qtype="FILEUPLOAD", prompt=prompt, points=pts, points_set=pts_set, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "ORDERING":
             items = [OrderingItem(text=text, ident=str(uuid.uuid4())) for text in item.get("items", [])]
             q = OrderingQuestion(
@@ -183,6 +185,7 @@ def _packaged_to_domain(packaged) -> Quiz:
                 items=items,
                 header=item.get("header"),
                 parent_stimulus_ident=parent_stimulus,
+                forced_ident=forced_ident,
             )
         elif qtype == "CATEGORIZATION":
             categories = item.get("categories", [])
@@ -206,24 +209,27 @@ def _packaged_to_domain(packaged) -> Quiz:
                 distractors=list(distractors),
                 distractor_idents=distractor_idents,
                 parent_stimulus_ident=parent_stimulus,
+                forced_ident=forced_ident,
             )
         elif qtype == "NUMERICAL":
-            q = _convert_numerical(item, pts, pts_set, parent_stimulus)
+            q = _convert_numerical(item, pts, pts_set, parent_stimulus, forced_ident)
         else:
             logger.warning("Unsupported item type '%s' encountered; skipping", qtype)
             continue
 
         questions.append(q)
 
-    rationale_strings = []
+    rationale_entries = []
     for r in packaged.rationales:
-        rationale_strings.append(f"{r.item_id}: {r.correct} | {r.distractor}")
+        rationale_entries.append(
+            {"item_id": r.item_id, "correct": r.correct, "distractor": r.distractor, "text": f"{r.correct} | {r.distractor}"}
+        )
 
     title = packaged.title or "Untitled Quiz"
-    return Quiz(title=title, questions=questions, rationales=rationale_strings)
+    return Quiz(title=title, questions=questions, rationales=rationale_entries)
 
 
-def _convert_numerical(item: dict, pts: float, pts_set: bool, parent_stimulus: Optional[str]) -> NumericalQuestion:
+def _convert_numerical(item: dict, pts: float, pts_set: bool, parent_stimulus: Optional[str], forced_ident: Optional[str]) -> NumericalQuestion:
     evaluation = item.get("evaluation", {}) or {}
     mode = evaluation.get("mode", "exact")
     answer_raw = item.get("answer")
@@ -258,6 +264,7 @@ def _convert_numerical(item: dict, pts: float, pts_set: bool, parent_stimulus: O
         points_set=pts_set,
         answer=answer_spec,
         parent_stimulus_ident=parent_stimulus,
+        forced_ident=forced_ident,
     )
 
 

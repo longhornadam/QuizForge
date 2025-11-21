@@ -20,8 +20,7 @@ class Quiz:
     
     title: str
     questions: List['Question'] = field(default_factory=list)
-    rationales: List[str] = field(default_factory=list)
-    rationales: List[str] = None  # ADD THIS LINE
+    rationales: List = field(default_factory=list)
     
     def total_points(self) -> float:
         """Calculate total points across all scorable questions.
@@ -39,8 +38,8 @@ class Quiz:
         Returns:
             List of questions with point values
         """
-        from .questions import StimulusItem
-        return [q for q in self.questions if not isinstance(q, StimulusItem)]
+        from .questions import StimulusItem, StimulusEnd
+        return [q for q in self.questions if not isinstance(q, (StimulusItem, StimulusEnd))]
     
     def question_count(self) -> int:
         """Get total number of questions (including stimuli).

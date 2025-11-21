@@ -1,0 +1,200 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Attempt 6 - Stimulus Plus MC Set",
+  "metadata": {
+    "subject": "Study skills and STEM sampler",
+    "grade_level": 8,
+    "tier_default": "Tier 2"
+  },
+  "items": [
+    {
+      "id": "stim_club",
+      "type": "STIMULUS",
+      "prompt": "Read the short notice:\n```prose\nThe robotics club is hosting a Saturday build session. Teams will test lightweight bridge designs, collect load-to-failure data, and decide which variables to change for the final build.\n```",
+      "format": "markdown",
+      "assets": []
+    },
+    {
+      "id": "q_mc_stim_1",
+      "type": "MC",
+      "prompt": "What is the main goal of the Saturday build session?",
+      "stimulus_id": "stim_club",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "Test bridges and use data to choose improvements", "correct": true },
+        { "id": "B", "text": "Vote on club officers for the semester", "correct": false },
+        { "id": "C", "text": "Decorate the classroom for an awards night", "correct": false },
+        { "id": "D", "text": "Watch videos about famous bridges without building", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_stim_2",
+      "type": "MC",
+      "prompt": "Which evidence would best support a bridge design improvement?",
+      "stimulus_id": "stim_club",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "Load-to-failure numbers showing one design held more weight", "correct": true },
+        { "id": "B", "text": "A dramatic guess about which bridge looks strongest without data", "correct": false },
+        { "id": "C", "text": "A story about a bridge from a movie", "correct": false },
+        { "id": "D", "text": "A team slogan written on the side of the bridge", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_stim_3",
+      "type": "MC",
+      "prompt": "What variable should teams record to compare designs fairly?",
+      "stimulus_id": "stim_club",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "Amount of mass each bridge holds before breaking", "correct": true },
+        { "id": "B", "text": "Favorite music the team plays during testing sessions", "correct": false },
+        { "id": "C", "text": "Color of the glue used on each joint", "correct": false },
+        { "id": "D", "text": "Team members' snack choices", "correct": false }
+      ]
+    },
+    {
+      "id": "stim_end",
+      "type": "STIMULUS_END",
+      "prompt": "End of stimulus."
+    },
+    {
+      "id": "q_mc_4",
+      "type": "MC",
+      "prompt": "Which study plan best uses spaced practice for a science test?",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "Review notes for 20 minutes over five days", "correct": true },
+        { "id": "B", "text": "Cram for two hours the night before without any breaks", "correct": false },
+        { "id": "C", "text": "Skim headings without doing any practice", "correct": false },
+        { "id": "D", "text": "Read the textbook aloud only on the test day", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_5",
+      "type": "MC",
+      "prompt": "When a math answer looks too large, what should you check first?",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "Units and whether a conversion was missed", "correct": true },
+        { "id": "B", "text": "If the pencil needs sharpening", "correct": false },
+        { "id": "C", "text": "Whether the problem used a favorite number", "correct": false },
+        { "id": "D", "text": "How long the problem has been assigned", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_6",
+      "type": "MC",
+      "prompt": "Which option shows active reading of a textbook section?",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "Pause to paraphrase each subsection in your own words", "correct": true },
+        { "id": "B", "text": "Flip pages quickly just to finish the chapter sooner", "correct": false },
+        { "id": "C", "text": "Highlight everything without review", "correct": false },
+        { "id": "D", "text": "Skip diagrams and only read the captions", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_7",
+      "type": "MC",
+      "prompt": "In data tables, why are units placed in column headers?",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "So each number is clearly tied to its measurement scale", "correct": true },
+        { "id": "B", "text": "To stretch the table so it looks detailed even without data", "correct": false },
+        { "id": "C", "text": "To hide the units from readers", "correct": false },
+        { "id": "D", "text": "Because units replace the need for labels", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_8",
+      "type": "MC",
+      "prompt": "Which step comes first when designing an investigation?",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "Write a clear, testable question", "correct": true },
+        { "id": "B", "text": "Share a conclusion before collecting any measurements", "correct": false },
+        { "id": "C", "text": "Select a graph style before choosing variables", "correct": false },
+        { "id": "D", "text": "Skip planning and start measuring immediately", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_9",
+      "type": "MC",
+      "prompt": "Which statement about a controlled variable is correct?",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "It stays the same so only the tested factor changes results", "correct": true },
+        { "id": "B", "text": "Change it every trial to keep the experiment interesting even if it confuses results", "correct": false },
+        { "id": "C", "text": "It replaces the need for a hypothesis", "correct": false },
+        { "id": "D", "text": "It is another name for the dependent variable", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_10",
+      "type": "MC",
+      "prompt": "How should you handle an unfamiliar formula on a quiz?",
+      "points": 10,
+      "choices": [
+        { "id": "A", "text": "Identify known variables, plug in given values, and track units", "correct": true },
+        { "id": "B", "text": "Ignore the formula and guess", "correct": false },
+        { "id": "C", "text": "Change variable names to random symbols", "correct": false },
+        { "id": "D", "text": "Leave units out to save time", "correct": false }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q_mc_stim_1",
+      "correct": "The notice highlights testing bridge designs and using data to decide changes.",
+      "distractor": "The other options describe events not mentioned in the notice."
+    },
+    {
+      "item_id": "q_mc_stim_2",
+      "correct": "A load-to-failure measurement directly compares strength across designs.",
+      "distractor": "Guesses or unrelated stories do not provide decision-ready evidence."
+    },
+    {
+      "item_id": "q_mc_stim_3",
+      "correct": "Failure load is the fair comparison variable for bridge strength.",
+      "distractor": "Music, glue color, and snacks do not affect structural performance."
+    },
+    {
+      "item_id": "q_mc_4",
+      "correct": "Short, repeated study sessions create spaced practice for better retention.",
+      "distractor": "Cramming or skimming provides weaker memory support."
+    },
+    {
+      "item_id": "q_mc_5",
+      "correct": "Unit checks catch missing or incorrect conversions that inflate answers.",
+      "distractor": "Non-math factors like pencils or timing do not correct the setup."
+    },
+    {
+      "item_id": "q_mc_6",
+      "correct": "Paraphrasing forces active processing of the text.",
+      "distractor": "Speed reading or aimless highlighting skips real comprehension."
+    },
+    {
+      "item_id": "q_mc_7",
+      "correct": "Units in headers clarify what every value represents.",
+      "distractor": "Cosmetic or hidden-unit reasons do not support clear data reporting."
+    },
+    {
+      "item_id": "q_mc_8",
+      "correct": "A precise question guides all other investigation steps.",
+      "distractor": "Skipping to conclusions or aesthetics ignores investigative logic."
+    },
+    {
+      "item_id": "q_mc_9",
+      "correct": "Holding a controlled variable constant isolates the tested factor.",
+      "distractor": "Changing it or renaming it undermines experimental control."
+    },
+    {
+      "item_id": "q_mc_10",
+      "correct": "Identifying knowns, substituting values, and tracking units prevent mistakes.",
+      "distractor": "Guessing, random renaming, or dropping units removes needed structure."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

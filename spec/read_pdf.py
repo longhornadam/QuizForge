@@ -3,7 +3,7 @@ import fitz
 
 
 def main():
-    p = Path("dev/newspec/newspec_pdfoutputs/newspectest2.pdf")
+    p = Path("spec/outputs/newspectest2.pdf")
     doc = fitz.open(p)
     print("Pages:", doc.page_count)
     for i in range(min(3, doc.page_count)):

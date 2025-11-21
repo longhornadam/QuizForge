@@ -3,6 +3,7 @@
 import os
 
 # Switch between legacy text spec and new JSON spec.
-# "text" → current production behavior (legacy text spec).
-# "json" → experimental pipeline using dev/newspec_engine.
-SPEC_MODE = os.getenv("QUIZFORGE_SPEC_MODE", "text")
+# "text" – legacy (use only if explicitly needed).
+# "json" – newspec JSON 3.0 pipeline (default).
+SPEC_MODE = os.getenv("QUIZFORGE_SPEC_MODE", "json")
+

@@ -1,0 +1,253 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Attempt 9 - DocX All Types (13 Questions)",
+  "metadata": {
+    "subject": "Study skills + STEM sampler",
+    "grade_level": 8,
+    "tier_default": "Tier 2"
+  },
+  "items": [
+    {
+      "id": "stim_prose",
+      "type": "STIMULUS",
+      "prompt": "Read the passage below.\n```prose\nThe robotics club scheduled a Saturday build to test lightweight bridge designs.\n\nEach team will measure load-to-failure and note which joints crack first.\n\nAfter testing, they will decide which two variables to adjust for the final build.\n```",
+      "format": "markdown",
+      "assets": []
+    },
+    {
+      "id": "q_mc_stim1",
+      "type": "MC",
+      "prompt": "According to paragraph [1], what is the purpose of the build day?",
+      "stimulus_id": "stim_prose",
+      "choices": [
+        { "id": "A", "text": "Test bridge designs to see which holds best", "correct": true },
+        { "id": "B", "text": "Vote on next month's club officers", "correct": false },
+        { "id": "C", "text": "Paint the lab and clean storage", "correct": false },
+        { "id": "D", "text": "Watch videos about famous bridges", "correct": false }
+      ]
+    },
+    {
+      "id": "q_ma_stim1",
+      "type": "MA",
+      "prompt": "Which actions from paragraphs [2] and [3] help teams improve their bridge? Circle ALL that apply.",
+      "stimulus_id": "stim_prose",
+      "choices": [
+        { "id": "A", "text": "Measure load-to-failure for each design", "correct": true },
+        { "id": "B", "text": "Note which joints crack first", "correct": true },
+        { "id": "C", "text": "Skip testing and choose by appearance", "correct": false },
+        { "id": "D", "text": "Decide which variables to adjust next", "correct": true }
+      ]
+    },
+    {
+      "id": "stim_end_prose",
+      "type": "STIMULUS_END",
+      "prompt": "End of prose stimulus."
+    },
+    {
+      "id": "stim_poetry",
+      "type": "STIMULUS",
+      "prompt": "Read the poem below.\n```poetry\nSteel ribs hum under twilight strain,\nCables whisper data in the rain,\nRivets keep the memory of the load,\nWhile sensors chart the curves of every road,\nGraphs bloom quietly after every node.\n```",
+      "format": "markdown",
+      "assets": []
+    },
+    {
+      "id": "q_tf_poetry",
+      "type": "TF",
+      "prompt": "The poem’s second line suggests the bridge system is collecting information during bad weather.",
+      "stimulus_id": "stim_poetry",
+      "answer": true
+    },
+    {
+      "id": "q_matching_poetry",
+      "type": "MATCHING",
+      "prompt": "Match each line to what it emphasizes. Write the letter (A-D) next to each description.\nA) Structural strength\nB) Data collection\nC) Fastening and stability\nD) Mapping and monitoring",
+      "stimulus_id": "stim_poetry",
+      "pairs": [
+        { "left": "Steel ribs hum under twilight strain", "right": "Structural strength" },
+        { "left": "Cables whisper data in the rain", "right": "Data collection" },
+        { "left": "Rivets keep the memory of the load", "right": "Fastening and stability" },
+        { "left": "While sensors chart the curves of every road", "right": "Mapping and monitoring" }
+      ]
+    },
+    {
+      "id": "stim_end_poetry",
+      "type": "STIMULUS_END",
+      "prompt": "End of poetry stimulus."
+    },
+    {
+      "id": "stim_code",
+      "type": "STIMULUS",
+      "prompt": "Review the Python snippet:\n```python\nreadings = [12.4, 12.1, None, 12.0]\nclean = [r for r in readings if r is not None]\navg = sum(clean) / len(clean)\nif avg > 12.5:\n    print(\"Too salty\")\nelse:\n    print(\"OK\")\n```",
+      "format": "code",
+      "assets": []
+    },
+    {
+      "id": "q_mc_code",
+      "type": "MC",
+      "prompt": "Which line prevents the average from failing due to missing data?",
+      "stimulus_id": "stim_code",
+      "choices": [
+        { "id": "A", "text": "Line 1", "correct": false },
+        { "id": "B", "text": "Line 2", "correct": true },
+        { "id": "C", "text": "Line 4", "correct": false },
+        { "id": "D", "text": "Line 5", "correct": false }
+      ]
+    },
+    {
+      "id": "q_order_code",
+      "type": "ORDERING",
+      "prompt": "Number these steps 1-4 to describe the code’s workflow.",
+      "stimulus_id": "stim_code",
+      "items": [
+        "Filter out None values",
+        "Compute average of clean readings",
+        "Print \"Too salty\" if the average exceeds 12.5",
+        "Collect the raw readings list"
+      ]
+    },
+    {
+      "id": "stim_end_code",
+      "type": "STIMULUS_END",
+      "prompt": "End of code stimulus."
+    },
+    {
+      "id": "q_fitb",
+      "type": "FITB",
+      "prompt": "A controlled variable is a factor kept [blank] so results depend only on what you test.",
+      "accept": [
+        ["constant", "unchanged", "the same"]
+      ],
+      "case_sensitive": false
+    },
+    {
+      "id": "q_cat",
+      "type": "CATEGORIZATION",
+      "prompt": "Write QL (Qualitative), QT (Quantitative), or U (Uncategorized) next to each observation.",
+      "categories": ["Qualitative", "Quantitative", "Uncategorized"],
+      "items": [
+        { "label": "The solution turned pale yellow", "category": "Qualitative" },
+        { "label": "A sharp vinegar smell appeared", "category": "Qualitative" },
+        { "label": "Temperature dropped from 23 C to 18 C", "category": "Quantitative" },
+        { "label": "It fizzed for 35 seconds", "category": "Quantitative" }
+      ],
+      "distractors": [
+        "Used a glass beaker",
+        "Recorded observations after class"
+      ]
+    },
+    {
+      "id": "q_num",
+      "type": "NUMERICAL",
+      "prompt": "Compute the value of the expression: (15 + 9) / 3 - 4",
+      "answer": 4,
+      "evaluation": {
+        "mode": "exact"
+      }
+    },
+    {
+      "id": "q_mc_independent",
+      "type": "MC",
+      "prompt": "Which study plan best uses spaced practice for a science test?",
+      "choices": [
+        { "id": "A", "text": "Review notes for 15 minutes over six days", "correct": true },
+        { "id": "B", "text": "Cram for two hours the night before", "correct": false },
+        { "id": "C", "text": "Skim headings without doing any practice", "correct": false },
+        { "id": "D", "text": "Read the textbook aloud only on test day", "correct": false }
+      ]
+    },
+    {
+      "id": "q_ma_independent",
+      "type": "MA",
+      "prompt": "Select ALL cues that signal you should re-check your work. Circle every correct letter: A) Units changed mid-problem B) Result is far outside expected size C) You repeated the same calculation twice to confirm D) You ignored the diagram entirely",
+      "choices": [
+        { "id": "A", "text": "Units changed mid-problem", "correct": true },
+        { "id": "B", "text": "Result is far outside expected size", "correct": true },
+        { "id": "C", "text": "You repeated the same calculation twice to confirm", "correct": false },
+        { "id": "D", "text": "You ignored the diagram entirely", "correct": true }
+      ]
+    },
+    {
+      "id": "q_essay",
+      "type": "ESSAY",
+      "prompt": "Describe how you would troubleshoot a math word problem when your first answer seems too large. Mention at least two checkpoints (units, estimation, inverse operations, or calculator entry) before trying again.",
+      "length_guidance": "4-6 sentences",
+      "rubric_hint": "Names checkpoints and links each to how it reduces error."
+    },
+    {
+      "id": "q_file",
+      "type": "FILEUPLOAD",
+      "prompt": "Upload a clear photo or PDF of a data table from a quick investigation you ran (for example, cooling different liquids). Include a title, labeled columns with units, at least five data rows, and one brief note on possible error sources.",
+      "accepted_formats": [".pdf", ".docx", ".jpg", ".png"],
+      "max_file_size_mb": 15
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q_mc_stim1",
+      "correct": "Sentence (1) states the goal is to test bridges and pick improvements.",
+      "distractor": "Options about officers, painting, or videos are not part of the build goal."
+    },
+    {
+      "item_id": "q_ma_stim1",
+      "correct": "Measuring failure load, noting cracks, and choosing variables are all steps that improve the design.",
+      "distractor": "Skipping testing would ignore the purpose of the session."
+    },
+    {
+      "item_id": "q_tf_poetry",
+      "correct": "Line (2) shows cables whisper data, implying sensors are collecting info in the rain.",
+      "distractor": "Saying no data is collected in weather ignores the line’s wording."
+    },
+    {
+      "item_id": "q_matching_poetry",
+      "correct": "Each line focuses on strength, data, fastening, or monitoring, matching A-D respectively.",
+      "distractor": "Swapping lines would pair the wrong emphasis with the wrong description."
+    },
+    {
+      "item_id": "q_mc_code",
+      "correct": "Line 2 filters None values so the average won’t fail.",
+      "distractor": "Other lines do not remove missing data."
+    },
+    {
+      "item_id": "q_order_code",
+      "correct": "Filtering precedes averaging, then threshold check, all after collecting readings.",
+      "distractor": "Jumping to printing before cleaning data breaks the logic."
+    },
+    {
+      "item_id": "q_fitb",
+      "correct": "Controlled variables stay constant so only the tested factor drives changes.",
+      "distractor": "Changing a controlled factor could explain the results instead."
+    },
+    {
+      "item_id": "q_cat",
+      "correct": "Quantitative has numbers; qualitative uses senses; uncategorized covers logistics.",
+      "distractor": "Treating logistics as data confuses measurements with meta-notes."
+    },
+    {
+      "item_id": "q_num",
+      "correct": "Order of operations gives (24/3) - 4 = 8 - 4 = 4.",
+      "distractor": "Changing the operation order or subtracting the wrong amount changes the result."
+    },
+    {
+      "item_id": "q_mc_independent",
+      "correct": "Short daily reviews spread learning over time (spacing effect).",
+      "distractor": "Cramming or skimming is weaker for long-term recall."
+    },
+    {
+      "item_id": "q_ma_independent",
+      "correct": "Changing units mid-problem, outsized results, or ignoring diagrams all signal re-checking.",
+      "distractor": "Repeating a calculation is verification, not a warning sign."
+    },
+    {
+      "item_id": "q_essay",
+      "correct": "Strong answers name checkpoints and explain how each would reveal an oversized result.",
+      "distractor": "Weak answers restate the error without a plan to diagnose it."
+    },
+    {
+      "item_id": "q_file",
+      "correct": "A well-labeled table with units, multiple trials, and error notes shows trustworthy data collection.",
+      "distractor": "Sparse or unlabeled uploads cannot support conclusions."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

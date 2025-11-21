@@ -1,0 +1,224 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Attempt 8 - DocX All Types (13 Questions)",
+  "metadata": {
+    "subject": "Study skills + STEM sampler",
+    "grade_level": 8,
+    "tier_default": "Tier 2"
+  },
+  "items": [
+    {
+      "id": "stim_garden",
+      "type": "STIMULUS",
+      "prompt": "Read the short notice: The community garden is hosting a Saturday build to test raised-bed designs. Teams will measure soil moisture, track which design drains best, and decide which layout to use for spring planting.",
+      "format": "markdown",
+      "assets": []
+    },
+    {
+      "id": "q_mc_stim_1",
+      "type": "MC",
+      "prompt": "What is the main goal of the Saturday garden build?",
+      "stimulus_id": "stim_garden",
+      "choices": [
+        { "id": "A", "text": "Test raised-bed designs and use data to pick the best layout", "correct": true },
+        { "id": "B", "text": "Hold a plant sale without building anything", "correct": false },
+        { "id": "C", "text": "Vote on which vegetables to grow next year", "correct": false },
+        { "id": "D", "text": "Decorate the tool shed for a party", "correct": false }
+      ]
+    },
+    {
+      "id": "q_mc_stim_2",
+      "type": "MC",
+      "prompt": "Which measurement matters most for comparing the garden designs?",
+      "stimulus_id": "stim_garden",
+      "choices": [
+        { "id": "A", "text": "Soil moisture change after watering", "correct": true },
+        { "id": "B", "text": "Favorite snack each team brings", "correct": false },
+        { "id": "C", "text": "Color of the paint on the wooden frame", "correct": false },
+        { "id": "D", "text": "Music playlist during the build", "correct": false }
+      ]
+    },
+    {
+      "id": "stim_end",
+      "type": "STIMULUS_END",
+      "prompt": "End of stimulus."
+    },
+    {
+      "id": "q_mc_3",
+      "type": "MC",
+      "prompt": "Which note-taking approach helps capture main ideas from a mini-lesson?",
+      "choices": [
+        { "id": "A", "text": "Use a short outline with headings and key phrases", "correct": true },
+        { "id": "B", "text": "Write every word the speaker says", "correct": false },
+        { "id": "C", "text": "Skip notes and rely on memory later", "correct": false },
+        { "id": "D", "text": "Only jot down vocabulary, not explanations", "correct": false }
+      ]
+    },
+    {
+      "id": "q_ma",
+      "type": "MA",
+      "prompt": "Select ALL active study habits that improve recall. Circle every correct letter: A) Teach someone else B) Space practice over days C) Highlight everything once D) Mix different problem types",
+      "choices": [
+        { "id": "A", "text": "Teach the concept aloud to someone else", "correct": true },
+        { "id": "B", "text": "Space practice over several short sessions", "correct": true },
+        { "id": "C", "text": "Highlight everything once without review", "correct": false },
+        { "id": "D", "text": "Mix different types of problems in one study set", "correct": true }
+      ]
+    },
+    {
+      "id": "q_tf",
+      "type": "TF",
+      "prompt": "Circle True or False: Checking units in every calculation helps catch setup errors early.",
+      "answer": true
+    },
+    {
+      "id": "q_matching",
+      "type": "MATCHING",
+      "prompt": "Match each source to its best use. Write the letter (A-C) next to each description.\nA) Reliable data table\nB) Expert interview\nC) Quick search result",
+      "pairs": [
+        { "left": "Reliable data table", "right": "Verify totals and spot trends" },
+        { "left": "Expert interview", "right": "Gain context and real-world examples" },
+        { "left": "Quick search result", "right": "Find a starting definition to refine later" }
+      ]
+    },
+    {
+      "id": "q_fitb",
+      "type": "FITB",
+      "prompt": "A controlled variable is a factor kept [blank] so results depend only on what you test.",
+      "accept": [
+        ["constant", "unchanged", "the same"]
+      ],
+      "case_sensitive": false
+    },
+    {
+      "id": "q_order",
+      "type": "ORDERING",
+      "prompt": "Number the steps 1-4 to show the correct scientific method sequence. Write the number beside each item.",
+      "items": [
+        "Define the testable question",
+        "Plan variables, materials, and procedure",
+        "Collect data by running the procedure",
+        "Analyze patterns and state a conclusion"
+      ]
+    },
+    {
+      "id": "q_cat",
+      "type": "CATEGORIZATION",
+      "prompt": "Write QL (Qualitative), QT (Quantitative), or U (Uncategorized) next to each observation.",
+      "categories": ["Qualitative", "Quantitative", "Uncategorized"],
+      "items": [
+        { "label": "The solution turned pale yellow", "category": "Qualitative" },
+        { "label": "A sharp vinegar smell appeared", "category": "Qualitative" },
+        { "label": "Temperature dropped from 23 C to 18 C", "category": "Quantitative" },
+        { "label": "It fizzed for 35 seconds", "category": "Quantitative" }
+      ],
+      "distractors": [
+        "Used a glass beaker",
+        "Recorded observations after class"
+      ]
+    },
+    {
+      "id": "q_num",
+      "type": "NUMERICAL",
+      "prompt": "Compute the value of the expression: (12 + 18) / 3 - 5",
+      "answer": 5,
+      "evaluation": {
+        "mode": "exact"
+      }
+    },
+    {
+      "id": "q_mc_4",
+      "type": "MC",
+      "prompt": "When a math answer looks too large, what should you check first?",
+      "choices": [
+        { "id": "A", "text": "Units and whether a conversion was missed", "correct": true },
+        { "id": "B", "text": "If the pencil needs sharpening", "correct": false },
+        { "id": "C", "text": "Whether the problem used a favorite number", "correct": false },
+        { "id": "D", "text": "How long the problem has been assigned", "correct": false }
+      ]
+    },
+    {
+      "id": "q_essay",
+      "type": "ESSAY",
+      "prompt": "Describe how you would troubleshoot a math word problem when your first answer seems too large. Mention at least two checkpoints (units, estimation, inverse operations, or calculator entry) before trying again.",
+      "length_guidance": "4-6 sentences",
+      "rubric_hint": "Names checkpoints and links each to how it reduces error."
+    },
+    {
+      "id": "q_file",
+      "type": "FILEUPLOAD",
+      "prompt": "Upload a clear photo or PDF of a data table from a quick investigation you ran (for example, cooling different liquids). Include a title, labeled columns with units, at least five data rows, and one brief note on possible error sources.",
+      "accepted_formats": [".pdf", ".docx", ".jpg", ".png"],
+      "max_file_size_mb": 15
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q_mc_stim_1",
+      "correct": "The notice focuses on testing designs and selecting the best layout based on data.",
+      "distractor": "Options about parties or voting are not mentioned in the notice."
+    },
+    {
+      "item_id": "q_mc_stim_2",
+      "correct": "Soil moisture change shows which design drains best.",
+      "distractor": "Snacks, paint color, or music do not determine which design works."
+    },
+    {
+      "item_id": "q_mc_3",
+      "correct": "An outline captures structure and key ideas without copying everything.",
+      "distractor": "Relying on memory or copying every word is inefficient and incomplete."
+    },
+    {
+      "item_id": "q_ma",
+      "correct": "Teaching, spacing, and mixing problems are active retrieval practices.",
+      "distractor": "Highlighting once without review is passive and weak for recall."
+    },
+    {
+      "item_id": "q_tf",
+      "correct": "Unit checks catch missing conversions or inverted ratios early.",
+      "distractor": "Skipping unit checks lets setup errors persist until grading."
+    },
+    {
+      "item_id": "q_matching",
+      "correct": "Each source is matched to its best use: data for trends, interviews for context, quick searches for starting definitions.",
+      "distractor": "Swapping them weakens reliability or misses needed context."
+    },
+    {
+      "item_id": "q_fitb",
+      "correct": "Controlled variables stay constant so only the tested factor drives changes.",
+      "distractor": "If a controlled factor drifts, it could explain the results instead."
+    },
+    {
+      "item_id": "q_order",
+      "correct": "The sequence is question, plan, collect data, then analyze and conclude.",
+      "distractor": "Reordering skips planning or conclusions after evidence."
+    },
+    {
+      "item_id": "q_cat",
+      "correct": "Quantitative includes numbers; qualitative uses senses; uncategorized items are logistics.",
+      "distractor": "Treating every line as data ignores the difference between measurements and notes."
+    },
+    {
+      "item_id": "q_num",
+      "correct": "Following order of operations gives (30/3) - 5 = 10 - 5 = 5.",
+      "distractor": "Changing the order or misdividing leads to the wrong total."
+    },
+    {
+      "item_id": "q_mc_4",
+      "correct": "Unit checks catch scale errors that inflate answers.",
+      "distractor": "Pencils or favorite numbers do not change the math setup."
+    },
+    {
+      "item_id": "q_essay",
+      "correct": "Strong answers name checkpoints and explain how each would reveal an oversized result.",
+      "distractor": "Weak answers restate the error without a plan to diagnose it."
+    },
+    {
+      "item_id": "q_file",
+      "correct": "A well-labeled table with units, multiple trials, and error notes shows trustworthy data collection.",
+      "distractor": "Sparse or unlabeled uploads cannot support conclusions."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

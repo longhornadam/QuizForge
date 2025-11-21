@@ -10,11 +10,21 @@ from typing import List, Optional
 from pathlib import Path
 
 from engine.core.questions import Question, StimulusItem, StimulusEnd
-from engine.rendering.physical.styles.default_styles import (
-    DEFAULT_QUIZ_POINTS,
-    HEAVY_QUESTION_WEIGHT,
-    HEAVY_QUESTION_TYPES,
-)
+from engine.rendering.physical.styles.default_styles import DEFAULT_QUIZ_POINTS
+
+# Share weights by question type (default = 1.0)
+SHARE_WEIGHTS = {
+    "TF": 1,
+    "MC": 1,
+    "MA": 1,
+    "FITB": 1,
+    "NUMERICAL": 1,
+    "CATEGORIZATION": 1,
+    "MATCHING": 2,
+    "ORDERING": 2,
+    "ESSAY": 4,
+    "FILEUPLOAD": 4,
+}
 
 
 def calculate_points(questions: List[Question], total_points: int = DEFAULT_QUIZ_POINTS, log_path: Optional[str] = None) -> List[Question]:
@@ -39,56 +49,87 @@ def calculate_points(questions: List[Question], total_points: int = DEFAULT_QUIZ
     if not scorable:
         return questions
 
-    # Partition weighted vs regular by question qtype string
-    heavy_types = set(HEAVY_QUESTION_TYPES)
-    heavy = [q for q in scorable if q.qtype in heavy_types]
-    regular = [q for q in scorable if q.qtype not in heavy_types]
+    # Separate explicitly-pointed questions; only auto-assign those without points_set
+    explicit = [q for q in scorable if q.points_set]
+    to_assign = [q for q in scorable if not q.points_set]
 
-    if heavy:
-        weight = HEAVY_QUESTION_WEIGHT
-        total_units = len(regular) + (len(heavy) * weight)
-        base_points = total_points / total_units
+    explicit_total = sum(float(q.points) for q in explicit)
+    remaining_total = total_points - explicit_total
 
-        for q in regular:
-            q.points = int(round(base_points))
-        for q in heavy:
-            q.points = int(round(base_points * weight))
-    else:
-        base_points = total_points / len(scorable)
-        for q in scorable:
-            q.points = int(round(base_points))
+    if remaining_total < 0:
+        remaining_total = total_points  # fall back to full distribution if explicit over-allocates
 
-    # Adjust rounding error by modifying first scorable question
-    _adjust_for_rounding(scorable, total_points)
+    if not to_assign:
+        if log_path:
+            _write_log(questions, total_points, explicit_total, remaining_total, [], log_path)
+        return questions
+
+    # Calculate shares per question
+    shares = []
+    for q in to_assign:
+        shares.append((q, SHARE_WEIGHTS.get(q.qtype, 1)))
+
+    total_shares = sum(weight for _, weight in shares)
+    if total_shares == 0:
+        return questions
+
+    value_per_share = remaining_total / total_shares
+
+    # First pass: floor values, track remainders
+    provisional = []
+    for q, weight in shares:
+        raw = weight * value_per_share
+        floor_points = int(raw)
+        remainder = raw - floor_points
+        provisional.append((q, floor_points, remainder))
+
+    assigned_total = sum(floor for _, floor, _ in provisional)
+    remainder_points = int(round(remaining_total - assigned_total))
+
+    # Distribute remainder points to the highest remainders (largest remainder method)
+    provisional.sort(key=lambda tup: tup[2], reverse=True)
+    for idx in range(len(provisional)):
+        q, floor_points, _ = provisional[idx]
+        bonus = 1 if remainder_points > 0 else 0
+        q.points = floor_points + bonus
+        q.points_set = True
+        remainder_points -= bonus
+
+    # If any remainder is still negative/positive due to rounding quirks, adjust the last question
+    final_total = sum(int(q.points) for q, _, _ in provisional) + explicit_total
+    drift = int(total_points - final_total)
+    if drift != 0 and provisional:
+        provisional[-1][0].points = int(provisional[-1][0].points) + drift
 
     # Optionally append a log
     if log_path:
-        _write_log(questions, total_points, heavy, regular, base_points, log_path)
+        _write_log(questions, total_points, explicit_total, remaining_total, provisional, log_path)
 
     return questions
 
 
-def _adjust_for_rounding(questions: List[Question], target_total: int) -> None:
-    """Adjust the first scorable question to guarantee the target_total exactly."""
-    current_total = sum(int(q.points) for q in questions)
-    difference = target_total - current_total
-
-    if difference != 0 and questions:
-        questions[-1].points = int(questions[-1].points) + difference
-
-def _write_log(questions: List[Question], total_points: int, heavy: List[Question], regular: List[Question], base_points: float, log_path: str) -> None:
+def _write_log(
+    questions: List[Question],
+    total_points: int,
+    explicit_total: float,
+    remaining_total: float,
+    provisional: List,
+    log_path: str,
+) -> None:
     p = Path(log_path)
     p.parent.mkdir(parents=True, exist_ok=True)
     with p.open('a', encoding='utf-8') as log:
         log.write('\n' + '=' * 60 + '\n')
         log.write('POINT ALLOCATION\n')
         log.write('=' * 60 + '\n')
-        log.write(f'Total points: {total_points}\n')
-        log.write(f'Heavy questions ({HEAVY_QUESTION_TYPES}): {len(heavy)}\n')
-        log.write(f'Regular questions: {len(regular)}\n')
-        if heavy:
-            log.write(f'Base point value: {base_points:.2f}\n')
-            log.write(f'Heavy multiplier: {HEAVY_QUESTION_WEIGHT}x\n')
+        log.write(f'Total points target: {total_points}\n')
+        log.write(f'Explicit points: {explicit_total}\n')
+        log.write(f'Remaining for auto-assign: {remaining_total}\n')
+        if provisional:
+            total_shares = sum(SHARE_WEIGHTS.get(q.qtype, 1) for q, _, _ in provisional)
+            value_per_share = remaining_total / total_shares if total_shares else 0
+            log.write(f'Total shares: {total_shares}\n')
+            log.write(f'Value per share: {value_per_share:.4f}\n')
         log.write('\nQuestion breakdown:\n')
         for idx, q in enumerate(questions, start=1):
             log.write(f"  Q{idx} ({q.qtype}): {int(q.points)} pts\n")

@@ -1,0 +1,164 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Attempt 3 - All Question Types, No Stimulus",
+  "metadata": {
+    "subject": "Study skills and STEM sampler",
+    "grade_level": 8,
+    "tier_default": "Tier 2"
+  },
+  "items": [
+    {
+      "id": "q_mc",
+      "type": "MC",
+      "prompt": "Which strategy best helps keep a research project organized from start to finish?",
+      "choices": [
+        { "id": "A", "text": "Use a checklist and timeline to track tasks", "correct": true },
+        { "id": "B", "text": "Rely on memory instead of notes", "correct": false },
+        { "id": "C", "text": "Skip outlining and start writing immediately", "correct": false },
+        { "id": "D", "text": "Wait until the night before to gather sources", "correct": false }
+      ]
+    },
+    {
+      "id": "q_ma",
+      "type": "MA",
+      "prompt": "Which actions show active learning while reading a chapter? Select ALL that apply.",
+      "choices": [
+        { "id": "A", "text": "Annotate the margins with questions and quick summaries", "correct": true },
+        { "id": "B", "text": "Pause to paraphrase a section aloud", "correct": true },
+        { "id": "C", "text": "Ignore headings and read straight through without breaks", "correct": false },
+        { "id": "D", "text": "Copy sentences word-for-word into your notes", "correct": false }
+      ]
+    },
+    {
+      "id": "q_tf",
+      "type": "TF",
+      "prompt": "A growth mindset means believing abilities can strengthen with practice, feedback, and effort.",
+      "answer": true
+    },
+    {
+      "id": "q_matching",
+      "type": "MATCHING",
+      "prompt": "Match each part of an argument to what it contributes.",
+      "pairs": [
+        { "left": "Claim", "right": "The position or answer you are asserting" },
+        { "left": "Evidence", "right": "Facts or data that support the claim" },
+        { "left": "Reasoning", "right": "Explanation that links evidence to the claim" }
+      ]
+    },
+    {
+      "id": "q_fitb",
+      "type": "FITB",
+      "prompt": "The law of conservation says energy is never lost; it simply [blank] from one [blank] to another.",
+      "accept": [
+        ["transforms", "changes"],
+        ["form", "state"]
+      ],
+      "case_sensitive": false
+    },
+    {
+      "id": "q_essay",
+      "type": "ESSAY",
+      "prompt": "How would you break down a multi-step math problem so you avoid small mistakes? Describe the checkpoints you would use before moving to the next step.",
+      "length_guidance": "4-6 sentences",
+      "rubric_hint": "Names at least two checkpoints (units, calculator entry, sign errors) and explains how each prevents mistakes."
+    },
+    {
+      "id": "q_file",
+      "type": "FILEUPLOAD",
+      "prompt": "Upload a photo or PDF of a neatly labeled data table from a simple experiment you ran (such as how fast ice melts in different cups).",
+      "requirements": "Include a title, column headers with units, at least five data rows, and a short note on possible error sources.",
+      "accepted_formats": [".pdf", ".docx", ".jpg", ".png"],
+      "max_file_size_mb": 15
+    },
+    {
+      "id": "q_order",
+      "type": "ORDERING",
+      "prompt": "Place the scientific investigation steps in the correct order.",
+      "items": [
+        "Write a clear, testable question",
+        "List variables, materials, and a controlled procedure",
+        "Run the procedure while recording organized data",
+        "Analyze results and state a conclusion"
+      ]
+    },
+    {
+      "id": "q_cat",
+      "type": "CATEGORIZATION",
+      "prompt": "Categorize each observation from a classroom lab as qualitative or quantitative.",
+      "categories": ["Qualitative", "Quantitative"],
+      "items": [
+        { "label": "The solution turned cloudy blue after stirring", "category": "Qualitative" },
+        { "label": "The temperature rose from 18°C to 24°C", "category": "Quantitative" },
+        { "label": "A sharp vinegar smell was produced", "category": "Qualitative" },
+        { "label": "The reaction finished bubbling after 42 seconds", "category": "Quantitative" }
+      ],
+      "distractors": [
+        "Used a wooden stir stick",
+        "Lab took place before lunch"
+      ]
+    },
+    {
+      "id": "q_num",
+      "type": "NUMERICAL",
+      "prompt": "Solve the expression below.\n```math\n(18 - 6) ÷ 3 + 4 = ?\n```",
+      "answer": 8,
+      "evaluation": {
+        "mode": "exact"
+      }
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q_mc",
+      "correct": "A checklist with deadlines keeps tasks visible and sequenced so the project stays organized.",
+      "distractor": "Starting late or skipping planning leads to rushed, disorganized work."
+    },
+    {
+      "item_id": "q_ma",
+      "correct": "Annotating and paraphrasing require processing the text, which deepens understanding.",
+      "distractor": "Copying or skipping structure is passive and does not build comprehension."
+    },
+    {
+      "item_id": "q_tf",
+      "correct": "Growth mindset focuses on improving through effort and feedback rather than fixed ability.",
+      "distractor": "Seeing skill as fixed would contradict the idea of growth."
+    },
+    {
+      "item_id": "q_matching",
+      "correct": "Claims need evidence and reasoning; matching each part clarifies how arguments are built.",
+      "distractor": "Mixing up evidence and reasoning blurs the line between facts and explanations."
+    },
+    {
+      "item_id": "q_fitb",
+      "correct": "Transformation between forms captures energy conservation without implying loss.",
+      "distractor": "Suggesting energy disappears or appears violates the conservation law."
+    },
+    {
+      "item_id": "q_essay",
+      "correct": "Strong answers list checkpoints like unit tracking or sign checks and explain how they prevent errors.",
+      "distractor": "Weak answers only say \"be careful\" without concrete steps or reasoning."
+    },
+    {
+      "item_id": "q_file",
+      "correct": "A labeled table with units, multiple data points, and error notes shows reliable data collection.",
+      "distractor": "An unlabeled or tiny data sample cannot support conclusions."
+    },
+    {
+      "item_id": "q_order",
+      "correct": "Scientific work starts with a question, plans variables, gathers data, then interprets it.",
+      "distractor": "Jumping to conclusions before data collection reverses the investigative flow."
+    },
+    {
+      "item_id": "q_cat",
+      "correct": "Qualitative records descriptions and senses; quantitative records numbers and units.",
+      "distractor": "Focusing on tools or timing does not sort the observations by type."
+    },
+    {
+      "item_id": "q_num",
+      "correct": "Performing subtraction then division then addition yields eight.",
+      "distractor": "Changing the order of operations or misplacing parentheses gives the wrong total."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

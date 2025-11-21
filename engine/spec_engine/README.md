@@ -1,6 +1,6 @@
 # QuizForge JSON 3.0 (Newspec) Engine Sandbox
 
-This sandbox hosts the *new* JSON 3.0 parser/packaging work so we can iterate without touching the production TXT/legacy engine. Everything here should stay self-contained under `dev/newspec_engine/` until we are confident enough to merge or swap it in.
+This sandbox hosts the *new* JSON 3.0 parser/packaging work so we can iterate without touching the production TXT/legacy engine. Everything here should stay self-contained under `engine/spec_engine/` until we are confident enough to merge or swap it in.
 
 ## Goals
 - Parse the `<QUIZFORGE_JSON> ... </QUIZFORGE_JSON>` envelope defined in `dev/newspec/NEWBASE.md`.
@@ -28,7 +28,7 @@ This sandbox hosts the *new* JSON 3.0 parser/packaging work so we can iterate wi
 
 ## Running tests
 ```
-pytest dev/newspec_engine/tests -q
+pytest engine/spec_engine/tests -q
 ```
 Uses only standard library + pytest; no production paths touched.
 

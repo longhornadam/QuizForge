@@ -6,7 +6,8 @@ Performs NO validation - trusts input is perfect.
 """
 
 from pathlib import Path
-from typing import Dict
+from typing import Dict, List
+import re
 from engine.core.quiz import Quiz
 from engine.rendering.physical.styles.default_styles import (
     DOCX_FONT_FAMILY,
@@ -132,7 +133,7 @@ def _create_student_quiz(quiz: Quiz, output_folder: str) -> str:
         if group['stimulus']:
             # Add stimulus passage
             p = doc.add_paragraph()
-            stimulus_run = p.add_run(group['stimulus'])
+            stimulus_run = p.add_run(_clean_prompt_text(group['stimulus']))
             stimulus_run.italic = True
             stimulus_run.font.name = DOCX_FONT_FAMILY
             stimulus_run.font.size = Pt(DOCX_BODY_SIZE)
@@ -277,10 +278,22 @@ def _create_rationale_sheet(quiz: Quiz, output_folder: str) -> str:
     
     doc.add_paragraph()  # blank line
     
+    # Build rationale lookup by item_id if available
+    rationale_lookup = {}
+    for entry in quiz.rationales or []:
+        if isinstance(entry, dict):
+            item_id = entry.get("item_id")
+            if item_id:
+                rationale_lookup[item_id] = entry.get("text") or entry.get("correct") or ""
+        elif isinstance(entry, str):
+            # fallback parsing "id: text"
+            if ":" in entry:
+                item_id, text = entry.split(":", 1)
+                rationale_lookup[item_id.strip()] = text.strip()
+    
     # Process questions
     question_number = 1
-    rationale_index = 0
-    for idx, question in enumerate(quiz.questions):
+    for question in quiz.questions:
         from engine.core.questions import StimulusItem, StimulusEnd
         
         # Skip non-scorable questions
@@ -292,11 +305,13 @@ def _create_rationale_sheet(quiz: Quiz, output_folder: str) -> str:
             question_number += 1
             continue
         
-        # Get rationale from quiz.rationales if available
-        if idx < len(quiz.rationales) and quiz.rationales[idx]:
-            rationale = quiz.rationales[idx]
-        else:
-            # Fallback to basic rationale if missing
+        rationale = None
+        q_id = getattr(question, "forced_ident", None)
+        if q_id and q_id in rationale_lookup:
+            rationale = rationale_lookup[q_id]
+
+        # Fallback to basic rationale if missing
+        if not rationale:
             rationale = _format_rationale_with_answer(question)
         
         # Format: "Q# - Rationale text"
@@ -325,7 +340,7 @@ def _create_rationale_sheet(quiz: Quiz, output_folder: str) -> str:
 
 def _log_validation_stats(quiz: Quiz, log_path: str) -> None:
     """Write validation statistics to log file."""
-    with open(log_path, 'a', encoding='utf-8') as log:
+    with open(log_path, 'w', encoding='utf-8') as log:
         log.write("\n" + "="*60 + "\n")
         log.write("PHYSICAL QUIZ VALIDATION STATISTICS\n")
         log.write("="*60 + "\n\n")
@@ -508,10 +523,25 @@ def _group_questions_by_stimulus(questions):
 def _add_question_to_doc(doc, question, question_number):
     """Add single question with smart formatting."""
     from docx.shared import Pt, Inches
-    from engine.core.questions import MCQuestion, TFQuestion, NumericalQuestion
+    from engine.core.questions import (
+        MCQuestion,
+        TFQuestion,
+        NumericalQuestion,
+        MAQuestion,
+        MatchingQuestion,
+        FITBQuestion,
+        OrderingQuestion,
+        CategorizationQuestion,
+        EssayQuestion,
+        FileUploadQuestion,
+    )
     
     # Add question text
-    q_text = question.prompt
+    q_text = _clean_prompt_text(question.prompt)
+    if isinstance(question, FITBQuestion):
+        token = getattr(question, "blank_token", "")
+        if token and f"[{token}]" in q_text:
+            q_text = q_text.replace(f"[{token}]", "__________________")
     p = doc.add_paragraph(f"{question_number}. {q_text}")
     p.paragraph_format.space_before = Pt(DOCX_PARA_SPACING_BEFORE)
     p.paragraph_format.space_after = Pt(DOCX_PARA_SPACING_AFTER)
@@ -522,27 +552,38 @@ def _add_question_to_doc(doc, question, question_number):
         run.font.name = DOCX_FONT_FAMILY
         run.font.size = Pt(DOCX_BODY_SIZE)
     
-    if isinstance(question, MCQuestion):
+    if isinstance(question, (MCQuestion, MAQuestion)):
         choices = [choice.text for choice in question.choices]
-        
-        # Determine layout: 2-column if all choices short
-        use_two_column = all(len(c) < MC_TWO_COLUMN_THRESHOLD for c in choices)
-        
-        if use_two_column:
-            _add_mc_two_column(doc, choices)
-        else:
-            _add_mc_single_column(doc, choices)
+        _add_mc_single_column(doc, choices)
     
     elif isinstance(question, TFQuestion):
-        # Add True/False options
-        _add_tf_options(doc)
+        # Options already in prompt; nothing extra needed
+        pass
+    
+    elif isinstance(question, MatchingQuestion):
+        _add_matching_block(doc, question.pairs)
+    
+    elif isinstance(question, FITBQuestion):
+        # Inline blank already in prompt; no extra line
+        pass
+    
+    elif isinstance(question, OrderingQuestion):
+        _add_ordering_block(doc, question.items)
+    
+    elif isinstance(question, CategorizationQuestion):
+        _add_categorization_block(doc, question)
     
     elif isinstance(question, NumericalQuestion):
-        # Add answer blank
         doc.add_paragraph('Answer: _____________')
     
+    elif isinstance(question, EssayQuestion):
+        doc.add_paragraph('Answer: _____________')
+    
+    elif isinstance(question, FileUploadQuestion):
+        # Instructions only; no answer line
+        pass
+    
     else:
-        # Other question types - add generic answer blank
         doc.add_paragraph('Answer: _____________')
     
     # Add spacing after question
@@ -581,6 +622,77 @@ def _add_mc_single_column(doc, choices):
         p.paragraph_format.line_spacing = DOCX_LINE_SPACING
         
         # Style the text
+        for run in p.runs:
+            run.font.name = DOCX_FONT_FAMILY
+        run.font.size = Pt(DOCX_BODY_SIZE)
+
+
+def _add_matching_block(doc, pairs: List):
+    """Render matching as blanks plus legend letters."""
+    from docx.shared import Pt, Inches
+    letters = [chr(65 + idx) for idx in range(len(pairs))]
+
+    # Definitions with blanks
+    for pair in pairs:
+        p = doc.add_paragraph(f"_____: {pair.answer}")
+        p.paragraph_format.space_before = Pt(DOCX_PARA_SPACING_BEFORE)
+        p.paragraph_format.space_after = Pt(DOCX_PARA_SPACING_AFTER)
+        for run in p.runs:
+            run.font.name = DOCX_FONT_FAMILY
+            run.font.size = Pt(DOCX_BODY_SIZE)
+
+    # Legend for terms
+    for letter, pair in zip(letters, pairs):
+        p = doc.add_paragraph(f"{letter} – {pair.prompt}")
+        p.paragraph_format.left_indent = Inches(0.15)
+        for run in p.runs:
+            run.font.name = DOCX_FONT_FAMILY
+            run.font.size = Pt(DOCX_BODY_SIZE)
+
+
+def _add_ordering_block(doc, items):
+    """Render ordering items with blanks for numbering."""
+    from docx.shared import Pt, Inches
+    for text in items:
+        p = doc.add_paragraph(f"_____: {text.text if hasattr(text, 'text') else text}")
+        p.paragraph_format.left_indent = Inches(0.15)
+        p.paragraph_format.space_before = Pt(DOCX_PARA_SPACING_BEFORE)
+        p.paragraph_format.space_after = Pt(DOCX_PARA_SPACING_AFTER)
+        for run in p.runs:
+            run.font.name = DOCX_FONT_FAMILY
+            run.font.size = Pt(DOCX_BODY_SIZE)
+
+
+def _add_categorization_block(doc, question):
+    """Render categorization with category hints and blanks."""
+    from docx.shared import Pt, Inches
+    categories = question.categories if hasattr(question, "categories") else []
+    if categories:
+        cat_line = "Categories: " + ", ".join(categories)
+        p = doc.add_paragraph(cat_line)
+        for run in p.runs:
+            run.font.name = DOCX_FONT_FAMILY
+            run.font.size = Pt(DOCX_BODY_SIZE)
+
+    # Combine items and distractors in display order
+    items = getattr(question, "items", [])
+    distractors = getattr(question, "distractors", []) or []
+
+    for entry in items:
+        label = entry.item_text if hasattr(entry, "item_text") else entry.get("label", "")
+        p = doc.add_paragraph(f"_____: {label}")
+        p.paragraph_format.left_indent = Inches(0.15)
+        p.paragraph_format.space_before = Pt(DOCX_PARA_SPACING_BEFORE)
+        p.paragraph_format.space_after = Pt(DOCX_PARA_SPACING_AFTER)
+        for run in p.runs:
+            run.font.name = DOCX_FONT_FAMILY
+            run.font.size = Pt(DOCX_BODY_SIZE)
+
+    for label in distractors:
+        p = doc.add_paragraph(f"_____: {label}")
+        p.paragraph_format.left_indent = Inches(0.15)
+        p.paragraph_format.space_before = Pt(DOCX_PARA_SPACING_BEFORE)
+        p.paragraph_format.space_after = Pt(DOCX_PARA_SPACING_AFTER)
         for run in p.runs:
             run.font.name = DOCX_FONT_FAMILY
             run.font.size = Pt(DOCX_BODY_SIZE)
@@ -692,6 +804,14 @@ def _generate_basic_rationale(question):
     
     else:
         return "See teacher for explanation."
+
+
+def _clean_prompt_text(prompt: str) -> str:
+    """Strip markdown code fences and trim whitespace for DOCX display."""
+    # Remove simple ``` fences
+    cleaned = re.sub(r"```[a-zA-Z]*", "", prompt)
+    cleaned = cleaned.replace("```", "")
+    return cleaned.strip()
 
 
 def _log_validation_stats(quiz: Quiz, log_path: str) -> None:
