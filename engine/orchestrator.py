@@ -16,7 +16,8 @@ from pathlib import Path
 from typing import List, Optional
 import shutil
 
-from .parsing.text_parser import TextOutlineParser
+from .importers import import_quiz_from_llm
+from .config import SPEC_MODE
 from .validation.validator import QuizValidator, ValidationStatus
 from .packagers.packager import package_quiz
 from .packaging.folder_creator import create_quiz_folder, write_file
@@ -44,7 +45,6 @@ class QuizForgeOrchestrator:
         self.archive.mkdir(parents=True, exist_ok=True)
         
         # Initialize components
-        self.parser = TextOutlineParser()
         self.validator = QuizValidator()
     
     def process_all(self) -> None:
@@ -78,7 +78,8 @@ class QuizForgeOrchestrator:
         
         # Step 1: Parse
         try:
-            quiz = self.parser.parse_file(str(filepath))
+            imported = import_quiz_from_llm(original_text)
+            quiz = imported.quiz
         except Exception as e:
             # Parser failed - create fail prompt
             self._handle_parse_failure(filepath, original_text, str(e))

@@ -9,7 +9,7 @@ from __future__ import annotations
 from typing import List, Optional
 from pathlib import Path
 
-from engine.core.questions import Question
+from engine.core.questions import Question, StimulusItem, StimulusEnd
 from engine.rendering.physical.styles.default_styles import (
     DEFAULT_QUIZ_POINTS,
     HEAVY_QUESTION_WEIGHT,
@@ -34,9 +34,7 @@ def calculate_points(questions: List[Question], total_points: int = DEFAULT_QUIZ
         The list of question objects with their ``points`` attributes modified
     """
     # Work with scorable questions only (ignore StimulusItem/StimulusEnd)
-    from engine.core.questions import StimulusItem
-
-    scorable = [q for q in questions if not isinstance(q, StimulusItem)]
+    scorable = [q for q in questions if not isinstance(q, (StimulusItem, StimulusEnd))]
 
     if not scorable:
         return questions

@@ -7,3 +7,7 @@
 
 ## For New Developers
 Start by reading AGENT_MAP.md to understand the codebase structure and common tasks.
+
+## Spec mode toggle
+- `QUIZFORGE_SPEC_MODE=text` (default): Legacy text spec path.
+- `QUIZFORGE_SPEC_MODE=json`: Routes through `dev/newspec_engine` via `JsonImporter`.
