@@ -1,6 +1,13 @@
 # QuizForge Web Client (Vite + React)
 
-Thin UI that uploads or pastes a QuizForge-ready TXT, calls the FastAPI service, and downloads the resulting `Finished_Exports` as a ZIP (mirrors `python engine/orchestrator.py`).
+Thin UI that uploads or pastes a QuizForge-ready TXT, calls the Express API wrapper, and downloads the resulting `Finished_Exports` as a ZIP (mirrors `python engine/orchestrator.py`).
+
+## Beta/Prod (single container)
+
+```bash
+docker compose up -d quizforge-webapp   # serves static UI + API on :8000
+# visit http://localhost:8000 (or your host/Cloudflare tunnel)
+```
 
 ## Local development
 

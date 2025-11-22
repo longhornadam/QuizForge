@@ -16,6 +16,9 @@ const upload = multer({ storage: multer.memoryStorage() });
 const PORT = process.env.PORT || 8000;
 const PYTHON_BIN = process.env.PYTHON_BIN || "python";
 const PROJECT_ROOT = path.resolve(__dirname, "..");
+const STATIC_DIR =
+  process.env.STATIC_DIR || path.join(__dirname, "dist"); // populated in container build
+const HAS_STATIC = fs.existsSync(STATIC_DIR);
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -65,6 +68,15 @@ app.post("/api/quiz", upload.single("file"), async (req, res, next) => {
   }
 });
 
+// Serve built web assets when present (single-container deployment)
+if (HAS_STATIC) {
+  app.use(express.static(STATIC_DIR, { index: "index.html", maxAge: "1h" }));
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api")) return next();
+    res.sendFile(path.join(STATIC_DIR, "index.html"));
+  });
+}
+
 app.use((err, req, res, _next) => {
   console.error("QuizForge API error:", err);
   const message =
@@ -76,6 +88,9 @@ app.use((err, req, res, _next) => {
 
 app.listen(PORT, () => {
   console.log(`QuizForge API listening on ${PORT}`);
+  if (HAS_STATIC) {
+    console.log(`Serving static web UI from ${STATIC_DIR}`);
+  }
 });
 
 function persistInput(dropzone, req) {
