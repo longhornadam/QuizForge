@@ -1,0 +1,40 @@
+QuizForge Starter Template (QF_Base)
+Version: 3.0-json
+
+How to use this:
+1) Copy this template into your LLM chat, fill in your questions and answers, and keep the JSON between the <QUIZFORGE_JSON> tags.
+2) Paste the finished text back into QuizForge (recommended) or save it as a .txt and upload.
+3) QuizForge will validate, package, and return a ZIP you can import into Canvas or print.
+
+Example skeleton (replace with your own content):
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Photosynthesis Check-in",
+  "items": [
+    {
+      "type": "mc",
+      "prompt": "Which organelle is responsible for photosynthesis?",
+      "options": [
+        {"label": "A", "text": "Mitochondria"},
+        {"label": "B", "text": "Chloroplast"},
+        {"label": "C", "text": "Ribosome"},
+        {"label": "D", "text": "Golgi apparatus"}
+      ],
+      "answer": "B",
+      "rationale": "Chloroplasts contain chlorophyll and carry out photosynthesis."
+    }
+  ],
+  "rationales": [
+    {
+      "item_ref": 0,
+      "text": "Chloroplasts hold chlorophyll, which captures light energy for photosynthesis."
+    }
+  ]
+}
+</QUIZFORGE_JSON>
+
+Tips for better results:
+- Keep quotes double, avoid trailing commas, and stay inside the JSON tags.
+- Provide clear question prompts and concise answer choices.
+- Include rationales so QuizForge can build teacher keys.

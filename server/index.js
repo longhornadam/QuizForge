@@ -40,15 +40,20 @@ app.post("/api/quiz", upload.single("file"), async (req, res, next) => {
     const inputPath = await persistInput(dropzone, req);
     await runOrchestrator(jobRoot);
 
-    res.setHeader("Content-Type", "application/zip");
-    const zipName = `${path.parse(inputPath).name}_quizforge.zip`;
-    res.setHeader(
-      "Content-Disposition",
-      `attachment; filename="${sanitizeFilename(zipName)}"`
+    await postProcessOutputs(finished);
+
+    // Prefer the quiz folder name for the ZIP filename
+    const quizFolder = await findFirstSubfolder(finished);
+    const zipName = sanitizeFilename(
+      quizFolder ? `${quizFolder}.zip` : `${path.parse(inputPath).name}_quizforge.zip`
     );
 
+    res.setHeader("Content-Type", "application/zip");
+    res.setHeader("Content-Disposition", `attachment; filename="${zipName}"`);
+
     const archive = archiver("zip", { zlib: { level: 9 } });
-    archive.directory(finished, "Finished_Exports");
+    // Zip only the contents (avoid nesting in Finished_Exports/)
+    archive.directory(finished, false);
     archive.on("error", (err) => {
       throw err;
     });
@@ -142,4 +147,34 @@ function runOrchestrator(jobRoot) {
 
 function sanitizeFilename(name) {
   return name.replace(/[^a-zA-Z0-9._-]/g, "_");
+}
+
+async function findFirstSubfolder(dir) {
+  const entries = await fs.promises.readdir(dir, { withFileTypes: true });
+  const folder = entries.find((e) => e.isDirectory());
+  return folder ? folder.name : null;
+}
+
+async function postProcessOutputs(finishedDir) {
+  // Remove noisy .log files; keep user-facing TXT logs
+  const entries = await fs.promises.readdir(finishedDir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(finishedDir, entry.name);
+    if (entry.isDirectory()) {
+      await postProcessOutputs(fullPath);
+    } else if (entry.isFile()) {
+      if (entry.name.toLowerCase().endsWith(".log")) {
+        await fs.promises.rm(fullPath).catch(() => {});
+      } else if (
+        entry.name.toLowerCase().endsWith(".docx") &&
+        !entry.name.toUpperCase().includes("_KEY") &&
+        !entry.name.toUpperCase().includes("_RATIONALE") &&
+        !entry.name.toUpperCase().includes("_PRINT")
+      ) {
+        const { name, dir } = path.parse(fullPath);
+        const newName = `${name}_PRINT.docx`;
+        await fs.promises.rename(fullPath, path.join(dir, newName)).catch(() => {});
+      }
+    }
+  }
 }
