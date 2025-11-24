@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from "react";
+import logo from "../images/quizforge_logo.png";
 
 type Phase = "idle" | "queued" | "running" | "packaging" | "success" | "error";
 
@@ -236,7 +237,10 @@ function App() {
         </div>
       )}
       <header>
-        <h1>QuizForge - Using AI to create Canvas New Quizzes and more!</h1>
+        <div className="logo-row">
+          <img src={logo} alt="QuizForge logo" className="logo" />
+          <h1>QuizForge - Using AI to create Canvas New Quizzes and more!</h1>
+        </div>
         <p className="eyebrow">
           Load the <a href={templateUrl}>QuizForge Base module</a> to turn any AI into your Teaching
           Assistant.
@@ -380,34 +384,52 @@ function App() {
             )}
           </section>
         </div>
-        <section className="card howto-card">
-          <h2>How to import to Canvas</h2>
-          <ol className="howto-list">
-            <li>
-              <strong>Step 1 - Unzip the file from QuizForge.</strong> Right-click the download and
-              choose <em>Extract All</em>. Inside the new folder you&apos;ll see: a DOCX to print,
-              an answer key for scoring, a rationales file for students, and a QTI-ZIP for Canvas.
-            </li>
-            <li>
-              <strong>Step 2 - Create a new Canvas &quot;New Quiz&quot;.</strong>
-            </li>
-            <li>
-              <strong>Step 3 - Click &quot;Build&quot;.</strong>
-            </li>
-            <li>
-              <strong>Step 4 - Click the 3 vertical dots and choose &quot;Import content&quot;.</strong>
-            </li>
-            <li>
-              <strong>Step 5 - Navigate to the folder you just unzipped.</strong>
-            </li>
-            <li>
-              <strong>Step 6 - Select the QTI-ZIP with your quiz&apos;s name.</strong>
-            </li>
-            <li>
-              <strong>Step 7 - Import, save, publish.</strong>
-            </li>
-          </ol>
-        </section>
+        <div className="columns two-col">
+          <section className="card howto-card">
+            <h2>How to import to Canvas</h2>
+            <ol className="howto-list">
+              <li>
+                <strong>Step 1 - Unzip the file from QuizForge.</strong> Right-click the download and
+                choose <em>Extract All</em>. Inside the new folder you&apos;ll see: a DOCX to print,
+                an answer key for scoring, a rationales file for students, and a QTI-ZIP for Canvas.
+              </li>
+              <li>
+                <strong>Step 2 - Create a new Canvas &quot;New Quiz&quot;.</strong>
+              </li>
+              <li>
+                <strong>Step 3 - Click &quot;Build&quot;.</strong>
+              </li>
+              <li>
+                <strong>Step 4 - Click the 3 vertical dots and choose &quot;Import content&quot;.</strong>
+              </li>
+              <li>
+                <strong>Step 5 - Navigate to the folder you just unzipped.</strong>
+              </li>
+              <li>
+                <strong>Step 6 - Select the QTI-ZIP with your quiz&apos;s name.</strong>
+              </li>
+              <li>
+                <strong>Step 7 - Import, save, publish.</strong>
+              </li>
+            </ol>
+          </section>
+          <section className="card howto-card">
+            <h2>Question types at a glance</h2>
+            <ul className="howto-list" style={{ listStyle: "none", paddingLeft: 0 }}>
+              <li><strong>MC</strong> — Multiple choice, 1 correct.</li>
+              <li><strong>MA</strong> — Multiple answers, select all that apply.</li>
+              <li><strong>TF</strong> — True/False.</li>
+              <li><strong>MATCHING</strong> — Pair terms with definitions.</li>
+              <li><strong>FITB</strong> — Fill in the blanks with accepted answers.</li>
+              <li><strong>ESSAY</strong> — Free-response, manual scoring.</li>
+              <li><strong>FILEUPLOAD</strong> — Upload artifact (PDF/doc/image).</li>
+              <li><strong>ORDERING</strong> — Arrange items in the correct sequence.</li>
+              <li><strong>CATEGORIZATION</strong> — Sort items into categories.</li>
+              <li><strong>NUMERICAL</strong> — Numeric response with tolerance/precision/range.</li>
+              <li><strong>STIMULUS / STIMULUS_END</strong> — Passages that group related questions.</li>
+            </ul>
+          </section>
+        </div>
         <footer className="footer">
           <a href="https://www.github.com/longhornadam/quizforge" target="_blank" rel="noreferrer">
             View QuizForge on GitHub
