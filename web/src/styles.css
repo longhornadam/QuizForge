@@ -75,7 +75,8 @@ header h1 {
 }
 
 .layout {
-  max-width: 1120px;
+  max-width: 1380px;
+  width: 100%;
   margin: 0 auto;
   padding: 2.25rem 1.25rem 3rem;
 }
@@ -102,12 +103,24 @@ header h1 {
 
 .columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1.25rem;
+  align-items: start;
 }
 
-.two-col {
-  grid-template-columns: 1fr 1.1fr;
+.two-col > .steps-card {
+  grid-column: span 5;
+}
+
+.two-col > .emphasis {
+  grid-column: span 7;
+}
+
+@media (max-width: 1080px) {
+  .two-col > .steps-card,
+  .two-col > .emphasis {
+    grid-column: span 12;
+  }
 }
 
 .input-stack {
