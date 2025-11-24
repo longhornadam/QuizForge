@@ -14,7 +14,8 @@ const statusLabels: Record<Phase, string> = {
 };
 
 function App() {
-  const templateUrl = "/qf_base_module.txt";
+  const templateUrl = "/llm_modules/QuizForge_Base.md";
+  const exampleUrl = "/llm_modules/example_quiz_all_types.txt";
   const steps = [
     <>
       Download the <a href={templateUrl}>QuizForge Base module</a> and drop it in your AI chat.
@@ -112,7 +113,7 @@ function App() {
         setPendingDownload({ url, name: filename });
         setReviewType("warning");
         setReviewPrompt(
-          ["Warnings detected:", ...warnings.map((w, i) => `${i + 1}. ${w}`)].join("\n")
+          ["Warnings detected: Copy/paste into your AI to fix", ...warnings.map((w, i) => `${i + 1}. ${w}`)].join("\n")
         );
         setPhase("success");
       } else {
@@ -187,7 +188,11 @@ function App() {
       {reviewPrompt && (
         <div className="modal-backdrop">
           <div className="modal">
-            <h3>{reviewType === "fail" ? "Processing failed" : "Warnings detected"}</h3>
+            <h3>
+              {reviewType === "fail"
+                ? "Processing failed"
+                : "Warnings detected: Copy/paste into your AI to fix"}
+            </h3>
             <pre className="modal-body">{reviewPrompt}</pre>
             <div className="modal-actions">
               {reviewType === "warning" && pendingDownload && (
@@ -316,6 +321,9 @@ function App() {
                   </div>
                 )}
               </div>
+              <div className="small">
+                Need a pattern? Download the <a href={exampleUrl}>all-question-types example quiz</a>.
+              </div>
             </div>
 
             <div className="actions" style={{ marginTop: "1rem" }}>
@@ -348,7 +356,7 @@ function App() {
             {error && <div className="alert">{error}</div>}
             {warnings.length > 0 && (
               <div className="alert warning">
-                <strong>Warnings detected:</strong>
+                <strong>Warnings detected: Copy/paste into your AI to fix</strong>
                 <ul>
                   {warnings.map((w) => (
                     <li key={w}>{w}</li>

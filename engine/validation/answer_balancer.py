@@ -74,6 +74,31 @@ def _balance_mc_questions(mc_questions: List[MCQuestion]) -> None:
 
         position_counts[target_position] += 1
 
+    # Second pass: avoid long streaks of the same correct position (e.g., D,D,D)
+    correct_positions = [
+        next((i for i, c in enumerate(q.choices) if c.correct), None) for q in mc_questions
+    ]
+    for idx in range(2, len(correct_positions)):
+        a = correct_positions[idx]
+        if a is None:
+            continue
+        if correct_positions[idx - 1] == a and correct_positions[idx - 2] == a:
+            # Find earlier question with a different correct position to swap choices with
+            swap_idx = next(
+                (j for j in range(idx) if correct_positions[j] is not None and correct_positions[j] != a),
+                None,
+            )
+            if swap_idx is not None:
+                # Swap entire choices lists to preserve correctness flags
+                mc_questions[idx].choices, mc_questions[swap_idx].choices = (
+                    mc_questions[swap_idx].choices,
+                    mc_questions[idx].choices,
+                )
+                correct_positions[idx], correct_positions[swap_idx] = (
+                    correct_positions[swap_idx],
+                    correct_positions[idx],
+                )
+
 
 def _shuffle_mc_to_position(question: MCQuestion, current_correct: int, target_position: int) -> None:
     """Move correct answer to target position.
