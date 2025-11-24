@@ -28,14 +28,17 @@ jobs:
         run: |
           IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER}/quizforge"
           TAGS=()
-          if [[ "${GITHUB_REF}" == "refs/tags/stable" ]]; then
-            TAGS+=("${IMAGE}:stable")
-          fi
-          if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
+          if [[ "${GITHUB_REF}" == "refs/tags/stable" ]] || [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
             TAGS+=("${IMAGE}:stable")
           fi
           TAGS+=("${IMAGE}:${GITHUB_SHA}")
-          printf 'tags=%s\n' "$(IFS=$'\n'; echo "${TAGS[*]}")" >> "$GITHUB_OUTPUT"
+          {
+            echo "tags<<EOF"
+            for t in "${TAGS[@]}"; do
+              echo "$t"
+            done
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Build and push
         uses: docker/build-push-action@v5
