@@ -15,7 +15,7 @@ const statusLabels: Record<Phase, string> = {
 };
 
 function App() {
-  const templateUrl = "/llm_modules/QuizForge_Base.md";
+  const templateUrl = "/LLM_Modules/QuizForge_Base.md";
   const exampleUrl = "/llm_modules/example_quiz_all_types.txt";
   const steps = [
     <>
