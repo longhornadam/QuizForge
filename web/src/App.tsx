@@ -16,10 +16,18 @@ const statusLabels: Record<Phase, string> = {
 function App() {
   const templateUrl = "/qf_base_module.txt";
   const steps = [
-    "Download the QuizForge Base module and drop it in your AI chat.",
-    "Copy the finished text (keep the tags) and paste it below.",
-    "Click Go — we package Canvas New Quiz and printable files for you.",
-    "Unzip the download to see your Canvas import and print-ready docs.",
+    <>
+      Download the <a href={templateUrl}>QuizForge Base module</a> and drop it in your AI chat.
+    </>,
+    <>
+      Copy your AI assistant&apos;s response and paste it in. Or, if you downloaded the quiz in TXT
+      format, attach it with the “Choose File” button.
+    </>,
+    <>
+      Click “Go”. You will either get a .ZIP with all your goodies or an error message to copy/paste
+      back to your AI to fix the problem.
+    </>,
+    <>Un-ZIP the download to see your Canvas import and print-ready docs.</>,
   ];
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [pastedText, setPastedText] = useState("");
@@ -207,12 +215,9 @@ function App() {
       <header>
         <h1>QuizForge - Using AI to create Canvas New Quizzes and more!</h1>
         <p className="eyebrow">
-          Load &ldquo;QuizForge_Base_Module&rdquo; to turn any AI into your Teaching
+          Load the <a href={templateUrl}>QuizForge Base module</a> to turn any AI into your Teaching
           Assistant.
         </p>
-        <a className="ghost-button" href={templateUrl} download>
-          Download QuizForge Base
-        </a>
       </header>
 
       <main className="layout">
@@ -232,7 +237,7 @@ function App() {
               <ul className="feature-list">
                 <li>Create fresh quizzes from scratch.</li>
                 <li>Convert existing quizzes from documents or even photos.</li>
-                <li>Give the AI unit plans or standards to improve it.</li>
+                <li>Give the AI unit plans or standards to improve pedagogy.</li>
               </ul>
             </div>
             <div className="feature-block">

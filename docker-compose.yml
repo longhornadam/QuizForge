@@ -2,26 +2,34 @@ version: "3.9"
 
 services:
   quizforge-webapp:
+    env_file:
+      - .env
     build: .
     image: quizforge:1.0-beta2-stable
     environment:
-      - PORT=8000
-      - QUIZFORGE_SPEC_MODE=json
-      - QUIZFORGE_RELEASE_CHANNEL=stable
-      - QUIZFORGE_VERSION=1.0-beta2-stable
+      - PORT=${PORT}
+      - QUIZFORGE_SPEC_MODE=${QUIZFORGE_SPEC_MODE}
+      - QUIZFORGE_RELEASE_CHANNEL=${QUIZFORGE_RELEASE_CHANNEL}
+      - QUIZFORGE_VERSION=${QUIZFORGE_VERSION}
+      - GIT_USER=${GIT_USER}
+      - GIT_TOKEN=${GIT_TOKEN}
     ports:
       - "8000:8000"
     restart: unless-stopped
 
   quizforge-cli:
+    env_file:
+      - .env
     build: .
     image: quizforge:1.0-beta2-stable
     entrypoint: ["python3", "run_quizforge.py"]
     command: ["--input", "/app/input/attempt9_docx_all_types_13q.txt", "--output", "/app/output/attempt9_build"]
     environment:
-      - QUIZFORGE_SPEC_MODE=json
-      - QUIZFORGE_RELEASE_CHANNEL=stable
-      - QUIZFORGE_VERSION=1.0-beta2-stable
+      - QUIZFORGE_SPEC_MODE=${QUIZFORGE_SPEC_MODE}
+      - QUIZFORGE_RELEASE_CHANNEL=${QUIZFORGE_RELEASE_CHANNEL}
+      - QUIZFORGE_VERSION=${QUIZFORGE_VERSION}
+      - GIT_USER=${GIT_USER}
+      - GIT_TOKEN=${GIT_TOKEN}
     volumes:
       - ./spec/inputs:/app/input
       - ./spec/outputs:/app/output
