@@ -5,15 +5,22 @@ type Phase = "idle" | "queued" | "running" | "packaging" | "success" | "error";
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/$/, "");
 
 const statusLabels: Record<Phase, string> = {
-  idle: "Ready",
-  queued: "Queued",
-  running: "Parsing & Validating",
-  packaging: "Packaging",
+  idle: "Ready when you are",
+  queued: "Working",
+  running: "Building",
+  packaging: "Finishing up",
   success: "Done",
   error: "Error",
 };
 
 function App() {
+  const templateUrl = "/qf_base_module.txt";
+  const steps = [
+    "Download the QuizForge Base module and drop it in your AI chat.",
+    "Copy the finished text (keep the tags) and paste it below.",
+    "Click Go — we package Canvas New Quiz and printable files for you.",
+    "Unzip the download to see your Canvas import and print-ready docs.",
+  ];
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [pastedText, setPastedText] = useState("");
   const [phase, setPhase] = useState<Phase>("idle");
@@ -22,6 +29,12 @@ function App() {
   const [download, setDownload] = useState<{ url: string; name: string } | null>(
     null
   );
+  const [pendingDownload, setPendingDownload] = useState<{ url: string; name: string } | null>(
+    null
+  );
+  const [warnings, setWarnings] = useState<string[]>([]);
+  const [reviewPrompt, setReviewPrompt] = useState<string | null>(null);
+  const [reviewType, setReviewType] = useState<"fail" | "warning" | null>(null);
 
   const canSubmit = useMemo(
     () => !!selectedFile || pastedText.trim().length > 0,
@@ -33,6 +46,10 @@ function App() {
     setIsSubmitting(true);
     setDownload(null);
     setError("");
+    setWarnings([]);
+    setReviewPrompt(null);
+    setReviewType(null);
+    setPendingDownload(null);
     setPhase("queued");
 
     const formData = new FormData();
@@ -62,18 +79,46 @@ function App() {
         throw new Error(detail || "QuizForge failed to process the request.");
       }
 
+      // Capture warnings from headers (if any)
+      const warningHeader = response.headers.get("x-quizforge-warnings");
+      if (warningHeader) {
+        try {
+          const parsed = JSON.parse(decodeURIComponent(warningHeader));
+          if (Array.isArray(parsed)) {
+            setWarnings(parsed as string[]);
+          }
+        } catch {
+          // ignore parse errors
+        }
+      }
+
       const blob = await response.blob();
       const contentDisposition = response.headers.get("content-disposition") || "";
       const nameMatch = contentDisposition.match(/filename=\"?(.+?)\"?$/i);
       const filename = nameMatch?.[1] ?? "quizforge_export.zip";
 
       const url = URL.createObjectURL(blob);
-      setDownload({ url, name: filename });
-      setPhase("success");
+      // If warnings exist, require user confirmation before exposing download
+      if (warnings.length) {
+        setPendingDownload({ url, name: filename });
+        setReviewType("warning");
+        setReviewPrompt(
+          ["Warnings detected:", ...warnings.map((w, i) => `${i + 1}. ${w}`)].join("\n")
+        );
+        setPhase("success");
+      } else {
+        setDownload({ url, name: filename });
+        setPhase("success");
+      }
     } catch (err) {
       const message =
         err instanceof Error ? err.message : "Something went wrong. Try again.";
       setError(message);
+      // Treat error detail as a fail prompt when present
+      if (message) {
+        setReviewType("fail");
+        setReviewPrompt(message);
+      }
       setPhase("error");
     } finally {
       setIsSubmitting(false);
@@ -85,41 +130,153 @@ function App() {
     setPastedText("");
     setPhase("idle");
     setError("");
+    setWarnings([]);
     setDownload(null);
+    setPendingDownload(null);
+    setReviewPrompt(null);
+    setReviewType(null);
   };
 
-  const statusOrder: Phase[] = [
-    "queued",
-    "running",
-    "packaging",
-    "success",
-    "error",
-  ];
+  const progressValue = (() => {
+    switch (phase) {
+      case "idle":
+        return 0;
+      case "queued":
+        return 25;
+      case "running":
+        return 55;
+      case "packaging":
+        return 85;
+      case "success":
+        return 100;
+      case "error":
+        return 100;
+      default:
+        return 0;
+    }
+  })();
 
   return (
     <>
+      {reviewPrompt && (
+        <div className="modal-backdrop">
+          <div className="modal">
+            <h3>{reviewType === "fail" ? "Processing failed" : "Warnings detected"}</h3>
+            <pre className="modal-body">{reviewPrompt}</pre>
+            <div className="modal-actions">
+              {reviewType === "warning" && pendingDownload && (
+                <>
+                  <button
+                    className="primary"
+                    onClick={() => {
+                      setDownload(pendingDownload);
+                      setPendingDownload(null);
+                      setReviewPrompt(null);
+                      setReviewType(null);
+                    }}
+                  >
+                    Proceed to download
+                  </button>
+                  <button
+                    className="secondary"
+                    onClick={() => {
+                      setPendingDownload(null);
+                      setReviewPrompt(null);
+                      setReviewType(null);
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </>
+              )}
+              {reviewType === "fail" && (
+                <button
+                  className="primary"
+                  onClick={() => {
+                    setReviewPrompt(null);
+                    setReviewType(null);
+                  }}
+                >
+                  Close
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
       <header>
-        <h1>QuizForge</h1>
-        <p>
-          Upload or paste a QuizForge-ready TXT, and we&apos;ll return the same
-          outputs as the CLI - packaged as a ZIP you can import into Canvas or print.
+        <h1>QuizForge - Using AI to create Canvas New Quizzes and more!</h1>
+        <p className="eyebrow">
+          Load &ldquo;QuizForge_Base_Module&rdquo; to turn any AI into your Teaching
+          Assistant.
         </p>
+        <a className="ghost-button" href={templateUrl} download>
+          Download QuizForge Base
+        </a>
       </header>
 
       <main className="layout">
-        <div className="columns">
-          <section className="card">
-            <h2>Send a Quiz</h2>
-            <p className="helper">
-              Choose a `.txt` file or paste the contents. We run the existing
-              orchestrator end-to-end and stream back the Finished_Exports folder
-              as a ZIP.
-            </p>
+        <div className="columns two-col">
+          <section className="card steps-card">
+            <h2>How QuizForge works</h2>
+            <ol className="steps">
+              {steps.map((text, idx) => (
+                <li key={text}>
+                  <span className="step-number">{idx + 1}</span>
+                  <span className="step-text">{text}</span>
+                </li>
+              ))}
+            </ol>
+            <div className="feature-block">
+              <h3>Teachers can:</h3>
+              <ul className="feature-list">
+                <li>Create fresh quizzes from scratch.</li>
+                <li>Convert existing quizzes from documents or even photos.</li>
+                <li>Give the AI unit plans or standards to improve it.</li>
+              </ul>
+            </div>
+            <div className="feature-block">
+              <h3>Built-in pedagogy:</h3>
+              <ul className="feature-list">
+                <li>Depth of Knowledge alignment.</li>
+                <li>Tiers of Intervention (1-3) on request.</li>
+                <li>Bloom&apos;s Taxonomy targeting.</li>
+                <li>Clear rationales for every scored item.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="card emphasis">
+            <div className="input-header">
+              <div>
+                <h2>Paste here (or upload)</h2>
+                <p className="helper">
+                  Paste is easiest. Upload works too. Click Go and we&apos;ll build your
+                  Canvas-ready ZIP and docs.
+                </p>
+              </div>
+              <a className="tiny-link" href={templateUrl} download>
+                Need the format? Download QF_Base
+              </a>
+            </div>
 
             <div className="input-stack">
+              <div className="textarea-wrap">
+                <label htmlFor="quiz-text">
+                  <strong>Paste your quiz text</strong>
+                </label>
+                <textarea
+                  id="quiz-text"
+                  className="textarea"
+                  placeholder="Paste the text you copied from your AI (between the QUIZFORGE tags)..."
+                  value={pastedText}
+                  onChange={(e) => setPastedText(e.target.value)}
+                />
+              </div>
+
               <div className="file-picker">
                 <label htmlFor="quiz-file">
-                  <strong>Upload TXT</strong>
+                  <strong>Or upload a TXT file</strong>
                   <input
                     id="quiz-file"
                     type="file"
@@ -136,19 +293,6 @@ function App() {
                   </div>
                 )}
               </div>
-
-              <div>
-                <label htmlFor="quiz-text">
-                  <strong>Or paste the TXT contents</strong>
-                </label>
-                <textarea
-                  id="quiz-text"
-                  className="textarea"
-                  placeholder="Paste your QuizForge-ready TXT..."
-                  value={pastedText}
-                  onChange={(e) => setPastedText(e.target.value)}
-                />
-              </div>
             </div>
 
             <div className="actions" style={{ marginTop: "1rem" }}>
@@ -157,14 +301,38 @@ function App() {
                 disabled={!canSubmit || isSubmitting}
                 onClick={handleSubmit}
               >
-                {isSubmitting ? "Queuing..." : "Queue Quiz"}
+                {isSubmitting ? "Working..." : "Go"}
               </button>
               <button className="secondary" onClick={handleReset} disabled={isSubmitting}>
                 Reset
               </button>
             </div>
 
+            <div className="progress-wrap">
+              <div className="progress-label">
+                {phase === "idle" ? "Waiting for your quiz" : statusLabels[phase]}
+              </div>
+              <div className="progress-bar">
+                <div
+                  className={`progress-fill ${phase === "error" ? "error" : ""} ${
+                    phase === "success" ? "success" : ""
+                  }`}
+                  style={{ width: `${progressValue}%` }}
+                />
+              </div>
+            </div>
+
             {error && <div className="alert">{error}</div>}
+            {warnings.length > 0 && (
+              <div className="alert warning">
+                <strong>Warnings detected:</strong>
+                <ul>
+                  {warnings.map((w) => (
+                    <li key={w}>{w}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {download && (
               <div className="downloads">
                 <a
@@ -175,41 +343,45 @@ function App() {
                   Download {download.name}
                 </a>
                 <div className="small">
-                  Contains the same Finished_Exports structure the CLI writes locally.
+                  Contains Canvas New Quiz import and printable docs.
                 </div>
               </div>
             )}
           </section>
-
-          <section className="card">
-            <h2>Progress</h2>
-            <p className="helper">
-              We mirror the local flow: parse -> validate -> package -> archive. Jobs are
-              processed synchronously and cleaned up after the ZIP streams.
-            </p>
-            <div className="status-track">
-              {statusOrder.map((key) => {
-                const active = phase === key;
-                const success = phase === "success" && key === "success";
-                const errorState = phase === "error" && key === "error";
-                return (
-                  <div
-                    key={key}
-                    className={`pill ${active ? "active" : ""} ${
-                      success ? "success" : ""
-                    } ${errorState ? "error" : ""}`}
-                  >
-                    {statusLabels[key as Phase]}
-                  </div>
-                );
-              })}
-            </div>
-            <p className="small" style={{ marginTop: "0.75rem" }}>
-              Nothing is persisted on the server: each request runs in a temp directory,
-              produces Finished_Exports, zips, streams, and discards.
-            </p>
-          </section>
         </div>
+        <section className="card howto-card">
+          <h2>How to import to Canvas</h2>
+          <ol className="howto-list">
+            <li>
+              <strong>Step 1 - Unzip the file from QuizForge.</strong> Right-click the download and
+              choose <em>Extract All</em>. Inside the new folder you&apos;ll see: a DOCX to print,
+              an answer key for scoring, a rationales file for students, and a QTI-ZIP for Canvas.
+            </li>
+            <li>
+              <strong>Step 2 - Create a new Canvas &quot;New Quiz&quot;.</strong>
+            </li>
+            <li>
+              <strong>Step 3 - Click &quot;Build&quot;.</strong>
+            </li>
+            <li>
+              <strong>Step 4 - Click the 3 vertical dots and choose &quot;Import content&quot;.</strong>
+            </li>
+            <li>
+              <strong>Step 5 - Navigate to the folder you just unzipped.</strong>
+            </li>
+            <li>
+              <strong>Step 6 - Select the QTI-ZIP with your quiz&apos;s name.</strong>
+            </li>
+            <li>
+              <strong>Step 7 - Import, save, publish.</strong>
+            </li>
+          </ol>
+        </section>
+        <footer className="footer">
+          <a href="https://www.github.com/longhornadam/quizforge" target="_blank" rel="noreferrer">
+            View QuizForge on GitHub
+          </a>
+        </footer>
       </main>
     </>
   );

@@ -3,21 +3,25 @@ version: "3.9"
 services:
   quizforge-webapp:
     build: .
-    image: quizforge:latest
+    image: quizforge:1.0-beta2-stable
     environment:
       - PORT=8000
       - QUIZFORGE_SPEC_MODE=json
+      - QUIZFORGE_RELEASE_CHANNEL=stable
+      - QUIZFORGE_VERSION=1.0-beta2-stable
     ports:
       - "8000:8000"
     restart: unless-stopped
 
   quizforge-cli:
     build: .
-    image: quizforge:latest
+    image: quizforge:1.0-beta2-stable
     entrypoint: ["python3", "run_quizforge.py"]
     command: ["--input", "/app/input/attempt9_docx_all_types_13q.txt", "--output", "/app/output/attempt9_build"]
     environment:
       - QUIZFORGE_SPEC_MODE=json
+      - QUIZFORGE_RELEASE_CHANNEL=stable
+      - QUIZFORGE_VERSION=1.0-beta2-stable
     volumes:
       - ./spec/inputs:/app/input
       - ./spec/outputs:/app/output

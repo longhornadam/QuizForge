@@ -7,6 +7,11 @@ Python-based automated quiz generator for Canvas New Quizzes (QTI 1.2).
 - `web/`: Vite/React client served as static assets.
 - `server/`: Node wrapper that shells out to the Python orchestrator per request.
 
+## Release channel & versioning
+
+- Current stable checkpoint: **1.0-beta2-stable** (see `VERSION`).
+- Always decide: deploy `--stable` or `--development`. For Unraid/Dockge, prefer `--stable` unless testing new changes.
+
 ## Deploying the Web App (beta-ready)
 
 - **Docker/Unraid (single container)**: `docker compose up -d quizforge-webapp` then visit `http://<host>:8000`. The container serves the Vite UI and the Express API together; Cloudflare Tunnel can point straight at port 8000. Health check: `GET /api/health`.

@@ -1,6 +1,0 @@
-Title: Broken Quiz
-
----
-Type: MC
-Prompt: What is 2+2?
----

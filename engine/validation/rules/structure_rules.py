@@ -10,8 +10,16 @@ These rules check for non-negotiable errors that cannot be auto-fixed:
 from typing import List
 from ...core.quiz import Quiz
 from ...core.questions import (
-    MCQuestion, MAQuestion, TFQuestion, NumericalQuestion,
-    MatchingQuestion, FITBQuestion, OrderingQuestion, CategorizationQuestion
+    MCQuestion,
+    MAQuestion,
+    TFQuestion,
+    NumericalQuestion,
+    MatchingQuestion,
+    FITBQuestion,
+    OrderingQuestion,
+    CategorizationQuestion,
+    StimulusEnd,
+    StimulusItem,
 )
 
 
@@ -52,9 +60,14 @@ def _validate_question(question, index: int) -> List[str]:
     errors: List[str] = []
     prefix = f"Question #{index}"
     
-    # Check prompt is not empty
-    if not question.prompt or not question.prompt.strip():
-        errors.append(f"{prefix}: Prompt cannot be empty")
+    # Check prompt is not empty (STIMULUS and STIMULUS_END are exempt; prompts may be empty/placeholder)
+    if not isinstance(question, (StimulusItem, StimulusEnd)):
+        # Auto-fix: if prompt is empty but a header exists (e.g., ORDERING), reuse header as prompt
+        if (not question.prompt or not question.prompt.strip()) and getattr(question, "header", None):
+            question.prompt = getattr(question, "header")
+
+        if not question.prompt or not question.prompt.strip():
+            errors.append(f"{prefix}: Prompt cannot be empty")
     
     # Type-specific validation
     if isinstance(question, MCQuestion):

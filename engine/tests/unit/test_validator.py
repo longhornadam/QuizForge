@@ -3,7 +3,15 @@
 import pytest
 from engine.validation.validator import QuizValidator, ValidationStatus
 from engine.core.quiz import Quiz
-from engine.core.questions import MCQuestion, MCChoice, TFQuestion
+from engine.core.questions import (
+    MCQuestion,
+    MCChoice,
+    TFQuestion,
+    StimulusItem,
+    StimulusEnd,
+    OrderingQuestion,
+    OrderingItem,
+)
 
 
 def test_validate_empty_quiz_fails():
@@ -89,6 +97,51 @@ def test_validate_applies_point_normalization():
     result = validator.validate(quiz)
     # Points should be normalized to ~50 each
     assert result.quiz.questions[0].points + result.quiz.questions[1].points == 100.0
+
+
+def test_validate_allows_empty_stimulus_prompts():
+    """Stimulus and StimulusEnd may have empty prompts without failing structure checks."""
+    validator = QuizValidator()
+    quiz = Quiz(
+        title="Stimulus Prompt Optional",
+        questions=[
+            StimulusItem(qtype="STIMULUS", prompt=""),
+            MCQuestion(
+                qtype="MC",
+                prompt="Q under stimulus",
+                choices=[MCChoice(text="A", correct=True), MCChoice(text="B", correct=False)],
+            ),
+            StimulusEnd(qtype="STIMULUS_END", prompt=""),
+        ],
+    )
+
+    result = validator.validate(quiz)
+    assert result.status in (ValidationStatus.PASS, ValidationStatus.WEAK_PASS)
+
+
+def test_validate_uses_header_when_prompt_missing():
+    """If prompt is empty but header is present (e.g., ORDERING), validator should reuse header instead of failing."""
+    validator = QuizValidator()
+    items = [
+        OrderingItem(text="Step 1", ident="a"),
+        OrderingItem(text="Step 2", ident="b"),
+    ]
+    quiz = Quiz(
+        title="Ordering Header Fallback",
+        questions=[
+            OrderingQuestion(
+                qtype="ORDERING",
+                prompt="",  # intentionally empty
+                header="Arrange the steps.",
+                items=items,
+            )
+        ],
+    )
+
+    result = validator.validate(quiz)
+    assert result.status in (ValidationStatus.PASS, ValidationStatus.WEAK_PASS)
+    # Validator should have copied header into prompt
+    assert quiz.questions[0].prompt == "Arrange the steps."
 
 
 if __name__ == "__main__":
