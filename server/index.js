@@ -98,13 +98,14 @@ app.post("/api/quiz", upload.single("file"), async (req, res, next) => {
 // Serve built web assets when present (single-container deployment)
 if (HAS_STATIC) {
   app.use(express.static(STATIC_DIR, { index: "index.html", maxAge: "1h" }));
-  app.get("*", (req, res, next) => {
+  // Serve SPA index for any non-API route (GET/POST/etc.) so proxies that POST to "/" still get the app
+  app.all("*", (req, res, next) => {
     if (req.path.startsWith("/api")) return next();
     res.sendFile(path.join(STATIC_DIR, "index.html"));
   });
 } else {
   // Fallback root when static assets are missing
-  app.get("/", (_req, res) => {
+  app.all("*", (_req, res) => {
     res.json({
       status: "ok",
       message: "Static assets not found in container (SPA not bundled).",
