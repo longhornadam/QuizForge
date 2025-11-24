@@ -16,6 +16,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     NODE_ENV=production \
     PORT=8000 \
     PYTHON_BIN=python3
+ARG GIT_SHA=unknown
+ARG GIT_REF=unknown
+ARG BUILD_TIME=unknown
+ENV BUILD_SHA=$GIT_SHA \
+    BUILD_REF=$GIT_REF \
+    BUILD_TIME=$BUILD_TIME
 WORKDIR /app
 
 # Install Python toolchain for the orchestrator

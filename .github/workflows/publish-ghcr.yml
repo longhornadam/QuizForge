@@ -33,12 +33,14 @@ jobs:
             TAGS+=("${IMAGE}:stable")
           fi
           TAGS+=("${IMAGE}:${GITHUB_SHA}")
+          TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           {
             echo "tags<<EOF"
             for t in "${TAGS[@]}"; do
               echo "$t"
             done
             echo "EOF"
+            echo "build_time=${TIME}"
           } >> "$GITHUB_OUTPUT"
 
       - name: Build and push
@@ -47,3 +49,7 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          build-args: |
+            GIT_SHA=${{ github.sha }}
+            GIT_REF=${{ github.ref }}
+            BUILD_TIME=${{ steps.meta.outputs.build_time }}

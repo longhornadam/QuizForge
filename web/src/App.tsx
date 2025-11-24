@@ -43,6 +43,7 @@ function App() {
   const [warnings, setWarnings] = useState<string[]>([]);
   const [reviewPrompt, setReviewPrompt] = useState<string | null>(null);
   const [reviewType, setReviewType] = useState<"fail" | "warning" | null>(null);
+  const [buildInfo, setBuildInfo] = useState<string>("");
 
   const canSubmit = useMemo(
     () => !!selectedFile || pastedText.trim().length > 0,
@@ -163,6 +164,23 @@ function App() {
         return 0;
     }
   })();
+
+  // Fetch build info for display
+  useEffect(() => {
+    fetch(`${API_BASE || ""}/api/health`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.build) {
+          const b = data.build;
+          const parts = [];
+          if (b.ref) parts.push(b.ref);
+          if (b.sha) parts.push(b.sha.substring(0, 7));
+          if (b.time) parts.push(b.time);
+          setBuildInfo(parts.join(" · "));
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <>
@@ -386,6 +404,11 @@ function App() {
           <a href="https://www.github.com/longhornadam/quizforge" target="_blank" rel="noreferrer">
             View QuizForge on GitHub
           </a>
+          {buildInfo && (
+            <span className="small" style={{ float: "right" }}>
+              Build: {buildInfo}
+            </span>
+          )}
         </footer>
       </main>
     </>
