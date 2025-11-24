@@ -148,40 +148,51 @@ def _balance_tf_questions(tf_questions: List[TFQuestion]) -> None:
 
 
 def log_distribution_stats(questions: List[Question], log_path: str) -> None:
+    """Write distribution stats to a log file."""
+    text = distribution_stats_text(questions)
+    p = Path(log_path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with p.open('a', encoding='utf-8') as log:
+        log.write(text)
+
+
+def distribution_stats_text(questions: List[Question]) -> str:
+    """Return distribution stats as text (no file I/O)."""
     mc_questions = [q for q in questions if isinstance(q, MCQuestion)]
     ma_questions = [q for q in questions if isinstance(q, MAQuestion)]
     tf_questions = [q for q in questions if isinstance(q, TFQuestion)]
 
-    p = Path(log_path)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    with p.open('a', encoding='utf-8') as log:
-        log.write('\n' + '=' * 60 + '\n')
-        log.write('ANSWER DISTRIBUTION (AFTER BALANCING)\n')
-        log.write('=' * 60 + '\n\n')
+    lines = []
+    lines.append('\n' + '=' * 60)
+    lines.append('ANSWER DISTRIBUTION (AFTER BALANCING)')
+    lines.append('=' * 60 + '\n')
 
-        if mc_questions:
-            log.write('Multiple Choice Distribution:\n')
-            position_counts = {}
-            for q in mc_questions:
-                idx = next((i for i, c in enumerate(q.choices) if c.correct), None)
-                if idx is None:
-                    continue
-                letter = chr(65 + idx)
-                position_counts[letter] = position_counts.get(letter, 0) + 1
+    if mc_questions:
+        lines.append('Multiple Choice Distribution:')
+        position_counts = {}
+        for q in mc_questions:
+            idx = next((i for i, c in enumerate(q.choices) if c.correct), None)
+            if idx is None:
+                continue
+            letter = chr(65 + idx)
+            position_counts[letter] = position_counts.get(letter, 0) + 1
 
-            for letter in sorted(position_counts.keys()):
-                count = position_counts[letter]
-                pct = (count / len(mc_questions)) * 100
-                log.write(f"  {letter}: {count} ({pct:.1f}%)\n")
-            log.write('\n')
+        for letter in sorted(position_counts.keys()):
+            count = position_counts[letter]
+            pct = (count / len(mc_questions)) * 100
+            lines.append(f"  {letter}: {count} ({pct:.1f}%)")
+        lines.append('')
 
-        if tf_questions:
-            log.write('True/False Distribution:\n')
-            true_count = sum(1 for q in tf_questions if q.answer_true)
-            false_count = len(tf_questions) - true_count
-            log.write(f"  True: {true_count} ({true_count/len(tf_questions)*100:.1f}%)\n")
-            log.write(f"  False: {false_count} ({false_count/len(tf_questions)*100:.1f}%)\n")
-            log.write('\n')
+    if tf_questions:
+        lines.append('True/False Distribution:')
+        true_count = sum(1 for q in tf_questions if q.answer_true)
+        false_count = len(tf_questions) - true_count
+        lines.append(f"  True: {true_count} ({true_count/len(tf_questions)*100:.1f}%)")
+        lines.append(f"  False: {false_count} ({false_count/len(tf_questions)*100:.1f}%)")
+        lines.append('')
 
-        if ma_questions:
-            log.write(f"Multiple Answer Questions: {len(ma_questions)} (shuffled)\n\n")
+    if ma_questions:
+        lines.append(f"Multiple Answer Questions: {len(ma_questions)} (shuffled)")
+        lines.append('')
+
+    return '\n'.join(lines)

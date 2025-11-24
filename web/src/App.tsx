@@ -29,6 +29,12 @@ function App() {
   const [download, setDownload] = useState<{ url: string; name: string } | null>(
     null
   );
+  const [pendingDownload, setPendingDownload] = useState<{ url: string; name: string } | null>(
+    null
+  );
+  const [warnings, setWarnings] = useState<string[]>([]);
+  const [reviewPrompt, setReviewPrompt] = useState<string | null>(null);
+  const [reviewType, setReviewType] = useState<"fail" | "warning" | null>(null);
 
   const canSubmit = useMemo(
     () => !!selectedFile || pastedText.trim().length > 0,
@@ -40,6 +46,10 @@ function App() {
     setIsSubmitting(true);
     setDownload(null);
     setError("");
+    setWarnings([]);
+    setReviewPrompt(null);
+    setReviewType(null);
+    setPendingDownload(null);
     setPhase("queued");
 
     const formData = new FormData();
@@ -69,18 +79,46 @@ function App() {
         throw new Error(detail || "QuizForge failed to process the request.");
       }
 
+      // Capture warnings from headers (if any)
+      const warningHeader = response.headers.get("x-quizforge-warnings");
+      if (warningHeader) {
+        try {
+          const parsed = JSON.parse(decodeURIComponent(warningHeader));
+          if (Array.isArray(parsed)) {
+            setWarnings(parsed as string[]);
+          }
+        } catch {
+          // ignore parse errors
+        }
+      }
+
       const blob = await response.blob();
       const contentDisposition = response.headers.get("content-disposition") || "";
       const nameMatch = contentDisposition.match(/filename=\"?(.+?)\"?$/i);
       const filename = nameMatch?.[1] ?? "quizforge_export.zip";
 
       const url = URL.createObjectURL(blob);
-      setDownload({ url, name: filename });
-      setPhase("success");
+      // If warnings exist, require user confirmation before exposing download
+      if (warnings.length) {
+        setPendingDownload({ url, name: filename });
+        setReviewType("warning");
+        setReviewPrompt(
+          ["Warnings detected:", ...warnings.map((w, i) => `${i + 1}. ${w}`)].join("\n")
+        );
+        setPhase("success");
+      } else {
+        setDownload({ url, name: filename });
+        setPhase("success");
+      }
     } catch (err) {
       const message =
         err instanceof Error ? err.message : "Something went wrong. Try again.";
       setError(message);
+      // Treat error detail as a fail prompt when present
+      if (message) {
+        setReviewType("fail");
+        setReviewPrompt(message);
+      }
       setPhase("error");
     } finally {
       setIsSubmitting(false);
@@ -92,7 +130,11 @@ function App() {
     setPastedText("");
     setPhase("idle");
     setError("");
+    setWarnings([]);
     setDownload(null);
+    setPendingDownload(null);
+    setReviewPrompt(null);
+    setReviewType(null);
   };
 
   const progressValue = (() => {
@@ -116,6 +158,52 @@ function App() {
 
   return (
     <>
+      {reviewPrompt && (
+        <div className="modal-backdrop">
+          <div className="modal">
+            <h3>{reviewType === "fail" ? "Processing failed" : "Warnings detected"}</h3>
+            <pre className="modal-body">{reviewPrompt}</pre>
+            <div className="modal-actions">
+              {reviewType === "warning" && pendingDownload && (
+                <>
+                  <button
+                    className="primary"
+                    onClick={() => {
+                      setDownload(pendingDownload);
+                      setPendingDownload(null);
+                      setReviewPrompt(null);
+                      setReviewType(null);
+                    }}
+                  >
+                    Proceed to download
+                  </button>
+                  <button
+                    className="secondary"
+                    onClick={() => {
+                      setPendingDownload(null);
+                      setReviewPrompt(null);
+                      setReviewType(null);
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </>
+              )}
+              {reviewType === "fail" && (
+                <button
+                  className="primary"
+                  onClick={() => {
+                    setReviewPrompt(null);
+                    setReviewType(null);
+                  }}
+                >
+                  Close
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
       <header>
         <h1>QuizForge - Using AI to create Canvas New Quizzes and more!</h1>
         <p className="eyebrow">
@@ -235,6 +323,16 @@ function App() {
             </div>
 
             {error && <div className="alert">{error}</div>}
+            {warnings.length > 0 && (
+              <div className="alert warning">
+                <strong>Warnings detected:</strong>
+                <ul>
+                  {warnings.map((w) => (
+                    <li key={w}>{w}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {download && (
               <div className="downloads">
                 <a

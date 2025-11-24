@@ -40,7 +40,19 @@ app.post("/api/quiz", upload.single("file"), async (req, res, next) => {
     const inputPath = await persistInput(dropzone, req);
     await runOrchestrator(jobRoot);
 
+    // If processing failed, return the fail prompt immediately instead of a download
+    const failPrompt = await findFailPrompt(finished);
+    if (failPrompt) {
+      await fs.promises.rm(jobRoot, { recursive: true, force: true }).catch(() => {});
+      return res
+        .status(400)
+        .json({ detail: failPrompt, note: "Processing failed; send this back to the AI to fix." });
+    }
+
     await postProcessOutputs(finished);
+
+    // Surface warnings (if any) from the main log
+    const warnings = await extractWarnings(finished);
 
     // Prefer the quiz folder name for the ZIP filename
     const quizFolder = await findFirstSubfolder(finished);
@@ -50,6 +62,10 @@ app.post("/api/quiz", upload.single("file"), async (req, res, next) => {
 
     res.setHeader("Content-Type", "application/zip");
     res.setHeader("Content-Disposition", `attachment; filename="${zipName}"`);
+    if (warnings.length) {
+      const payload = encodeURIComponent(JSON.stringify(warnings));
+      res.setHeader("X-QuizForge-Warnings", payload);
+    }
 
     const archive = archiver("zip", { zlib: { level: 9 } });
     // Zip only the contents (avoid nesting in Finished_Exports/)
@@ -155,6 +171,23 @@ async function findFirstSubfolder(dir) {
   return folder ? folder.name : null;
 }
 
+async function findFailPrompt(dir) {
+  const entries = await fs.promises.readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      const nested = await findFailPrompt(full);
+      if (nested) return nested;
+    } else if (
+      entry.isFile() &&
+      entry.name.toUpperCase().endsWith("_FAIL_REVISE_WITH_AI.TXT")
+    ) {
+      return fs.promises.readFile(full, { encoding: "utf-8" });
+    }
+  }
+  return null;
+}
+
 async function postProcessOutputs(finishedDir) {
   // Remove noisy .log files; keep user-facing TXT logs
   const entries = await fs.promises.readdir(finishedDir, { withFileTypes: true });
@@ -177,4 +210,32 @@ async function postProcessOutputs(finishedDir) {
       }
     }
   }
+}
+
+async function extractWarnings(finishedDir) {
+  // Find the main quiz folder and log_<STATUS>_FIXED.txt, then parse WARNINGS block
+  const warnings = [];
+  const quizFolder = await findFirstSubfolder(finishedDir);
+  if (!quizFolder) return warnings;
+
+  const folderPath = path.join(finishedDir, quizFolder);
+  const entries = await fs.promises.readdir(folderPath, { withFileTypes: true });
+  const logEntry = entries.find(
+    (e) => e.isFile() && e.name.toLowerCase().startsWith("log_") && e.name.toLowerCase().endsWith(".txt")
+  );
+  if (!logEntry) return warnings;
+
+  const logPath = path.join(folderPath, logEntry.name);
+  const text = await fs.promises.readFile(logPath, { encoding: "utf-8" });
+  const lines = text.split(/\r?\n/);
+  const start = lines.findIndex((l) => l.trim().toUpperCase().startsWith("WARNINGS:"));
+  if (start === -1) return warnings;
+  for (let i = start + 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line || line.startsWith("===")) break;
+    if (/^\d+\.\s+/g.test(line)) {
+      warnings.push(line.replace(/^\d+\.\s+/, "").trim());
+    }
+  }
+  return warnings;
 }

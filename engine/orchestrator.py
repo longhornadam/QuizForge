@@ -189,16 +189,32 @@ class QuizForgeOrchestrator:
             total_points=quiz.total_points(),
             question_count=quiz.question_count()
         )
+        log_path = folder / log_filename
         write_file(folder, log_filename, log_content.encode('utf-8'))
-        print(f"  → Created: {folder.name}/{log_filename}")
-        # Log answer distribution if available
+
+        # Append physical validation stats into the main log (then remove the extra file)
         try:
-            from engine.validation.answer_balancer import log_distribution_stats
-            dist_log = folder / 'answer_distribution.log'
-            log_distribution_stats(quiz.questions, str(dist_log))
-            print(f"  → Created: {folder.name}/{dist_log.name}")
+            phys_log_path = None
+            if package_results.get('physical'):
+                phys_log_path = package_results['physical'].get('log_path')
+            if phys_log_path:
+                phys_text = Path(phys_log_path).read_text(encoding='utf-8')
+                with log_path.open('a', encoding='utf-8') as lf:
+                    lf.write('\n\n' + phys_text.strip() + '\n')
+                Path(phys_log_path).unlink(missing_ok=True)
         except Exception:
             pass
+
+        # Append answer distribution stats into the main log instead of a separate file
+        try:
+            from engine.validation.answer_balancer import distribution_stats_text
+            dist_text = distribution_stats_text(quiz.questions)
+            with log_path.open('a', encoding='utf-8') as lf:
+                lf.write('\n\n' + dist_text.strip() + '\n')
+        except Exception:
+            pass
+
+        print(f"  → Created: {folder.name}/{log_filename}")
         
         # Archive original file
         self._archive_file(filepath)
