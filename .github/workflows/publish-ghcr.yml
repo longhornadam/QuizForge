@@ -6,9 +6,6 @@ on:
     tags: [ stable ]
   workflow_dispatch:
 
-env:
-  IMAGE_NAME: ghcr.io/${{ github.repository }}
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -29,7 +26,7 @@ jobs:
       - name: Set image tags
         id: meta
         run: |
-          IMAGE="${IMAGE_NAME}"
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY_OWNER}/quizforge"
           TAGS=()
           if [[ "${GITHUB_REF}" == "refs/tags/stable" ]]; then
             TAGS+=("${IMAGE}:stable")
