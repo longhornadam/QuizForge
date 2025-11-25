@@ -48,7 +48,7 @@ Points: 10
 Prompt:
 Report the measured mass to the nearest tenth of a gram.
 Answer: 12.4
-Tolerance: ±0.1
+Tolerance: +/-0.1
 ```
 
 ### Example: Range
@@ -88,12 +88,12 @@ Precision: 3 decimal places
 |------|-----------------|------------------|
 | Exact | (no modifier) | Requires exact match after normalization |
 | Percent Margin | `Tolerance: <value>%` | Canvas sets `margintype="percent"` with symmetric inclusive bounds |
-| Absolute Margin | `Tolerance: ±<value>` or signed literal | Canvas sets `margintype="absolute"` with symmetric inclusive bounds |
+| Absolute Margin | `Tolerance: +/-<value>` or signed literal | Canvas sets `margintype="absolute"` with symmetric inclusive bounds |
 | Range | `Range: <min> to <max>` | Inclusive `<vargte>` and `<varlte>` bounds, Packager still emits `<varequal>` for Canvas parity |
 | Significant Digits | `Precision: <n> significant digit(s)` | Strict lower bound `<vargt>`, inclusive upper `<varlte>`; precision stored as integer |
 | Decimal Places | `Precision: <n> decimal place(s)` | Strict lower bound `<vargt>`, inclusive upper `<varlte>` centred on midpoint |
 
-All numeric literals are normalized with `Decimal` to guarantee Canvas-compatible formatting (e.g., `4` → `4.0`, `5E+1` → `5.0E+1`).
+All numeric literals are normalized with `Decimal` to guarantee Canvas-compatible formatting (e.g., `4` -> `4.0`, `5E+1` -> `5.0E+1`).
 
 ---
 
@@ -138,10 +138,10 @@ Refer to `dev/numerical_decimal_fix_test.zip` and `dev/pipeline_test_quiz.zip` f
 ---
 
 ## Related Resources
-- `CANVAS_BEHAVIORS_REFERENCE.md` – Quick mode reference and Canvas rendering behaviors.
-- `LLM_Modules/QF_BASE.md` – Global output contract and validation checklist.
-- `dev/DECIMAL_FORMATTING_FIX.md` – Engineering change log for Canvas compatibility.
-- `Packager/tests/test_numerical_integration.py` – Unit tests covering all tolerance modes.
+- `CANVAS_BEHAVIORS_REFERENCE.md` - Quick mode reference and Canvas rendering behaviors.
+- `LLM_Modules/QF_BASE.md` - Global output contract and validation checklist.
+- `dev/DECIMAL_FORMATTING_FIX.md` - Engineering change log for Canvas compatibility.
+- `Packager/tests/test_numerical_integration.py` - Unit tests covering all tolerance modes.
 
 ---
 

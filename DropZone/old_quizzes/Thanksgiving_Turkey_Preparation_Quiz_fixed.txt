@@ -1,0 +1,457 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Thanksgiving Turkey Preparation Quiz",
+  "metadata": {
+    "subject": "Culinary Arts / Home Economics",
+    "grade_level": "9-12",
+    "tier": 2,
+    "standards": "Food Safety and Preparation Techniques"
+  },
+  "items": [
+    {
+      "id": "stim_safety",
+      "type": "STIMULUS",
+      "format": "text",
+      "prompt": "```prose\nProper turkey preparation begins days before Thanksgiving. The USDA recommends thawing frozen turkeys in the refrigerator at 40\u00b0F or below, allowing approximately 24 hours of thawing time for every 4-5 pounds of turkey. A 16-pound turkey requires about 4 days to thaw completely. Never thaw a turkey at room temperature, as this creates ideal conditions for bacterial growth. Once thawed, a turkey can be safely refrigerated for an additional 1-2 days before cooking.\n```"
+    },
+    {
+      "id": "mc_thaw_time",
+      "type": "MC",
+      "stimulus_id": "stim_safety",
+      "prompt": "Based on the passage, how long should you allow for thawing a 20-pound frozen turkey in the refrigerator?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "5 days",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "3 days",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "7 days",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "2 days",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "tf_room_temp",
+      "type": "TF",
+      "stimulus_id": "stim_safety",
+      "prompt": "According to food safety guidelines, it is acceptable to thaw a turkey on the kitchen counter if you plan to cook it immediately.",
+      "answer": false
+    },
+    {
+      "id": "numerical_temp",
+      "type": "NUMERICAL",
+      "stimulus_id": "stim_safety",
+      "prompt": "What is the maximum safe refrigerator temperature in degrees Fahrenheit for thawing a turkey, according to the USDA?",
+      "answer": 40,
+      "evaluation": {
+        "mode": "exact"
+      }
+    },
+    {
+      "type": "STIMULUS_END",
+      "prompt": "End of first stimulus."
+    },
+    {
+      "id": "ma_prep_steps",
+      "type": "MA",
+      "prompt": "Which of the following are essential steps when preparing a turkey for roasting? Select all that apply.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Remove the giblets and neck from the body cavity",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Rinse the turkey thoroughly under running water",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Pat the turkey dry with paper towels",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Season the turkey inside and out",
+          "correct": true
+        },
+        {
+          "id": "E",
+          "text": "Soak the turkey in saltwater for 24 hours without refrigeration",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "matching_terms",
+      "type": "MATCHING",
+      "prompt": "Match each turkey preparation term with its correct definition.",
+      "pairs": [
+        {
+          "left": "Brining",
+          "right": "Soaking turkey in a saltwater solution to enhance moisture and flavor"
+        },
+        {
+          "left": "Trussing",
+          "right": "Tying the legs and wings close to the body for even cooking"
+        },
+        {
+          "left": "Basting",
+          "right": "Spooning pan juices over the turkey during roasting"
+        },
+        {
+          "left": "Resting",
+          "right": "Allowing the cooked turkey to sit before carving to retain juices"
+        }
+      ]
+    },
+    {
+      "id": "fitb_internal_temp",
+      "type": "FITB",
+      "prompt": "A turkey is safely cooked when the internal temperature reaches [blank] degrees Fahrenheit in the thickest part of the [blank] and the innermost part of the [blank].",
+      "accept": [
+        [
+          "165"
+        ],
+        [
+          "thigh",
+          "leg"
+        ],
+        [
+          "wing",
+          "breast"
+        ]
+      ],
+      "case_sensitive": false
+    },
+    {
+      "id": "mc_roasting_method",
+      "type": "MC",
+      "prompt": "What is the primary advantage of roasting a turkey breast-side down for the first half of cooking?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It helps keep the breast meat moist by allowing juices to flow into it",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "It reduces the total cooking time by 30-40%",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "It eliminates the need for basting entirely",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It prevents the skin from browning too quickly",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "ordering_steps",
+      "type": "ORDERING",
+      "header": "Arrange the turkey preparation steps in the correct order from first to last.",
+      "items": [
+        "Thaw the frozen turkey in the refrigerator",
+        "Remove giblets and neck from cavities",
+        "Season the turkey with herbs and butter",
+        "Place turkey in roasting pan and into preheated oven",
+        "Check internal temperature with meat thermometer",
+        "Let turkey rest for 20-30 minutes before carving"
+      ]
+    },
+    {
+      "id": "tf_stuffing_safety",
+      "type": "TF",
+      "prompt": "For food safety reasons, stuffing cooked inside a turkey must reach the same minimum internal temperature of 165\u00b0F as the turkey meat itself.",
+      "answer": true
+    },
+    {
+      "id": "categorization_ingredients",
+      "type": "CATEGORIZATION",
+      "prompt": "Categorize each ingredient by its primary function in turkey preparation.",
+      "categories": [
+        "Seasoning/Flavor",
+        "Moisture/Tenderizing",
+        "Browning/Appearance"
+      ],
+      "items": [
+        {
+          "label": "Kosher salt",
+          "category": "Moisture/Tenderizing"
+        },
+        {
+          "label": "Fresh rosemary",
+          "category": "Seasoning/Flavor"
+        },
+        {
+          "label": "Melted butter",
+          "category": "Browning/Appearance"
+        },
+        {
+          "label": "Black pepper",
+          "category": "Seasoning/Flavor"
+        },
+        {
+          "label": "Olive oil",
+          "category": "Browning/Appearance"
+        },
+        {
+          "label": "Apple cider brine",
+          "category": "Moisture/Tenderizing"
+        }
+      ]
+    },
+    {
+      "id": "stim_timing",
+      "type": "STIMULUS",
+      "format": "text",
+      "prompt": "```prose\nCalculating cooking time is crucial for turkey preparation. The general rule is to roast an unstuffed turkey at 325\u00b0F for approximately 13-15 minutes per pound. A stuffed turkey requires 15-17 minutes per pound. For example, a 12-pound unstuffed turkey would need roughly 2.5 to 3 hours, while the same turkey stuffed would need 3 to 3.5 hours. Always verify doneness with a meat thermometer rather than relying solely on timing.\n```"
+    },
+    {
+      "id": "numerical_cooking_time",
+      "type": "NUMERICAL",
+      "stimulus_id": "stim_timing",
+      "prompt": "Using the minimum recommended time, approximately how many total minutes would it take to roast an unstuffed 15-pound turkey at 325\u00b0F?",
+      "answer": 195,
+      "evaluation": {
+        "mode": "absolute_margin",
+        "value": 5
+      }
+    },
+    {
+      "id": "mc_thermometer",
+      "type": "MC",
+      "stimulus_id": "stim_timing",
+      "prompt": "Where should you insert a meat thermometer to get the most accurate reading of a turkey's doneness?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Into the thickest part of the thigh without touching bone",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Into the center of the stuffing cavity",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Through the skin into the breast meat near the wing",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Into the drumstick close to the bone",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "STIMULUS_END",
+      "prompt": "End of second stimulus."
+    },
+    {
+      "id": "fitb_resting",
+      "type": "FITB",
+      "prompt": "After removing the turkey from the oven, you should let it rest for [blank] to [blank] minutes before carving to allow the juices to redistribute throughout the meat.",
+      "accept": [
+        [
+          "20",
+          "twenty"
+        ],
+        [
+          "30",
+          "forty",
+          "45"
+        ]
+      ],
+      "case_sensitive": false
+    },
+    {
+      "id": "essay_troubleshoot",
+      "type": "ESSAY",
+      "prompt": "Describe two common problems that can occur when roasting a turkey (such as dry breast meat or undercooked dark meat) and explain one technique for preventing each problem.",
+      "length_guidance": "5-8 sentences",
+      "rubric_hint": "Identify two specific problems, provide clear preventative techniques with reasoning"
+    },
+    {
+      "id": "fileupload_recipe",
+      "type": "FILEUPLOAD",
+      "prompt": "Create and upload a detailed turkey preparation timeline/checklist for a Thanksgiving dinner served at 3:00 PM. Include thawing, prep work, cooking, and resting times.",
+      "requirements": "Timeline should cover at least 4 days before serving and include specific times/temperatures",
+      "accepted_formats": [
+        ".pdf",
+        ".docx",
+        ".jpg",
+        ".png"
+      ],
+      "max_file_size_mb": 5
+    },
+    {
+      "id": "ma_food_safety",
+      "type": "MA",
+      "prompt": "Which of the following practices help prevent foodborne illness when handling raw turkey? Select all that apply.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Washing hands with soap and water before and after handling raw turkey",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Using the same cutting board for raw turkey and vegetables without washing between uses",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Sanitizing countertops and utensils that contacted raw turkey",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Storing raw turkey on the top shelf of the refrigerator",
+          "correct": false
+        },
+        {
+          "id": "E",
+          "text": "Keeping raw turkey separate from ready-to-eat foods",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": "mc_carving",
+      "type": "MC",
+      "prompt": "What is the first step when carving a rested turkey?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Remove the legs by cutting through the joint where the thigh meets the body",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Slice the breast meat into thin, even pieces",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Separate the wings from the breast section",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Remove all the skin and discard it",
+          "correct": false
+        }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "mc_thaw_time",
+      "correct": "A 20-pound turkey requires 24 hours per 4-5 pounds, so 20\u00f74=5 days of refrigerator thawing time.",
+      "distractor": "Three days would only be sufficient for a 12-15 pound turkey based on the 24-hour per 4-5 pounds guideline."
+    },
+    {
+      "item_id": "tf_room_temp",
+      "correct": "The passage explicitly states that room temperature thawing creates ideal conditions for dangerous bacterial growth regardless of immediate cooking plans.",
+      "distractor": "Many believe immediate cooking eliminates safety concerns, but bacteria multiply rapidly at room temperature before cooking begins."
+    },
+    {
+      "item_id": "numerical_temp",
+      "correct": "The USDA guideline explicitly states 40\u00b0F or below as the safe refrigerator temperature for thawing.",
+      "distractor": "Temperatures above 40\u00b0F enter the danger zone where bacteria can multiply on the turkey's surface during the multi-day thawing process."
+    },
+    {
+      "item_id": "ma_prep_steps",
+      "correct": "Removing giblets, patting dry, and seasoning are all standard preparation steps that ensure even cooking and food safety.",
+      "distractor": "Rinsing turkey is no longer recommended by the USDA because it can spread bacteria around the kitchen through water splashes."
+    },
+    {
+      "item_id": "matching_terms",
+      "correct": "Each term describes a specific technique used at different stages of turkey preparation, from pre-cooking (brining, trussing) to during cooking (basting) to post-cooking (resting).",
+      "distractor": "These terms are frequently confused because they all relate to moisture management, but each serves a distinct purpose in the cooking process."
+    },
+    {
+      "item_id": "fitb_internal_temp",
+      "correct": "The USDA requires 165\u00b0F in the thigh and wing as these dark meat areas take longest to cook and are common sites for undercooking.",
+      "distractor": "Some cooks stop at 160\u00b0F assuming carryover cooking will finish the job, but this doesn't guarantee the elimination of harmful bacteria."
+    },
+    {
+      "item_id": "mc_roasting_method",
+      "correct": "Gravity causes juices to flow downward, so starting breast-down allows fat and moisture from the back to baste the breast meat naturally.",
+      "distractor": "While this method does help with moisture, it doesn't significantly reduce cooking time and still requires monitoring for proper browning."
+    },
+    {
+      "item_id": "ordering_steps",
+      "correct": "This sequence follows food safety and culinary best practices from thawing through the essential resting period that redistributes juices.",
+      "distractor": "Skipping or reordering steps like seasoning after cooking or carving without resting results in dry, unevenly flavored meat."
+    },
+    {
+      "item_id": "tf_stuffing_safety",
+      "correct": "Stuffing inside the turkey absorbs raw juices during cooking and must reach 165\u00b0F to kill bacteria, matching the temperature requirement for the meat.",
+      "distractor": "Many assume the turkey's heat automatically sterilizes stuffing, but the stuffing's center often lags behind the meat's temperature by 10-20 degrees."
+    },
+    {
+      "item_id": "categorization_ingredients",
+      "correct": "Salt and brines penetrate meat to retain moisture, herbs add flavor, and fats like butter and oil promote surface browning through the Maillard reaction.",
+      "distractor": "Butter is often categorized as moisture-adding, but its primary role is creating the golden-brown skin through fat-based heat transfer."
+    },
+    {
+      "item_id": "numerical_cooking_time",
+      "correct": "At 13 minutes per pound minimum, 15 pounds \u00d7 13 = 195 minutes of roasting time.",
+      "distractor": "Calculating at 15 minutes per pound (the stuffed turkey rate) would overestimate the time needed for an unstuffed bird."
+    },
+    {
+      "item_id": "mc_thermometer",
+      "correct": "The thigh is the last part to reach safe temperature, and avoiding bone prevents false readings since bone conducts heat differently than meat.",
+      "distractor": "Checking only the breast often leads to overcooking the white meat while the thighs remain undercooked at unsafe temperatures."
+    },
+    {
+      "item_id": "fitb_resting",
+      "correct": "A 20-30 minute rest period allows muscle fibers to relax and reabsorb juices that would otherwise run out immediately when carved.",
+      "distractor": "Carving immediately after cooking causes rapid juice loss because the heated liquids inside haven't had time to redistribute and stabilize."
+    },
+    {
+      "item_id": "essay_troubleshoot",
+      "correct": "Strong responses identify specific problems like dry breast or pale skin and connect preventative techniques such as breast-down roasting or butter basting to the underlying cause.",
+      "distractor": "Weak responses list problems without explaining the mechanism of prevention or suggest techniques that don't address the root cause."
+    },
+    {
+      "item_id": "fileupload_recipe",
+      "correct": "A comprehensive timeline accounts for multi-day thawing, day-before prep, accurate cooking calculations, and post-cooking rest to coordinate all elements for on-time serving.",
+      "distractor": "Timelines that start the morning of Thanksgiving ignore the 4-5 day thawing requirement and create unnecessary time pressure."
+    },
+    {
+      "item_id": "ma_food_safety",
+      "correct": "Handwashing, sanitizing surfaces, and separating raw from ready-to-eat foods are core principles that prevent cross-contamination of harmful bacteria.",
+      "distractor": "Using the same cutting board transfers pathogens to ready-to-eat foods, and storing raw turkey on top shelves allows drips to contaminate foods below."
+    },
+    {
+      "item_id": "mc_carving",
+      "correct": "Removing the legs first provides stable access to the breast and prevents the turkey from rolling during carving.",
+      "distractor": "Starting with breast slicing is more difficult because the legs create instability and the whole carcass can shift unexpectedly."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

@@ -18,18 +18,11 @@ function App() {
   const templateUrl = "/LLM_Modules/QuizForge_Base.md";
   const exampleUrl = "/llm_modules/example_quiz_all_types.txt";
   const steps = [
-    <>
-      Download the <a href={templateUrl}>QuizForge Base module</a> and drop it in your AI chat.
-    </>,
-    <>
-      Copy your AI assistant&apos;s response and paste it in. Or, if you downloaded the quiz in TXT
-      format, attach it with the “Choose File” button.
-    </>,
-    <>
-      Click “Go”. You will either get a .ZIP with all your goodies or an error message to copy/paste
-      back to your AI to fix the problem.
-    </>,
-    <>Un-ZIP the download to see your Canvas import and print-ready docs.</>,
+    <>Give your AI-Teaching Assistant (AI-TA) the <a href={templateUrl}>QuizForge Base module</a>.</>,
+    <>Talk to your AI-TA about what quiz you need. The more information, the better!</>,
+    <>Copy your AI-TA&apos;s final output and paste it here.</>,
+    <>Download the ZIP QuizForge provides and unZIP it (inside is your QuizName_QTI.zip).</>,
+    <>Create/open a Canvas New Quiz, then load the inner QTI-ZIP (three dots -> "Import Content").</>,
   ];
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [pastedText, setPastedText] = useState("");
@@ -178,7 +171,7 @@ function App() {
           if (b.ref) parts.push(b.ref);
           if (b.sha) parts.push(b.sha.substring(0, 7));
           if (b.time) parts.push(b.time);
-          setBuildInfo(parts.join(" · "));
+          setBuildInfo(parts.join(" - "));
         }
       })
       .catch(() => {});
@@ -237,70 +230,42 @@ function App() {
         </div>
       )}
       <header>
-        <div className="logo-row">
-          <img src={logo} alt="QuizForge logo" className="logo" />
-          <h1>QuizForge - Using AI to create Canvas New Quizzes and more!</h1>
+          <div className="logo-row">
+            <img src={logo} alt="QuizForge logo" className="logo" />
+            <div className="taglines">
+            <p className="headline">
+              Load the <a href={templateUrl}>QuizForge Base module</a> to turn any AI into your
+              Teaching Assistant (AI-TA).
+            </p>
+            <p className="headline">
+              Get Canvas New Quizzes, printable doc versions, answer rationales for students, and
+              answer keys.
+            </p>
+            <p className="headline">
+              <a href="/ai-ta-tools.html">
+                More AI-TA tools (AI-generated presentations, Gimkits, and Blookets!)
+              </a>
+            </p>
+          </div>
         </div>
-        <p className="eyebrow">
-          Load the <a href={templateUrl}>QuizForge Base module</a> to turn any AI into your Teaching
-          Assistant.
-        </p>
       </header>
 
       <main className="layout">
         <div className="columns two-col">
-          <section className="card steps-card">
-            <h2>How QuizForge works</h2>
-            <ol className="steps">
-              {steps.map((text, idx) => (
-                <li key={text}>
-                  <span className="step-number">{idx + 1}</span>
-                  <span className="step-text">{text}</span>
-                </li>
-              ))}
-            </ol>
-            <div className="feature-block">
-              <h3>Teachers can:</h3>
-              <ul className="feature-list">
-                <li>Create fresh quizzes from scratch.</li>
-                <li>Convert existing quizzes from documents or even photos.</li>
-                <li>Give the AI unit plans or standards to improve pedagogy.</li>
-              </ul>
-            </div>
-            <div className="feature-block">
-              <h3>Built-in pedagogy:</h3>
-              <ul className="feature-list">
-                <li>Depth of Knowledge alignment.</li>
-                <li>Tiers of Intervention (1-3) on request.</li>
-                <li>Bloom&apos;s Taxonomy targeting.</li>
-                <li>Clear rationales for every scored item.</li>
-              </ul>
-            </div>
-          </section>
-
           <section className="card emphasis">
             <div className="input-header">
               <div>
                 <h2>Paste here (or upload)</h2>
-                <p className="helper">
-                  Paste is easiest. Upload works too. Click Go and we&apos;ll build your
-                  Canvas-ready ZIP and docs.
-                </p>
               </div>
-              <a className="tiny-link" href={templateUrl} download>
-                Need the format? Download QF_Base
-              </a>
             </div>
 
             <div className="input-stack">
               <div className="textarea-wrap">
-                <label htmlFor="quiz-text">
-                  <strong>Paste your quiz text</strong>
-                </label>
                 <textarea
                   id="quiz-text"
                   className="textarea"
-                  placeholder="Paste the text you copied from your AI (between the QUIZFORGE tags)..."
+                  aria-label="Paste quiz text"
+                  placeholder="Paste the text you copied from your AI..."
                   value={pastedText}
                   onChange={(e) => setPastedText(e.target.value)}
                 />
@@ -327,6 +292,9 @@ function App() {
               </div>
               <div className="small">
                 Need a pattern? Download the <a href={exampleUrl}>all-question-types example quiz</a>.
+              </div>
+              <div className="small">
+                Need the format? Download the <a href={templateUrl}>QuizForge Base module</a>.
               </div>
             </div>
 
@@ -378,10 +346,39 @@ function App() {
                   Download {download.name}
                 </a>
                 <div className="small">
-                  Contains Canvas New Quiz import and printable docs.
+                  You get an outer ZIP with printables and an inner QuizName_QTI.zip. Import the
+                  inner QTI file into Canvas.
                 </div>
               </div>
             )}
+          </section>
+          <section className="card steps-card">
+            <h2>How QuizForge works</h2>
+            <ol className="steps">
+              {steps.map((text, idx) => (
+                <li key={text}>
+                  <span className="step-number">{idx + 1}</span>
+                  <span className="step-text">{text}</span>
+                </li>
+              ))}
+            </ol>
+            <div className="feature-block">
+              <h3>Teachers can:</h3>
+              <ul className="feature-list">
+                <li>Create fresh quizzes from scratch.</li>
+                <li>Convert existing quizzes from documents or even photos.</li>
+                <li>Give the AI unit plans or standards to improve pedagogy.</li>
+              </ul>
+            </div>
+            <div className="feature-block">
+              <h3>Built-in pedagogy:</h3>
+              <ul className="feature-list">
+                <li>Depth of Knowledge alignment.</li>
+                <li>Tiers of Intervention (1-3) on request.</li>
+                <li>Bloom&apos;s Taxonomy targeting.</li>
+                <li>Clear rationales for every scored item.</li>
+              </ul>
+            </div>
           </section>
         </div>
         <div className="columns two-col">
@@ -416,17 +413,17 @@ function App() {
           <section className="card howto-card">
             <h2>Question types at a glance</h2>
             <ul className="howto-list" style={{ listStyle: "none", paddingLeft: 0 }}>
-              <li><strong>MC</strong> — Multiple choice, 1 correct.</li>
-              <li><strong>MA</strong> — Multiple answers, select all that apply.</li>
-              <li><strong>TF</strong> — True/False.</li>
-              <li><strong>MATCHING</strong> — Pair terms with definitions.</li>
-              <li><strong>FITB</strong> — Fill in the blanks with accepted answers.</li>
-              <li><strong>ESSAY</strong> — Free-response, manual scoring.</li>
-              <li><strong>FILEUPLOAD</strong> — Upload artifact (PDF/doc/image).</li>
-              <li><strong>ORDERING</strong> — Arrange items in the correct sequence.</li>
-              <li><strong>CATEGORIZATION</strong> — Sort items into categories.</li>
-              <li><strong>NUMERICAL</strong> — Numeric response with tolerance/precision/range.</li>
-              <li><strong>STIMULUS / STIMULUS_END</strong> — Passages that group related questions.</li>
+              <li><strong>MC</strong> - Multiple choice, 1 correct.</li>
+              <li><strong>MA</strong> - Multiple answers, select all that apply.</li>
+              <li><strong>TF</strong> - True/False.</li>
+              <li><strong>MATCHING</strong> - Pair terms with definitions.</li>
+              <li><strong>FITB</strong> - Fill in the blanks with accepted answers.</li>
+              <li><strong>ESSAY</strong> - Free-response, manual scoring.</li>
+              <li><strong>FILEUPLOAD</strong> - Upload artifact (PDF/doc/image).</li>
+              <li><strong>ORDERING</strong> - Arrange items in the correct sequence.</li>
+              <li><strong>CATEGORIZATION</strong> - Sort items into categories.</li>
+              <li><strong>NUMERICAL</strong> - Numeric response with tolerance/precision/range.</li>
+              <li><strong>STIMULUS / STIMULUS_END</strong> - Passages that group related questions.</li>
             </ul>
           </section>
         </div>

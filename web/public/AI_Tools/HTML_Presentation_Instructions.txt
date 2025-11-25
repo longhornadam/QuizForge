@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 3 Quiz Prep: The Basketball Edition</title>
+<style>
+/* RESET & BASE */
+html, body { margin: 0; padding: 0; height: 100%; }
+body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #050816; color: #f9fafb; }
+.app { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+
+/* UI BARS (THIN & SINGLE LINE) */
+.top-bar, .bottom-bar {
+  flex-shrink: 0; height: 6vh; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(15, 23, 42, 0.96); border-color: rgba(148, 163, 184, 0.5);
+  padding: 0 1.2rem; white-space: nowrap; z-index: 10;
+}
+.top-bar { border-bottom-width: 1px; border-bottom-style: solid; }
+.bottom-bar { border-top-width: 1px; border-top-style: solid; font-size: clamp(0.8rem, 1.3vw, 1rem); }
+
+/* CHIPS & BUTTONS */
+.chip {
+  display: inline-flex; align-items: center; padding: 0.15rem 0.8rem;
+  border-radius: 99px; font-size: 0.85rem; font-weight: 600;
+  background: rgba(37, 99, 235, 0.8); color: white; margin-right: 0.5rem;
+}
+.chip.unit { background: rgba(22, 163, 74, 0.8); }
+.chip.topic { background: rgba(245, 158, 11, 0.9); } /* Basketball Orange */
+
+.nav-button {
+  background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(71, 85, 105, 0.8);
+  color: #e2e8f0; padding: 0.3rem 1.2rem; border-radius: 99px; cursor: pointer;
+  font-size: 0.9rem; transition: all 0.2s;
+}
+.nav-button:hover { background: rgba(245, 158, 11, 0.9); color: #fff; border-color: transparent; }
+.nav-button:disabled { opacity: 0.4; cursor: default; pointer-events: none; }
+
+.center-text { flex: 1; text-align: center; overflow: hidden; text-overflow: ellipsis; padding: 0 1rem; }
+.top-left, .top-right { display: flex; align-items: center; }
+
+/* SLIDE AREA & TRANSITIONS */
+.slide-area { flex: 1; position: relative; overflow: hidden; display: flex; }
+.slide {
+  position: absolute; inset: 0;
+  padding: clamp(0.5rem, 1vh, 1rem) clamp(0.5rem, 1vw, 1.5rem);
+  opacity: 0; pointer-events: none; transform: translateX(30px);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex; justify-content: center;
+}
+.slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); }
+
+/* CARD ARCHITECTURE (THE FILL ENGINE) */
+.slide-content {
+  width: 100%; height: 100%; max-width: min(2200px, 100vw);
+  margin: 0 auto; display: flex; flex-direction: column;
+}
+.content-main { flex: 1; display: flex; flex-direction: column; }
+.card {
+  flex: 1; display: flex; flex-direction: column; justify-content: flex-start;
+  background: radial-gradient(circle at top left, #1f2937, #020617);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  border-radius: 0.8rem;
+  padding: clamp(1.5rem, 3vh, 2.5rem) clamp(2rem, 4vw, 4rem);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* TYPOGRAPHY & VERTICAL DISTRIBUTION */
+.slide-title {
+  font-size: var(--title-size); margin: 0 0 0.1em 0;
+  line-height: 1.05; color: #fbbf24; /* Basketball Highlight */
+  text-shadow: 0 2px 10px rgba(251, 191, 36, 0.2);
+}
+.slide-subtitle {
+  font-size: var(--subtitle-size); margin: 0 0 0.8em 0;
+  opacity: 0.9; color: #94a3b8;
+}
+
+/* THE LIST ENGINE - Force Vertical Spread */
+.bullet-list, .numbered-list {
+  flex: 1; /* Takes all remaining height */
+  display: flex; flex-direction: column;
+  justify-content: space-evenly; /* Distributes items efficiently */
+  margin: 0; padding-left: 0; list-style: none;
+  font-size: var(--body-size); line-height: 1.3;
+}
+.bullet-list li {
+  display: flex; align-items: flex-start; gap: 0.8rem;
+}
+.bullet-list li::before {
+  content: "-"; font-size: 0.8em; margin-top: 0.1em; opacity: 0.8;
+}
+strong { color: #60a5fa; font-weight: 700; }
+
+/* DENSITY VARIABLES (Responsive) */
+:root {
+  --title-size: 5vmin; --subtitle-size: 3vmin; --body-size: 3vmin;
+}
+.density-low {
+  --title-size: 8.5vmin; --subtitle-size: 5vmin; --body-size: 4.5vmin;
+}
+.density-medium {
+  --title-size: 6vmin; --subtitle-size: 3.5vmin; --body-size: 3.5vmin;
+}
+.density-high {
+  --title-size: 4.5vmin; --subtitle-size: 3vmin; --body-size: 2.8vmin;
+}
+
+/* TWO COLUMNS GRID */
+.columns-2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; height: 100%;
+}
+@media (max-width: 900px) { .columns-2 { grid-template-columns: 1fr; } }
+
+</style>
+</head>
+<body>
+<div class="app">
+  
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="top-left">
+      <div class="chip">Unit 3</div>
+      <div class="chip unit">Quiz Prep</div>
+    </div>
+    <div class="center-text">Inference & Social Anxiety: The Basketball Edition</div>
+    <div class="top-right">
+      <div class="chip topic">Reading Skills</div>
+    </div>
+  </header>
+
+  <!-- MAIN SLIDE AREA -->
+  <main class="slide-area">
+
+    <!-- SLIDE 1: INTRO -->
+    <section class="slide active density-low" data-label="Intro">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h1 class="slide-title">The Scouting Report</h1>
+            <p class="slide-subtitle">Unit 3: Inference & Evidence</p>
+            <ul class="bullet-list">
+              <li><strong>Reviewing the Game Tape</strong> (The Text)</li>
+              <li><strong>Reading the Defense</strong> (Inference)</li>
+              <li><strong>Planting Your Feet</strong> (Evidence)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: INFERENCE -->
+    <section class="slide density-medium" data-label="Reading the Defense">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">What Is Inference?</h2>
+            <p class="slide-subtitle">It's reading the defense before they move.</p>
+            <ul class="bullet-list">
+              <li><strong>Not Stated Directly:</strong> The author won't hand you the ball. You have to go get it.</li>
+              <li><strong>Use Clues:</strong> Paragraph 10 says Annie signed her email "anonymously."</li>
+              <li><strong>Combine with Logic:</strong> Why hide your name? -> <strong>Fear of judgment</strong>.</li>
+              <li><strong>The Answer:</strong> She didn't want peers to hear her. She was protecting her identity.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: EVIDENCE -->
+    <section class="slide density-medium" data-label="Footwork (Evidence)">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">Evidence = Footwork</h2>
+            <p class="slide-subtitle">You can't take a shot if your feet aren't set.</p>
+            <ul class="bullet-list">
+              <li><strong>Question:</strong> Does middle school have intense peer pressure?</li>
+              <li><strong>Weak Footwork:</strong> "Yeah, probably." (No quote)</li>
+              <li><strong>Strong Footwork:</strong> Paragraph 18: <em>"I'd be nervous because what if someone didn't like my sweater."</em></li>
+              <li><strong>The Takeaway:</strong> Find the quote that PROVES the anxiety.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: THE NO-WIN SITUATION -->
+    <section class="slide density-medium" data-label="Bad Calls">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">The "No-Win" Whistle</h2>
+            <p class="slide-subtitle">The social environment feels rigged.</p>
+            <ul class="bullet-list">
+              <li>Annie was criticized for <strong>smoking</strong>.</li>
+              <li>Then she was criticized for <strong>NOT smoking</strong>.</li>
+              <li><strong>Inference:</strong> Students will be criticized <strong>no matter what choices they make</strong>.</li>
+              <li><strong>Text Evidence:</strong> <em>"Anything, anything in the world you can get made fun of for."</em> (Para 14)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: CLOTHING AS ARMOR -->
+    <section class="slide density-medium" data-label="Uniform Anxiety">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">Jersey Anxiety</h2>
+            <p class="slide-subtitle">Clothing isn't just fashion; it's a uniform.</p>
+            <ul class="bullet-list">
+              <li><strong>The Moccasins:</strong> She waited months to wear them.</li>
+              <li><strong>Internal Conflict:</strong> She wanted to express herself vs. she feared the "crowd's" reaction.</li>
+              <li><strong>The Sweater:</strong> A simple new item creates <strong>panic</strong> about fitting in.</li>
+              <li><strong>Inference:</strong> Small choices feel like high-stakes plays.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: CONFORMITY -->
+    <section class="slide density-medium" data-label="Stick to the Playbook">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">Conformity & Strategy</h2>
+            <p class="slide-subtitle">Why do players follow the crowd?</p>
+            <ul class="bullet-list">
+              <li><strong>Conformity:</strong> Trying to match the team to avoid standing out.</li>
+              <li><strong>The Reality:</strong> Annie says, <em>"I don't think you can really do anything about it."</em></li>
+              <li><strong>Inference:</strong> She views this social anxiety as an <strong>unavoidable part of growing up</strong>.</li>
+              <li>It's not a problem to be "solved" easily; it's a season to survive.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: AUTHOR'S PURPOSE -->
+    <section class="slide density-medium" data-label="Coach's Plan">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">The Coach's Plan</h2>
+            <p class="slide-subtitle">What is the Author's Purpose?</p>
+            <ul class="bullet-list">
+              <li><strong>Why write this?</strong> To entertain? To argue?</li>
+              <li><strong>Purpose:</strong> To inform readers about the <strong>universal challenges</strong> of middle school.</li>
+              <li><strong>Tone:</strong> Uses words like "prison," "trapped," "nervous."</li>
+              <li>It helps readers relate: "I'm not the only one who feels this way."</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: SHOT SELECTION -->
+    <section class="slide density-high" data-label="Shot Selection">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">Shot Selection: Best vs. Good</h2>
+            <p class="slide-subtitle">Don't settle for a contested 2 when you have an open 3.</p>
+            <div class="columns-2">
+              <div style="display: flex; flex-direction: column; justify-content: space-evenly; height: 100%;">
+                <h3 style="color:#fbbf24; font-size: 1.2em; margin-bottom: 0;">The "Good" Answer</h3>
+                <ul class="bullet-list">
+                  <li>It sounds true.</li>
+                  <li>It matches your feelings.</li>
+                  <li><strong>BUT:</strong> It's only supported by one tiny detail.</li>
+                </ul>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: space-evenly; height: 100%;">
+                <h3 style="color:#60a5fa; font-size: 1.2em; margin-bottom: 0;">The "Best" Answer</h3>
+                <ul class="bullet-list">
+                  <li>It answers the specific question.</li>
+                  <li>It is supported by <strong>paragraphs 14-18</strong>.</li>
+                  <li>It captures the <strong>main idea</strong>, not just a detail.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: VOCABULARY -->
+    <section class="slide density-medium" data-label="Game Tape Vocab">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">Game Tape Vocab</h2>
+            <p class="slide-subtitle">Know the terms to win the quiz.</p>
+            <ul class="bullet-list">
+              <li><strong>Reflective:</strong> Annie looks back on her past. She is self-aware.</li>
+              <li><strong>Pervasive:</strong> The judgment is everywhere. You can't escape the defense.</li>
+              <li><strong>Environment:</strong> The "whitewashed, brick-walled prison" creates a mood of being <strong>trapped</strong>.</li>
+              <li><strong>Internal Conflict:</strong> The battle inside your own head.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: FORMAT -->
+    <section class="slide density-low" data-label="Post-Game Interview">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h2 class="slide-title">The Interview Format</h2>
+            <p class="slide-subtitle">Why use a Q&A style?</p>
+            <ul class="bullet-list">
+              <li><strong>Authentic Voice:</strong> It feels like a real conversation.</li>
+              <li><strong>First-Person Perspective:</strong> We hear "I thought" and "I felt."</li>
+              <li><strong>Direct Access:</strong> We see her internal thoughts without a narrator filtering them.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: CLOSING -->
+    <section class="slide density-low" data-label="Gametime">
+      <div class="slide-content">
+        <div class="content-main">
+          <div class="card">
+            <h1 class="slide-title">Gametime</h1>
+            <p class="slide-subtitle">You have the scouting report.</p>
+            <ul class="bullet-list">
+              <li>Trust the <strong>Text</strong>.</li>
+              <li>Find the <strong>Evidence</strong>.</li>
+              <li>Choose the <strong>Best Shot</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM BAR -->
+  <footer class="bottom-bar">
+    <button class="nav-button" id="prevBtn">Previous</button>
+    <div class="center-text" id="slideIndicator">1 / 11 - Use <- -> or A / D</div>
+    <button class="nav-button" id="nextBtn">Next</button>
+  </footer>
+
+</div>
+
+<!-- NAVIGATION SCRIPT -->
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const indicator = document.getElementById('slideIndicator');
+  let currentIndex = 0;
+
+  function updateSlide() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentIndex);
+    });
+    
+    const label = slides[currentIndex].getAttribute('data-label');
+    indicator.innerText = `${currentIndex + 1} - ${label} - ${currentIndex + 1} / ${slides.length} - Use <- ->`;
+    
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex === slides.length - 1;
+  }
+
+  function nextSlide() {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      updateSlide();
+    }
+  }
+
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlide();
+    }
+  }
+
+  // Event Listeners
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'd') nextSlide();
+    if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'a') prevSlide();
+  });
+
+  // Initialize
+  updateSlide();
+</script>
+</body>
+</html>
