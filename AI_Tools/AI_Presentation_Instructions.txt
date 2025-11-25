@@ -1,0 +1,73 @@
+AI Presentation Helper - Conversational Guide
+---------------------------------------------
+Purpose: help teachers ask an LLM for a short, impactful slide deck. Keep it flexible, plain text, and classroom-ready. Always prioritize explicit teacher input over any default guidance here.
+
+Output preference: PPTX first. If PPTX isn't possible, produce clean HTML the teacher can download as a file.
+
+How to ask (fill the blanks)
+----------------------------
+You are helping a teacher build a short slide deck.
+Topic: {topic}
+Objective: {one-sentence learning goal}
+Audience: {grade/age}, reading level: {level}
+Context: {time available}, devices: {none/phones/laptops}, class size: {n}
+Slides: {6-10}, text-only unless asked otherwise
+Tone: {warm, concise, non-jargony}
+Include on each slide: title + 2-4 bullet talking points + 1 facilitation note
+Checks: at least 2 checks for understanding + 1 exit ticket
+Accessibility: avoid niche metaphors; keep examples culturally neutral; plain language
+Provide: one alternate hook option; one localized example the teacher can swap in
+Output: PPTX file (downloadable). If not feasible, provide HTML packaged so it can be saved as a .html file and opened locally.
+
+Example prompt (PPTX first, HTML fallback)
+------------------------------------------
+You are helping me create a short slide deck.
+Topic: Inference from short fiction
+Objective: Students will infer character motivation using text evidence.
+Audience: Grade 8, reading level: Grade 7
+Context: 20 minutes, devices: Chromebooks, class size: 28
+Slides: 8, text-only on slides; add speaker notes
+Tone: Warm, concise, non-jargony
+Include on each slide: title + 2-4 bullet talking points + 1 facilitation note
+Checks: 2 checks for understanding + 1 exit ticket with expected answers
+Accessibility: avoid niche metaphors; keep examples culturally neutral; plain language
+Provide: one alternate hook; one localized example swap
+Output: a downloadable PPTX. If PPTX is not possible, provide a single self-contained HTML file I can save as .html and open locally.
+
+Expected LLM response format
+----------------------------
+Slide 1 (Hook): Title
+- Bullet 1
+- Bullet 2
+- Facilitation: ...
+Slide 2 (Model/Explain): ...
+...
+Checks for Understanding: Q1, Q2 (with expected answers)
+Exit Ticket: prompt + what "good" looks like
+Alternatives: Hook B; Localized example swap
+Output note: supply a downloadable PPTX. If not possible, supply HTML that renders the slides and can be saved as a single file.
+
+What "good" looks like
+----------------------
+- Aligned: everything points to the stated objective.
+- Light: short phrases, no walls of text; slides are cues, not scripts.
+- Applicable: includes quick prompts (think-pair-share, thumbs-up/down, 2-sentence written response).
+- Checkable: at least two CFUs and an exit ticket with expected responses or rubrics.
+- Adaptable: gives a second hook and a localizable example so teachers can swap context fast.
+- Inclusive: avoids narrow metaphors, slang, or culturally specific knowledge unless requested.
+
+Do / Don't
+----------
+- Do: cite paragraph numbers or source snippets if referring to a text.
+- Do: offer brief speaker/facilitation notes for pacing and misconceptions to watch.
+- Do: keep language plain; aim one grade level below the audience for readability.
+- Do: follow teacher-provided constraints even if they conflict with defaults here.
+- Don't: output HTML, CSS, or JS unless the teacher explicitly asks for slide-ready markup or PPTX is not feasible.
+- Don't: lock into a single theme (e.g., sports); keep examples generic unless a theme is provided.
+
+Optional follow-ups a teacher might request
+-------------------------------------------
+- Differentiate for struggling readers (simplify language, add visuals described in text).
+- Stretch tasks for fast finishers.
+- Swap modality (no devices vs. laptops).
+- Add timing estimates per slide.
