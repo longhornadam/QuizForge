@@ -22,7 +22,7 @@ function App() {
     <>Talk to your AI-TA about what quiz you need. The more information, the better!</>,
     <>Copy your AI-TA&apos;s final output and paste it here.</>,
     <>Download the ZIP QuizForge provides and unZIP it (inside is your QuizName_QTI.zip).</>,
-    <>Create/open a Canvas New Quiz, then load the inner QTI-ZIP (three dots -> "Import Content").</>,
+    <>Create/open a Canvas New Quiz, then load the inner QTI-ZIP (three dots to "Import Content").</>,
   ];
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [pastedText, setPastedText] = useState("");
