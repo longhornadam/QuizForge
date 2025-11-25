@@ -205,7 +205,7 @@ Prompt: Missing choices
         assert len(quiz_folders) >= 1
 
         valid_folder = [f for f in quiz_folders if "Valid" in f.name][0]
-        assert (valid_folder / "valid.zip").exists()
+        assert any(p.name.endswith("_QTI.zip") for p in valid_folder.glob("*.zip"))
         assert any((valid_folder / f"log_{s}_FIXED.txt").exists() for s in ["PASS", "WEAK_PASS"])
 
         # Check invalid quiz output

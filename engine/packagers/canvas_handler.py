@@ -32,9 +32,9 @@ class CanvasHandler:
         manifest_xml = build_manifest_xml(quiz.title, guid)
         meta_xml = build_assessment_meta_xml(quiz.title, quiz.total_points(), guid)
         zip_bytes = create_zip_bytes(manifest_xml, assessment_xml, meta_xml, guid)
-        
-        # Write to file
-        output_path = Path(output_base) / f"{quiz.title.replace(' ', '_')}.zip"
+
+        # Write to file with explicit QTI suffix so users can spot the Canvas import package
+        output_path = Path(output_base) / f"{quiz.title.replace(' ', '_')}_QTI.zip"
         output_path.write_bytes(zip_bytes)
         
         # For now, no log_path, perhaps later
