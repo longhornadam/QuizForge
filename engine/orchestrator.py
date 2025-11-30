@@ -2,7 +2,7 @@
 
 This module coordinates the entire workflow:
 1. Scan DropZone for new quiz files
-2. Parse TXT → Quiz object
+2. Parse TXT/JSON/MD text into a Quiz object
 3. Validate and auto-fix Quiz
 4. Route to appropriate packagers based on validation status
 5. Generate user-facing output (packages or revision prompts)
@@ -11,6 +11,7 @@ This module coordinates the entire workflow:
 The orchestrator is the only component that performs file I/O in user directories.
 All other modules work with in-memory data structures.
 """
+
 
 from pathlib import Path
 from typing import List, Optional
@@ -23,6 +24,9 @@ from .packagers.packager import package_quiz
 from .packaging.folder_creator import create_quiz_folder, write_file
 from .feedback.log_generator import generate_log
 from .feedback.fail_prompt_generator import generate_fail_prompt
+
+
+ALLOWED_INPUT_EXTENSIONS = {".txt", ".json", ".md"}
 
 
 class QuizForgeOrchestrator:
@@ -48,17 +52,17 @@ class QuizForgeOrchestrator:
         self.validator = QuizValidator()
     
     def process_all(self) -> None:
-        """Scan DropZone and process all .txt files."""
-        txt_files = list(self.dropzone.glob("*.txt"))
+        """Scan DropZone and process all supported text files."""
+        input_files = self._get_input_files()
         
-        if not txt_files:
+        if not input_files:
             print("No quiz files found in DropZone.")
             return
         
-        print(f"Found {len(txt_files)} quiz file(s) to process...")
+        print(f"Found {len(input_files)} quiz file(s) to process...")
         print()
         
-        for filepath in txt_files:
+        for filepath in input_files:
             print(f"Processing: {filepath.name}")
             try:
                 self.process_file(filepath)
@@ -71,7 +75,7 @@ class QuizForgeOrchestrator:
         """Process a single quiz file through the pipeline.
         
         Args:
-            filepath: Path to .txt quiz file
+            filepath: Path to quiz file (.txt/.json/.md)
         """
         # Read original text (for fail prompts)
         original_text = filepath.read_text(encoding='utf-8')
@@ -231,6 +235,14 @@ class QuizForgeOrchestrator:
                 counter += 1
         
         shutil.move(str(filepath), str(dest))
+
+    def _get_input_files(self) -> List[Path]:
+        """Return all supported text-like files in the DropZone."""
+        files: List[Path] = []
+        for path in sorted(self.dropzone.iterdir()):
+            if path.is_file() and path.suffix.lower() in ALLOWED_INPUT_EXTENSIONS:
+                files.append(path)
+        return files
 
 
 def main():

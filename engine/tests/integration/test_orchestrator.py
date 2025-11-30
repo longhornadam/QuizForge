@@ -3,22 +3,13 @@
 import tempfile
 import shutil
 from pathlib import Path
+
+import pytest
+
 from engine.orchestrator import QuizForgeOrchestrator
 
 
-def test_full_pipeline():
-    """Test complete pipeline with temporary directories."""
-    
-    # Create temporary directories
-    with tempfile.TemporaryDirectory() as tmpdir:
-        tmpdir = Path(tmpdir)
-        dropzone = tmpdir / "DropZone"
-        output = tmpdir / "Finished_Exports"
-        dropzone.mkdir()
-        output.mkdir()
-        
-        # Create a sample quiz file
-        sample_quiz = """Title: Integration Test Quiz
+SAMPLE_QUIZ = """Title: Integration Test Quiz
 
 ---
 Type: MC
@@ -34,8 +25,23 @@ Prompt: Python is a programming language.
 Answer: true
 ---
 """
-        quiz_file = dropzone / "test_quiz.txt"
-        quiz_file.write_text(sample_quiz)
+
+
+@pytest.mark.parametrize("extension", [".txt", ".json", ".md"])
+def test_full_pipeline(extension):
+    """Test complete pipeline with temporary directories and multiple extensions."""
+    
+    # Create temporary directories
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        dropzone = tmpdir / "DropZone"
+        output = tmpdir / "Finished_Exports"
+        dropzone.mkdir()
+        output.mkdir()
+        
+        # Create a sample quiz file
+        quiz_file = dropzone / f"test_quiz{extension}"
+        quiz_file.write_text(SAMPLE_QUIZ)
         
         # Run orchestrator
         orchestrator = QuizForgeOrchestrator(
@@ -61,10 +67,10 @@ Answer: true
         
         # Original file should be archived
         assert not quiz_file.exists(), "Original file should be moved"
-        archived = dropzone / "old_quizzes" / "test_quiz.txt"
+        archived = dropzone / "old_quizzes" / f"test_quiz{extension}"
         assert archived.exists(), "File should be archived"
         
-        print("✓ Full pipeline test passed")
+        print(f"Full pipeline test passed for {extension}")
 
 
 if __name__ == "__main__":

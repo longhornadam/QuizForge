@@ -1,6 +1,6 @@
 # QuizForge Web Client (Vite + React)
 
-Thin UI that uploads or pastes a QuizForge-ready TXT, calls the Express API wrapper, and downloads the resulting `Finished_Exports` as a ZIP (mirrors `python engine/orchestrator.py`).
+Thin UI that uploads or pastes a QuizForge-ready text file (.txt/.json/.md), calls the Express API wrapper, and downloads the resulting `Finished_Exports` as a ZIP (mirrors `python engine/orchestrator.py`).
 
 ## Beta/Prod (single container)
 
@@ -24,7 +24,7 @@ cd web
 npm install
 VITE_API_BASE_URL=http://localhost:8000 npm run dev
 ```
-4) Open `http://localhost:5173` and upload/paste your TXT. The ZIP downloads when the job finishes.
+4) Open `http://localhost:5173` and upload/paste your TXT/JSON/MD file. The ZIP downloads when the job finishes.
 
 ## Build
 

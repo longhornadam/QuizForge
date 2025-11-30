@@ -1,5 +1,5 @@
 // Node wrapper around the Python orchestrator.
-// Accepts TXT upload or pasted text, runs engine/orchestrator in a temp job,
+// Accepts TXT/JSON/MD upload or pasted text, runs engine/orchestrator in a temp job,
 // zips Finished_Exports, streams it, and cleans up.
 
 const path = require("path");
@@ -25,6 +25,7 @@ const BUILD_INFO = {
   ref: process.env.BUILD_REF || "unknown",
   time: process.env.BUILD_TIME || "unknown",
 };
+const ALLOWED_UPLOAD_EXTENSIONS = [".txt", ".json", ".md"];
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -133,7 +134,12 @@ app.listen(PORT, () => {
 function persistInput(dropzone, req) {
   return new Promise((resolve, reject) => {
     if (req.file && req.file.buffer?.length) {
-      const filename = sanitizeFilename(req.file.originalname || "uploaded_quiz.txt");
+      let filename;
+      try {
+        filename = normalizeUploadName(req.file.originalname);
+      } catch (err) {
+        return reject(err);
+      }
       const target = path.join(dropzone, filename);
       fs.writeFile(target, req.file.buffer, (err) => {
         if (err) return reject(err);
@@ -152,7 +158,7 @@ function persistInput(dropzone, req) {
       return;
     }
 
-    reject(new Error("Provide a .txt file or paste quiz text."));
+    reject(new Error(uploadRequirementMessage()));
   });
 }
 
@@ -179,6 +185,29 @@ function runOrchestrator(jobRoot) {
 
 function sanitizeFilename(name) {
   return name.replace(/[^a-zA-Z0-9._-]/g, "_");
+}
+
+function normalizeUploadName(originalName) {
+  const fallback = "uploaded_quiz.txt";
+  const safeName = sanitizeFilename(originalName || fallback);
+  const ext = path.extname(safeName).toLowerCase();
+
+  if (!ext) {
+    return `${safeName}.txt`;
+  }
+
+  if (!ALLOWED_UPLOAD_EXTENSIONS.includes(ext)) {
+    throw new Error(uploadRequirementMessage());
+  }
+
+  return safeName;
+}
+
+function uploadRequirementMessage() {
+  const allowed = [...ALLOWED_UPLOAD_EXTENSIONS];
+  if (allowed.length === 1) return `Provide a ${allowed[0]} file or paste quiz text.`;
+  const last = allowed.pop();
+  return `Provide a ${allowed.join(", ")} or ${last} file, or paste quiz text.`;
 }
 
 async function findFirstSubfolder(dir) {

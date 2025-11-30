@@ -14,6 +14,13 @@ const statusLabels: Record<Phase, string> = {
   error: "Error",
 };
 
+const ACCEPTED_EXTENSIONS = [".txt", ".json", ".md"];
+const ACCEPT_ATTR = ACCEPTED_EXTENSIONS.join(",");
+const ACCEPT_LABEL =
+  ACCEPTED_EXTENSIONS.length > 1
+    ? `${ACCEPTED_EXTENSIONS.slice(0, -1).join(", ")} or ${ACCEPTED_EXTENSIONS.slice(-1)[0]}`
+    : ACCEPTED_EXTENSIONS[0];
+
 function App() {
   const templateUrl = "/LLM_Modules/QuizForge_Base.md";
   const exampleUrl = "/llm_modules/example_quiz_all_types.txt";
@@ -273,11 +280,11 @@ function App() {
 
               <div className="file-picker">
                 <label htmlFor="quiz-file">
-                  <strong>Or upload a TXT file</strong>
+                  <strong>Or upload a {ACCEPT_LABEL} file</strong>
                   <input
                     id="quiz-file"
                     type="file"
-                    accept=".txt"
+                    accept={ACCEPT_ATTR}
                     onChange={(event) => {
                       const file = event.target.files?.[0];
                       setSelectedFile(file ?? null);

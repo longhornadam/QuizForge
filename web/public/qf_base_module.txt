@@ -3,7 +3,7 @@ Version: 3.0-json
 
 How to use this:
 1) Copy this template into your LLM chat, fill in your questions and answers, and keep the JSON between the <QUIZFORGE_JSON> tags.
-2) Paste the finished text back into QuizForge (recommended) or save it as a .txt and upload.
+2) Paste the finished text back into QuizForge (recommended) or save it as a .txt/.json/.md file and upload.
 3) QuizForge will validate, package, and return a ZIP you can import into Canvas or print.
 
 Example skeleton (replace with your own content):
