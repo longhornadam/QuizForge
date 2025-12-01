@@ -1,0 +1,484 @@
+============================================================
+ORIGINAL QUIZ (Contains Errors)
+============================================================
+
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Chapter 8 Lesson 2: While Loops",
+"metadata": {
+"chapter": "8",
+"lesson": "2",
+"topic": "While Loops in Python",
+"grade_level": "High School",
+"standards": "AP CSP"
+},
+"items": [
+{
+"id": "q1",
+"type": "MC",
+"prompt": "What is the primary difference between a for loop and a while loop?",
+"choices": [
+{
+"id": "A",
+"text": "A for loop repeats a fixed number of times, while a while loop continues as long as a condition is True.",
+"correct": true
+},
+{
+"id": "B",
+"text": "A for loop can only iterate over strings, while a while loop can iterate over numbers.",
+"correct": false
+},
+{
+"id": "C",
+"text": "A for loop always runs at least once, while a while loop may never run.",
+"correct": false
+},
+{
+"id": "D",
+"text": "A for loop requires a loop variable, while a while loop does not use variables.",
+"correct": false
+}
+]
+},
+{
+"id": "q2",
+"type": "MC",
+"prompt": "When is the logical expression in a while loop evaluated?",
+"choices": [
+{
+"id": "A",
+"text": "At the top of the loop before the loop body executes",
+"correct": true
+},
+{
+"id": "B",
+"text": "At the bottom of the loop after the loop body executes",
+"correct": false
+},
+{
+"id": "C",
+"text": "In the middle of the loop body",
+"correct": false
+},
+{
+"id": "D",
+"text": "Only once when the program starts",
+"correct": false
+}
+]
+},
+{
+"id": "q3",
+"type": "TF",
+"prompt": "If the logical expression in a while loop evaluates to False at the very beginning, the loop body will never execute.",
+"answer": true
+},
+{
+"id": "q4",
+"type": "MC",
+"prompt": "What causes an infinite loop in a while loop?",
+"choices": [
+{
+"id": "A",
+"text": "The logical expression never becomes False because variables in the expression are not updated in the loop body.",
+"correct": true
+},
+{
+"id": "B",
+"text": "The loop body contains too many statements.",
+"correct": false
+},
+{
+"id": "C",
+"text": "The loop variable is initialized to zero.",
+"correct": false
+},
+{
+"id": "D",
+"text": "The logical expression uses the not-equal-to operator.",
+"correct": false
+}
+]
+},
+{
+"id": "q5",
+"type": "ORDERING",
+"header": "Order the following steps to create a properly functioning while loop:",
+"items": [
+"Initialize any variables that will be used in the logical expression",
+"Write the while statement with a logical expression and a colon",
+"Indent the loop body statements",
+"Update variables in the loop body so the logical expression can eventually become False"
+]
+},
+{
+"id": "q6",
+"type": "MC",
+"prompt": "Consider this code:\n\ncount = 0\nwhile count < 3:\n    print(count)\n    count = count + 1\n\nHow many times will the loop body execute?",
+"choices": [
+{
+"id": "A",
+"text": "3 times (count will be 0, 1, 2)",
+"correct": true
+},
+{
+"id": "B",
+"text": "4 times (count will be 0, 1, 2, 3)",
+"correct": false
+},
+{
+"id": "C",
+"text": "2 times (count will be 1, 2)",
+"correct": false
+},
+{
+"id": "D",
+"text": "Infinite times because count never reaches 3",
+"correct": false
+}
+]
+},
+{
+"id": "q7",
+"type": "CATEGORIZATION",
+"prompt": "Categorize each code characteristic as belonging to for loops or while loops:",
+"categories": ["For Loop", "While Loop"],
+"items": [
+{
+"label": "Uses a range to specify number of iterations",
+"category": "For Loop"
+},
+{
+"label": "Continues until a logical expression becomes False",
+"category": "While Loop"
+},
+{
+"label": "Has an automatically updated loop variable",
+"category": "For Loop"
+},
+{
+"label": "Can create an infinite loop if not carefully written",
+"category": "While Loop"
+},
+{
+"label": "Iterates over strings character by character",
+"category": "For Loop"
+},
+{
+"label": "Ideal when you do not know in advance how many iterations are needed",
+"category": "While Loop"
+}
+]
+},
+{
+"id": "q8",
+"type": "MC",
+"prompt": "In a nested loop structure with an outer while loop and an inner for loop, how many times will the inner loop run?",
+"choices": [
+{
+"id": "A",
+"text": "Once for each iteration of the outer loop",
+"correct": true
+},
+{
+"id": "B",
+"text": "Only one time total",
+"correct": false
+},
+{
+"id": "C",
+"text": "The same number of times as the outer loop",
+"correct": false
+},
+{
+"id": "D",
+"text": "It depends on the inner loop's range",
+"correct": false
+}
+]
+},
+{
+"id": "q9",
+"type": "MA",
+"prompt": "Which of the following are essential components that must be present in a while loop to avoid an infinite loop? Select all that apply.",
+"choices": [
+{
+"id": "A",
+"text": "A logical expression that can evaluate to False",
+"correct": true
+},
+{
+"id": "B",
+"text": "Code in the loop body that updates variables used in the logical expression",
+"correct": true
+},
+{
+"id": "C",
+"text": "A loop variable with the name i",
+"correct": false
+},
+{
+"id": "D",
+"text": "A range function",
+"correct": false
+},
+{
+"id": "E",
+"text": "At least three statements in the loop body",
+"correct": false
+}
+]
+},
+{
+"id": "q10",
+"type": "MC",
+"prompt": "What will happen if this code runs?\n\npassword = "SECRET"\nwhile password != "SECRET":\n    print("No, try again!")\nprint("Password verified.")",
+"choices": [
+{
+"id": "A",
+"text": "The loop body never executes because the logical expression is False at the start, so only Password verified prints.",
+"correct": true
+},
+{
+"id": "B",
+"text": "An infinite loop occurs printing No, try again! forever.",
+"correct": false
+},
+{
+"id": "C",
+"text": "The program prompts the user for a password.",
+"correct": false
+},
+{
+"id": "D",
+"text": "A syntax error occurs because password cannot be compared to a string.",
+"correct": false
+}
+]
+},
+{
+"id": "q11",
+"type": "MATCHING",
+"prompt": "Match each loop syntax element to its purpose:",
+"pairs": [
+{
+"left": "while keyword",
+"right": "Marks the beginning of a while loop"
+},
+{
+"left": "logical expression",
+"right": "Determines whether the loop continues or stops"
+},
+{
+"left": "colon",
+"right": "Ends the while statement and precedes the loop body"
+},
+{
+"left": "indentation",
+"right": "Identifies which statements belong to the loop body"
+}
+]
+},
+{
+"id": "q12",
+"type": "MC",
+"prompt": "In the Guess My Number activity, why must the guess variable be initialized to a value other than 7 before the loop starts?",
+"choices": [
+{
+"id": "A",
+"text": "If guess equals 7 initially, the logical expression would be False and the loop would never execute.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Python requires all variables to be initialized to a number less than 7.",
+"correct": false
+},
+{
+"id": "C",
+"text": "The input function cannot accept the number 7.",
+"correct": false
+},
+{
+"id": "D",
+"text": "Initializing to 7 would create an infinite loop.",
+"correct": false
+}
+]
+},
+{
+"id": "q13",
+"type": "MA",
+"prompt": "Which statements about nested loops are accurate? Select all that apply.",
+"choices": [
+{
+"id": "A",
+"text": "The inner loop completes all its iterations each time the outer loop iterates once.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Statements in the inner loop body are indented further right than statements in the outer loop body.",
+"correct": true
+},
+{
+"id": "C",
+"text": "You can nest a for loop inside a while loop or vice versa.",
+"correct": true
+},
+{
+"id": "D",
+"text": "Nested loops can only use for loops, not while loops.",
+"correct": false
+},
+{
+"id": "E",
+"text": "The outer loop always runs more times than the inner loop.",
+"correct": false
+}
+]
+},
+{
+"id": "q14",
+"type": "NUMERICAL",
+"prompt": "Consider this code:\n\nblastoff = 10\nwhile blastoff > 0:\n    print(blastoff)\n    blastoff = blastoff - 1\nprint("Liftoff!")\n\nHow many numbers will be printed before Liftoff appears?",
+"answer": 10,
+"evaluation": {
+"mode": "exact"
+}
+},
+{
+"id": "q15",
+"type": "MC",
+"prompt": "Analyze this code and determine what will happen:\n\nx = 5\nwhile x < 10:\n    print(x)\n    if x == 7:\n        x = x + 2\n    x = x + 1\n\nWhat output will this produce?",
+"choices": [
+{
+"id": "A",
+"text": "The numbers 5, 6, 7, 9 will be printed.",
+"correct": true
+},
+{
+"id": "B",
+"text": "The numbers 5, 6, 7, 8, 9 will be printed.",
+"correct": false
+},
+{
+"id": "C",
+"text": "An infinite loop will occur because x never reaches 10.",
+"correct": false
+},
+{
+"id": "D",
+"text": "Only the number 5 will be printed.",
+"correct": false
+}
+]
+}
+],
+"rationales": [
+{
+"item_id": "q1",
+"correct": "A for loop is designed to repeat a predetermined number of times based on a sequence or range, whereas a while loop depends on a logical condition remaining True.",
+"distractor": "Both loop types can work with various data types, and neither guarantees execution without proper setup."
+},
+{
+"item_id": "q2",
+"correct": "The logical expression is checked at the top before each iteration, which determines whether the loop body will execute.",
+"distractor": "Python while loops check the condition before execution, not after like some other loop constructs in different languages."
+},
+{
+"item_id": "q3",
+"correct": "When the logical expression is False initially, the loop is skipped entirely and execution continues after the loop.",
+"distractor": "Some might think the loop runs once regardless, but while loops require True to execute."
+},
+{
+"item_id": "q4",
+"correct": "An infinite loop occurs when the logical expression cannot become False because the loop body fails to modify the relevant variables.",
+"distractor": "Using certain operators or initializing variables to specific values does not inherently cause infinite loops without additional context."
+},
+{
+"item_id": "q5",
+"correct": "These steps follow the proper sequence: initialize variables, write the while statement, indent the body, and ensure the condition can change.",
+"distractor": "Writing the while statement before initialization would reference undefined variables."
+},
+{
+"item_id": "q6",
+"correct": "The loop executes while count is less than 3, so it runs when count equals 0, 1, and 2, which is three iterations.",
+"distractor": "The condition uses less than, not less than or equal to, so count 3 does not trigger another iteration."
+},
+{
+"item_id": "q7",
+"correct": "Each characteristic correctly matches the loop type based on how the loops are structured and used in Python.",
+"distractor": "Confusing the automatic features of for loops with the conditional nature of while loops is a common mistake."
+},
+{
+"item_id": "q8",
+"correct": "Each time the outer loop iterates, the inner loop runs completely through all of its iterations before returning control to the outer loop.",
+"distractor": "The inner loop does not just run once total; it completes its full cycle for every outer loop iteration."
+},
+{
+"item_id": "q9",
+"correct": "A changeable logical expression and code that updates relevant variables are both necessary to prevent infinite loops.",
+"distractor": "Specific variable names, ranges, or statement counts are not requirements for preventing infinite loops."
+},
+{
+"item_id": "q10",
+"correct": "Since password is initialized to SECRET, the condition is False immediately, so the loop never runs.",
+"distractor": "This code has no mechanism to prompt for input and will not create an infinite loop because the condition starts False."
+},
+{
+"item_id": "q11",
+"correct": "Each syntax element serves a specific structural purpose in defining and executing a while loop.",
+"distractor": "Confusing the roles of keywords, punctuation, and formatting is common when learning loop syntax."
+},
+{
+"item_id": "q12",
+"correct": "Initializing guess to 7 would make the condition False from the start, preventing any loop execution.",
+"distractor": "There are no Python restrictions on initialization values, and this specific case would not cause infinite looping."
+},
+{
+"item_id": "q13",
+"correct": "All three statements accurately describe how nested loops function, including structure, behavior, and flexibility.",
+"distractor": "Nested loops work with any combination of loop types and do not have restrictions on iteration counts."
+},
+{
+"item_id": "q14",
+"correct": "The loop starts at 10 and decrements by 1 each iteration, continuing while blastoff is greater than 0, printing 10 down through 1.",
+"distractor": "The condition is greater than 0, not greater than or equal to, so 0 itself is not printed."
+},
+{
+"item_id": "q15",
+"correct": "The variable x starts at 5 and increments by 1 each time, except when x equals 7 it increments by 3 total (2 plus 1), skipping 8.",
+"distractor": "The extra increment when x equals 7 causes 8 to be skipped in the sequence."
+}
+]
+}
+</QUIZFORGE_JSON>
+
+============================================================
+VALIDATION ERRORS DETECTED
+============================================================
+
+The quiz 'ch8l2v2quiz' has critical errors that must be fixed
+before it can be processed. Please fix the following issues:
+
+1. Parse error: Invalid JSON payload (line 231, column 63): Expecting ',' delimiter
+Context:
+0231: "prompt": "What will happen if this code runs?\n\npassword = "SECRET"\nwhile password != "SECRET":\n    print("No, try again!")\nprint("Password verified.")",
+                                                                    ^
+
+============================================================
+INSTRUCTIONS FOR REVISION
+============================================================
+
+Please revise the quiz above to fix all the errors listed.
+Make sure:
+  - All required fields are present (Type, Prompt, Choices, etc.)
+  - MC questions have 2-7 choices with exactly 1 correct answer
+  - MA questions have at least 1 correct answer
+  - Numerical questions have valid answer/tolerance/range settings
+  - All questions have non-empty prompts
+
+Once fixed, save the revised quiz as a new .txt file and
+drop it back into the DropZone folder.
