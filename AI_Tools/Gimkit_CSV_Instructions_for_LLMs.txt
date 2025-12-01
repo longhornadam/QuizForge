@@ -1,392 +1,380 @@
-# Gimkit CSV Format Specification for LLMs
-**How to Generate Perfect Gimkit Import Files**
+Gimkit CSV Format Specification for LLMs (Plain Text Version)
+How to Generate Perfect Gimkit Import Files
 
----
+OVERVIEW
 
-## Overview
-Gimkit is a game-based learning platform that accepts quiz imports via CSV files. This document provides exact formatting requirements and best practices for LLMs generating Gimkit-compatible content.
+Gimkit is a game-based learning platform that accepts quiz imports via CSV files.
+This document provides exact formatting requirements and best practices for LLMs generating Gimkit-compatible content.
+All text output must be ASCII-safe.
 
----
+CRITICAL FORMAT REQUIREMENTS
 
-## Critical Format Requirements
+File Structure
 
-### File Structure
-- **Format**: CSV (Comma-Separated Values)
-- **Encoding**: UTF-8
-- **Line Endings**: Standard (LF or CRLF both work)
-- **File Extension**: .csv
+Format: CSV (Comma-Separated Values)
 
-### Column Headers (Row 1 - REQUIRED)
-```
+Encoding: UTF-8
+
+Line Endings: Standard (LF or CRLF both work)
+
+File Extension: .csv
+
+Column Headers (Row 1 - REQUIRED)
+These must match exactly, including capitalization, spacing, and the text "(Optional)":
+
 Question,Correct Answer,Incorrect Answer 1,Incorrect Answer 2 (Optional),Incorrect Answer 3 (Optional)
-```
 
-**CRITICAL**: 
-- Headers must match EXACTLY as shown above (case-sensitive)
-- Include all 5 columns even if optional answers are not used
-- Do NOT add extra columns
-- Do NOT modify column names
-- Do NOT make the correct answer 30% shorter or longer than the average of all choices
-- Note: "(Optional)" is part of the header text for columns 4 and 5
+CRITICAL:
 
----
+Headers must match exactly as shown above (case-sensitive).
 
-## Column Specifications
+Include all 5 columns even if optional answers are not used.
 
-### Column 1: Question
-- **Type**: String
-- **Max Length**: ~500 characters recommended
-- **Formatting**: Plain text only (no HTML, no Markdown)
-- **Special Characters**: Minimize use; avoid unescaped quotes
-- **Required**: Yes
+Do not add extra columns.
 
-**CRITICAL RULES:**
-- Avoid superfluous punctuation (can break CSV formatting)
-- Only include commas when absolutely necessary
-- When commas ARE necessary, enclose entire question in quotes
-- All questions must be self-contained (no references to external passages)
+Do not modify column names.
 
-**Good Examples:**
-```
-What is 2 + 2?
-Which Python command imports the debugger?
-What type of error prevents code from running?
-```
+Do not make the correct answer much shorter or much longer than the incorrect answers.
 
-**Bad Examples:**
-```
-What is "2 + 2"?  [WRONG] (unescaped quotes)
-Based on the passage above, what is the answer?  [WRONG] (refers to non-existent passage)
-What's the **correct** answer?  [WRONG] (markdown formatting)
-```
+Note: "(Optional)" is part of the header text for columns 4 and 5.
 
-### Column 2: Correct Answer
-- **Type**: String
-- **Max Length**: ~200 characters recommended
-- **Formatting**: Plain text only
-- **Required**: Yes
-- **Must be**: Exactly one correct answer
+ASCII-ONLY RULES (CRITICAL)
 
-**Important:**
-- Keep answers concise (1-15 words ideal)
-- Avoid unnecessary punctuation
-- If answer contains comma, wrap in quotes
+Gimkit CSV imports may fail or behave unexpectedly when non-ASCII characters are used.
 
-### Column 3: Incorrect Answer 1
-- **Type**: String
-- **Required**: Yes
-- **Must be**: A plausible but incorrect distractor
+LLMs must output ASCII-only text.
 
-### Columns 4-5: Incorrect Answer 2 (Optional), Incorrect Answer 3 (Optional)
-- **Type**: String
-- **Required**: No (but recommended for better gameplay)
-- **Can be left blank**: Yes
-- **Best practice**: Provide at least 3 total answers (1 correct + 2 incorrect) minimum
+Replace all:
 
----
+Curly quotes (“ ”) with straight quotes "
 
-## CSV Formatting Rules
+Curly apostrophes (’) with straight apostrophe '
 
-### 1. Comma Handling (CRITICAL)
-Gimkit CSV formatting is sensitive to commas. Follow these rules:
+Em dashes (—) with hyphen -
 
-**Rule 1: Avoid commas in questions/answers when possible**
-```
-Good: What is the output of print(1 2 3)?
-Bad: What is the output of print(1, 2, 3)?
-```
+En dashes (–) with hyphen -
 
-**Rule 2: If comma is absolutely necessary, wrap entire field in quotes**
-```
-"What is the output of print(1, 2, 3)?",1 2 3,123,1-2-3,Error
-```
+Ellipses (…) with three periods ...
 
-**Rule 3: Never use commas unnecessarily in answers**
-```
+Accented characters with unaccented equivalents
+
+Bullet points with hyphens or plain lines
+
+Forbidden:
+
+Emojis
+
+Non-ASCII punctuation
+
+HTML tags
+
+Markdown formatting
+
+Line breaks inside any cell
+
+COLUMN SPECIFICATIONS
+
+Column 1: Question
+
+Type: String
+
+Max Length: about 500 characters recommended
+
+Formatting: Plain text only (no HTML, no Markdown)
+
+Special Characters: Minimize; avoid quotes and commas when possible
+
+Required: Yes
+
+Critical rules for questions:
+
+Avoid unnecessary punctuation.
+
+Avoid commas when possible.
+
+If a comma is necessary, wrap the entire question field in double quotes.
+
+Every question must be self-contained. Do not refer to a passage or code that is "above" or "before" the question.
+
+Good examples:
+What is 2 plus 2
+Which Python command imports the debugger
+What type of error prevents code from running
+
+Bad examples:
+What is "2 + 2" (unescaped quotes)
+Based on the passage above what is the answer (refers to non-existent passage)
+What is the correct answer (vague and unhelpful)
+
+Column 2: Correct Answer
+
+Type: String
+
+Max Length: about 200 characters recommended
+
+Formatting: Plain text only
+
+Required: Yes
+
+Must be exactly one correct answer.
+
+Guidelines:
+
+Keep answers concise (1 to 15 words is ideal).
+
+Avoid unnecessary punctuation.
+
+If an answer contains a comma, wrap the entire field in quotes.
+
+Column 3: Incorrect Answer 1
+
+Type: String
+
+Required: Yes
+
+Must be a plausible but incorrect distractor.
+
+Columns 4 and 5: Incorrect Answer 2 (Optional), Incorrect Answer 3 (Optional)
+
+Type: String
+
+Required: No (but recommended for better gameplay).
+
+Can be left blank (empty) if not used.
+
+Best practice: Provide at least 3 total answers (1 correct and 2 incorrect) when possible.
+
+CSV FORMATTING RULES
+
+Comma Handling (CRITICAL)
+Gimkit CSV formatting is sensitive to commas.
+
+Rule 1: Avoid commas in questions and answers when possible.
+Good: What is the output of print(1 2 3)
+Bad: What is the output of print(1, 2, 3)
+
+Rule 2: If a comma is absolutely necessary, wrap the entire field in double quotes.
+Example:
+"What is the output of print(1, 2, 3)",1 2 3,123,1-2-3,Error
+
+Rule 3: Never use commas unnecessarily in answers.
 Good: Syntax error
 Bad: Syntax error, which prevents code from running
-```
 
-### 2. Quote Handling
-- Avoid quotes within text when possible
-- If quotes are necessary, escape by doubling:
-```
-"What does print(""Hello"") output?",Hello,"""Hello""",Error,Nothing
-```
+Quote Handling
 
-### 3. Empty Optional Fields
-- Leave blank (no text between commas):
-```
-Is Python case-sensitive?,Yes,No,,
-```
-- Do NOT write "N/A" or "None" - just leave empty
+Avoid quotes within text when possible.
 
-### 4. Self-Contained Questions
-**CRITICAL**: Every question must be complete without external context
+If quotes are necessary, escape them by doubling the quote character.
 
-[WRONG] WRONG:
-```
-Based on paragraph 3, what is the main idea?
-According to the passage above, who discovered...?
-In the previous example, what happens when...?
-```
+Example:
+"What does print(""Hello"") output",Hello,"""Hello""",Error,Nothing
 
-[CORRECT] CORRECT:
-```
-What is the main idea of photosynthesis?
-Who discovered penicillin?
-What happens when you divide by zero in Python?
-```
+Empty Optional Fields
 
-### 5. No Line Breaks
-- Keep all text for one question on a single row
-- Avoid multi-line text within cells
+Leave optional fields completely blank (no text between commas).
 
----
+Example:
+Is Python case sensitive,Yes,No,,
 
-## Answer Writing Best Practices
+Do not write "N/A" or "None". Just leave the field empty.
 
-### Strategic Distractors
-Create wrong answers that are **plausible but clearly incorrect**:
+Self-Contained Questions (CRITICAL)
+Every question must be complete without external context.
 
-**Good Distractor Strategies:**
-- Related terminology from same topic
-- Common student misconceptions
-- Mix up similar concepts
-- Near-correct values
+Wrong:
+Based on paragraph 3 what is the main idea
+According to the passage above who discovered penicillin
+In the previous example what happens when you divide by zero
 
-**Example:**
-```
-Question: What command imports the Python debugger?
-[CORRECT] Good Distractors:
-- import debug (similar syntax)
-- import debugger (close term)
-- pdb.import() (related but backwards)
+Correct:
+What is the main idea of photosynthesis
+Who discovered penicillin
+What happens when you divide by zero in Python
 
-[WRONG] Poor Distractors:
-- banana (random)
-- 12345 (nonsensical)
-- print() (unrelated)
-```
+No Line Breaks
 
-### Answer Length Balance
-- Keep all answers roughly the same length
-- Don't make correct answer obviously longer/shorter
-- Aim for 1-10 words per answer
+Keep all text for one question on a single row.
 
-### Difficulty Balance
-- **Easy (60%)**: Clear right answer, obviously wrong distractors
-- **Medium (30%)**: Related distractors requiring understanding
-- **Hard (10%)**: Close distractors testing fine distinctions
+Do not insert multi-line text within any cell.
 
----
+ANSWER WRITING BEST PRACTICES
 
-## Complete Example
+Strategic Distractors
+Wrong answers should be plausible but clearly incorrect.
 
-```csv
+Good distractor strategies:
+
+Use related terminology from the same topic.
+
+Use common student misconceptions.
+
+Mix up similar concepts.
+
+Use near-correct numbers or terms.
+
+Example:
+Question: What command imports the Python debugger
+
+Good distractors:
+import debug
+import debugger
+pdb.import
+
+Poor distractors:
+banana
+12345
+print
+
+Answer Length Balance
+
+Keep all answers roughly the same length.
+
+Do not make the correct answer obviously longer or shorter.
+
+Aim for 1 to 10 words per answer.
+
+Difficulty Balance
+
+Easy (about 60 percent): Clear right answer, obviously wrong distractors.
+
+Medium (about 30 percent): Related distractors that require understanding.
+
+Hard (about 10 percent): Close distractors that test fine distinctions.
+
+COMPLETE EXAMPLE
+
+Example CSV content:
+
 Question,Correct Answer,Incorrect Answer 1,Incorrect Answer 2 (Optional),Incorrect Answer 3 (Optional)
-What type of error prevents code from running?,Syntax error,Logic error,Runtime error,Exception
-What does pdb stand for?,Python Debugger,Python Debug Base,Program Database,Python Developer Board
-Which debugger command steps to next line?,s,c,p,q
-What happens when you divide by zero?,Runtime exception,Returns zero,Returns None,Syntax error
-True or False: Python is case-sensitive,True,False,,
-```
+What type of error prevents code from running,Syntax error,Logic error,Runtime error,Exception
+What does pdb stand for,Python Debugger,Python Debug Base,Program Database,Python Developer Board
+Which debugger command steps to next line,s,c,p,q
+What happens when you divide by zero,Runtime exception,Returns zero,Returns none,Syntax error
+True or False Python is case sensitive,True,False,,
 
----
+COMMON MISTAKES TO AVOID
 
-## Common Mistakes to Avoid
-
-### [WRONG] WRONG: Missing required headers
-```csv
+Wrong: Missing required headers
 Question,Answer,Wrong1,Wrong2
-```
 
-### [CORRECT] CORRECT: Exact header match
-```csv
+Correct: Exact header match
 Question,Correct Answer,Incorrect Answer 1,Incorrect Answer 2 (Optional),Incorrect Answer 3 (Optional)
-```
 
----
+Wrong: Only one answer total
+What is Python,A programming language,,,
 
-### [WRONG] WRONG: Only 1 answer total
-```csv
-What is Python?,A programming language,,,
-```
+Correct: At least 2 answers (1 correct and 1 incorrect)
+What is Python,A programming language,A snake species,,
 
-### [CORRECT] CORRECT: At least 2 answers (1 correct + 1 incorrect minimum)
-```csv
-What is Python?,A programming language,A snake species,,
-```
+Wrong: Unnecessary commas in text
+What is the sum of 2, 3, and 4,9,8,10,11
 
----
+Correct: Avoid commas or quote if necessary
+What is the sum of 2 plus 3 plus 4,9,8,10,11
 
-### [WRONG] WRONG: Unnecessary commas in text
-```csv
-What is the sum of 2, 3, and 4?,9,8,10,11
-```
+Or:
+"What is the sum of 2, 3, and 4",9,8,10,11
 
-### [CORRECT] CORRECT: Avoid commas or quote if necessary
-```csv
-What is the sum of 2 plus 3 plus 4?,9,8,10,11
-```
-OR
-```csv
-"What is the sum of 2, 3, and 4?",9,8,10,11
-```
+Wrong: Non self contained question
+Based on the code above what is the output,15,12,18,20
 
----
+Correct: Self contained with context
+What is the output of 5 plus 10,15,12,18,20
 
-### [WRONG] WRONG: Non-self-contained question
-```csv
-Based on the code above what is the output?,15,12,18,20
-```
+Wrong: Random nonsense distractors
+What is a syntax error,Error in code structure,Banana,Purple,Twelve
 
-### [CORRECT] CORRECT: Self-contained with context
-```csv
-What is the output of 5 + 10?,15,12,18,20
-```
+Correct: Plausible related distractors
+What is a syntax error,Error in code structure,Error in logic,Runtime crash,Missing variable
 
----
-
-### [WRONG] WRONG: Random nonsense distractors
-```csv
-What is a syntax error?,Error in code structure,Banana,Purple,Twelve
-```
-
-### [CORRECT] CORRECT: Plausible related distractors
-```csv
-What is a syntax error?,Error in code structure,Error in logic,Runtime crash,Missing variable
-```
-
----
-
-## Quality Checklist
+QUALITY CHECKLIST
 
 Before outputting a Gimkit CSV, verify:
 
-- [ ] Headers match exactly (case-sensitive, including "(Optional)")
-- [ ] Every question is self-contained (no external references)
-- [ ] Every question has at least 2 total answers (1 correct + 1 incorrect minimum)
-- [ ] Commas are avoided when possible, quoted when necessary
-- [ ] No HTML, Markdown, or special formatting in text
-- [ ] All distractors are plausible, not random
-- [ ] No line breaks within questions/answers
-- [ ] Answer lengths are balanced
-- [ ] Quotes are escaped by doubling when needed
-- [ ] Optional columns are left blank (not "N/A") when unused
+Headers:
+[ ] Headers match exactly, including "(Optional)"
 
----
+Questions:
+[ ] Every question is self contained
+[ ] No question refers to a passage, code, or example not in the question itself
 
-## Output Instructions for LLMs
+Answers:
+[ ] Each row has at least 1 correct answer and 1 incorrect answer
+[ ] Optional incorrect answers are used when helpful (but may be left blank)
+[ ] All distractors are plausible
+[ ] Answer lengths are similar
 
-When asked to create a Gimkit review/quiz:
+Formatting:
+[ ] Commas are avoided when possible
+[ ] Any field containing a comma is wrapped in double quotes
+[ ] No HTML or Markdown formatting
+[ ] No line breaks inside any field
+[ ] Quotes in text are escaped by doubling
 
-1. **Determine question count**: Ask if not specified (recommend 20-40 questions)
-2. **Identify key concepts**: Cover main topics comprehensively
-3. **Write questions**: 
-   - Make each question self-contained
-   - Avoid commas unless absolutely necessary
-   - Keep questions clear and concise
-4. **Create answers**:
-   - 1 correct answer (required)
-   - At least 1 incorrect answer (required)
-   - 2-3 total incorrect answers recommended (up to 3 max)
-   - All incorrect answers must be plausible distractors
-5. **Format as CSV**: Follow exact header structure above
-6. **Minimize punctuation**: Avoid commas, quotes, and special characters when possible
-7. **Output the file**: Save as .csv extension
+Encoding:
+[ ] Text is ASCII safe and saved as UTF-8
 
----
+OUTPUT INSTRUCTIONS FOR LLMS
 
-## Sample Complete Output
+When asked to create a Gimkit review or quiz:
 
-```csv
+Determine question count (if not specified, 20 to 40 is a good range).
+
+Identify key concepts to cover.
+
+Write self contained questions with clear wording.
+
+Avoid commas and quotes when possible. If they are necessary, format the field correctly.
+
+Provide:
+
+1 correct answer (required)
+
+At least 1 incorrect answer (required)
+
+Up to 3 incorrect answers total (optional but recommended)
+
+Format as CSV with the exact header row specified.
+
+Keep all text ASCII and on a single line per question.
+
+Save as .csv.
+
+SAMPLE COMPLETE OUTPUT
+
 Question,Correct Answer,Incorrect Answer 1,Incorrect Answer 2 (Optional),Incorrect Answer 3 (Optional)
-What is a syntax error?,Error that stops code from running,Error in program logic,Error that crashes program,Missing variable value
-What does pdb.set_trace() do?,Creates a breakpoint,Prints debug information,Traces variable values,Sets execution timer
-Which command steps through debugger?,s,c,p,q
-What is a logic error?,Code runs but gives wrong result,Code will not compile,Code crashes during execution,Missing semicolon
-Is Python case-sensitive?,Yes,No,,
-What type of error is dividing by zero?,Runtime exception,Syntax error,Logic error,Overflow error
-Which tool pauses program execution?,Debugger,Print statements,Comments,Text editor
-What does the c command do in debugger?,Continue running,Clear variables,Copy code,Count lines
-What should you do with debug print() statements?,Remove them when done,Leave them in code,Move to top of file,Convert to input()
-When should you start code review?,At the beginning,At the error line,At the end,Anywhere randomly
-```
+What is a syntax error,Error that stops code from running,Error in program logic,Error that crashes program,Missing variable value
+What does pdb set trace do,Creates a breakpoint,Prints debug information,Traces variable values,Sets execution timer
+Which command steps through debugger,s,c,p,q
+What is a logic error,Code runs but gives wrong result,Code will not compile,Code crashes during execution,Missing semicolon
+Is Python case sensitive,Yes,No,,
+What type of error is dividing by zero,Runtime exception,Syntax error,Logic error,Overflow error
+Which tool pauses program execution,Debugger,Print statements,Comments,Text editor
+What does the c command do in debugger,Continue running,Clear variables,Copy code,Count lines
+What should you do with debug print statements,Remove them when done,Leave them in code,Move to top of file,Convert to input
+When should you start code review,At the beginning,At the error line,At the end,Anywhere randomly
 
----
+KEY DIFFERENCES FROM BLOOKET
 
-## Key Differences from Blooket
+Gimkit does not require a question number column.
 
-| Feature | Gimkit | Blooket |
-|---------|--------|---------|
-| Question numbering | Not required | Required (Question #) |
-| Time limits | Not specified in CSV | Required column |
-| Correct answer format | Text string | Number (1-4) |
-| Multiple correct answers | Not supported | Supported (e.g., "1,3") |
-| Header format | Includes "(Optional)" text | No optional markers |
-| Comma sensitivity | Very sensitive - avoid | Less sensitive |
-| Self-contained requirement | Strict requirement | Less strict |
+Gimkit does not take time limits in the CSV.
 
----
+Correct answers are specified as text, not by index.
 
-## Advanced Tips
+Multiple correct answers per question are not supported in the CSV.
 
-### For Code-Based Questions
-**Avoid commas in code examples:**
-```
-Good: What does print(x y z) output?
-Better: What is the output when printing three variables?
-```
+Headers include the text "(Optional)" in two columns.
 
-**If code must be shown:**
-```
-"In Python, what does x = [1, 2, 3] create?",A list,A tuple,A dictionary,A set
-```
+Questions must be fully self contained.
 
-### For Math Questions
-**Avoid comma-heavy number formatting:**
-```
-Good: What is one thousand plus one thousand?
-Good: What is 1000 plus 1000?
-Bad: What is 1,000 + 1,000?
-```
+FINAL NOTES
 
-### For True/False Questions
-**Use exactly 2 answers:**
-```
-Is Python case-sensitive?,Yes,No,,
-True or False: Comments help explain code,True,False,,
-```
+Gimkit automatically shuffles answer order during gameplay.
 
----
+20 to 40 questions is usually ideal for a single game session.
 
-## Troubleshooting Import Failures
+Test imports with a small sample file before committing to a large set.
 
-If Gimkit rejects your CSV:
-
-1. **Check headers**: Must match exactly (case-sensitive)
-2. **Check for unquoted commas**: Quote any field containing commas
-3. **Check for line breaks**: All text must be on single row
-4. **Check for external references**: Questions must be self-contained
-5. **Check answer count**: Must have at least 1 correct + 1 incorrect
-6. **Check encoding**: Save as UTF-8
-7. **Test with simple example**: Start with 5 questions to verify format
-
----
-
-## Final Notes
-
-- Gimkit automatically shuffles answer order during gameplay
-- Students can play multiple times, so question variety helps
-- 20-40 questions is ideal range for single game session
-- More than 50 questions may be overwhelming
-- Consider grouping by difficulty if creating large sets
-- Test import with small sample before creating full set
-
----
-
-**Version**: 1.0  
-**Last Updated**: 2024  
-**Format Verified**: Gimkit Import (via Spreadsheet Upload)
-**Critical Success Factor**: Self-contained questions with minimal punctuation
+Group questions by topic or difficulty when possible for better pedagogy.
