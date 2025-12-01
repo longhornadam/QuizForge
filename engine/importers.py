@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import json
 import logging
+import os
 import uuid
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
-from typing import Protocol, List, Optional
-import logging
-import os
+from typing import List, Optional, Protocol
+
 from engine.config import SPEC_MODE
 from engine.core.answers import NumericalAnswer
 from engine.core.questions import (
@@ -32,9 +33,8 @@ from engine.core.questions import (
 )
 from engine.core.quiz import Quiz
 from engine.parsing.text_parser import TextOutlineParser
-
-from engine.spec_engine import parser as news_parser
 from engine.spec_engine import packager as news_packager
+from engine.spec_engine import parser as news_parser
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +48,16 @@ class ImportedQuiz:
 class Importer(Protocol):
     def import_quiz(self, raw_spec: str) -> ImportedQuiz:
         ...
+
+
+class JsonImportError(Exception):
+    """Raised when JSON 3.0 import fails (no text fallback)."""
+
+    def __init__(self, message: str, line: int | None = None, column: int | None = None, char: int | None = None):
+        super().__init__(message)
+        self.line = line
+        self.column = column
+        self.char = char
 
 
 class TextImporter:
@@ -66,7 +76,13 @@ class JsonImporter:
 
     def import_quiz(self, raw_spec: str) -> ImportedQuiz:
         logger.debug("JSON spec mode active (QUIZFORGE_SPEC_MODE=json)")
-        payload = news_parser.parse_news_json(raw_spec)
+        try:
+            payload = news_parser.parse_news_json(raw_spec)
+        except json.JSONDecodeError as e:
+            message = f"Invalid JSON payload (line {e.lineno}, column {e.colno}): {e.msg}"
+            raise JsonImportError(message, line=e.lineno, column=e.colno, char=e.pos) from e
+        except Exception as e:
+            raise JsonImportError(f"JSON import failed: {e}") from e
         logger.debug("Parsed JSON payload version=%s", payload.version)
 
         packaged = news_packager.package_quiz(payload, context="default")
@@ -91,12 +107,8 @@ class JsonImporter:
 def import_quiz_from_llm(raw_output: str) -> ImportedQuiz:
     """Dispatch to the correct importer based on SPEC_MODE."""
     if SPEC_MODE == "json":
-        try:
-            logger.info("QUIZFORGE_SPEC_MODE=json: attempting JSON 3.0 import")
-            return JsonImporter().import_quiz(raw_output)
-        except Exception as e:
-            logger.warning(f"JSON import failed, falling back to text importer: {e}")
-            return TextImporter().import_quiz(raw_output)
+        logger.info("QUIZFORGE_SPEC_MODE=json: attempting JSON 3.0 import")
+        return JsonImporter().import_quiz(raw_output)
     return TextImporter().import_quiz(raw_output)
 
 

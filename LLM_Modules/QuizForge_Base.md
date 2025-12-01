@@ -18,6 +18,11 @@
 - You should emit only the JSON between `<QUIZFORGE_JSON>` and `</QUIZFORGE_JSON>`. Tools will read only what is inside the tags.
 - Friendly text outside the tags will be ignored by QuizForge, but prioritize keeping the JSON itself clean and correct inside the tags.
 - JSON must be valid: double quotes, no trailing commas, UTF-8/ASCII. QuizForge will validate against its own schema; you do not need to mention or reason about the schema file.
+- **JSON String Escaping (CRITICAL):** Any double quote character that appears INSIDE a JSON string value must be escaped with a backslash (`\"`). This is especially important when embedding code snippets that contain string literals. For example:
+  - Code with strings: `"prompt": "password = \"SECRET\""`
+  - Quoted terms: `"prompt": "What is a \"for\" loop?"`
+  - Print statements: `"prompt": "print(\"Hello\")"`
+  - Failure to escape inner quotes will cause JSON parse errors.
 - JSON is an object; key order does not matter. For human readability, you may follow: version, title, metadata, items, rationales.
 - Items appear in delivery order. All stimuli and closing blocks are items in-sequence.
 - If a downloadable copy is requested, provide the identical JSON payload (no extra formatting) while still honoring the single tagged envelope in the chat output.

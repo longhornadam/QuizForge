@@ -1,3 +1,5 @@
+import pytest
+
 from engine.importers import import_quiz_from_llm
 from engine import importers as importer_module
 from engine import config as config_module
@@ -90,14 +92,11 @@ def test_json_mode_tf_and_stimulus_end_scoring():
   assert tf_q.answer_true is True
 
 
-def test_json_mode_fallback_on_text_input(caplog):
+def test_json_mode_raises_error_on_text_input():
     _set_spec_mode("json")
-    caplog.set_level("WARNING")
-    imported = import_quiz_from_llm(TEXT_SPEC)
-    quiz = imported.quiz
-    # Should have fallen back to text importer and parsed correctly
-    assert quiz.title == "Test Quiz"
-    assert len(quiz.questions) == 1
-    assert quiz.questions[0].qtype == "MC"
-    # Ensure fallback was logged
-    assert any("falling back to text importer" in rec.message for rec in caplog.records)
+    with pytest.raises(importer_module.JsonImportError) as excinfo:
+        import_quiz_from_llm(TEXT_SPEC)
+    message = str(excinfo.value)
+    assert "JSON" in message
+    # Ensure the user sees the original decode/validation message (not a fallback)
+    assert "invalid" in message.lower() or "failed" in message.lower()

@@ -17,13 +17,14 @@ from pathlib import Path
 from typing import List, Optional
 import shutil
 
-from .importers import import_quiz_from_llm
+from .importers import JsonImportError, import_quiz_from_llm
 from .config import SPEC_MODE
 from .validation.validator import QuizValidator, ValidationStatus
 from .packagers.packager import package_quiz
 from .packaging.folder_creator import create_quiz_folder, write_file
 from .feedback.log_generator import generate_log
 from .feedback.fail_prompt_generator import generate_fail_prompt
+from .spec_engine import parser as spec_parser
 
 
 ALLOWED_INPUT_EXTENSIONS = {".txt", ".json", ".md"}
@@ -66,9 +67,9 @@ class QuizForgeOrchestrator:
             print(f"Processing: {filepath.name}")
             try:
                 self.process_file(filepath)
-                print(f"  ✓ Success")
+                print(f"  -> Success")
             except Exception as e:
-                print(f"  ✗ Error: {e}")
+                print(f"  -> Error: {e}")
             print()
     
     def process_file(self, filepath: Path) -> None:
@@ -85,8 +86,11 @@ class QuizForgeOrchestrator:
             imported = import_quiz_from_llm(original_text)
             quiz = imported.quiz
         except Exception as e:
+            context = None
+            if isinstance(e, JsonImportError):
+                context = self._format_json_error_context(original_text, e)
             # Parser failed - create fail prompt
-            self._handle_parse_failure(filepath, original_text, str(e))
+            self._handle_parse_failure(filepath, original_text, str(e), context)
             return
         
         # Step 2a: Calculate point values for quiz (automated)
@@ -111,14 +115,17 @@ class QuizForgeOrchestrator:
         else:
             self._handle_validation_success(filepath, result)
     
-    def _handle_parse_failure(self, filepath: Path, original_text: str, error: str) -> None:
+    def _handle_parse_failure(self, filepath: Path, original_text: str, error: str, context: Optional[str] = None) -> None:
         """Handle parser failure by creating fail prompt."""
         quiz_name = filepath.stem
+        error_text = f"Parse error: {error}"
+        if context:
+            error_text = f"{error_text}\nContext:\n{context}"
         
         # Generate fail prompt
         prompt = generate_fail_prompt(
             original_text=original_text,
-            errors=[f"Parse error: {error}"],
+            errors=[error_text],
             quiz_title=quiz_name
         )
         
@@ -127,7 +134,7 @@ class QuizForgeOrchestrator:
         fail_path = self.output / fail_filename
         fail_path.write_text(prompt, encoding='utf-8')
         
-        print(f"  → Created: {fail_filename}")
+        print(f"  -> Created: {fail_filename}")
         
         # Archive original file
         self._archive_file(filepath)
@@ -148,7 +155,7 @@ class QuizForgeOrchestrator:
         fail_path = self.output / fail_filename
         fail_path.write_text(prompt, encoding='utf-8')
         
-        print(f"  → Created: {fail_filename}")
+        print(f"  -> Created: {fail_filename}")
         
         # Archive original file
         self._archive_file(filepath)
@@ -168,18 +175,18 @@ class QuizForgeOrchestrator:
             # Report successful outputs to user
             if package_results.get('canvas'):
                 canvas = package_results['canvas']
-                print(f"  → Created: {folder.name}/{Path(canvas['qti_path']).name}")
+                print(f"  -> Created: {folder.name}/{Path(canvas['qti_path']).name}")
             
             if package_results.get('physical'):
                 phys = package_results['physical']
-                print(f"  → Created: {folder.name}/{Path(phys['quiz_path']).name}")
-                print(f"  → Created: {folder.name}/{Path(phys['key_path']).name}")
-                print(f"  → Created: {folder.name}/{Path(phys['rationale_path']).name}")
+                print(f"  -> Created: {folder.name}/{Path(phys['quiz_path']).name}")
+                print(f"  -> Created: {folder.name}/{Path(phys['key_path']).name}")
+                print(f"  -> Created: {folder.name}/{Path(phys['rationale_path']).name}")
             
-            print(f"  → All outputs saved to: {folder.name}")
+            print(f"  -> All outputs saved to: {folder.name}")
             
         except Exception as e:
-            print(f"  ✗ Packaging failed: {e}")
+            print(f"  -> Packaging failed: {e}")
             # Could create error log here if needed
             return
         
@@ -218,11 +225,33 @@ class QuizForgeOrchestrator:
         except Exception:
             pass
 
-        print(f"  → Created: {folder.name}/{log_filename}")
+        print(f"  -> Created: {folder.name}/{log_filename}")
         
         # Archive original file
         self._archive_file(filepath)
     
+    def _format_json_error_context(self, original_text: str, error: JsonImportError) -> Optional[str]:
+        """Return a caret-highlighted line for JSON parse errors."""
+        line = getattr(error, "line", None)
+        column = getattr(error, "column", None)
+        if not isinstance(line, int) or not isinstance(column, int) or line < 1 or column < 1:
+            return None
+
+        try:
+            payload = spec_parser.extract_tagged_payload(original_text)
+        except Exception:
+            payload = original_text
+
+        lines = payload.splitlines()
+        if not lines or line > len(lines):
+            return None
+
+        line_text = lines[line - 1]
+        prefix = f"{line:04d}: "
+        caret_offset = min(max(column - 1, 0), max(len(line_text), 0))
+        caret_line = " " * (len(prefix) + caret_offset) + "^"
+        return f"{prefix}{line_text}\n{caret_line}"
+
     def _archive_file(self, filepath: Path) -> None:
         """Move processed file to archive folder."""
         dest = self.archive / filepath.name
