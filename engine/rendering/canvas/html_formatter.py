@@ -198,50 +198,27 @@ def sanitize_for_canvas(text: str) -> str:
     return result
 
 
-# Special marker to identify HTML content that should not be escaped during serialization
-_HTML_CONTENT_MARKER = "___QUIZFORGE_HTML___"
+# Special marker removed - Canvas expects escaped HTML in XML
 
 
 def html_mattext(text: str) -> ET.Element:
     """Create a mattext element with HTML content.
     
-    Uses a special marker to preserve HTML during XML serialization.
-    The serialize_element() function will unescape this content.
+    Canvas expects HTML to be escaped in the XML (e.g., &lt;p&gt; not <p>).
+    ElementTree's default behavior handles this correctly.
     """
     element = ET.Element("mattext", {"texttype": "text/html"})
-    # Mark the content so serialize_element knows to unescape it
-    element.text = f"{_HTML_CONTENT_MARKER}{text}{_HTML_CONTENT_MARKER}"
+    element.text = text
     return element
 
 
 def serialize_element(element: ET.Element) -> str:
     """Serialize an ElementTree element to XML string.
     
-    Handles special HTML content in mattext elements by:
-    1. Serializing normally (which escapes everything)
-    2. Finding marked HTML content and unescaping it
+    Uses standard ElementTree serialization which properly escapes
+    HTML content (Canvas expects &lt;p&gt; not <p> in mattext elements).
     """
-    import html
-    
-    xml_str = ET.tostring(element, encoding="utf-8").decode("utf-8")
-    
-    # Find and unescape marked HTML content
-    # Pattern: escaped marker + escaped HTML + escaped marker
-    escaped_marker = xml_escape(_HTML_CONTENT_MARKER)
-    
-    # The content between markers was escaped by ET.tostring, so we need to unescape it
-    import re
-    pattern = re.escape(escaped_marker) + r'(.*?)' + re.escape(escaped_marker)
-    
-    def unescape_html(match: re.Match) -> str:
-        # The HTML content was escaped by ET.tostring, so unescape it
-        escaped_content = match.group(1)
-        # html.unescape handles &lt; &gt; &amp; &quot; etc.
-        return html.unescape(escaped_content)
-    
-    xml_str = re.sub(pattern, unescape_html, xml_str, flags=re.DOTALL)
-    
-    return xml_str
+    return ET.tostring(element, encoding="utf-8").decode("utf-8")
 
 
 def add_passage_numbering(text: str, passage_type: str = "auto") -> Tuple[str, str]:
