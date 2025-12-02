@@ -754,3 +754,41 @@ def htmlize_item_text(text: str) -> str:
             result_parts.append(esc(part))
     
     return ''.join(result_parts)
+
+
+def plaintext_item_text(text: str) -> str:
+    """Convert item text to plain text, stripping Markdown code fences.
+    
+    Use this for question types where Canvas doesn't render HTML
+    (e.g., categorization items).
+    
+    Args:
+        text: Raw item text that may contain Markdown code fences
+        
+    Returns:
+        Plain text with code fences removed
+    """
+    if not text:
+        return ""
+    
+    # Clean escaped sequences first
+    text = _clean_text_content(text)
+    
+    # Remove fenced code blocks but keep the code content
+    # Pattern: ```language\ncode\n``` or ```code```
+    def strip_fence(match: re.Match) -> str:
+        content = match.group(1)
+        # Remove language identifier if present (first line)
+        lines = content.split('\n')
+        if lines and lines[0].strip().isalpha():
+            # First line looks like a language identifier
+            lines = lines[1:]
+        return '\n'.join(lines).strip()
+    
+    # Match fenced code blocks: ```...```
+    text = re.sub(r'```([^`]*?)```', strip_fence, text, flags=re.DOTALL)
+    
+    # Handle inline backticks - just remove them
+    text = re.sub(r'`([^`]+)`', r'\1', text)
+    
+    return text.strip()

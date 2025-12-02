@@ -23,7 +23,7 @@ from engine.core.questions import (
 )
 from engine.core.quiz import Quiz
 from engine.utils.text_utils import rand8
-from .html_formatter import html_mattext, htmlize_choice, htmlize_item_text, htmlize_prompt, serialize_element
+from .html_formatter import html_mattext, htmlize_choice, htmlize_item_text, htmlize_prompt, plaintext_item_text, serialize_element
 from .numerical_renderer import build_numerical_item
 
 
@@ -47,6 +47,22 @@ def _wrap_content(html: str) -> str:
             return html
     
     return f"<p>{html}</p>"
+
+
+def _plain_mattext(text: str) -> ET.Element:
+    """Create a mattext element with plain text content.
+    
+    Use this for question types where Canvas doesn't render HTML.
+    
+    Args:
+        text: Plain text content (will NOT be interpreted as HTML)
+        
+    Returns:
+        mattext Element with texttype="text/plain"
+    """
+    element = ET.Element("mattext", {"texttype": "text/plain"})
+    element.text = text
+    return element
 
 
 def build_assessment_xml(quiz: Quiz) -> str:
@@ -317,6 +333,8 @@ def _build_response(question: Question, presentation: ET.Element):
 
     if isinstance(question, CategorizationQuestion):
         # Build response_lid for each category
+        # NOTE: Canvas New Quizzes does NOT render HTML in categorization items,
+        # so we use plain text instead of HTML for category names and items.
         all_items = list(question.items)
         all_item_idents = {item.item_text: item.item_ident for item in all_items}
         # Also include distractors in the item pool
@@ -328,18 +346,18 @@ def _build_response(question: Question, presentation: ET.Element):
             cat_ident = question.category_idents[cat_name]
             response_lid = ET.SubElement(presentation, "response_lid", {"ident": cat_ident, "rcardinality": "Multiple"})
             material = ET.SubElement(response_lid, "material")
-            # Transform code blocks in category names
-            cat_html = htmlize_item_text(cat_name)
-            material.append(html_mattext(_wrap_content(cat_html)))
+            # Use plain text for category names (Canvas doesn't render HTML here)
+            material.append(_plain_mattext(cat_name))
             render_choice = ET.SubElement(response_lid, "render_choice")
             
             # Add all items (including distractors) to each category
             for item_text, item_ident in all_item_idents.items():
                 response_label = ET.SubElement(render_choice, "response_label", {"ident": item_ident})
                 mat = ET.SubElement(response_label, "material")
-                # Transform code blocks in categorization items
-                item_html = htmlize_item_text(item_text)
-                mat.append(html_mattext(_wrap_content(item_html)))
+                # Use plain text for items (Canvas doesn't render HTML here)
+                # Strip code fences but keep the code content readable
+                plain_text = plaintext_item_text(item_text)
+                mat.append(_plain_mattext(plain_text))
             
             # Store which items belong to this category
             correct_items = [item.item_ident for item in all_items if item.category_name == cat_name]
@@ -348,8 +366,6 @@ def _build_response(question: Question, presentation: ET.Element):
                 "category_name": cat_name,
                 "correct_items": correct_items
             })
-        
-        return {"type": "categorization", "categories": category_data, "num_categories": len(question.categories)}
         
         return {"type": "categorization", "categories": category_data, "num_categories": len(question.categories)}
 
