@@ -1,7 +1,7 @@
 <QUIZFORGE_JSON>
 {
   "version": "3.0-json",
-  "title": "QuizForge Sample — All Question Types",
+  "title": "QuizForge Sample - All Question Types",
   "metadata": {
     "audience": "Grade 8 Integrated STEM",
     "tier_default": "Tier 2"
@@ -59,7 +59,7 @@
     {
       "id": "fitb_phasechange",
       "type": "FITB",
-      "prompt": "During evaporation, water changes from a [blank] to a [blank] state before condensing in clouds.",
+      "prompt": "During evaporation, water changes from a [state_start] to a [state_end] state before condensing in clouds.",
       "accept": [
         ["liquid", "liquid water"],
         ["gas", "vapor", "water vapor"]

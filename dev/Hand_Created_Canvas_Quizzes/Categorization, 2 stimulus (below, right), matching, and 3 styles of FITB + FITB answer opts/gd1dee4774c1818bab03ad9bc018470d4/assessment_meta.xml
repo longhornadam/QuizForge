@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <quiz xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd" identifier="gd1dee4774c1818bab03ad9bc018470d4">
-  <title>Categorization, 2 stimulus (below, right), matching, and 3 styles of FITB</title>
+  <title>Categorization, 2 stimulus (below, right), matching, and 3 styles of FITB + FITB answer opts</title>
   <description/>
   <due_at/>
   <lock_at/>
@@ -33,7 +33,7 @@
   <disable_document_access>false</disable_document_access>
   <result_view_restricted>false</result_view_restricted>
   <assignment identifier="ea69152b76af5a17a11b487573a54913">
-    <title>Categorization, 2 stimulus (below, right), matching, and 3 styles of FITB</title>
+    <title>Categorization, 2 stimulus (below, right), matching, and 3 styles of FITB + FITB answer opts</title>
     <due_at/>
     <lock_at/>
     <unlock_at/>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
-  <assessment ident="gd1dee4774c1818bab03ad9bc018470d4" title="Categorization, 2 stimulus (below, right), matching, and 3 styles of FITB" external_assignment_id="3298338">
+  <assessment ident="gd1dee4774c1818bab03ad9bc018470d4" title="Categorization, 2 stimulus (below, right), matching, and 3 styles of FITB + FITB answer opts" external_assignment_id="3298338">
     <qtimetadata>
       <qtimetadatafield>
         <fieldlabel>cc_maxattempts</fieldlabel>
@@ -720,6 +720,96 @@
               <varequal respident="response_b564f010-881d-48b6-8f86-a7c98b36a8ce">92549a87-b7fb-49a6-a654-0a45b965c371</varequal>
             </conditionvar>
             <setvar action="Add" varname="SCORE">100.00</setvar>
+          </respcondition>
+        </resprocessing>
+      </item>
+      <item ident="5e953492cedacca471c76dfceea93497" title="fitb_multiblank title (different Text Match options)">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>fill_in_multiple_blanks_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>["b15e7a14-c4ee-4efe-a74c-2c17133f1aad-0", "f1b1d823-3bac-4edf-9870-2cca1de7fe6c-0", "4e12e1ea-27f8-4894-8288-65a342e0d88f-0"]</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>81ef7efe5a0a84ade525b5133cc19259</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;&lt;strong&gt;fitb_multiblank&lt;/strong&gt; stem [b15e7a14-c4ee-4efe-a74c-2c17133f1aad] and then [f1b1d823-3bac-4edf-9870-2cca1de7fe6c], but also possibly [4e12e1ea-27f8-4894-8288-65a342e0d88f]&lt;/p&gt;</mattext>
+          </material>
+          <response_lid ident="response_b15e7a14-c4ee-4efe-a74c-2c17133f1aad">
+            <material>
+              <mattext>answer 1</mattext>
+            </material>
+            <render_choice>
+              <response_label scoring_algorithm="TextCloseEnough" answer_type="openEntry" ident="b15e7a14-c4ee-4efe-a74c-2c17133f1aad-0" levenshtein_distance="1" ignore_case="false">
+                <material>
+                  <mattext texttype="text/plain">answer 1</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+          <response_lid ident="response_f1b1d823-3bac-4edf-9870-2cca1de7fe6c">
+            <material>
+              <mattext>answer 2</mattext>
+            </material>
+            <render_choice>
+              <response_label scoring_algorithm="TextEquivalence" answer_type="openEntry" ident="f1b1d823-3bac-4edf-9870-2cca1de7fe6c-0">
+                <material>
+                  <mattext texttype="text/plain">answer 2</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+          <response_lid ident="response_4e12e1ea-27f8-4894-8288-65a342e0d88f">
+            <material>
+              <mattext>answer 3</mattext>
+            </material>
+            <render_choice>
+              <response_label scoring_algorithm="TextRegex" answer_type="openEntry" ident="4e12e1ea-27f8-4894-8288-65a342e0d88f-0">
+                <material>
+                  <mattext texttype="text/plain">answer 3</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="response_b15e7a14-c4ee-4efe-a74c-2c17133f1aad">b15e7a14-c4ee-4efe-a74c-2c17133f1aad-0</varequal>
+            </conditionvar>
+            <setvar action="Add" varname="SCORE">33.33</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="response_f1b1d823-3bac-4edf-9870-2cca1de7fe6c">f1b1d823-3bac-4edf-9870-2cca1de7fe6c-0</varequal>
+            </conditionvar>
+            <setvar action="Add" varname="SCORE">33.33</setvar>
+          </respcondition>
+          <respcondition>
+            <conditionvar>
+              <varequal respident="response_4e12e1ea-27f8-4894-8288-65a342e0d88f">4e12e1ea-27f8-4894-8288-65a342e0d88f-0</varequal>
+            </conditionvar>
+            <setvar action="Add" varname="SCORE">33.33</setvar>
           </respcondition>
         </resprocessing>
       </item>
