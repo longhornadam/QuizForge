@@ -1,9 +1,11 @@
-"""Fairness validation rules (Weak Fails).
+"""Fairness validation rules.
 
 These rules check for patterns that may indicate bias:
 - Longest answer is always correct
-- Same answer position repeated (e.g., C-C-C)
-- Unbalanced correct answer distribution
+- Shortest answer is always correct
+
+Answer-position balancing is handled by the auto-fixer (answer_balancer) to avoid
+user-facing noise about shuffling the user cannot control.
 """
 
 from typing import List
@@ -12,97 +14,51 @@ from ...core.questions import MCQuestion, MAQuestion
 
 
 def check_fairness(quiz: Quiz) -> List[str]:
-    """Check for fairness issues (patterns, bias).
-    
-    Args:
-        quiz: Quiz object to check
-        
-    Returns:
-        List of warning messages (empty if fair)
-    """
-    warnings: List[str] = []
-    
-    # Check MC questions for patterns
+    """Return fairness warnings (currently none; length bias is treated as an error elsewhere)."""
+    return []
+
+
+def check_length_bias(quiz: Quiz) -> List[str]:
+    """Check for length bias in MC questions; returns error messages if biased."""
+    errors: List[str] = []
     mc_questions = [q for q in quiz.questions if isinstance(q, MCQuestion)]
-    if mc_questions:
-        warnings.extend(_check_longest_answer_bias(mc_questions))
-        warnings.extend(_check_shortest_answer_bias(mc_questions))
-        warnings.extend(_check_answer_position_pattern(mc_questions))
-    
-    return warnings
+    # Skip tiny sets; length bias is meaningless on very small samples
+    if len(mc_questions) < 3:
+        return errors
 
-
-def _check_longest_answer_bias(questions: List[MCQuestion]) -> List[str]:
-    """Check if longest answer is correct too often."""
-    warnings: List[str] = []
-    
     longest_correct_count = 0
-    for question in questions:
+    shortest_correct_count = 0
+    for question in mc_questions:
         if not question.choices:
             continue
-        
         longest = max(question.choices, key=lambda c: len(c.text))
+        shortest = min(question.choices, key=lambda c: len(c.text))
         if longest.correct:
             longest_correct_count += 1
-    
-    if len(questions) > 0:
-        percentage = (longest_correct_count / len(questions)) * 100
-        if percentage >= 60:
-            warnings.append(
-                f"Longest answer is correct in {percentage:.0f}% of MC questions "
-                f"({longest_correct_count}/{len(questions)}). This may indicate bias."
-            )
-    
-    return warnings
-
-
-def _check_shortest_answer_bias(questions: List[MCQuestion]) -> List[str]:
-    """Check if shortest answer is correct too often."""
-    warnings: List[str] = []
-    
-    shortest_correct_count = 0
-    for question in questions:
-        if not question.choices:
-            continue
-        
-        shortest = min(question.choices, key=lambda c: len(c.text))
         if shortest.correct:
             shortest_correct_count += 1
-    
-    if len(questions) > 0:
-        percentage = (shortest_correct_count / len(questions)) * 100
-        if percentage >= 60:
-            warnings.append(
-                f"Shortest answer is correct in {percentage:.0f}% of MC questions "
-                f"({shortest_correct_count}/{len(questions)}). This may indicate bias."
-            )
-    
-    return warnings
+
+    total = len(mc_questions)
+    if total == 0:
+        return errors
+
+    longest_pct = (longest_correct_count / total) * 100
+    shortest_pct = (shortest_correct_count / total) * 100
+
+    if longest_pct >= 60:
+        errors.append(
+            f"Longest answer is correct in {longest_pct:.0f}% of MC questions "
+            f"({longest_correct_count}/{total}). Balance answer lengths."
+        )
+    if shortest_pct >= 60:
+        errors.append(
+            f"Shortest answer is correct in {shortest_pct:.0f}% of MC questions "
+            f"({shortest_correct_count}/{total}). Balance answer lengths."
+        )
+
+    return errors
 
 
 def _check_answer_position_pattern(questions: List[MCQuestion]) -> List[str]:
-    """Check if same answer position appears 3+ times in a row."""
-    warnings: List[str] = []
-    
-    # Get correct answer positions (A=0, B=1, C=2, etc.)
-    positions: List[int] = []
-    for question in questions:
-        if not question.choices:
-            continue
-        for i, choice in enumerate(question.choices):
-            if choice.correct:
-                positions.append(i)
-                break
-    
-    # Check for runs of 3+
-    if len(positions) >= 3:
-        for i in range(len(positions) - 2):
-            if positions[i] == positions[i+1] == positions[i+2]:
-                letter = chr(ord('A') + positions[i])
-                warnings.append(
-                    f"Answer position '{letter}' appears 3 times in a row "
-                    f"(questions {i+1}, {i+2}, {i+3}). Consider re-shuffling."
-                )
-                break  # Only report first occurrence
-    
-    return warnings
+    """Deprecated: answer-position streak warnings are suppressed (see check_fairness)."""
+    return []

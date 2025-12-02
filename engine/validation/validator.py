@@ -80,6 +80,17 @@ class QuizValidator:
         # Step 2: Apply auto-fixes
         quiz, fix_messages = self.fixer.fix_all(quiz)
         fix_log.extend(fix_messages)
+
+        # Step 2b: Length-bias check (hard fail so LLM/author can fix wording)
+        length_bias_errors = fairness_rules.check_length_bias(quiz)
+        if length_bias_errors:
+            return ValidationResult(
+                status=ValidationStatus.FAIL,
+                quiz=quiz,
+                fix_log=fix_log,
+                errors=length_bias_errors,
+                warnings=[]
+            )
         
         # Step 3: Check fairness (soft fails)
         fairness_warnings = fairness_rules.check_fairness(quiz)

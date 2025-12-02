@@ -49,20 +49,11 @@ def calculate_points(questions: List[Question], total_points: int = DEFAULT_QUIZ
     if not scorable:
         return questions
 
-    # Separate explicitly-pointed questions; only auto-assign those without points_set
-    explicit = [q for q in scorable if q.points_set]
-    to_assign = [q for q in scorable if not q.points_set]
-
-    explicit_total = sum(float(q.points) for q in explicit)
-    remaining_total = total_points - explicit_total
-
-    if remaining_total < 0:
-        remaining_total = total_points  # fall back to full distribution if explicit over-allocates
-
-    if not to_assign:
-        if log_path:
-            _write_log(questions, total_points, explicit_total, remaining_total, [], log_path)
-        return questions
+    # Ignore pre-set points; always recalc to avoid LLM/user overrides leaking through
+    explicit = []
+    to_assign = scorable
+    explicit_total = 0
+    remaining_total = total_points
 
     # Calculate shares per question
     shares = []

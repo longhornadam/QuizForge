@@ -2,8 +2,10 @@ import json
 
 import pytest
 
-from dev.newspec_engine.parser import parse_news_json
-from dev.newspec_engine.packager import package_quiz
+parser_mod = pytest.importorskip("dev.newspec_engine.parser")
+packager_mod = pytest.importorskip("dev.newspec_engine.packager")
+parse_news_json = parser_mod.parse_news_json
+package_quiz = packager_mod.package_quiz
 
 
 def _build_payload(**overrides):

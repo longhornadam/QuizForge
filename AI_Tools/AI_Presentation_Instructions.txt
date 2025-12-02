@@ -4,6 +4,16 @@ Purpose: help teachers ask an LLM for a short, impactful slide deck. Keep it fle
 
 Output preference: PPTX first. If PPTX isn't possible, produce clean HTML the teacher can download as a file.
 
+Display defaults (classroom-friendly, keep unless teacher overrides)
+-------------------------------------------------------------------
+- Aspect ratio: 16:9 widescreen. Safe resolutions: 1920x1080 or 1280x720.
+- If a school projector forces 4:3, use 1024x768.
+- Text size: aim for 28-36 pt titles and 22-28 pt bullets; keep 2-4 bullets per slide.
+- Contrast: dark text on light background; avoid busy backgrounds and heavy gradients.
+- Fonts: common sans (Arial/Calibri/Open Sans); avoid custom or embedded fonts.
+- Media: no external links required; describe visuals in text if asked.
+- Characters: plain ASCII, no emojis or smart quotes to avoid encoding issues.
+
 How to ask (fill the blanks)
 ----------------------------
 You are helping a teacher build a short slide deck.
@@ -62,6 +72,7 @@ Do / Don't
 - Do: offer brief speaker/facilitation notes for pacing and misconceptions to watch.
 - Do: keep language plain; aim one grade level below the audience for readability.
 - Do: follow teacher-provided constraints even if they conflict with defaults here.
+- Do: favor widescreen 16:9 unless the teacher specifies 4:3 for legacy projectors.
 - Don't: output HTML, CSS, or JS unless the teacher explicitly asks for slide-ready markup or PPTX is not feasible.
 - Don't: lock into a single theme (e.g., sports); keep examples generic unless a theme is provided.
 

@@ -1,0 +1,344 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Chapter 8 - While Loops (Lesson 2)",
+  "metadata": {
+    "chapter": 8,
+    "lesson": 2
+  },
+  "items": [
+    {
+      "id": "stim_l2_intro",
+      "type": "STIMULUS",
+      "format": "text",
+      "prompt": "```prose\nA while loop repeats as long as its condition remains True. If the condition starts False, the loop never runs. If the condition never becomes False, the loop becomes infinite.\n```"
+    },
+    {
+      "type": "STIMULUS_END",
+      "prompt": ""
+    },
+    {
+      "id": "mc_use_case",
+      "type": "MC",
+      "prompt": "Which scenario is most appropriate for a while loop?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Repeating a prompt until the user enters valid input",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Iterating through every character of a fixed string"
+        },
+        {
+          "id": "C",
+          "text": "Running code exactly 4 times"
+        },
+        {
+          "id": "D",
+          "text": "Displaying numbers 1-20 with no conditions"
+        }
+      ]
+    },
+    {
+      "id": "mc_zero_runs",
+      "type": "MC",
+      "prompt": "Which loop will run zero times?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "```python\nwhile x < 0:\n    print(x)```",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "```python\nwhile x < 10:\n    x += 1```"
+        },
+        {
+          "id": "C",
+          "text": "```python\nwhile x != 5:\n    x = 5```"
+        },
+        {
+          "id": "D",
+          "text": "```python\nwhile True:\n    break```"
+        }
+      ]
+    },
+    {
+      "id": "tf_condition_top",
+      "type": "TF",
+      "prompt": "True or False: A while loop checks its condition before running its body.",
+      "answer": true
+    },
+    {
+      "id": "fitb_infinite",
+      "type": "FITB",
+      "prompt": "A while loop becomes an infinite loop if the condition never becomes _____.\n\n[blank]",
+      "accept": [
+        [
+          "false",
+          "False"
+        ]
+      ],
+      "case_sensitive": false
+    },
+    {
+      "id": "mc_password_issue",
+      "type": "MC",
+      "prompt": "What is the logical flaw in the following code?\n```python\npassword = input(\"Enter password: \")\nwhile password != \"SECRET\":\n    print(\"Try again!\")```",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The password variable is never updated inside the loop",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "The loop condition should use =="
+        },
+        {
+          "id": "C",
+          "text": "The input statement must be indented"
+        },
+        {
+          "id": "D",
+          "text": "The loop needs an else block"
+        }
+      ]
+    },
+    {
+      "id": "ordering_userinput",
+      "type": "ORDERING",
+      "header": "Put these steps of a user-input while loop in order.",
+      "items": [
+        "Prompt the user for input",
+        "Check the condition",
+        "Run loop body actions",
+        "Update the input for the next check"
+      ]
+    },
+    {
+      "id": "mc_nested_behavior",
+      "type": "MC",
+      "prompt": "In a nested while loop, how does the inner loop behave?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It runs to completion every time the outer loop iterates",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "It runs only if the outer loop's condition becomes False"
+        },
+        {
+          "id": "C",
+          "text": "It syncs its iteration count to match the outer loop"
+        },
+        {
+          "id": "D",
+          "text": "It runs a maximum of one time per outer loop pass"
+        }
+      ]
+    },
+    {
+      "id": "mc_missed_increment",
+      "type": "MC",
+      "prompt": "Why does this loop never end?\n```python\ncount = 1\nwhile count < 5:\n    print(count)```",
+      "choices": [
+        {
+          "id": "A",
+          "text": "count is never changed inside the loop",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "The condition should use >"
+        },
+        {
+          "id": "C",
+          "text": "print() breaks the loop"
+        },
+        {
+          "id": "D",
+          "text": "The loop requires input()"
+        }
+      ]
+    },
+    {
+      "id": "categorization_loop_behavior",
+      "type": "CATEGORIZATION",
+      "prompt": "Categorize each loop snippet by whether it runs zero times, at least once, or forever.",
+      "categories": [
+        "Runs Zero Times",
+        "Runs At Least Once",
+        "Infinite Loop"
+      ],
+      "items": [
+        {
+          "label": "```python\nwhile x < 0:\n    print(x)```",
+          "category": "Runs Zero Times"
+        },
+        {
+          "label": "```python\nwhile user != 'q':\n    user = input()```",
+          "category": "Runs At Least Once"
+        },
+        {
+          "label": "```python\nwhile True:\n    print('go')```",
+          "category": "Infinite Loop"
+        }
+      ]
+    },
+    {
+      "id": "tf_nested",
+      "type": "TF",
+      "prompt": "True or False: In a nested while loop, the inner loop may run many times for a single outer-loop iteration.",
+      "answer": true
+    },
+    {
+      "id": "fitb_condition",
+      "type": "FITB",
+      "prompt": "Any while loop must use a condition that evaluates to a _____ value.\n\n[blank]",
+      "accept": [
+        [
+          "boolean",
+          "true or false",
+          "true/false"
+        ]
+      ],
+      "case_sensitive": false
+    },
+    {
+      "id": "mc_safe_loop",
+      "type": "MC",
+      "prompt": "Which modification makes this loop safe (non-infinite)?\n```python\nx = 10\nwhile x > 0:\n    print(x)```",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Add x -= 1 inside the loop",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Replace print() with input()"
+        },
+        {
+          "id": "C",
+          "text": "Switch > to <"
+        },
+        {
+          "id": "D",
+          "text": "Remove the condition entirely"
+        }
+      ]
+    },
+    {
+      "id": "mc_skip_logic",
+      "type": "MC",
+      "prompt": "What is the result of this loop?\n```python\nn = 1\nwhile n < 6:\n    if n % 2 == 0:\n        n += 1\n        continue\n    print(n)\n    n += 1```",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It prints all odd numbers from 1-5",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "It prints all even numbers from 1-5"
+        },
+        {
+          "id": "C",
+          "text": "It prints numbers 1-6"
+        },
+        {
+          "id": "D",
+          "text": "It prints nothing"
+        }
+      ]
+    },
+    {
+      "id": "mc_false_start",
+      "type": "MC",
+      "prompt": "Which statement about while-loop execution is correct?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "If the condition starts False, the loop body never runs",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "The loop always runs once before checking the condition"
+        },
+        {
+          "id": "C",
+          "text": "The loop requires a break to stop"
+        },
+        {
+          "id": "D",
+          "text": "The loop always runs at least two times"
+        }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "mc_use_case",
+      "correct": "While loops are ideal when repetition depends on a condition that may change unpredictably."
+    },
+    {
+      "item_id": "mc_zero_runs",
+      "correct": "The loop never runs because its condition begins False."
+    },
+    {
+      "item_id": "tf_condition_top",
+      "correct": "While loops always check the condition before running the body."
+    },
+    {
+      "item_id": "fitb_infinite",
+      "correct": "A loop becomes infinite when its condition never becomes False."
+    },
+    {
+      "item_id": "mc_password_issue",
+      "correct": "The password variable must be updated inside the loop so the condition can eventually become False."
+    },
+    {
+      "item_id": "ordering_userinput",
+      "correct": "User-input loops follow a predictable pattern of prompting, checking, running actions, and then updating input."
+    },
+    {
+      "item_id": "mc_nested_behavior",
+      "correct": "For each outer loop iteration, the inner loop runs through all of its own iterations."
+    },
+    {
+      "item_id": "mc_missed_increment",
+      "correct": "Because count never changes, the condition stays True and the loop never ends."
+    },
+    {
+      "item_id": "categorization_loop_behavior",
+      "correct": "Each snippet is categorized by whether the condition starts False, can change with input, or never becomes False."
+    },
+    {
+      "item_id": "tf_nested",
+      "correct": "Inner loops often execute many times for one outer loop pass."
+    },
+    {
+      "item_id": "fitb_condition",
+      "correct": "While-loop conditions must evaluate to a Boolean value to control whether the loop continues."
+    },
+    {
+      "item_id": "mc_safe_loop",
+      "correct": "Decrementing x guarantees that x > 0 will eventually become False so the loop can stop."
+    },
+    {
+      "item_id": "mc_skip_logic",
+      "correct": "The continue skips printing even numbers so only odd numbers from 1 to 5 are printed."
+    },
+    {
+      "item_id": "mc_false_start",
+      "correct": "If the condition is False at the start, the loop body is skipped completely."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

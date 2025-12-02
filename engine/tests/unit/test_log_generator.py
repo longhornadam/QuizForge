@@ -29,7 +29,7 @@ def test_generate_log_weak_pass():
     fix_log = ["Normalized points"]
     warnings = [
         "Longest answer is correct in 60% of MC questions",
-        "Answer position 'C' appears 3 times in a row"
+        "Shortest answer is correct in 70% of MC questions"
     ]
     
     log = generate_log(
@@ -43,7 +43,7 @@ def test_generate_log_weak_pass():
     assert "STATUS: WEAK PASS" in log
     assert "WARNINGS:" in log
     assert "Longest answer" in log
-    assert "Answer position 'C'" in log
+    assert "Shortest answer" in log
 
 
 if __name__ == "__main__":

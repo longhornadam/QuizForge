@@ -2,14 +2,15 @@
 
 Coordinates all automatic fixes:
 - Point normalization
-- Choice randomization
+- Answer balancing (shuffling)
 - Text cleaning
 - Bounds calculation
 """
 
 from typing import List, Tuple
 from ...core.quiz import Quiz
-from . import point_normalizer, choice_randomizer, text_cleaner, bounds_calculator
+from . import point_normalizer, text_cleaner, bounds_calculator
+from .. import answer_balancer
 
 
 class AutoFixer:
@@ -18,7 +19,6 @@ class AutoFixer:
     def __init__(self):
         """Initialize auto-fixer with sub-fixers."""
         self.point_normalizer = point_normalizer.PointNormalizer()
-        self.choice_randomizer = choice_randomizer.ChoiceRandomizer()
         self.text_cleaner = text_cleaner.TextCleaner()
         self.bounds_calculator = bounds_calculator.BoundsCalculator()
     
@@ -51,8 +51,8 @@ class AutoFixer:
         quiz, point_msgs = self.point_normalizer.normalize(quiz)
         fix_log.extend(point_msgs)
         
-        # Fix 4: Randomize choices
-        quiz, shuffle_msgs = self.choice_randomizer.randomize(quiz)
-        fix_log.extend(shuffle_msgs)
+        # Fix 4: Balance and shuffle answers (MC/MA/TF)
+        answer_balancer.balance_answers(quiz.questions)
+        fix_log.append("Balanced answer distributions (shuffled MC/MA/TF correct positions)")
         
         return quiz, fix_log

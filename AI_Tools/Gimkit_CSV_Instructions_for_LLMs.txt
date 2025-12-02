@@ -19,16 +19,19 @@ Line Endings: Standard (LF or CRLF both work)
 
 File Extension: .csv
 
-Column Headers (Row 1 - REQUIRED)
-These must match exactly, including capitalization, spacing, and the text "(Optional)":
+Required First Line (Row 1)
+Gimkit’s official template includes a title line before the headers. LLM output must start with this exact line (five columns total, four trailing commas):
+Gimkit Spreadsheet Import Template,,,,
 
+Column Headers (Row 2 - REQUIRED)
+These must match exactly, including capitalization, spacing, and the text "(Optional)". Data rows begin on Row 3:
 Question,Correct Answer,Incorrect Answer 1,Incorrect Answer 2 (Optional),Incorrect Answer 3 (Optional)
 
 CRITICAL:
 
-Headers must match exactly as shown above (case-sensitive).
+Row 1 title and row 2 headers must match exactly as shown (case-sensitive).
 
-Include all 5 columns even if optional answers are not used.
+Include all 5 columns even if optional answers are not used in data rows.
 
 Do not add extra columns.
 
@@ -244,8 +247,9 @@ Hard (about 10 percent): Close distractors that test fine distinctions.
 
 COMPLETE EXAMPLE
 
-Example CSV content:
+Example CSV content (include the template title row as row 1):
 
+Gimkit Spreadsheet Import Template,,,,
 Question,Correct Answer,Incorrect Answer 1,Incorrect Answer 2 (Optional),Incorrect Answer 3 (Optional)
 What type of error prevents code from running,Syntax error,Logic error,Runtime error,Exception
 What does pdb stand for,Python Debugger,Python Debug Base,Program Database,Python Developer Board
@@ -293,6 +297,7 @@ QUALITY CHECKLIST
 Before outputting a Gimkit CSV, verify:
 
 Headers:
+[ ] Row 1 template line is present: Gimkit Spreadsheet Import Template,,,,
 [ ] Headers match exactly, including "(Optional)"
 
 Questions:
@@ -335,7 +340,7 @@ At least 1 incorrect answer (required)
 
 Up to 3 incorrect answers total (optional but recommended)
 
-Format as CSV with the exact header row specified.
+Format as CSV with the template title line followed by the exact header row specified.
 
 Keep all text ASCII and on a single line per question.
 
@@ -343,6 +348,7 @@ Save as .csv.
 
 SAMPLE COMPLETE OUTPUT
 
+Gimkit Spreadsheet Import Template,,,,
 Question,Correct Answer,Incorrect Answer 1,Incorrect Answer 2 (Optional),Incorrect Answer 3 (Optional)
 What is a syntax error,Error that stops code from running,Error in program logic,Error that crashes program,Missing variable value
 What does pdb set trace do,Creates a breakpoint,Prints debug information,Traces variable values,Sets execution timer

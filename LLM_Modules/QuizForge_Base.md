@@ -51,7 +51,7 @@
 ## 4. COMMON ITEM FIELDS (APPLY TO ALL ITEMS)
 - `id` (string): Required for STIMULUS; optional but recommended for all other items so rationales can target them.
 - `type` (string): One of `STIMULUS`, `STIMULUS_END`, `MC`, `MA`, `TF`, `MATCHING`, `FITB`, `ESSAY`, `FILEUPLOAD`, `ORDERING`, `CATEGORIZATION`, `NUMERICAL`.
-- `prompt` (string): Full stem. Include fences inline (see Section 6) with explicit `\n` newlines.
+- `prompt` (string): Full stem. Include fences inline (see Section 6) with explicit `\n` newlines. Every scored item needs a non-empty prompt; only `STIMULUS`/`STIMULUS_END` may be empty (and `ORDERING` may reuse `header` if `prompt` is omitted).
 - `points` (number, optional): Only include when the teacher explicitly asks for custom weights. Otherwise, omit `points` and let QuizForge assign default scoring.
 - `stimulus_id` (string): Optional explicit link to a stimulus `id`; otherwise, item attaches to the most recent stimulus above it.
 - `notes` / `metadata`: Optional authoring or machine notes; ignored by students. Tools may store extension-specific data here and may ignore keys they do not recognize. Extensions may place structured data under `metadata.extensions`; unrecognized extensions MUST be ignored without warning.
@@ -65,7 +65,7 @@
 - **ESSAY** — Optional `length_guidance` (e.g., "5-8 sentences") and `rubric_hint`.
 - **FILEUPLOAD** — Optional `requirements` text, `accepted_formats` (e.g., [".pdf", ".py"]), and `max_file_size_mb`.
 - **ORDERING** - `items`: array ordered from top to bottom (min 2). Optional `header` label. If `prompt` is omitted, the engine will reuse `header` as the prompt.
-- **CATEGORIZATION** — `categories`: array of labels (min 2). `items`: `[ { "label": "...", "category": "..." }, ... ]`. Optional `distractors` array.
+- **CATEGORIZATION** - `prompt` is required; tell students what to do. `categories`: array of labels (min 2). `items`: `[ { "label": "...", "category": "..." }, ... ]`. Optional `distractors` array.
 - **NUMERICAL** — `answer` (number). `evaluation`: `{ "mode": "exact" | "percent_margin" | "absolute_margin" | "range" | "significant_digits" | "decimal_places", "value": <number>, "min": <number>, "max": <number> }` using the one modifier required by the mode (pull details from `dev/QF_QTYPE_Numerical.md`). Precision/margin values are positive; range uses `min`/`max`. Default to exact if no mode is given.
 - Modes other than exact are experimental. The LLM may produce them, but tools are not required to support or validate them yet.
 - **STIMULUS** — Requires `id`. Optional `format`: `"text" | "code" | "markdown"`. Optional `assets`: list of `{ "type": "image|table|audio|video|data", "uri": "...", "alt_text": "..." }`. STIMULUS items are never scored. Do not include a `points` field on STIMULUS items. Prompt is optional; empty prompts are accepted but include text when students need context. QuizForge treats them as zero-point containers only.
@@ -122,6 +122,13 @@
 6. Write rationales aligned to `item_id`s.
 7. Ensure the JSON is well-formed (proper quotes, commas, brackets); QuizForge will handle schema validation.
 8. Output a single tagged JSON payload; any extra chat outside the tags is ignored by QuizForge, but keep the tagged JSON clean.
+
+## 13. PREFLIGHT BEFORE OUTPUT (TOKEN-LIGHT CHECK)
+- Envelope: JSON only between tags; ASCII-safe; escape inner quotes; no trailing commas.
+- Prompts: Non-empty for all scored items; STIMULUS/STIMULUS_END may be empty; ORDERING may reuse `header`.
+- Counts/answers: MC/MA have 2-7 choices; MC exactly 1 correct; MA at least 1 correct; TF is boolean; FITB has `[blank]` + `accept`; ORDERING has ≥2 items; CATEGORIZATION has prompt + categories (≥2) + labeled items; NUMERICAL has `answer` (+ `evaluation` if not exact).
+- Rationales: One per scored item `id`; skip stimuli.
+- Stimuli links: Set `stimulus_id` when an item should attach to a specific stimulus.
 
 **Maintainer:** QuizForge Core Team  
 **Target:** Canvas New Quizzes (QTI 1.2)  
