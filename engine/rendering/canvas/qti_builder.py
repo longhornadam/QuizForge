@@ -23,7 +23,7 @@ from engine.core.questions import (
 )
 from engine.core.quiz import Quiz
 from engine.utils.text_utils import rand8
-from .html_formatter import html_mattext, htmlize_choice, htmlize_prompt, serialize_element
+from .html_formatter import html_mattext, htmlize_choice, htmlize_item_text, htmlize_prompt, serialize_element
 from .numerical_renderer import build_numerical_item
 
 
@@ -229,12 +229,16 @@ def _build_response(question: Question, presentation: ET.Element):
             rlids.append(lid_ident)
             response_lid = ET.SubElement(presentation, "response_lid", {"ident": lid_ident})
             matq = ET.SubElement(response_lid, "material")
-            ET.SubElement(matq, "mattext", {"texttype": "text/plain"}).text = pair.prompt
+            # Transform code blocks in matching prompts
+            prompt_html = htmlize_item_text(pair.prompt)
+            matq.append(html_mattext(f"<p>{prompt_html}</p>"))
             render_choice = ET.SubElement(response_lid, "render_choice")
             for answer_text, answer_ident in answer_id_by_text.items():
                 rl = ET.SubElement(render_choice, "response_label", {"ident": answer_ident})
                 mat = ET.SubElement(rl, "material")
-                ET.SubElement(mat, "mattext", {"texttype": "text/plain"}).text = answer_text
+                # Transform code blocks in matching answers
+                answer_html = htmlize_item_text(answer_text)
+                mat.append(html_mattext(f"<p>{answer_html}</p>"))
         return {"type": "matching", "pairs": question.pairs, "rlids": rlids, "answers": answer_id_by_text}
 
     if isinstance(question, FITBQuestion):
@@ -272,14 +276,18 @@ def _build_response(question: Question, presentation: ET.Element):
         # Add header if provided
         if question.header:
             mat_top = ET.SubElement(render_extension, "material", {"position": "top"})
-            ET.SubElement(mat_top, "mattext").text = question.header
+            # Transform code blocks in header
+            header_html = htmlize_item_text(question.header)
+            mat_top.append(html_mattext(f"<p>{header_html}</p>"))
         # Add items
         ims_render = ET.SubElement(render_extension, "ims_render_object", {"shuffle": "No"})
         flow_label = ET.SubElement(ims_render, "flow_label")
         for item in question.items:
             response_label = ET.SubElement(flow_label, "response_label", {"ident": item.ident})
             material = ET.SubElement(response_label, "material")
-            material.append(html_mattext(f"<p>{item.text}</p>"))
+            # Transform code blocks in ordering items
+            item_html = htmlize_item_text(item.text)
+            material.append(html_mattext(f"<p>{item_html}</p>"))
         # Add empty bottom material
         mat_bottom = ET.SubElement(render_extension, "material", {"position": "bottom"})
         ET.SubElement(mat_bottom, "mattext").text = ""
@@ -298,14 +306,18 @@ def _build_response(question: Question, presentation: ET.Element):
             cat_ident = question.category_idents[cat_name]
             response_lid = ET.SubElement(presentation, "response_lid", {"ident": cat_ident, "rcardinality": "Multiple"})
             material = ET.SubElement(response_lid, "material")
-            ET.SubElement(material, "mattext", {"texttype": "text/plain"}).text = cat_name
+            # Transform code blocks in category names
+            cat_html = htmlize_item_text(cat_name)
+            material.append(html_mattext(f"<p>{cat_html}</p>"))
             render_choice = ET.SubElement(response_lid, "render_choice")
             
             # Add all items (including distractors) to each category
             for item_text, item_ident in all_item_idents.items():
                 response_label = ET.SubElement(render_choice, "response_label", {"ident": item_ident})
                 mat = ET.SubElement(response_label, "material")
-                ET.SubElement(mat, "mattext", {"texttype": "text/plain"}).text = item_text
+                # Transform code blocks in categorization items
+                item_html = htmlize_item_text(item_text)
+                mat.append(html_mattext(f"<p>{item_html}</p>"))
             
             # Store which items belong to this category
             correct_items = [item.item_ident for item in all_items if item.category_name == cat_name]
@@ -314,6 +326,8 @@ def _build_response(question: Question, presentation: ET.Element):
                 "category_name": cat_name,
                 "correct_items": correct_items
             })
+        
+        return {"type": "categorization", "categories": category_data, "num_categories": len(question.categories)}
         
         return {"type": "categorization", "categories": category_data, "num_categories": len(question.categories)}
 

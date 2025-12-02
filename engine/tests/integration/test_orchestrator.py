@@ -9,21 +9,29 @@ import pytest
 from engine.orchestrator import QuizForgeOrchestrator
 
 
-SAMPLE_QUIZ = """Title: Integration Test Quiz
-
----
-Type: MC
-Prompt: What is 2+2?
-Choices:
-- [x] 4
-- [ ] 3
-- [ ] 5
----
-
-Type: TF
-Prompt: Python is a programming language.
-Answer: true
----
+# JSON 3.0 format sample quiz (default SPEC_MODE)
+SAMPLE_QUIZ = """<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Integration Test Quiz",
+  "items": [
+    {
+      "type": "MC",
+      "prompt": "What is 2+2?",
+      "choices": [
+        {"id": "A", "text": "4", "correct": true},
+        {"id": "B", "text": "3"},
+        {"id": "C", "text": "5"}
+      ]
+    },
+    {
+      "type": "TF",
+      "prompt": "Python is a programming language.",
+      "answer": true
+    }
+  ]
+}
+</QUIZFORGE_JSON>
 """
 
 

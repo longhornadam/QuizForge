@@ -1,0 +1,73 @@
+============================================================
+QuizForge Processing Log
+============================================================
+Quiz: Chapter 8 - While Loops (Lesson 2)
+Processed: 2025-12-01 19:27:21
+Questions: 16
+Total Points: 100.0
+
+STATUS: PASS (No issues)
+
+AUTO-FIXES APPLIED:
+------------------------------------------------------------
+1. Cleaned text (normalized quotes, whitespace)
+2. Balanced answer distributions (shuffled MC/MA/TF correct positions)
+
+============================================================
+Quiz packages generated successfully!
+============================================================
+
+============================================================
+PHYSICAL QUIZ VALIDATION STATISTICS
+============================================================
+
+ANSWER CHOICE STATISTICS
+----------------------------------------
+Total MC questions: 8
+Average choice length: 26.8 chars
+Min choice length: 4 chars
+Max choice length: 57 chars
+
+Correct answer distribution:
+  A: 2 (25.0%)
+  B: 2 (25.0%)
+  C: 2 (25.0%)
+  D: 2 (25.0%)
+
+Questions eligible for 2-column layout: 7/8
+
+QUESTION LENGTH STATISTICS
+----------------------------------------
+Total questions: 16
+Average question length: 72.0 chars
+Min question length: 0 chars
+Max question length: 164 chars
+
+POINT VALUE DISTRIBUTION
+----------------------------------------
+Total points: 100
+Average points per question: 7.14
+
+Point value breakdown:
+  6 pt: 4 questions (28.6%)
+  7 pt: 9 questions (64.3%)
+  13 pt: 1 questions (7.1%)
+
+STIMULUS USAGE STATISTICS
+----------------------------------------
+Questions with stimuli: 0/14
+
+
+============================================================
+ANSWER DISTRIBUTION (AFTER BALANCING)
+============================================================
+
+Multiple Choice Distribution:
+  A: 2 (25.0%)
+  B: 2 (25.0%)
+  C: 2 (25.0%)
+  D: 2 (25.0%)
+
+True/False Distribution:
+  True: 1 (50.0%)
+  False: 1 (50.0%)

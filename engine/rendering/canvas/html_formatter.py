@@ -2,10 +2,176 @@
 
 from __future__ import annotations
 
+import logging
 import re
 from typing import List, Optional, Tuple
 import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape as xml_escape
+
+logger = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Code Block Transformation for Canvas Compatibility
+# ---------------------------------------------------------------------------
+# Canvas New Quizzes does NOT support Markdown fenced code blocks (``` ... ```).
+# All code must be rendered using HTML: <pre><code>...</code></pre> for blocks,
+# <code>...</code> for inline code. This transformer handles the conversion.
+# ---------------------------------------------------------------------------
+
+
+def transform_code_blocks(text: str) -> str:
+    """Transform Markdown code blocks to Canvas-safe HTML.
+    
+    Canvas New Quizzes cannot render Markdown fenced code blocks properly.
+    This function converts:
+    - Fenced code blocks (```lang ... ```) → <pre><code>...</code></pre>
+    - Inline backticks (`code`) → <code>code</code>
+    - JSON-escaped newlines (\\n, \n in strings) → actual newlines
+    - Incorrectly escaped HTML entities in code → proper characters
+    
+    Args:
+        text: Input text that may contain Markdown code blocks
+        
+    Returns:
+        Text with all code blocks converted to Canvas-safe HTML
+    """
+    if not text:
+        return text
+    
+    # Already contains HTML code tags - skip transformation
+    if re.search(r'<pre>|<code>', text, re.IGNORECASE):
+        return text
+    
+    result = text
+    
+    # Step 1: Handle fenced code blocks (```lang ... ```)
+    # Pattern matches: ```python\ncode\n``` or ```\ncode\n```
+    fenced_pattern = re.compile(
+        r'```(\w*)\s*\n?(.*?)```',
+        re.DOTALL
+    )
+    
+    def replace_fenced(match: re.Match) -> str:
+        lang = match.group(1).strip()
+        code = match.group(2)
+        
+        # Clean up the code content
+        code = _clean_code_content(code)
+        
+        # Apply syntax highlighting for Python
+        if lang.lower() == 'python':
+            highlighted = syntax_highlight_python(code)
+            return _wrap_code_block(highlighted, lang, highlighted=True)
+        else:
+            # Escape HTML for non-highlighted code
+            escaped_code = xml_escape(code)
+            return _wrap_code_block(escaped_code, lang, highlighted=False)
+    
+    result = fenced_pattern.sub(replace_fenced, result)
+    
+    # Step 2: Handle inline backticks (`code`)
+    # Only process if there are backticks remaining (not inside code blocks)
+    inline_pattern = re.compile(r'`([^`\n]+)`')
+    
+    def replace_inline(match: re.Match) -> str:
+        code = match.group(1)
+        # Clean up inline code
+        code = _clean_code_content(code)
+        escaped = xml_escape(code)
+        return f'<code>{escaped}</code>'
+    
+    result = inline_pattern.sub(replace_inline, result)
+    
+    # Step 3: Validate no backticks remain
+    if '```' in result or '`' in result:
+        # Log a warning but don't fail
+        logger.warning(
+            "Backticks remain in text after code block transformation. "
+            "This may cause rendering issues in Canvas."
+        )
+    
+    return result
+
+
+def _clean_code_content(code: str) -> str:
+    """Clean code content by fixing escaped sequences.
+    
+    Handles:
+    - JSON-escaped newlines (\\n) → actual newlines
+    - Literal backslash-n sequences → actual newlines
+    - HTML entities that shouldn't be escaped in code
+    """
+    # Handle double-escaped newlines from JSON (\\n → \n)
+    code = code.replace('\\\\n', '\n')
+    
+    # Handle single-escaped newlines (\n → actual newline)
+    # Be careful not to break actual escape sequences in code
+    code = re.sub(r'(?<!\\)\\n', '\n', code)
+    
+    # Fix incorrectly escaped HTML entities (common in JSON)
+    code = code.replace('&lt;', '<')
+    code = code.replace('&gt;', '>')
+    code = code.replace('&amp;', '&')
+    code = code.replace('&quot;', '"')
+    code = code.replace('&#39;', "'")
+    
+    # Strip leading/trailing whitespace but preserve internal structure
+    code = code.strip()
+    
+    return code
+
+
+def _wrap_code_block(code: str, lang: str = '', highlighted: bool = False) -> str:
+    """Wrap code in Canvas-safe <pre><code> tags with styling.
+    
+    Args:
+        code: The code content (already escaped or highlighted)
+        lang: Optional language identifier
+        highlighted: Whether the code has syntax highlighting applied
+        
+    Returns:
+        HTML string with proper pre/code wrapper
+    """
+    # Monokai-style dark theme for code blocks
+    style = (
+        "background-color: #272822; "
+        "color: #F8F8F2; "
+        "padding: 10px; "
+        "border-radius: 4px; "
+        "font-family: 'Courier New', Consolas, monospace; "
+        "overflow-x: auto; "
+        "line-height: 1.5; "
+        "white-space: pre; "
+        "display: block;"
+    )
+    
+    lang_attr = f' class="language-{xml_escape(lang)}"' if lang else ''
+    return f'<pre style="{style}"><code{lang_attr}>{code}</code></pre>'
+
+
+def sanitize_for_canvas(text: str) -> str:
+    """Sanitize text for Canvas compatibility.
+    
+    This is a comprehensive sanitization function that:
+    1. Transforms code blocks to HTML
+    2. Ensures no problematic characters remain
+    
+    Use this for any text that will be displayed in Canvas.
+    
+    Args:
+        text: Raw text that may contain Markdown
+        
+    Returns:
+        Canvas-safe HTML text
+    """
+    if not text:
+        return text
+    
+    # Transform code blocks first
+    result = transform_code_blocks(text)
+    
+    return result
 
 
 def html_mattext(text: str) -> ET.Element:
@@ -417,11 +583,95 @@ def htmlize_prompt(text: str, *, excerpt_numbering: bool = True) -> str:
 
 
 def htmlize_choice(text: str) -> str:
+    """Convert choice text to Canvas-safe HTML.
+    
+    Handles:
+    - Fenced code blocks (```python ... ```) → <pre><code>...</code></pre>
+    - Inline backticks (`code`) → <code>code</code>
+    - Escaped newlines and HTML entities
+    
+    Args:
+        text: Raw choice text that may contain Markdown code
+        
+    Returns:
+        Canvas-safe HTML wrapped in <p> tags (unless it's a code block)
+    """
+    if not text:
+        return "<p></p>"
+    
+    # Check if text contains fenced code blocks
+    if '```' in text:
+        # Use the full transformer for complex content
+        transformed = transform_code_blocks(text)
+        # If the entire choice is a code block, don't wrap in <p>
+        if transformed.strip().startswith('<pre'):
+            return transformed
+        # Mixed content - wrap non-code parts
+        return transformed
+    
+    # Simple case: only inline code or plain text
     def esc(value: str) -> str:
         return xml_escape(value)
+    
+    # Handle inline backticks
+    def replace_inline(match: re.Match) -> str:
+        code = match.group(1)
+        # Clean up the code content
+        code = _clean_code_content(code)
+        return f"<code>{esc(code)}</code>"
+    
+    processed = re.sub(r"`([^`]+)`", replace_inline, text)
+    
+    # Escape the rest and wrap in paragraph
+    # But preserve any <code> tags we just inserted
+    parts = re.split(r'(<code>.*?</code>)', processed)
+    result_parts = []
+    for part in parts:
+        if part.startswith('<code>'):
+            result_parts.append(part)
+        else:
+            result_parts.append(esc(part))
+    
+    return f"<p>{''.join(result_parts)}</p>"
 
-    def repl(match):
-        return f"<code>{esc(match.group(1))}</code>"
 
-    processed = re.sub(r"`([^`]+)`", repl, text)
-    return f"<p>{esc(processed)}</p>"
+def htmlize_item_text(text: str) -> str:
+    """Convert item text (ordering, categorization, matching) to Canvas-safe HTML.
+    
+    Similar to htmlize_choice but returns just the transformed content
+    without paragraph wrapper for flexibility.
+    
+    Args:
+        text: Raw item text that may contain Markdown code
+        
+    Returns:
+        Canvas-safe HTML content
+    """
+    if not text:
+        return ""
+    
+    # Check if text contains fenced code blocks
+    if '```' in text:
+        return transform_code_blocks(text)
+    
+    # Handle inline backticks
+    def esc(value: str) -> str:
+        return xml_escape(value)
+    
+    def replace_inline(match: re.Match) -> str:
+        code = match.group(1)
+        code = _clean_code_content(code)
+        return f"<code>{esc(code)}</code>"
+    
+    processed = re.sub(r"`([^`]+)`", replace_inline, text)
+    
+    # Escape non-code parts
+    parts = re.split(r'(<code>.*?</code>)', processed)
+    result_parts = []
+    for part in parts:
+        if part.startswith('<code>'):
+            result_parts.append(part)
+        else:
+            result_parts.append(esc(part))
+    
+    return ''.join(result_parts)

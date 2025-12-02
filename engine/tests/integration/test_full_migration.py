@@ -173,26 +173,39 @@ def test_full_orchestrator_pipeline():
         dropzone.mkdir()
         output.mkdir()
 
-        # Create valid quiz
-        valid_quiz = """Title: Valid Quiz
-
----
-Type: MC
-Prompt: Test question
-Choices:
-- [x] Correct
-- [ ] Wrong
----
+        # Create valid quiz (JSON 3.0 format)
+        valid_quiz = """<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Valid Quiz",
+  "items": [
+    {
+      "type": "MC",
+      "prompt": "Test question",
+      "choices": [
+        {"id": "A", "text": "Correct", "correct": true},
+        {"id": "B", "text": "Wrong"}
+      ]
+    }
+  ]
+}
+</QUIZFORGE_JSON>
 """
         (dropzone / "valid.txt").write_text(valid_quiz)
 
-        # Create invalid quiz
-        invalid_quiz = """Title: Invalid Quiz
-
----
-Type: MC
-Prompt: Missing choices
----
+        # Create invalid quiz (JSON 3.0 format - missing choices)
+        invalid_quiz = """<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Invalid Quiz",
+  "items": [
+    {
+      "type": "MC",
+      "prompt": "Missing choices"
+    }
+  ]
+}
+</QUIZFORGE_JSON>
 """
         (dropzone / "invalid.txt").write_text(invalid_quiz)
 
