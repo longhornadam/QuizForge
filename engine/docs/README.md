@@ -9,5 +9,5 @@
 Start by reading AGENT_MAP.md to understand the codebase structure and common tasks.
 
 ## Spec mode toggle
-- `QUIZFORGE_SPEC_MODE=text` (default): Legacy text spec path.
-- `QUIZFORGE_SPEC_MODE=json`: Routes through `engine/spec_engine` via `JsonImporter`.
+- `QUIZFORGE_SPEC_MODE=json` (default): JSON 3.0 pipeline via `JsonImporter`.
+- `QUIZFORGE_SPEC_MODE=text`: Legacy text spec path (deprecated, for backward compatibility only).

@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.api
+    environment:
+      - QUIZFORGE_SPEC_MODE=json
     ports:
       - "8000:8000"
     volumes:
