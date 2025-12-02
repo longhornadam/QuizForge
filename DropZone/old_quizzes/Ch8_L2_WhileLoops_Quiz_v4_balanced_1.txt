@@ -1,7 +1,3 @@
-============================================================
-ORIGINAL QUIZ (Contains Errors)
-============================================================
-
 <QUIZFORGE_JSON>
 {
   "version": "3.0-json",
@@ -289,28 +285,3 @@ ORIGINAL QUIZ (Contains Errors)
   "rationales": []
 }
 </QUIZFORGE_JSON>
-
-
-============================================================
-VALIDATION ERRORS DETECTED
-============================================================
-
-The quiz 'Ch8_L2_WhileLoops_Quiz_v4_balanced' has critical errors that must be fixed
-before it can be processed. Please fix the following issues:
-
-1. Parse error: No questions parsed. Ensure the file contains at least one '---' block.
-
-============================================================
-INSTRUCTIONS FOR REVISION
-============================================================
-
-Please revise the quiz above to fix all the errors listed.
-Make sure:
-  - All required fields are present (Type, Prompt, Choices, etc.)
-  - MC questions have 2-7 choices with exactly 1 correct answer
-  - MA questions have at least 1 correct answer
-  - Numerical questions have valid answer/tolerance/range settings
-  - All questions have non-empty prompts
-
-Once fixed, save the revised quiz as a new .txt file and
-drop it back into the DropZone folder.

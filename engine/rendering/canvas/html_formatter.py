@@ -94,6 +94,30 @@ def transform_code_blocks(text: str) -> str:
     return result
 
 
+def _clean_text_content(text: str) -> str:
+    """Clean text content by fixing escaped sequences.
+    
+    Handles:
+    - Literal backslash-n sequences (\\n) → actual newlines
+    - Double-escaped newlines from JSON
+    - Should be applied to ALL text before rendering
+    """
+    if not text:
+        return text
+    
+    # Handle double-escaped newlines from JSON (literal \\n → \n)
+    text = text.replace('\\\\n', '\n')
+    
+    # Handle literal backslash-n (\n as two characters → actual newline)
+    # This handles cases where JSON had \\n which became \n after parsing
+    text = text.replace('\\n', '\n')
+    
+    # Handle escaped tabs similarly
+    text = text.replace('\\t', '\t')
+    
+    return text
+
+
 def _clean_code_content(code: str) -> str:
     """Clean code content by fixing escaped sequences.
     
@@ -102,12 +126,8 @@ def _clean_code_content(code: str) -> str:
     - Literal backslash-n sequences → actual newlines
     - HTML entities that shouldn't be escaped in code
     """
-    # Handle double-escaped newlines from JSON (\\n → \n)
-    code = code.replace('\\\\n', '\n')
-    
-    # Handle single-escaped newlines (\n → actual newline)
-    # Be careful not to break actual escape sequences in code
-    code = re.sub(r'(?<!\\)\\n', '\n', code)
+    # First apply general text cleaning
+    code = _clean_text_content(code)
     
     # Fix incorrectly escaped HTML entities (common in JSON)
     code = code.replace('&lt;', '<')
@@ -154,8 +174,9 @@ def sanitize_for_canvas(text: str) -> str:
     """Sanitize text for Canvas compatibility.
     
     This is a comprehensive sanitization function that:
-    1. Transforms code blocks to HTML
-    2. Ensures no problematic characters remain
+    1. Cleans escaped sequences (\\n → newline)
+    2. Transforms code blocks to HTML
+    3. Ensures no problematic characters remain
     
     Use this for any text that will be displayed in Canvas.
     
@@ -168,20 +189,59 @@ def sanitize_for_canvas(text: str) -> str:
     if not text:
         return text
     
-    # Transform code blocks first
-    result = transform_code_blocks(text)
+    # First clean escaped sequences
+    result = _clean_text_content(text)
+    
+    # Then transform code blocks
+    result = transform_code_blocks(result)
     
     return result
 
 
+# Special marker to identify HTML content that should not be escaped during serialization
+_HTML_CONTENT_MARKER = "___QUIZFORGE_HTML___"
+
+
 def html_mattext(text: str) -> ET.Element:
+    """Create a mattext element with HTML content.
+    
+    Uses a special marker to preserve HTML during XML serialization.
+    The serialize_element() function will unescape this content.
+    """
     element = ET.Element("mattext", {"texttype": "text/html"})
-    element.text = text
+    # Mark the content so serialize_element knows to unescape it
+    element.text = f"{_HTML_CONTENT_MARKER}{text}{_HTML_CONTENT_MARKER}"
     return element
 
 
 def serialize_element(element: ET.Element) -> str:
-    return ET.tostring(element, encoding="utf-8").decode("utf-8")
+    """Serialize an ElementTree element to XML string.
+    
+    Handles special HTML content in mattext elements by:
+    1. Serializing normally (which escapes everything)
+    2. Finding marked HTML content and unescaping it
+    """
+    import html
+    
+    xml_str = ET.tostring(element, encoding="utf-8").decode("utf-8")
+    
+    # Find and unescape marked HTML content
+    # Pattern: escaped marker + escaped HTML + escaped marker
+    escaped_marker = xml_escape(_HTML_CONTENT_MARKER)
+    
+    # The content between markers was escaped by ET.tostring, so we need to unescape it
+    import re
+    pattern = re.escape(escaped_marker) + r'(.*?)' + re.escape(escaped_marker)
+    
+    def unescape_html(match: re.Match) -> str:
+        # The HTML content was escaped by ET.tostring, so unescape it
+        escaped_content = match.group(1)
+        # html.unescape handles &lt; &gt; &amp; &quot; etc.
+        return html.unescape(escaped_content)
+    
+    xml_str = re.sub(pattern, unescape_html, xml_str, flags=re.DOTALL)
+    
+    return xml_str
 
 
 def add_passage_numbering(text: str, passage_type: str = "auto") -> Tuple[str, str]:
@@ -354,6 +414,9 @@ def syntax_highlight_python(code: str) -> str:
 
 
 def htmlize_prompt(text: str, *, excerpt_numbering: bool = True) -> str:
+    # First clean escaped sequences
+    text = _clean_text_content(text)
+    
     if re.search(r"<\w+[^>]*>", text):
         return text
 
@@ -505,10 +568,21 @@ def htmlize_prompt(text: str, *, excerpt_numbering: bool = True) -> str:
             lang = fence[3:].strip()
             index += 1
             block: list[str] = []
-            while index < len(lines) and not lines[index].strip().startswith("```"):
-                block.append(lines[index])
-                index += 1
-            if index < len(lines) and lines[index].strip().startswith("```"):
+            while index < len(lines):
+                current_line = lines[index]
+                # Check if this line ends with closing backticks
+                if current_line.strip().endswith("```") and not current_line.strip().startswith("```"):
+                    # Line ends with ```, strip them and add the code part
+                    code_part = current_line.rstrip()[:-3]
+                    if code_part.strip():
+                        block.append(code_part)
+                    index += 1
+                    break
+                # Check if line starts with closing backticks
+                if current_line.strip().startswith("```"):
+                    index += 1
+                    break
+                block.append(current_line)
                 index += 1
             code = "\n".join(block)
             lang_lower = (lang or "").lower()
@@ -599,6 +673,9 @@ def htmlize_choice(text: str) -> str:
     if not text:
         return "<p></p>"
     
+    # First clean escaped sequences
+    text = _clean_text_content(text)
+    
     # Check if text contains fenced code blocks
     if '```' in text:
         # Use the full transformer for complex content
@@ -634,7 +711,6 @@ def htmlize_choice(text: str) -> str:
     
     return f"<p>{''.join(result_parts)}</p>"
 
-
 def htmlize_item_text(text: str) -> str:
     """Convert item text (ordering, categorization, matching) to Canvas-safe HTML.
     
@@ -645,10 +721,13 @@ def htmlize_item_text(text: str) -> str:
         text: Raw item text that may contain Markdown code
         
     Returns:
-        Canvas-safe HTML content
+        Canvas-safe HTML content (no outer <p> wrapper)
     """
     if not text:
         return ""
+    
+    # First clean escaped sequences
+    text = _clean_text_content(text)
     
     # Check if text contains fenced code blocks
     if '```' in text:

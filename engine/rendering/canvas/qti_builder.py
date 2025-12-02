@@ -27,6 +27,28 @@ from .html_formatter import html_mattext, htmlize_choice, htmlize_item_text, htm
 from .numerical_renderer import build_numerical_item
 
 
+def _wrap_content(html: str) -> str:
+    """Wrap HTML content in <p> tags if it doesn't contain block-level elements.
+    
+    Block elements like <pre>, <div>, <table> should not be wrapped in <p>.
+    
+    Args:
+        html: HTML content to potentially wrap
+        
+    Returns:
+        Content wrapped in <p> if needed, or original content
+    """
+    # List of block-level elements that shouldn't be wrapped in <p>
+    block_elements = ['<pre', '<div', '<table', '<ul', '<ol', '<blockquote', '<h1', '<h2', '<h3', '<h4', '<h5', '<h6']
+    
+    html_lower = html.lower()
+    for elem in block_elements:
+        if elem in html_lower:
+            return html
+    
+    return f"<p>{html}</p>"
+
+
 def build_assessment_xml(quiz: Quiz) -> str:
     """Build the main QTI 1.2 assessment XML document.
 
@@ -231,14 +253,14 @@ def _build_response(question: Question, presentation: ET.Element):
             matq = ET.SubElement(response_lid, "material")
             # Transform code blocks in matching prompts
             prompt_html = htmlize_item_text(pair.prompt)
-            matq.append(html_mattext(f"<p>{prompt_html}</p>"))
+            matq.append(html_mattext(_wrap_content(prompt_html)))
             render_choice = ET.SubElement(response_lid, "render_choice")
             for answer_text, answer_ident in answer_id_by_text.items():
                 rl = ET.SubElement(render_choice, "response_label", {"ident": answer_ident})
                 mat = ET.SubElement(rl, "material")
                 # Transform code blocks in matching answers
                 answer_html = htmlize_item_text(answer_text)
-                mat.append(html_mattext(f"<p>{answer_html}</p>"))
+                mat.append(html_mattext(_wrap_content(answer_html)))
         return {"type": "matching", "pairs": question.pairs, "rlids": rlids, "answers": answer_id_by_text}
 
     if isinstance(question, FITBQuestion):
@@ -278,7 +300,7 @@ def _build_response(question: Question, presentation: ET.Element):
             mat_top = ET.SubElement(render_extension, "material", {"position": "top"})
             # Transform code blocks in header
             header_html = htmlize_item_text(question.header)
-            mat_top.append(html_mattext(f"<p>{header_html}</p>"))
+            mat_top.append(html_mattext(_wrap_content(header_html)))
         # Add items
         ims_render = ET.SubElement(render_extension, "ims_render_object", {"shuffle": "No"})
         flow_label = ET.SubElement(ims_render, "flow_label")
@@ -287,7 +309,7 @@ def _build_response(question: Question, presentation: ET.Element):
             material = ET.SubElement(response_label, "material")
             # Transform code blocks in ordering items
             item_html = htmlize_item_text(item.text)
-            material.append(html_mattext(f"<p>{item_html}</p>"))
+            material.append(html_mattext(_wrap_content(item_html)))
         # Add empty bottom material
         mat_bottom = ET.SubElement(render_extension, "material", {"position": "bottom"})
         ET.SubElement(mat_bottom, "mattext").text = ""
@@ -308,7 +330,7 @@ def _build_response(question: Question, presentation: ET.Element):
             material = ET.SubElement(response_lid, "material")
             # Transform code blocks in category names
             cat_html = htmlize_item_text(cat_name)
-            material.append(html_mattext(f"<p>{cat_html}</p>"))
+            material.append(html_mattext(_wrap_content(cat_html)))
             render_choice = ET.SubElement(response_lid, "render_choice")
             
             # Add all items (including distractors) to each category
@@ -317,7 +339,7 @@ def _build_response(question: Question, presentation: ET.Element):
                 mat = ET.SubElement(response_label, "material")
                 # Transform code blocks in categorization items
                 item_html = htmlize_item_text(item_text)
-                mat.append(html_mattext(f"<p>{item_html}</p>"))
+                mat.append(html_mattext(_wrap_content(item_html)))
             
             # Store which items belong to this category
             correct_items = [item.item_ident for item in all_items if item.category_name == cat_name]
