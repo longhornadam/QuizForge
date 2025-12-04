@@ -2,6 +2,30 @@
 
 from pathlib import Path
 from typing import Optional
+import re
+
+
+def sanitize_filename(title: str) -> str:
+    r"""Convert a quiz title to a safe filename.
+    
+    Removes or replaces characters that are illegal in Windows filenames:
+    \ / : * ? " < > |
+    
+    Args:
+        title: Raw quiz title
+        
+    Returns:
+        Sanitized string safe for use in filenames
+    """
+    # Replace Windows-illegal characters with underscores
+    safe = re.sub(r'[\\/:*?"<>|]', '_', title)
+    # Replace spaces with underscores
+    safe = safe.replace(' ', '_')
+    # Collapse multiple underscores
+    safe = re.sub(r'_+', '_', safe)
+    # Strip leading/trailing underscores
+    safe = safe.strip('_')
+    return safe
 
 
 def create_quiz_folder(output_dir: Path, quiz_title: str) -> Path:

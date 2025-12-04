@@ -7,6 +7,7 @@ Performs NO validation - trusts input is perfect.
 from pathlib import Path
 from typing import Dict
 from engine.core.quiz import Quiz
+from engine.packaging.folder_creator import sanitize_filename
 from engine.rendering.canvas.qti_builder import build_assessment_xml
 from engine.rendering.canvas.manifest_builder import build_manifest_xml
 from engine.rendering.canvas.metadata_builder import build_assessment_meta_xml
@@ -34,7 +35,7 @@ class CanvasHandler:
         zip_bytes = create_zip_bytes(manifest_xml, assessment_xml, meta_xml, guid)
 
         # Write to file with explicit QTI suffix so users can spot the Canvas import package
-        output_path = Path(output_base) / f"{quiz.title.replace(' ', '_')}_QTI.zip"
+        output_path = Path(output_base) / f"{sanitize_filename(quiz.title)}_QTI.zip"
         output_path.write_bytes(zip_bytes)
         
         # For now, no log_path, perhaps later

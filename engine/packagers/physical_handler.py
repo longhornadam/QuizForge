@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Dict, List
 import re
 from engine.core.quiz import Quiz
+from engine.packaging.folder_creator import sanitize_filename
 from engine.rendering.physical.styles.default_styles import (
     DOCX_FONT_FAMILY,
     DOCX_TITLE_SIZE,
@@ -145,7 +146,7 @@ def _create_student_quiz(quiz: Quiz, output_folder: str) -> str:
             question_number += 1
     
     # Save document
-    output_path = Path(output_folder) / f"{quiz.title.replace(' ', '_')}.docx"
+    output_path = Path(output_folder) / f"{sanitize_filename(quiz.title)}.docx"
     doc.save(str(output_path))
     return str(output_path)
 
@@ -243,7 +244,7 @@ def _create_answer_key(quiz: Quiz, output_folder: str) -> str:
         total_format.bold = True
     
     # Save document
-    output_path = Path(output_folder) / f"{quiz.title.replace(' ', '_')}_KEY.docx"
+    output_path = Path(output_folder) / f"{sanitize_filename(quiz.title)}_KEY.docx"
     doc.save(str(output_path))
     return str(output_path)
 
@@ -333,7 +334,7 @@ def _create_rationale_sheet(quiz: Quiz, output_folder: str) -> str:
     # Footer removed as per updated requirements
     
     # Save document
-    output_path = Path(output_folder) / f"{quiz.title.replace(' ', '_')}_RATIONALE.docx"
+    output_path = Path(output_folder) / f"{sanitize_filename(quiz.title)}_RATIONALE.docx"
     doc.save(str(output_path))
     return str(output_path)
 
