@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<quiz xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd" identifier="4154d4f9-022f-4581-a156-ab6e582f7d1e">
+  <title>FITB Modes Smoke Test</title>
+  <description></description>
+  <shuffle_questions>false</shuffle_questions>
+  <shuffle_answers>false</shuffle_answers>
+  <calculator_type>none</calculator_type>
+  <scoring_policy>keep_highest</scoring_policy>
+  <allowed_attempts>1</allowed_attempts>
+  <points_possible>100.0</points_possible>
+</quiz>

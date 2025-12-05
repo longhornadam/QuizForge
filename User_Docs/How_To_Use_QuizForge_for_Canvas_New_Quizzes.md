@@ -31,3 +31,10 @@ Click **Build** to view/edit items, then **Save** or **Save & Publish** when you
 ![Build button](screenshots/step7_build_button.png)
 
 Tip: If you need to regenerate, just paste a new spec into QuizForge and repeat steps 3–7. Canvas will import it as a new quiz.***
+
+## What’s supported in the current build
+- FITB answer modes: open-entry (default), dropdown, and word bank; dropdown/word bank require `options` plus `accept` to mark the correct option.
+- Multi-blank FITB: open-entry blanks are scored equally and numbered tokens are auto-inserted.
+- Stimulus layout: `"layout": "below"` (default) or `"right"` to render attached questions to the right of the stimulus.
+- Passage numbering: ` ```prose`/` ```excerpt` blocks auto-number paragraphs; ` ```poetry` blocks number line 1 and every 5th line for reference; code fences render with syntax styling.
+- Question types available: STIMULUS, STIMULUS_END, MC, MA, TF, MATCHING, FITB, ESSAY, FILEUPLOAD, ORDERING, CATEGORIZATION, NUMERICAL.

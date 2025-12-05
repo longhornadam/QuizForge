@@ -1,10 +1,10 @@
 ============================================================
 QuizForge Processing Log
 ============================================================
-Quiz: Yule Lads Grammar and Revision Practice
-Processed: 2025-12-02 09:48:31
-Questions: 22
-Total Points: 100.0
+Quiz: Elf Editing and Revision - Easy Practice
+Processed: 2025-12-05 10:40:47
+Questions: 30
+Total Points: 100
 
 STATUS: PASS (No issues)
 
@@ -23,42 +23,37 @@ PHYSICAL QUIZ VALIDATION STATISTICS
 
 ANSWER CHOICE STATISTICS
 ----------------------------------------
-Total MC questions: 17
-Average choice length: 49.3 chars
-Min choice length: 29 chars
-Max choice length: 70 chars
+Total MC questions: 30
+Average choice length: 49.9 chars
+Min choice length: 24 chars
+Max choice length: 78 chars
 
 Correct answer distribution:
-  A: 4 (23.5%)
-  B: 4 (23.5%)
-  C: 5 (29.4%)
-  D: 4 (23.5%)
+  A: 10 (33.3%)
+  B: 10 (33.3%)
+  C: 10 (33.3%)
 
-Questions eligible for 2-column layout: 9/17
+Questions eligible for 2-column layout: 12/30
 
 QUESTION LENGTH STATISTICS
 ----------------------------------------
-Total questions: 22
-Average question length: 83.1 chars
-Min question length: 0 chars
-Max question length: 403 chars
-
-Questions over 200 chars (may need formatting review):
-  Q1: 403 chars
+Total questions: 30
+Average question length: 55.6 chars
+Min question length: 31 chars
+Max question length: 107 chars
 
 POINT VALUE DISTRIBUTION
 ----------------------------------------
 Total points: 100
-Average points per question: 5.00
+Average points per question: 3.33
 
 Point value breakdown:
-  4 pt: 4 questions (20.0%)
-  5 pt: 15 questions (75.0%)
-  9 pt: 1 questions (5.0%)
+  3 pt: 20 questions (66.7%)
+  4 pt: 10 questions (33.3%)
 
 STIMULUS USAGE STATISTICS
 ----------------------------------------
-Questions with stimuli: 0/20
+Questions with stimuli: 0/30
 
 
 ============================================================
@@ -66,11 +61,6 @@ ANSWER DISTRIBUTION (AFTER BALANCING)
 ============================================================
 
 Multiple Choice Distribution:
-  A: 4 (23.5%)
-  B: 4 (23.5%)
-  C: 5 (29.4%)
-  D: 4 (23.5%)
-
-True/False Distribution:
-  True: 0 (0.0%)
-  False: 1 (100.0%)
+  A: 10 (33.3%)
+  B: 10 (33.3%)
+  C: 10 (33.3%)

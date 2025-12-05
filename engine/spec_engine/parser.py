@@ -62,6 +62,22 @@ def _sanitize_item(item: Dict[str, Any]) -> Dict[str, Any]:
     if "extensions" not in item["metadata"] or not isinstance(item["metadata"].get("extensions"), dict):
         item["metadata"]["extensions"] = {}
 
+    if qtype == "FITB":
+        mode_raw = item.get("answer_mode", "open_entry")
+        mode = mode_raw.lower() if isinstance(mode_raw, str) else "open_entry"
+        if mode not in {"open_entry", "dropdown", "wordbank"}:
+            mode = "open_entry"
+        item["answer_mode"] = mode
+        options_raw = item.get("options", [])
+        item["options"] = [str(opt) for opt in options_raw] if isinstance(options_raw, list) else []
+
+    if qtype == "STIMULUS":
+        layout_raw = item.get("layout", "below")
+        layout = layout_raw.lower() if isinstance(layout_raw, str) else "below"
+        if layout not in {"below", "right"}:
+            layout = "below"
+        item["layout"] = layout
+
     # Tag experimental numerical modes
     if qtype == "NUMERICAL":
         evaluation = item.get("evaluation", {})

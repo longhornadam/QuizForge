@@ -128,7 +128,11 @@ def _packaged_to_domain(packaged) -> Quiz:
 
         if qtype == "STIMULUS":
             forced_ident = forced_ident or f"stim_{uuid.uuid4().hex[:8]}"
-            q = StimulusItem(qtype="STIMULUS", prompt=prompt, points=0.0, points_set=False, forced_ident=forced_ident)
+            layout_raw = item.get("layout", "below")
+            layout = str(layout_raw).lower() if isinstance(layout_raw, str) else "below"
+            if layout not in {"below", "right"}:
+                layout = "below"
+            q = StimulusItem(qtype="STIMULUS", prompt=prompt, points=0.0, points_set=False, forced_ident=forced_ident, layout=layout)
             current_stimulus_id = forced_ident
             questions.append(q)
             continue
@@ -164,15 +168,43 @@ def _packaged_to_domain(packaged) -> Quiz:
             pairs = [MatchingPair(prompt=p["left"], answer=p["right"]) for p in item.get("pairs", [])]
             q = MatchingQuestion(qtype="MATCHING", prompt=prompt, points=pts, points_set=pts_set, pairs=pairs, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "FITB":
+            accept_list = item.get("accept", []) or []
             variants: List[str] = []
-            for variant_group in item.get("accept", []):
-                if isinstance(variant_group, list):
-                    variants.extend([str(v) for v in variant_group])
+            variants_per_blank: List[List[str]] = []
+            if isinstance(accept_list, list) and accept_list and all(isinstance(group, list) for group in accept_list) and len(accept_list) > 1:
+                # Multi-blank: keep per-blank variants and also flatten for backward compatibility checks
+                variants_per_blank = [[str(v) for v in group] for group in accept_list]
+                for group in variants_per_blank:
+                    variants.extend(group)
+            else:
+                for variant_group in accept_list:
+                    if isinstance(variant_group, list):
+                        variants.extend([str(v) for v in variant_group])
+            answer_mode_raw = item.get("answer_mode", "open_entry")
+            answer_mode = str(answer_mode_raw).lower() if isinstance(answer_mode_raw, str) else "open_entry"
+            options_raw = item.get("options", [])
+            options: List[str] = [str(o) for o in options_raw] if isinstance(options_raw, list) else []
             blank_token = uuid.uuid4().hex
-            display_token = f"[{blank_token}]"
-            prompt_with_token = prompt.replace("[blank]", display_token)
-            if prompt_with_token == prompt:
-                prompt_with_token = f"{prompt} [{display_token}]"
+            blank_tokens: List[str] = []
+            prompt_with_token = prompt
+            if variants_per_blank:
+                num_blanks = len(variants_per_blank)
+                # Find existing blank markers in order; fallback to numbered [blank1], [blank2], etc.
+                import re
+                markers = re.findall(r"\[blank\d*\]", prompt) or []
+                for idx in range(num_blanks):
+                    token = uuid.uuid4().hex
+                    display_token = f"[{token}]"
+                    blank_tokens.append(token)
+                    if idx < len(markers):
+                        prompt_with_token = prompt_with_token.replace(markers[idx], display_token, 1)
+                    else:
+                        prompt_with_token += f" [ {display_token} ]"
+            else:
+                display_token = f"[{blank_token}]"
+                prompt_with_token = prompt.replace("[blank]", display_token)
+                if prompt_with_token == prompt:
+                    prompt_with_token = f"{prompt} [{display_token}]"
             q = FITBQuestion(
                 qtype="FITB",
                 prompt=prompt_with_token,
@@ -180,6 +212,10 @@ def _packaged_to_domain(packaged) -> Quiz:
                 points_set=pts_set,
                 variants=variants,
                 blank_token=blank_token,
+                answer_mode=answer_mode,
+                options=options,
+                variants_per_blank=variants_per_blank,
+                blank_tokens=blank_tokens,
                 parent_stimulus_ident=parent_stimulus,
                 forced_ident=forced_ident,
             )

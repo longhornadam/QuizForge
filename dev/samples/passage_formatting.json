@@ -1,0 +1,76 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Stimulus Formatting & Layout Test",
+  "items": [
+    {
+      "id": "stim_prose_below",
+      "type": "STIMULUS",
+      "prompt": "```prose\nParagraph one of the passage with some detail.\n\nParagraph two adds more context and should be numbered separately.\n\nParagraph three concludes the thought.\n```",
+      "layout": "below"
+    },
+    {
+      "id": "cat1",
+      "type": "CATEGORIZATION",
+      "prompt": "Sort the statements based on whether they summarize the passage accurately.",
+      "categories": ["Accurate", "Inaccurate"],
+      "items": [
+        { "label": "The passage has three paragraphs.", "category": "Accurate" },
+        { "label": "The passage is a poem.", "category": "Inaccurate" },
+        { "label": "It presents context and a conclusion.", "category": "Accurate" }
+      ],
+      "stimulus_id": "stim_prose_below"
+    },
+    {
+      "id": "stim_poetry_right",
+      "type": "STIMULUS",
+      "prompt": "```poetry\nA line of light upon the hill\nA second line to echo still\nThe third line to seal the will\nFourth line keeps the rhythm\nFifth line should show marker\nSixth line no marker\n```",
+      "layout": "right"
+    },
+    {
+      "id": "mc_poetry",
+      "type": "MC",
+      "prompt": "How many lines are in the poem?",
+      "choices": [
+        { "text": "Three", "correct": true },
+        { "text": "Four" },
+        { "text": "Two" }
+      ],
+      "stimulus_id": "stim_poetry_right"
+    },
+    {
+      "id": "stim_code_below",
+      "type": "STIMULUS",
+      "prompt": "```python\nitems = [1, 2, 3]\nprint(sum(items))\n```",
+      "layout": "below"
+    },
+    {
+      "id": "tf_code",
+      "type": "TF",
+      "prompt": "The code prints 6.",
+      "answer": true,
+      "stimulus_id": "stim_code_below"
+    },
+    {
+      "type": "STIMULUS_END"
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "cat1",
+      "correct": "Accurate statements reflect the 3-paragraph prose and its content.",
+      "distractor": "Inaccurate statements misstate the genre or structure."
+    },
+    {
+      "item_id": "mc_poetry",
+      "correct": "The poem has three numbered lines.",
+      "distractor": "Other counts do not match the numbered lines."
+    },
+    {
+      "item_id": "tf_code",
+      "correct": "1+2+3 equals 6.",
+      "distractor": "Any other output would mis-sum the list."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

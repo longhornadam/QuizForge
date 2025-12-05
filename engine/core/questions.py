@@ -130,9 +130,17 @@ class FITBQuestion(Question):
     Attributes:
         variants: List of acceptable answers (e.g., ["photosynthesis", "Photo synthesis"])
         blank_token: UUID token for identifying the blank in Canvas
+        answer_mode: "open_entry" (default), "dropdown", or "wordbank"
+        options: Answer options for dropdown/wordbank modes (includes the correct answer)
+        variants_per_blank: Accept lists per blank for multi-blank questions
+        blank_tokens: Token list (one per blank) for multi-blank questions
     """
     variants: List[str] = field(default_factory=list)
     blank_token: Optional[str] = None
+    answer_mode: str = "open_entry"
+    options: List[str] = field(default_factory=list)
+    variants_per_blank: List[List[str]] = field(default_factory=list)
+    blank_tokens: List[str] = field(default_factory=list)
 
 
 @dataclass
@@ -217,7 +225,7 @@ class StimulusItem(Question):
     
     Used for reading passages, images, data tables, etc. that multiple questions reference.
     """
-    pass
+    layout: str = "below"
 
 
 @dataclass

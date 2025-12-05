@@ -55,14 +55,15 @@
 - **MA** - Like MC but one or more `correct: true`.
 - **TF** - `answer`: `true` or `false`.
 - **MATCHING** - `pairs`: `[ { "left": "...", "right": "..." }, ... ]` (min 2).
-- **FITB** - `prompt` must contain `[blank]`. `accept`: list per blank, each an array of acceptable answers in order of blanks. `case_sensitive`: defaults to `false`.
+- **FITB** - `prompt` must contain `[blank]`. `accept`: list per blank, each an array of acceptable answers in order of blanks. `case_sensitive`: defaults to `false`. `answer_mode` (optional) `open_entry` (default), `dropdown`, or `wordbank`; `dropdown`/`wordbank` require an `options` array (includes the correct answer).
+- **FITB modes & multi-blank** - Dropdown/wordbank are single-blank only; multi-blank FITB is open-entry and splits scoring equally across blanks. Use `[blank1]`, `[blank2]`, etc., with matching `accept` arrays in order.
 - **ESSAY** - Optional `length_guidance` (e.g., "5-8 sentences") and `rubric_hint`.
 - **FILEUPLOAD** - Optional `requirements` text, `accepted_formats` (e.g., [".pdf", ".py"]), and `max_file_size_mb`.
 - **ORDERING** - `items`: array ordered from top to bottom (min 2). Optional `header` label. If `prompt` is omitted, the engine will reuse `header` as the prompt.
 - **CATEGORIZATION** — `categories`: array of labels (min 2). `items`: `[ { "label": "...", "category": "..." }, ... ]`. Optional `distractors` array.
 - **NUMERICAL** - `answer` (number). `evaluation`: `{ "mode": "exact" | "percent_margin" | "absolute_margin" | "range" | "significant_digits" | "decimal_places", "value": <number>, "min": <number>, "max": <number> }` using the one modifier required by the mode (pull details from `dev/QF_QTYPE_Numerical.md`). Precision/margin values are positive; range uses `min`/`max`. Default to exact if no mode is given.
 - Modes other than exact are experimental. The LLM may produce them, but tools are not required to support or validate them yet.
-- **STIMULUS** — Requires `id`. Optional `format`: `"text" | "code" | "markdown"`. Optional `assets`: list of `{ "type": "image|table|audio|video|data", "uri": "...", "alt_text": "..." }`. STIMULUS items are never scored. Do not include a `points` field on STIMULUS items. Prompt is optional; empty prompts are accepted but include text when students need context. QuizForge treats them as zero-point containers only.
+- **STIMULUS** — Requires `id`. Optional `format`: `"text" | "code" | "markdown"`. Optional `layout`: `"below"` (default) or `"right"` (renders questions to the right). Optional `assets`: list of `{ "type": "image|table|audio|video|data", "uri": "...", "alt_text": "..." }`. STIMULUS items are never scored. Do not include a `points` field on STIMULUS items. Prompt is optional; empty prompts are accepted but include text when students need context. QuizForge treats them as zero-point containers only.
 - **STIMULUS_END** — Type only; `prompt` may be empty (`""`). STIMULUS_END is only a structural marker. Do not include points or rationales for STIMULUS_END.
 
 ## 6. PASSAGES & TEXT FENCES (INSIDE `prompt`)
@@ -74,6 +75,7 @@
   - ```math
 - Poetry: preserve line breaks and indentation; always wrap in ```poetry.
 - Never convert poetry into prose. Do not invent fences; stick to the whitelist.
+- Numbering: prose/excerpt blocks auto-number paragraphs; poetry blocks auto-number lines to aid reference.
 
 ## 7. REQUIRED PEDAGOGY DEFAULTS (ALWAYS ACTIVE)
 **Teach Up** - All versions assess the same standard. Adjust only cognitive load, language clarity, structure, and scaffolds.

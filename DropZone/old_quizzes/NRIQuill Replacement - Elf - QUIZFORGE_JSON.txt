@@ -1,0 +1,830 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Elf Editing and Revision - Easy Practice",
+"metadata": {
+"grade": 7,
+"unit": "Unit 3 - Highs and Lows",
+"focus": [
+"editing",
+"revision",
+"Elf movie day"
+],
+"tier": "foundational"
+},
+"items": [
+{
+"id": "q1",
+"type": "MC",
+"prompt": "Which sentence uses correct subject verb agreement?",
+"choices": [
+{
+"id": "A",
+"text": "The elves makes toys all night in the workshop.",
+"correct": false
+},
+{
+"id": "B",
+"text": "The elves make toys all night in the workshop.",
+"correct": true
+},
+{
+"id": "C",
+"text": "The elves making toys all night in the workshop.",
+"correct": false
+}
+]
+},
+{
+"id": "q2",
+"type": "MC",
+"prompt": "Which sentence is written correctly?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy the elf run through the mall.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy the elf runs through the mall.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Buddy the elf running through the mall.",
+"correct": false
+}
+]
+},
+{
+"id": "q3",
+"type": "MC",
+"prompt": "Which sentence has correct subject verb agreement with a prepositional phrase?",
+"choices": [
+{
+"id": "A",
+"text": "The pile of snowballs are ready for the fight.",
+"correct": false
+},
+{
+"id": "B",
+"text": "The pile of snowballs is ready for the fight.",
+"correct": true
+},
+{
+"id": "C",
+"text": "The pile of snowballs were ready for the fight.",
+"correct": false
+}
+]
+},
+{
+"id": "q4",
+"type": "MC",
+"prompt": "Which sentence uses the pronoun correctly?",
+"choices": [
+{
+"id": "A",
+"text": "Every child in the classroom wore their favorite elf hat.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Every child in the classroom wore his or her favorite elf hat.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Every child in the classroom wore they favorite elf hat.",
+"correct": false
+}
+]
+},
+{
+"id": "q5",
+"type": "MC",
+"prompt": "Which sentence uses consistent verb tense?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy grabbed his breakfast and runs out the door.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy grabs his breakfast and ran out the door.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy grabbed his breakfast and ran out the door.",
+"correct": true
+}
+]
+},
+{
+"id": "q6",
+"type": "MC",
+"prompt": "Which option is a complete sentence, not a fragment?",
+"choices": [
+{
+"id": "A",
+"text": "Because Buddy wanted to decorate the store.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy wanted to decorate the store with too many lights.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Decorating the store with too many lights.",
+"correct": false
+}
+]
+},
+{
+"id": "q7",
+"type": "MC",
+"prompt": "Which sentence is NOT a run on?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy slid across the floor, and everyone stared at him.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Buddy slid across the floor everyone stared at him.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy slid across the floor he made a huge scene.",
+"correct": false
+}
+]
+},
+{
+"id": "q8",
+"type": "MC",
+"prompt": "Which sentence uses commas correctly after an introductory phrase?",
+"choices": [
+{
+"id": "A",
+"text": "After the long trip to New York Buddy was still excited.",
+"correct": false
+},
+{
+"id": "B",
+"text": "After the long trip to New York, Buddy was still excited.",
+"correct": true
+},
+{
+"id": "C",
+"text": "After the long trip, to New York Buddy was still excited.",
+"correct": false
+}
+]
+},
+{
+"id": "q9",
+"type": "MC",
+"prompt": "Which sentence shows the direct object correctly?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy tossed the snowball to Michael.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Buddy tossed to Michael.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy to Michael tossed.",
+"correct": false
+}
+]
+},
+{
+"id": "q10",
+"type": "MC",
+"prompt": "Which sentence shows an indirect object correctly?",
+"choices": [
+{
+"id": "A",
+"text": "Santa gave Buddy a special job.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Santa gave a special job.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Santa gave to Buddy a special job.",
+"correct": false
+}
+]
+},
+{
+"id": "q11",
+"type": "MC",
+"prompt": "Which sentence uses a prepositional phrase correctly?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy hid behind the giant Christmas tree.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Buddy hid the giant Christmas tree behind.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy behind hid the giant Christmas tree.",
+"correct": false
+}
+]
+},
+{
+"id": "q12",
+"type": "MC",
+"prompt": "Which sentence avoids a misplaced modifier?",
+"choices": [
+{
+"id": "A",
+"text": "Covered in tinsel, Buddy smiled at the store.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy smiled at the store, covered in tinsel.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy, covered in tinsel, smiled at the store.",
+"correct": true
+}
+]
+},
+{
+"id": "q13",
+"type": "MC",
+"prompt": "Which sentence uses an infinitive phrase correctly?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy tried to decorate the entire store in one night.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Buddy tried decorating to the entire store in one night.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy to tried decorate the entire store in one night.",
+"correct": false
+}
+]
+},
+{
+"id": "q14",
+"type": "MC",
+"prompt": "Which sentence uses correct capitalization?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy traveled from the north pole to new york city.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy traveled from the North Pole to New York City.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Buddy traveled from the north Pole to new york City.",
+"correct": false
+}
+]
+},
+{
+"id": "q15",
+"type": "MC",
+"prompt": "Which sentence uses the correct form of their, there, or they are?",
+"choices": [
+{
+"id": "A",
+"text": "There excited to see Santa in the store.",
+"correct": false
+},
+{
+"id": "B",
+"text": "They are excited to see Santa in the store.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Their excited to see Santa in the store.",
+"correct": false
+}
+]
+},
+{
+"id": "q16",
+"type": "MC",
+"prompt": "Which sentence uses the correct form of its or it is?",
+"choices": [
+{
+"id": "A",
+"text": "Its almost time for Santa to arrive.",
+"correct": false
+},
+{
+"id": "B",
+"text": "It is almost time for Santa to arrive.",
+"correct": true
+},
+{
+"id": "C",
+"text": "The sleigh lost it's bell in the snow.",
+"correct": false
+}
+]
+},
+{
+"id": "q17",
+"type": "MC",
+"prompt": "Which sentence uses the correct form of to, too, or two?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy brought to many candy canes to the office.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy brought two many candy canes to the office.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy brought too many candy canes to the office.",
+"correct": true
+}
+]
+},
+{
+"id": "q18",
+"type": "MC",
+"prompt": "Which revision is the clearest and least wordy?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy was kind of very really excited to see Santa.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy was excited to see Santa.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Buddy was being excited in a very big way to see Santa.",
+"correct": false
+}
+]
+},
+{
+"id": "q19",
+"type": "MC",
+"prompt": "Which sentence avoids repetition?",
+"choices": [
+{
+"id": "A",
+"text": "The busy store was loud and noisy and loud again.",
+"correct": false
+},
+{
+"id": "B",
+"text": "The store was loud and crowded with shoppers.",
+"correct": true
+},
+{
+"id": "C",
+"text": "The store was loud loud loud with sound.",
+"correct": false
+}
+]
+},
+{
+"id": "q20",
+"type": "MC",
+"prompt": "Which sentence uses the best transition word for contrast?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy was nervous to sing in public. However, he sang anyway.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Buddy was nervous to sing in public. Next, he sang anyway.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy was nervous to sing in public. Then, he sang anyway.",
+"correct": false
+}
+]
+},
+{
+"id": "q21",
+"type": "MC",
+"prompt": "Which sentence combines the ideas most smoothly?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy loves Christmas. Buddy loves singing.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy loves Christmas, and he loves singing.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Buddy loves Christmas he loves singing.",
+"correct": false
+}
+]
+},
+{
+"id": "q22",
+"type": "MC",
+"prompt": "Which revision has the strongest, most specific verb?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy went down the escalator very slowly.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy moved down the escalator in a slow way.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy inched down the escalator, holding the rail.",
+"correct": true
+}
+]
+},
+{
+"id": "q23",
+"type": "MC",
+"prompt": "Which sentence keeps a formal, school appropriate tone?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy totally freaked out because the elevator was super weird.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy was confused and nervous because the elevator was new to him.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Buddy was like wow this elevator is crazy.",
+"correct": false
+}
+]
+},
+{
+"id": "q24",
+"type": "MC",
+"prompt": "Which sentence is ordered in the clearest logical way?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy put the star on the tree after he finished hanging the lights.",
+"correct": false
+},
+{
+"id": "B",
+"text": "After Buddy put the star on the tree, he finished hanging the lights.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy finished hanging the lights after he put the star on the tree.",
+"correct": true
+}
+]
+},
+{
+"id": "q25",
+"type": "MC",
+"prompt": "Which sentence is the best paraphrase of this idea: Buddy works hard to spread Christmas cheer in New York.",
+"choices": [
+{
+"id": "A",
+"text": "Buddy is lazy and does not care about Christmas in New York.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy tries his best to share Christmas cheer with people in New York.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Buddy likes Christmas and New York, and he likes cheer.",
+"correct": false
+}
+]
+},
+{
+"id": "q26",
+"type": "MC",
+"prompt": "Which sentence is the best summary of Buddy's day at the store?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy decorated, sang songs, and tried to make everyone feel more cheerful.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Buddy decorated a little, sang one song, looked at toys, walked, breathed air.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy was just there in the store doing things.",
+"correct": false
+}
+]
+},
+{
+"id": "q27",
+"type": "MC",
+"prompt": "Which sentence uses commas correctly around a phrase in the middle?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy, who loves syrup on everything, poured it on his spaghetti.",
+"correct": true
+},
+{
+"id": "B",
+"text": "Buddy who loves syrup on everything poured it on his spaghetti.",
+"correct": false
+},
+{
+"id": "C",
+"text": "Buddy who loves syrup on everything, poured it on his spaghetti.",
+"correct": false
+}
+]
+},
+{
+"id": "q28",
+"type": "MC",
+"prompt": "Which sentence fixes the spelling and punctuation errors?",
+"choices": [
+{
+"id": "A",
+"text": "In the office buddy hangs up a sing that says merry chrismas.",
+"correct": false
+},
+{
+"id": "B",
+"text": "In the office Buddy hangs up a sign that says Merry Christmas.",
+"correct": true
+},
+{
+"id": "C",
+"text": "In the office buddy hangs up a sign that says merry christmas,",
+"correct": false
+}
+]
+},
+{
+"id": "q29",
+"type": "MC",
+"prompt": "Which sentence uses subject verb agreement with a compound subject?",
+"choices": [
+{
+"id": "A",
+"text": "Buddy and Michael plays in the snow after school.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Buddy and Michael play in the snow after school.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Buddy and Michael playing in the snow after school.",
+"correct": false
+}
+]
+},
+{
+"id": "q30",
+"type": "MC",
+"prompt": "Which sentence has correct subject verb agreement when a prepositional phrase comes between them?",
+"choices": [
+{
+"id": "A",
+"text": "The noise from the crowded streets were too loud for Buddy.",
+"correct": false
+},
+{
+"id": "B",
+"text": "The noise from the crowded streets was too loud for Buddy.",
+"correct": true
+},
+{
+"id": "C",
+"text": "The noise from the crowded streets are too loud for Buddy.",
+"correct": false
+}
+]
+}
+],
+"rationales": [
+{
+"item_id": "q1",
+"correct": "Make matches the plural subject elves.",
+"distractor": "Choice A uses the singular verb makes with the plural subject elves."
+},
+{
+"item_id": "q2",
+"correct": "Runs agrees with the singular subject Buddy.",
+"distractor": "Choice A uses run instead of runs with the singular subject Buddy."
+},
+{
+"item_id": "q3",
+"correct": "Is agrees with the singular subject pile, not snowballs.",
+"distractor": "Choice A treats snowballs as the subject instead of pile."
+},
+{
+"item_id": "q4",
+"correct": "His or her agrees with the singular pronoun every child in formal writing.",
+"distractor": "Choice A uses their with the singular word every child in formal writing."
+},
+{
+"item_id": "q5",
+"correct": "Grabbed and ran are both in past tense.",
+"distractor": "Choice A switches from past grabbed to present runs."
+},
+{
+"item_id": "q6",
+"correct": "Buddy wanted to decorate the store with too many lights has a subject and a complete verb.",
+"distractor": "Choice A begins with because but never finishes the thought."
+},
+{
+"item_id": "q7",
+"correct": "The comma and conjunction and correctly join the two clauses.",
+"distractor": "Choice B runs two clauses together with no comma or conjunction."
+},
+{
+"item_id": "q8",
+"correct": "A comma comes after the entire introductory phrase After the long trip to New York.",
+"distractor": "Choice A is missing the comma after the introductory phrase."
+},
+{
+"item_id": "q9",
+"correct": "Snowball is the direct object that receives the action tossed.",
+"distractor": "Choice B is missing the direct object telling what Buddy tossed."
+},
+{
+"item_id": "q10",
+"correct": "Buddy is the indirect object receiving the special job.",
+"distractor": "Choice B does not tell who received the special job."
+},
+{
+"item_id": "q11",
+"correct": "Behind the giant Christmas tree is a clear prepositional phrase.",
+"distractor": "Choice B puts behind at the end in a confusing way."
+},
+{
+"item_id": "q12",
+"correct": "Covered in tinsel is placed next to Buddy, the person it describes.",
+"distractor": "Choice A can sound like the store is covered in tinsel instead of Buddy."
+},
+{
+"item_id": "q13",
+"correct": "To decorate is the correct infinitive phrase after tried.",
+"distractor": "Choice B puts to in the wrong place and is not standard English."
+},
+{
+"item_id": "q14",
+"correct": "North Pole and New York City are proper nouns and should be capitalized.",
+"distractor": "Choice A keeps all the place names in lowercase."
+},
+{
+"item_id": "q15",
+"correct": "They are is the correct form to start the sentence.",
+"distractor": "Choices A and C use the wrong form of the word at the beginning."
+},
+{
+"item_id": "q16",
+"correct": "It is almost time for Santa to arrive uses the full form of the verb.",
+"distractor": "Choice A should be written as It is, not Its."
+},
+{
+"item_id": "q17",
+"correct": "Too many is the correct phrase to show an excessive amount.",
+"distractor": "Choice A uses to instead of too."
+},
+{
+"item_id": "q18",
+"correct": "Buddy was excited to see Santa is clear and concise.",
+"distractor": "Choice A uses extra words like kind of and very that are not needed."
+},
+{
+"item_id": "q19",
+"correct": "Loud and crowded with shoppers describes the store without repeating the same word.",
+"distractor": "Choice A repeats loud in an awkward way."
+},
+{
+"item_id": "q20",
+"correct": "However shows the contrast between being nervous and still singing.",
+"distractor": "Next and Then show time order instead of contrast."
+},
+{
+"item_id": "q21",
+"correct": "The comma and conjunction and connect the two related ideas correctly.",
+"distractor": "Choice C is a run on with no comma or conjunction."
+},
+{
+"item_id": "q22",
+"correct": "Inched is a vivid verb that clearly shows how Buddy moved.",
+"distractor": "Choices A and B use weaker verbs like went and moved."
+},
+{
+"item_id": "q23",
+"correct": "Confused and nervous is clear and school appropriate.",
+"distractor": "Choice A uses informal slang words like totally and super."
+},
+{
+"item_id": "q24",
+"correct": "First Buddy hangs the lights, then he puts the star on, so this order makes sense.",
+"distractor": "Choice A suggests he uses the star before doing the lights, which is less logical."
+},
+{
+"item_id": "q25",
+"correct": "Tries his best to share Christmas cheer with people in New York keeps the same meaning.",
+"distractor": "Choice C is vague and does not clearly show that he spreads cheer."
+},
+{
+"item_id": "q26",
+"correct": "Decorated, sang songs, and tried to make everyone feel more cheerful gives the main actions and purpose.",
+"distractor": "Choice C is too vague and does not say what he actually did."
+},
+{
+"item_id": "q27",
+"correct": "The commas set off the extra information who loves syrup on everything.",
+"distractor": "Choice B needs commas around the phrase who loves syrup on everything."
+},
+{
+"item_id": "q28",
+"correct": "Buddy and the words on the sign are capitalized correctly and the sentence ends with a period.",
+"distractor": "Choice A misspells sign and Christmas and does not capitalize Buddy."
+},
+{
+"item_id": "q29",
+"correct": "Play agrees with the compound subject Buddy and Michael.",
+"distractor": "Choice A uses plays with a compound subject, which is incorrect."
+},
+{
+"item_id": "q30",
+"correct": "Was matches the singular subject noise, even though streets is plural.",
+"distractor": "Choices A and C use were or are, which are plural verbs."
+}
+]
+}
+</QUIZFORGE_JSON>

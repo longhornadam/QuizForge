@@ -1,0 +1,46 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "FITB Modes Smoke Test",
+  "items": [
+    {
+      "id": "stim1",
+      "type": "STIMULUS",
+      "prompt": "Check dropdown and word bank rendering in one pass."
+    },
+    {
+      "id": "fitb_dropdown",
+      "type": "FITB",
+      "prompt": "Photosynthesis mainly occurs in the [blank].",
+      "accept": [["chloroplast", "chloroplasts"]],
+      "answer_mode": "dropdown",
+      "options": ["chloroplasts", "mitochondria", "nucleus"],
+      "stimulus_id": "stim1"
+    },
+    {
+      "id": "fitb_wordbank",
+      "type": "FITB",
+      "prompt": "Water freezes at [blank] degrees Celsius.",
+      "accept": [["0", "zero"]],
+      "answer_mode": "wordbank",
+      "options": ["0", "32", "100"],
+      "stimulus_id": "stim1"
+    },
+    {
+      "type": "STIMULUS_END"
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "fitb_dropdown",
+      "correct": "Chloroplasts contain chlorophyll and run photosynthesis.",
+      "distractor": "Mitochondria handle respiration, not photosynthesis."
+    },
+    {
+      "item_id": "fitb_wordbank",
+      "correct": "0 C is the freezing point of water.",
+      "distractor": "32 C is the Fahrenheit freezing point, not Celsius."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

@@ -1,0 +1,34 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Stimulus Layout Test",
+  "items": [
+    {
+      "id": "stim_right",
+      "type": "STIMULUS",
+      "prompt": "This stimulus should render questions to the right.",
+      "layout": "right"
+    },
+    {
+      "id": "q1",
+      "type": "MC",
+      "prompt": "Which side should the questions appear on for this stimulus?",
+      "choices": [
+        { "text": "To the right", "correct": true },
+        { "text": "Below" }
+      ],
+      "stimulus_id": "stim_right"
+    },
+    {
+      "type": "STIMULUS_END"
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q1",
+      "correct": "Canvas renders questions to the right when the stimulus orientation is left/top markup.",
+      "distractor": "Below is the default layout, not the specified right-side layout."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

@@ -166,10 +166,40 @@ def _validate_matching(question: MatchingQuestion, prefix: str) -> List[str]:
 def _validate_fitb(question: FITBQuestion, prefix: str) -> List[str]:
     """Validate fill-in-the-blank question."""
     errors: List[str] = []
-    
-    if not question.variants:
-        errors.append(f"{prefix}: FITB question missing Accept/Answers field")
-    
+
+    mode = (getattr(question, "answer_mode", "open_entry") or "open_entry").lower()
+    if mode not in {"open_entry", "dropdown", "wordbank"}:
+        errors.append(f"{prefix}: FITB answer_mode must be open_entry, dropdown, or wordbank")
+        return errors
+
+    has_multi = bool(getattr(question, "variants_per_blank", None))
+    if has_multi:
+        if not question.variants_per_blank:
+            errors.append(f"{prefix}: FITB multi-blank missing per-blank Accept/Answers")
+        blanks = getattr(question, "blank_tokens", []) or []
+        if blanks and len(blanks) != len(question.variants_per_blank):
+            errors.append(f"{prefix}: FITB multi-blank must have one token per blank")
+        # For now, only open_entry is supported for multi-blank
+        if mode in {"dropdown", "wordbank"}:
+            errors.append(f"{prefix}: FITB multi-blank supports open_entry only (dropdown/wordbank not yet supported)")
+        # Ensure each blank has at least one variant
+        for idx, group in enumerate(question.variants_per_blank, 1):
+            if not group:
+                errors.append(f"{prefix}: FITB blank {idx} missing Accept/Answers")
+    else:
+        if mode in {"dropdown", "wordbank"}:
+            if not question.options:
+                errors.append(f"{prefix}: FITB {mode} requires an Options list including the correct answer")
+            if not question.variants:
+                errors.append(f"{prefix}: FITB {mode} requires Accept/Answers to mark the correct option")
+            else:
+                options_lower = {str(opt).strip().lower() for opt in question.options}
+                if options_lower and not any(str(v).strip().lower() in options_lower for v in question.variants):
+                    errors.append(f"{prefix}: FITB {mode} correct answer must appear in options list")
+        else:
+            if not question.variants:
+                errors.append(f"{prefix}: FITB question missing Accept/Answers field")
+
     return errors
 
 

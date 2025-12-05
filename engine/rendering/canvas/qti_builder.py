@@ -183,6 +183,9 @@ def _build_item(question: Question, index: int) -> ET.Element:
 
     presentation = ET.SubElement(item, "presentation")
     material = ET.SubElement(presentation, "material")
+    if isinstance(question, StimulusItem):
+        orientation = "left" if getattr(question, "layout", "below") == "right" else "top"
+        material.set("orientation", orientation)
     enable_excerpt_numbering = isinstance(question, StimulusItem)
     material.append(html_mattext(htmlize_prompt(question.prompt, excerpt_numbering=enable_excerpt_numbering)))
 
@@ -281,11 +284,68 @@ def _build_response(question: Question, presentation: ET.Element):
 
     if isinstance(question, FITBQuestion):
         token = question.blank_token or uuid.uuid4().hex
+        mode = (getattr(question, "answer_mode", "open_entry") or "open_entry").lower()
+        options = getattr(question, "options", []) or []
+        variants = question.variants or []
+        variants_per_blank = getattr(question, "variants_per_blank", []) or []
+
+        # Multi-blank support (open-entry only for now)
+        if variants_per_blank:
+            blank_tokens = question.blank_tokens or []
+            num_blanks = len(variants_per_blank)
+            if not blank_tokens or len(blank_tokens) != num_blanks:
+                blank_tokens = [uuid.uuid4().hex for _ in range(num_blanks)]
+            response_data = []
+            for idx, (token_i, variants_i) in enumerate(zip(blank_tokens, variants_per_blank)):
+                resp_lid = ET.SubElement(presentation, "response_lid", {"ident": f"response_{token_i}"})
+                matq = ET.SubElement(resp_lid, "material")
+                ET.SubElement(matq, "mattext").text = "Question"
+                render_choice = ET.SubElement(resp_lid, "render_choice")
+                for j, variant in enumerate(variants_i):
+                    resp_ident = f"{token_i}-{j}"
+                    label = ET.SubElement(render_choice, "response_label", {
+                        "scoring_algorithm": "TextContainsAnswer",
+                        "answer_type": "openEntry",
+                        "ident": resp_ident,
+                    })
+                    mat = ET.SubElement(label, "material")
+                    ET.SubElement(mat, "mattext", {"texttype": "text/plain"}).text = variant
+                response_data.append({"token": token_i, "variants": variants_i})
+            return {"type": "fitb_multi_open", "responses": response_data}
+
+        # Single-blank
         response_lid = ET.SubElement(presentation, "response_lid", {"ident": f"response_{token}"})
         matq = ET.SubElement(response_lid, "material")
         ET.SubElement(matq, "mattext").text = "Question"
         render_choice = ET.SubElement(response_lid, "render_choice")
-        for index, variant in enumerate(question.variants):
+
+        if mode in {"dropdown", "wordbank"} and options:
+            scoring_algorithm = "Equivalence" if mode == "dropdown" else "TextEquivalence"
+            correct_ident = None
+            for index, option in enumerate(options, start=1):
+                resp_ident = f"{token}-{index}"
+                attrs = {
+                    "scoring_algorithm": scoring_algorithm,
+                    "answer_type": mode,
+                    "ident": resp_ident,
+                }
+                if mode == "dropdown":
+                    attrs["position"] = str(index)
+                label = ET.SubElement(render_choice, "response_label", attrs)
+                mat = ET.SubElement(label, "material")
+                ET.SubElement(mat, "mattext", {"texttype": "text/plain"}).text = option
+                if correct_ident is None:
+                    for variant in variants:
+                        if isinstance(variant, str) and variant.strip().lower() == str(option).strip().lower():
+                            correct_ident = resp_ident
+                            break
+            if correct_ident is None and options:
+                correct_ident = f"{token}-1"
+            return {"type": "fitb_choice", "mode": mode, "token": token, "correct_ident": correct_ident}
+
+        # Default to open-entry (TextContainsAnswer)
+        open_variants = variants or ["answer"]
+        for index, variant in enumerate(open_variants):
             resp_ident = f"{token}-{index}"
             label = ET.SubElement(render_choice, "response_label", {
                 "scoring_algorithm": "TextContainsAnswer",
@@ -294,7 +354,7 @@ def _build_response(question: Question, presentation: ET.Element):
             })
             mat = ET.SubElement(label, "material")
             ET.SubElement(mat, "mattext", {"texttype": "text/plain"}).text = variant
-        return {"type": "fitb", "token": token, "variants": question.variants}
+        return {"type": "fitb_open", "token": token, "variants": open_variants}
 
     if isinstance(question, EssayQuestion):
         response_str = ET.SubElement(presentation, "response_str", {"ident": "response1", "rcardinality": "Single"})
@@ -448,7 +508,7 @@ def _build_scoring(question: Question, item: ET.Element, response_info) -> None:
             running += add_value
         return
 
-    if response_info["type"] == "fitb":
+    if response_info["type"] in {"fitb", "fitb_open"}:
         token = response_info["token"]
         variants = response_info["variants"]
         for index, _ in enumerate(variants):
@@ -457,6 +517,34 @@ def _build_scoring(question: Question, item: ET.Element, response_info) -> None:
             varequal = ET.SubElement(conditionvar, "varequal", {"respident": f"response_{token}"})
             varequal.text = f"{token}-{index}"
             ET.SubElement(respcondition, "setvar", {"action": "Add", "varname": "SCORE"}).text = "100.00"
+        return
+
+    if response_info["type"] == "fitb_choice":
+        token = response_info["token"]
+        correct_ident = response_info["correct_ident"]
+        respcondition = ET.SubElement(resprocessing, "respcondition")
+        conditionvar = ET.SubElement(respcondition, "conditionvar")
+        varequal = ET.SubElement(conditionvar, "varequal", {"respident": f"response_{token}"})
+        varequal.text = correct_ident
+        ET.SubElement(respcondition, "setvar", {"action": "Add", "varname": "SCORE"}).text = "100.00"
+        return
+
+    if response_info["type"] == "fitb_multi_open":
+        responses = response_info["responses"]
+        num_blanks = max(1, len(responses))
+        per = round(100.0 / num_blanks, 2)
+        running = 0.0
+        for idx, resp in enumerate(responses):
+            token = resp["token"]
+            variants = resp["variants"]
+            add_value = per if idx < num_blanks - 1 else round(100.0 - running, 2)
+            for j, _ in enumerate(variants):
+                respcondition = ET.SubElement(resprocessing, "respcondition")
+                conditionvar = ET.SubElement(respcondition, "conditionvar")
+                varequal = ET.SubElement(conditionvar, "varequal", {"respident": f"response_{token}"})
+                varequal.text = f"{token}-{j}"
+                ET.SubElement(respcondition, "setvar", {"action": "Add", "varname": "SCORE"}).text = f"{add_value:.2f}"
+            running += add_value
         return
 
     if response_info["type"] == "ordering":

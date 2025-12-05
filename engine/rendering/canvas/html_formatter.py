@@ -237,10 +237,8 @@ def add_passage_numbering(text: str, passage_type: str = "auto") -> Tuple[str, s
         for line in lines:
             if line.strip():
                 non_empty_index += 1
-                if non_empty_index == 1 or non_empty_index % 5 == 0:
-                    numbered.append(f"{{LINENUM:{non_empty_index:2}}}     {line}")
-                else:
-                    numbered.append("               " + line)
+                marker = f"{{LINENUM:{non_empty_index:2}}}     " if (non_empty_index == 1 or non_empty_index % 5 == 0) else "               "
+                numbered.append(f"{marker}{line}")
             else:
                 numbered.append("")
         return "\n".join(numbered), "poetry"
@@ -564,7 +562,10 @@ def htmlize_prompt(text: str, *, excerpt_numbering: bool = True) -> str:
             code = "\n".join(block)
             lang_lower = (lang or "").lower()
             if lang_lower in {"excerpt", "prose", "poetry"}:
-                forced = "poetry" if lang_lower == "poetry" else None
+                if lang_lower == "poetry":
+                    forced = "poetry"
+                else:
+                    forced = "prose"
                 html_parts.append(render_excerpt_block(code, forced_type=forced))
             elif lang_lower == "python":
                 highlighted = syntax_highlight_python(code)

@@ -1,0 +1,82 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Canvas Mode Coverage Test",
+  "items": [
+    {
+      "id": "stim_below",
+      "type": "STIMULUS",
+      "prompt": "Default stimulus layout (questions should appear below)."
+    },
+    {
+      "id": "mc_below",
+      "type": "MC",
+      "prompt": "Where should the questions appear for this stimulus?",
+      "choices": [
+        { "text": "Below", "correct": true },
+        { "text": "To the right" }
+      ],
+      "stimulus_id": "stim_below"
+    },
+    {
+      "id": "fitb_multiblank",
+      "type": "FITB",
+      "prompt": "The Sun is a [blank1] and the Earth is a [blank2].",
+      "accept": [
+        ["star"],
+        ["planet", "rocky planet"]
+      ],
+      "stimulus_id": "stim_below"
+    },
+    {
+      "id": "stim_right",
+      "type": "STIMULUS",
+      "prompt": "Right-layout stimulus (questions should appear to the right).",
+      "layout": "right"
+    },
+    {
+      "id": "fitb_dropdown",
+      "type": "FITB",
+      "prompt": "Photosynthesis mainly occurs in the [blank].",
+      "accept": [["chloroplasts", "chloroplast"]],
+      "answer_mode": "dropdown",
+      "options": ["chloroplasts", "mitochondria", "nucleus"],
+      "stimulus_id": "stim_right"
+    },
+    {
+      "id": "fitb_wordbank",
+      "type": "FITB",
+      "prompt": "Water freezes at [blank] degrees Celsius.",
+      "accept": [["0", "zero"]],
+      "answer_mode": "wordbank",
+      "options": ["0", "32", "100"],
+      "stimulus_id": "stim_right"
+    },
+    {
+      "type": "STIMULUS_END"
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "mc_below",
+      "correct": "Default layout attaches questions below the stimulus.",
+      "distractor": "Right-side layout must be explicitly set."
+    },
+    {
+      "item_id": "fitb_multiblank",
+      "correct": "The Sun is classified as a star; Earth is a planet.",
+      "distractor": "Both blanks must match their respective celestial classifications."
+    },
+    {
+      "item_id": "fitb_dropdown",
+      "correct": "Chloroplasts run photosynthesis.",
+      "distractor": "Mitochondria handle respiration, not photosynthesis."
+    },
+    {
+      "item_id": "fitb_wordbank",
+      "correct": "0 C is the freezing point of water.",
+      "distractor": "32 C is the Fahrenheit freezing point, not Celsius."
+    }
+  ]
+}
+</QUIZFORGE_JSON>
