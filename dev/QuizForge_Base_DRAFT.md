@@ -169,12 +169,13 @@ FITB questions have historically caused the most LLM errors. Follow these rules 
 8. Output a single tagged JSON payload; any extra chat outside the tags is ignored by QuizForge, but keep the tagged JSON clean.
 
 ## 13. PREFLIGHT BEFORE OUTPUT (TOKEN-LIGHT CHECK)
-- Envelope: JSON only between tags; ASCII-safe; escape inner quotes; no trailing commas.
-- Prompts: Non-empty for all scored items; STIMULUS/STIMULUS_END may be empty; ORDERING may reuse `header`.
-- Counts/answers: MC/MA have 2-7 choices; MC exactly 1 correct; MA at least 1 correct; TF is boolean; FITB has one or more `[blank]`/`[blank1]` tokens + `accept`; ORDERING has >=2 items; CATEGORIZATION has prompt + categories (>=2) + labeled items; NUMERICAL has `answer` (+ `evaluation` if not exact).
-- FITB check: Single blank preferred; multi-blank only for conceptually linked content; max 3 blanks; Tier 1 uses dropdown/wordbank.
-- Rationales: One per scored item `id`; skip stimuli.
-- Stimuli links: Set `stimulus_id` when an item should attach to a specific stimulus. Limit 2–4 questions per stimulus.
+ Envelope: JSON only between tags; ASCII-safe; escape inner quotes; no trailing commas.
+ Prompts: Non-empty for all scored items; STIMULUS/STIMULUS_END may be empty; ORDERING may reuse `header`.
+ Counts/answers: MC/MA have 2-7 choices; MC exactly 1 correct; MA at least 1 correct; TF is boolean; FITB has one or more `[blank]`/`[blank1]` tokens + `accept`; ORDERING has >=2 items; CATEGORIZATION has prompt + categories (>=2) + labeled items; NUMERICAL has `answer` (+ `evaluation` if not exact).
+ **Answer length check:** For all MC/MA questions, ensure the correct answer is not the longest choice more than 30% of the time. If the correct answer exceeds 30 characters, its length must not differ from other choices by more than ~30%.
+ FITB check: Single blank preferred; multi-blank only for conceptually linked content; max 3 blanks; Tier 1 uses dropdown/wordbank.
+ Rationales: One per scored item `id`; skip stimuli.
+ Stimuli links: Set `stimulus_id` when an item should attach to a specific stimulus. Limit 2–4 questions per stimulus.
 
 **Maintainer:** QuizForge Core Team  
 **Target:** Canvas New Quizzes (QTI 1.2)  
