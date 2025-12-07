@@ -76,7 +76,9 @@ Column 2: Question Text
 
 ASCII-only
 
-No commas unless the entire field is wrapped in double quotes
+If ANY punctuation appears (comma, question mark, colon, semicolon, quote, dash, period, parentheses, etc.), wrap the entire field in double quotes (escape quotes by doubling)
+
+Punctuation is welcome for clarity; quoting is for CSV safety, not to discourage use. Underscores (and hyphens) are safe even unquoted, but quoting them is fine for consistency.
 
 No quotes unless escaped correctly
 
@@ -89,11 +91,13 @@ What is the main idea
 How do robots help workers
 What does the poem show
 
-Columns 3–6: Answers
+Columns 3-6: Answers
 
 ASCII-only
 
-No commas unless entire field is quoted
+If ANY punctuation appears (comma, question mark, colon, semicolon, quote, dash, period, parentheses, etc.), wrap the entire field in double quotes (escape quotes by doubling)
+
+Punctuation is welcome for clarity; quoting is for CSV safety, not to discourage use. Underscores (and hyphens) are safe even unquoted, but quoting them is fine for consistency.
 
 1 to 10 words recommended
 
@@ -121,9 +125,11 @@ Never use 0-based indexing
 
 CSV FORMATTING RULES
 
-Commas
+Punctuation
 
-If ANY comma appears in a field, wrap the entire field in double quotes.
+If ANY punctuation appears in a field (comma, question mark, colon, semicolon, quote, dash, period, parentheses, etc.), wrap the entire field in double quotes.
+
+Underscores (and hyphens) are allowed/encouraged for code-like tokens; they do not require quotes, but quoting is acceptable.
 
 Quotes
 
@@ -164,6 +170,17 @@ Avoid giving away correct answers:
 
 Keep all answer lengths within 20 percent of each other.
 
+ANSWER DISTRIBUTION / ANTI-PREDICTABILITY
+
+Track correct-answer slot usage to avoid predictable patterns:
+
+- Keep a running count for Answer 1-4 as the correct slot; keep totals within 1 of each other.
+- No slot may be correct more than 2 times in a row.
+- Use every slot at least once by question 8 (or rotate 1 and 2 if only two answers are used).
+- If a question has multiple correct answers, count the lowest-numbered correct slot toward distribution.
+- After the CSV block, add one plain-text audit line (not part of the CSV file) showing counts and max streak, e.g.:
+Answer slot usage (correct answers): A1=5, A2=5, A3=5, A4=5; Max streak=2
+
 EXAMPLE OF A PERFECT BLOOKET CSV
 
 Blooket Import Template,,,,,,,
@@ -182,7 +199,10 @@ Step 3: Write short ASCII-only questions
 Step 4: Provide 4 answer choices when possible
 Step 5: Set time limit (20 seconds recommended)
 Step 6: Use correct answer index (1 to 4)
-Step 7: Validate entire file using the checklist below
+Step 7: Wrap any field containing punctuation in double quotes; double any quotes inside
+Step 8: Validate entire file using the checklist below
+Step 9: Track correct-answer slot counts while writing; avoid streaks > 2 and keep counts even
+Step 10: After the CSV, print a one-line usage audit (outside the CSV)
 
 LLM CHECKLIST BEFORE OUTPUTTING A BLOOKET CSV
 
@@ -190,6 +210,7 @@ Structure:
 [ ] Row 1 contains "Blooket Import Template" (or blank filler)
 [ ] Row 2 contains the specific Header definitions
 [ ] Row 3 is Question #1
+[ ] Distribution audit line printed after the CSV (not inside it)
 
 ASCII:
 [ ] No curly quotes
@@ -198,22 +219,23 @@ ASCII:
 [ ] No accented characters
 [ ] No emojis
 
-Comma safety:
-[ ] Fields with commas are fully quoted
-[ ] No unescaped quotes inside quoted fields
+Punctuation safety:
+[ ] Any field with punctuation is fully quoted
+[ ] Quotes inside fields are doubled
 
 Answers:
 [ ] At least 2 answers per row
 [ ] Correct answer index matches content
 [ ] Answer lengths similar
 [ ] Distractors plausible
+[ ] Correct-answer slots balanced: no slot correct 3+ times in a row; counts stay within 1; all slots used early
 
 Time limit:
 [ ] Integer between 5 and 300
 
 VERSION INFO
 
-Version: 2.0
+Version: 2.1
 Updated: 2025
 Designed for: Classroom-safe LLM generation
 Import Reliability: 100 percent when followed exactly
