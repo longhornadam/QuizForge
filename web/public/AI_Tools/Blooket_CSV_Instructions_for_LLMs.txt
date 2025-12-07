@@ -123,6 +123,7 @@ What's the **answer**?  [WRONG] (markdown formatting)
 - Commas separate columns
 - If ANY punctuation appears in a field (comma, question mark, colon, semicolon, quote, dash, period, parentheses, etc.), wrap the entire field in quotes:
 - Underscores (and hyphens) are allowed/encouraged for code-like tokens; they do not require quotes, but quoting is acceptable.
+- Do not add spaces before or after the commas that divide fields; avoid leading/trailing spaces inside fields.
 ```
 3,"What is the output of print(1, 2, 3)?",1 2 3,123,1-2-3,Error,20,1
 ```
@@ -274,6 +275,7 @@ Before outputting a Blooket CSV, verify:
 - [ ] Time limits are between 5-300 seconds
 - [ ] Correct answer numbers match answer columns (1-4, not 0-3)
 - [ ] Any field with punctuation is wrapped in quotes; quotes are doubled when present
+- [ ] No spaces before/after commas between fields; leading/trailing spaces trimmed inside fields
 - [ ] Correct-answer slots balanced: no slot correct 3+ times in a row; counts stay within 1; all slots used early
 - [ ] No line breaks within questions
 - [ ] Distractors are plausible, not random

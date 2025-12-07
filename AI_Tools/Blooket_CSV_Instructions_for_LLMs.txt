@@ -131,6 +131,8 @@ If ANY punctuation appears in a field (comma, question mark, colon, semicolon, q
 
 Underscores (and hyphens) are allowed/encouraged for code-like tokens; they do not require quotes, but quoting is acceptable.
 
+Do not add spaces before or after the commas that divide fields; avoid leading/trailing spaces inside fields.
+
 Quotes
 
 If a field contains quotes, escape by doubling them.
@@ -221,6 +223,7 @@ ASCII:
 
 Punctuation safety:
 [ ] Any field with punctuation is fully quoted
+[ ] No spaces before/after commas between fields; trim leading/trailing spaces inside fields
 [ ] Quotes inside fields are doubled
 
 Answers:
