@@ -1,0 +1,259 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Chapter 9 Quiz 1 - Lists and Tuples",
+  "metadata": {
+    "chapter": 9,
+    "lesson": 1,
+    "quiz": 1
+  },
+  "items": [
+    {
+      "id": "q1",
+      "type": "MC",
+      "prompt": "Which statement is the best definition of data abstraction?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Using many different variables for individual values",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Hiding syntax errors from the user",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Grouping related data under a single name so details are hidden",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Encrypting data so nobody can read it",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "MC",
+      "prompt": "Which of the following is a valid list literal in Python?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "(1, 2, 3)",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "[1, 2, 3]",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "{1, 2, 3}",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "\"1, 2, 3\"",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "MC",
+      "prompt": "Which line of code correctly creates an empty list?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "scores = ()",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "scores = {}",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "scores = []",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "scores = \"\"",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "MC",
+      "prompt": "Can a Python list hold an int, a string, and a bool at the same time?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Yes, lists can mix data types",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "No, lists can only hold ints",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "No, lists can only hold strings",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Only if you convert them all to strings first",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "MC",
+      "prompt": "What will this code print?\n```python\nscores = [500, 400, 300]\nprint(scores[1])\n```",
+      "choices": [
+        {
+          "id": "A",
+          "text": "500",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "400",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "300",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "An index error",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "MC",
+      "prompt": "Given dogs = [\"Lab\", \"Pug\", \"Husky\"], what are dogs[0] and dogs[-1]?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "dogs[0] is \"Pug\" and dogs[-1] is \"Lab\"",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "dogs[0] is \"Lab\" and dogs[-1] is \"Husky\"",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "dogs[0] is \"Husky\" and dogs[-1] is \"Lab\"",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "dogs[0] is \"Lab\" and dogs[-1] is \"Pug\"",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "MC",
+      "prompt": "Tuples use _______, while lists use _______.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "curly braces {}, square brackets []",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "parentheses (), square brackets []",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "square brackets [], parentheses ()",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "quotation marks \"\", curly braces {}",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "FITB",
+      "prompt": "Name one reason you would choose a tuple instead of a list. A tuple is [blank].",
+      "answer_mode": "open_entry",
+      "accept": [
+        "immutable",
+        "constant",
+        "cannot change",
+        "can not change",
+        "unchangeable",
+        "does not change"
+      ],
+      "case_sensitive": false
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q1",
+      "correct": "This answer is correct because data abstraction means grouping related data under a single name so you can ignore low-level details of each item.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q2",
+      "correct": "This answer is correct because Python lists are written with square brackets [] and comma-separated values, unlike tuples () or sets {}.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q3",
+      "correct": "This answer is correct because [] is the literal for an empty list, while () and {} create other container types and \"\" creates an empty string.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q4",
+      "correct": "This answer is correct because, if you trace the code or apply the definition from the lesson, it is the only option that matches the actual behavior.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q5",
+      "correct": "This answer is correct because, if you trace the code or apply the definition from the lesson, it is the only option that matches the actual behavior.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q6",
+      "correct": "This answer is correct because, if you trace the code or apply the definition from the lesson, it is the only option that matches the actual behavior.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q7",
+      "correct": "This answer is correct because a tuple is an immutable sequence, meaning its elements cannot be changed after it is created.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q8",
+      "correct": "This answer is correct because 'immutable' is the vocabulary word for a value or data structure that cannot be changed while the program runs.",
+      "distractor": ""
+    }
+  ]
+}
+</QUIZFORGE_JSON>

@@ -759,8 +759,26 @@ def _get_correct_answer_text(question):
     
     elif isinstance(question, FITBQuestion):
         # List all accepted answers
-        if hasattr(question, 'accepted_answers') and question.accepted_answers:
+        if hasattr(question, "accepted_answers") and question.accepted_answers:
             return ", ".join(question.accepted_answers)
+
+        # Use variants lists produced by importer
+        variants = getattr(question, "variants", []) or []
+        per_blank = getattr(question, "variants_per_blank", []) or []
+
+        if per_blank:
+            parts = []
+            for idx, group in enumerate(per_blank, 1):
+                if group:
+                    unique = list(dict.fromkeys(str(v) for v in group))
+                    parts.append(f"Blank {idx}: " + " | ".join(unique))
+            if parts:
+                return "; ".join(parts)
+
+        if variants:
+            unique = list(dict.fromkeys(str(v) for v in variants))
+            return " | ".join(unique)
+
         return "?"
     
     elif isinstance(question, (EssayQuestion, FileUploadQuestion)):
@@ -784,27 +802,91 @@ def _format_rationale_with_answer(question):
 
 
 def _generate_basic_rationale(question):
-    """Generate simple rationale with answer embedded."""
-    from engine.core.questions import MCQuestion, TFQuestion, NumericalQuestion
-    
+    """Generate simple rationale with answer embedded and no teacher deferrals."""
+    from engine.core.questions import (
+        MCQuestion,
+        TFQuestion,
+        NumericalQuestion,
+        MAQuestion,
+        FITBQuestion,
+        MatchingQuestion,
+        OrderingQuestion,
+        CategorizationQuestion,
+        EssayQuestion,
+        FileUploadQuestion,
+    )
+
     if isinstance(question, MCQuestion):
-        # Find correct choice
         for idx, choice in enumerate(question.choices):
             if choice.correct:
                 correct_letter = chr(65 + idx)
                 correct_text = choice.text
                 return f"The correct answer is {correct_letter}: {correct_text}."
-    
-    elif isinstance(question, TFQuestion):
+        return "The correct answer is listed in the answer key."
+
+    if isinstance(question, MAQuestion):
+        answers = []
+        for idx, choice in enumerate(question.choices):
+            if choice.correct:
+                answers.append(f"{chr(65 + idx)} ({choice.text})")
+        if answers:
+            return "Correct answers: " + "; ".join(answers)
+        return "Correct answers are indicated in the key."
+
+    if isinstance(question, TFQuestion):
         answer = "True" if question.answer_true else "False"
         return f"The correct answer is {answer}."
-    
-    elif isinstance(question, NumericalQuestion):
+
+    if isinstance(question, NumericalQuestion):
         correct_value = str(question.answer.answer)
-        return f"The correct answer is {correct_value}."
-    
-    else:
-        return "See teacher for explanation."
+        return f"The correct numeric value is {correct_value}."
+
+    if isinstance(question, FITBQuestion):
+        per_blank = getattr(question, "variants_per_blank", []) or []
+        variants = getattr(question, "variants", []) or []
+        if per_blank:
+            parts = []
+            for idx, group in enumerate(per_blank, 1):
+                if group:
+                    unique = list(dict.fromkeys(str(v) for v in group))
+                    parts.append(f"Blank {idx}: " + " | ".join(unique))
+            if parts:
+                return "Accepted answers: " + "; ".join(parts)
+        if variants:
+            unique = list(dict.fromkeys(str(v) for v in variants))
+            return "Accepted answers: " + " | ".join(unique)
+        return "Accepted answers are listed in the key."
+
+    if isinstance(question, MatchingQuestion):
+        pairs = []
+        for pair in question.pairs:
+            pairs.append(f"{pair.prompt} -> {pair.answer}")
+        if pairs:
+            return "Correct matches: " + "; ".join(pairs)
+        return "Correct matches are listed in the key."
+
+    if isinstance(question, OrderingQuestion):
+        items = getattr(question, "items", []) or []
+        labels = [getattr(item, "text", str(item)) for item in items]
+        if labels:
+            return "Correct sequence: " + " > ".join(labels)
+        return "Correct sequence is shown in the key."
+
+    if isinstance(question, CategorizationQuestion):
+        entries = []
+        for entry in getattr(question, "items", []) or []:
+            label = getattr(entry, "item_text", "") or entry.get("label", "")
+            cat = getattr(entry, "category_name", "") or entry.get("category", "")
+            if label and cat:
+                entries.append(f"{label} -> {cat}")
+        if entries:
+            return "Categories: " + "; ".join(entries)
+        return "Category placements are shown in the key."
+
+    if isinstance(question, (EssayQuestion, FileUploadQuestion)):
+        return "Open response; evaluate with the provided rubric."
+
+    return "Correct answer details are provided in the answer key."
 
 
 def _clean_prompt_text(prompt: str) -> str:

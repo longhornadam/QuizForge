@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<quiz xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd" identifier="5a327d79-b53c-4ea4-9739-c315739bb76f">
+  <title>Chapter 9 Exam - Lists, List Functions, Traversals, Searching</title>
+  <description></description>
+  <shuffle_questions>false</shuffle_questions>
+  <shuffle_answers>false</shuffle_answers>
+  <calculator_type>none</calculator_type>
+  <scoring_policy>keep_highest</scoring_policy>
+  <allowed_attempts>1</allowed_attempts>
+  <points_possible>100.0</points_possible>
+</quiz>

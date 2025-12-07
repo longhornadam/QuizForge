@@ -171,15 +171,20 @@ def _packaged_to_domain(packaged) -> Quiz:
             accept_list = item.get("accept", []) or []
             variants: List[str] = []
             variants_per_blank: List[List[str]] = []
-            if isinstance(accept_list, list) and accept_list and all(isinstance(group, list) for group in accept_list) and len(accept_list) > 1:
-                # Multi-blank: keep per-blank variants and also flatten for backward compatibility checks
-                variants_per_blank = [[str(v) for v in group] for group in accept_list]
-                for group in variants_per_blank:
-                    variants.extend(group)
-            else:
-                for variant_group in accept_list:
-                    if isinstance(variant_group, list):
-                        variants.extend([str(v) for v in variant_group])
+
+            if isinstance(accept_list, list):
+                # Multi-blank: array of arrays with one entry per blank
+                if accept_list and all(isinstance(group, list) for group in accept_list) and len(accept_list) > 1:
+                    variants_per_blank = [[str(v) for v in group] for group in accept_list]
+                    for group in variants_per_blank:
+                        variants.extend(group)
+                else:
+                    # Single-blank: accept either ["a", "b"] or [["a", "b"]] shapes
+                    for variant_group in accept_list:
+                        if isinstance(variant_group, list):
+                            variants.extend([str(v) for v in variant_group])
+                        elif variant_group is not None:
+                            variants.append(str(variant_group))
             answer_mode_raw = item.get("answer_mode", "open_entry")
             answer_mode = str(answer_mode_raw).lower() if isinstance(answer_mode_raw, str) else "open_entry"
             options_raw = item.get("options", [])

@@ -289,6 +289,21 @@ def _build_response(question: Question, presentation: ET.Element):
         variants = question.variants or []
         variants_per_blank = getattr(question, "variants_per_blank", []) or []
 
+        def _normalize_variants(values: list[str]) -> list[str]:
+            """Strip, drop empties, and de-dupe (case-insensitive) to avoid duplicate QTI labels."""
+            cleaned: list[str] = []
+            seen = set()
+            for val in values:
+                s = str(val).strip()
+                key = s.lower()
+                if s and key not in seen:
+                    seen.add(key)
+                    cleaned.append(s)
+            return cleaned
+
+        variants = _normalize_variants(variants)
+        variants_per_blank = [_normalize_variants(group) for group in variants_per_blank if isinstance(group, list)]
+
         # Multi-blank support (open-entry only for now)
         if variants_per_blank:
             blank_tokens = question.blank_tokens or []
@@ -297,6 +312,8 @@ def _build_response(question: Question, presentation: ET.Element):
                 blank_tokens = [uuid.uuid4().hex for _ in range(num_blanks)]
             response_data = []
             for idx, (token_i, variants_i) in enumerate(zip(blank_tokens, variants_per_blank)):
+                if not variants_i:
+                    continue
                 resp_lid = ET.SubElement(presentation, "response_lid", {"ident": f"response_{token_i}"})
                 matq = ET.SubElement(resp_lid, "material")
                 ET.SubElement(matq, "mattext").text = "Question"

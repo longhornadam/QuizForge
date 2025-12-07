@@ -1,0 +1,399 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Chapter 9 Quiz 4 - Sequential and Binary Search",
+  "metadata": {
+    "chapter": 9,
+    "lesson": 4,
+    "quiz": 4
+  },
+  "items": [
+    {
+      "id": "q1",
+      "type": "MC",
+      "prompt": "Which search algorithm works correctly on unsorted lists?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Binary search",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Sequential search",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Neither search works",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Both require sorted lists",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "MC",
+      "prompt": "Which search algorithm requires the list to be sorted?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Sequential search",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Binary search",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Both of them",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Neither of them",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "MC",
+      "prompt": "In this list, what index will a sequential search report for target 42?\n```python\nnums = [10, 42, 7, 42, 9, 3]\n\nAssume it returns the index of the first match.\n```",
+      "choices": [
+        {
+          "id": "A",
+          "text": "0",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "1",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "4",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "MC",
+      "prompt": "In this list, what will a sequential search report for target 100?\n```python\nnums = [10, 42, 7, 42, 9, 3]\n```",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Index 5",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Index 0",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "\"not found\"",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Index -1",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "MC",
+      "prompt": "For the sorted list [10, 20, 30, 40, 50, 60, 70, 80], what is the mid index on the first pass of a binary search? (low = 0, high = 7)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "3",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "7",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "MC",
+      "prompt": "Using the same list [10, 20, 30, 40, 50, 60, 70, 80], suppose we are searching for 50.\nOn the first pass, mid index is 3 (value 40). Since 40 is less than 50, what are the new low and high indexes?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "low = 0, high = 2",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "low = 4, high = 7",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "low = 0, high = 7",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "low = 3, high = 7",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "MC",
+      "prompt": "With low = 4 and high = 7, what is the new mid index? (still searching for 50)",
+      "choices": [
+        {
+          "id": "A",
+          "text": "4",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "5",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "6",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "7",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "MC",
+      "prompt": "At mid index 5, the value is 60, which is higher than 50. What are the new low and high indexes?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "low = 4, high = 4",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "low = 6, high = 7",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "low = 0, high = 5",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "low = 5, high = 7",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "type": "MC",
+      "prompt": "With low = 4 and high = 4, the mid index is 4 and the value is 50. The target is found at index 4 after how many iterations total?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "2",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "3",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "4",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "MC",
+      "prompt": "Roughly how many iterations will a binary search need in the worst case for 1,000 elements?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "About 10",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "About 20",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "About 500",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "About 1,000",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "MC",
+      "prompt": "In a binary search, if low becomes greater than high, what does that mean?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The loop should repeat forever",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The target value is not found",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The list is unsorted",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The target was found at index 0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "MC",
+      "prompt": "Which search would you choose for an unsorted high score list that gets new scores added constantly?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Binary search",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Sequential search",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Neither one can work",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "You must sort before every search",
+          "correct": false
+        }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q1",
+      "correct": "This answer is correct because sequential search does not require any ordering; it just checks each element from start to finish.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q2",
+      "correct": "This answer is correct because binary search only works if the data is sorted, so it can safely discard half the remaining elements each step.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q3",
+      "correct": "This answer is correct because sequential search returns the index of the first match, which is where the target first appears in the list.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q4",
+      "correct": "This answer is correct because if the search reaches the end of the list without a match, the algorithm reports that the target was not found.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q5",
+      "correct": "This answer is correct because the mid index is computed by (low + high) // 2, which with 0 and 7 gives 3.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q6",
+      "correct": "This answer is correct because when the middle value 40 is less than the target 50, binary search discards the left half by setting low to mid+1.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q7",
+      "correct": "This answer is correct because the new mid index is (4 + 7) // 2, which equals 5.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q8",
+      "correct": "This answer is correct because when the middle value is too high, binary search moves high down to mid-1, keeping only the left half.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q9",
+      "correct": "This answer is correct because the algorithm checks three middle positions before landing on the target at index 4, so it takes three iterations.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q10",
+      "correct": "This answer is correct because repeatedly halving 1,000 elements takes about 10 steps, reflecting the log2(1000) growth of binary search.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q11",
+      "correct": "This answer is correct because low > high means there are no elements left to check, so the target is not in the list.",
+      "distractor": ""
+    },
+    {
+      "item_id": "q12",
+      "correct": "This answer is correct because sequential search works directly on unsorted data, while binary search would require resorting after each insertion.",
+      "distractor": ""
+    }
+  ]
+}
+</QUIZFORGE_JSON>
