@@ -99,10 +99,10 @@ Namespace `http://canvas.instructure.com/xsd/cccv1p0`.
 - **Ordering**: response_lid rcardinality="Ordered" with ims_render_object items; scoring all-or-nothing (must match order). Metadata ordering_question.
 - **Essay**: No response/scoring; metadata essay_question, points_possible set; calculator_type=none.
 - **File Upload**: No response/scoring; metadata file_upload_question, points_possible set; calculator_type=none.
-- **Numerical**: response_str + render_fib fibtype="Decimal"; scoring with varequal or range; metadata numerical_question, calculator_type=none.
+- **Numerical**: response_str + render_fib fibtype="Decimal"; scoring with varequal or range; metadata numerical_question, calculator_type=none. Do NOT use `<response_num>`.
 
 ## Stimulus parenting
-- Stimulus is its own item (0 pts) with ident (e.g., stim_q01_<rand>), question_type=text_only_question.
+- Stimulus is its own item (0 pts) with ident (e.g., stim_q01_<rand>), question_type=text_only_question. Default layout is vertical (stimulus above children). Only render side-by-side if explicitly requested (orientation="left" for a right-attached stimulus). If teacher requests “below-attached,” place the stimulus item after its child items (children still set parent_stimulus_item_ident).
 - Every child item under that stimulus sets qtimetadata `parent_stimulus_item_ident=<stim_ident>`.
 - Child items still include their own question_type, points_possible, calculator_type.
 
@@ -116,6 +116,7 @@ Namespace `http://canvas.instructure.com/xsd/cccv1p0`.
 4) Build QTI XML honoring the rules above; sanitize HTML; dedupe FITB variants.
 5) Build manifest + assessment_meta with the same GUID.
 6) Zip the three files; deliver as a downloadable `.zip`. Only if file delivery is impossible, base64-encode and return inside `<QTI_ZIP_BASE64>` tags.
+7) Coverage check: ensure all requested question types are present (including essay and numerical exact if requested) and stimuli are placed with the requested layout (above by default, side only if asked, below if requested by ordering after children).
 
 ## FITB Accept Guidance (critical)
 - Single blank: `accept` list of strings; dedupe lowercased; trim; keep all synonyms.
