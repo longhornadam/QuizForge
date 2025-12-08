@@ -19,11 +19,11 @@ imsmanifest.xml
 - Name the zip meaningfully (e.g., `<title_slug>_QTI.zip`), but internal folder/file names must use the GUID.
 
 ### imsmanifest.xml (Canvas/IMS CC 1.1)
-- Root `<manifest>` with namespaces per IMS CC v1.1 (match QuizForge manifest_builder).
+- Root `<manifest>` with namespaces per IMS CC v1.1 (match QuizForge manifest_builder) and schemaLocation.
+- Include `<metadata>` with `<imsmd:title>` = quiz title and `<schemaversion>1.1.3</schemaversion>`.
 - Two resources:
   - `identifier="<GUID>" type="imsqti_xmlv1p2"` with file `<GUID>/<GUID>.xml` and dependency on meta.
   - Meta resource `identifier="<uuid>" type="associatedcontent/imscc_xmlv1p1/learning-application-resource" href="<GUID>/assessment_meta.xml"`.
-- Include `<metadata>` with `<imsmd:title>` = quiz title and `<schemaversion>1.1.3</schemaversion>`.
 
 ### assessment_meta.xml (Canvas quiz meta)
 Namespace `http://canvas.instructure.com/xsd/cccv1p0`.
@@ -45,7 +45,7 @@ Namespace `http://canvas.instructure.com/xsd/cccv1p0`.
 - One `<assessment>` containing a single `<section>`; items in order.
 - Assessment qtimetadata: include `cc_maxattempts=1`.
 - Every scorable item gets `points_possible` metadata (Canvas uses it). Use the points you assign; if no scheme given, distribute 2 points per question (or normalize to 100 if specified).
-- Item metadata: `question_type` (Canvas value), `points_possible` (except stimuli), `calculator_type=none` (unless type requires otherwise), and `parent_stimulus_item_ident` when nested under a stimulus. Item idents must be unique (e.g., `item_q##_<rand>`).
+- Item metadata on every item: `question_type` (Canvas value), `points_possible` (except stimuli), `calculator_type=none` (unless type requires otherwise), and `parent_stimulus_item_ident` when nested under a stimulus. Item idents must be unique (e.g., `item_q##_<rand>`).
 - `question_type` metadata values (Canvas-compatible, known-good):
   - MC: `multiple_choice_question`
   - MA: `multiple_answers_question`
@@ -79,6 +79,24 @@ Namespace `http://canvas.instructure.com/xsd/cccv1p0`.
 - Categorization: One `response_lid` per category (ident = category uuid); response_labels list all items+distractors; partial credit per category (even split of 100 across categories).
 - Numerical: `<response_str ident="response1" rcardinality="Single"><render_fib fibtype="Decimal"/></response_str>`; scoring with `<respcondition>` using `<varequal>` or range per Canvas numerical pattern; metadata `question_type=numerical_question`, `points_possible`, `calculator_type=none`.
 - Scoring boilerplate: `<outcomes><decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/></outcomes>` then respconditions per logic above.
+
+## Per-question-type QTI templates (known-good Canvas)
+- **Stimulus (text_only_question, 0 pts)**: Item with prompt material only, itemmetadata question_type=text_only_question, points_possible=0, no response/scoring. Child items reference this via `parent_stimulus_item_ident=<stim_ident>`.
+- **MC**: `response_lid rcardinality="Single"`, response_labels A/B/C..., scoring sets SCORE=100 on correct ident. qtimetadata question_type=multiple_choice_question, points_possible, calculator_type=none.
+- **TF**: MC pattern with idents `true`/`false`; scoring all-or-nothing; metadata true_false_question.
+- **MA (partial credit)**: `response_lid rcardinality="Multiple"`, response_labels A/B/C..., correct idents list. Split 100 across correct choices (even). Each correct adds its share; no penalties. Metadata multiple_answers_question.
+- **FITB (open entry)**: response_lid per blank, response_labels with `scoring_algorithm="TextContainsAnswer" answer_type="openEntry"`; ident `<token>-<n>`. Scoring: per variant respcondition adds its share (single blank: 100; multi: even split, last gets remainder). Metadata fill_in_multiple_blanks_question.
+- **Matching**: One response_lid per left prompt; shared response_labels for answers. Partial credit: split 100 across pairs. Metadata matching_question.
+- **Categorization**: One response_lid per category (ident=category uuid). response_labels list all items/distractors. Partial credit: split 100 across categories. Metadata categorization_question.
+- **Ordering**: response_lid rcardinality="Ordered" with ims_render_object items; scoring all-or-nothing (must match order). Metadata ordering_question.
+- **Essay**: No response/scoring; metadata essay_question, points_possible set; calculator_type=none.
+- **File Upload**: No response/scoring; metadata file_upload_question, points_possible set; calculator_type=none.
+- **Numerical**: response_str + render_fib fibtype="Decimal"; scoring with varequal or range; metadata numerical_question, calculator_type=none.
+
+## Stimulus parenting
+- Stimulus is its own item (0 pts) with ident (e.g., stim_q01_<rand>), question_type=text_only_question.
+- Every child item under that stimulus sets qtimetadata `parent_stimulus_item_ident=<stim_ident>`.
+- Child items still include their own question_type, points_possible, calculator_type.
 
 ### Points & Totals
 - Set per-item points in metadata; ensure meta points_possible matches sum of item points you assign. If no guidance, use 2 points per scorable item and compute total accordingly.
