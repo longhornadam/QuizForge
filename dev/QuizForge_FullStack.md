@@ -1,12 +1,12 @@
 # QuizForge Full Stack (LLM -> QTI ZIP) - Dev Module
 **Scope:** Add-on to `quizforge_base` (pedagogy, content policy, JSON defaults). Do not duplicate base rules; inherit them. This document defines the Canvas New Quiz QTI 1.2 ZIP contract the LLM must emit (valid XML for every supported question type).
 
-**Purpose:** Drive an LLM to emit a Canvas-ready QTI 1.2 ZIP directly (base64 in-chat) without calling the QuizForge pipeline, while preserving QuizForge Base pedagogy and schema.
+**Purpose:** Drive an LLM to emit a Canvas-ready QTI 1.2 ZIP directly (as a downloadable `.zip` attachment) without calling the QuizForge pipeline, while preserving QuizForge Base pedagogy and schema.
 
 ## Outputs (non-negotiable)
-- Primary: Base64-encoded QTI ZIP wrapped in `<QTI_ZIP_BASE64>` . `</QTI_ZIP_BASE64>`.
-- Optional helper: the same quiz in QuizForge JSON 3.0 tags (`<QUIZFORGE_JSON>` . `</QUIZFORGE_JSON>`) for traceability.
-- Keep chatter outside tags; keep payloads ASCII-safe.
+- Primary: A downloadable QTI `.zip` file (binary attachment). If the platform cannot emit files, fall back to Base64-encoded QTI ZIP wrapped in `<QTI_ZIP_BASE64>` . `</QTI_ZIP_BASE64>`.
+- Optional helper: the same quiz in QuizForge JSON 3.0 tags (`<QUIZFORGE_JSON>` . `</QUIZFORGE_JSON>`) for traceability (text only).
+- Keep chatter outside tags; keep payloads ASCII-safe. Prefer file delivery over inline base64.
 
 ## QTI ZIP Layout
 ```
@@ -16,6 +16,7 @@ imsmanifest.xml
 ```
 - Use a single GUID (uuid4) folder name; reuse it for the assessment filename and manifest resource identifier.
 - File encodings: UTF-8, LF. XML must be well-formed; no duplicate idents; keep LF newlines.
+- Name the zip meaningfully (e.g., `<title_slug>_QTI.zip`), but internal folder/file names must use the GUID.
 
 ### imsmanifest.xml (Canvas/IMS CC 1.1)
 - Root `<manifest>` with namespaces per IMS CC v1.1 (match QuizForge manifest_builder).
@@ -88,7 +89,7 @@ Namespace `http://canvas.instructure.com/xsd/cccv1p0`.
 3) Choose points (default 2 each) and compute total.
 4) Build QTI XML honoring the rules above; sanitize HTML; dedupe FITB variants.
 5) Build manifest + assessment_meta with the same GUID.
-6) Zip the three files; base64-encode; return inside `<QTI_ZIP_BASE64>` tags.
+6) Zip the three files; deliver as a downloadable `.zip`. Only if file delivery is impossible, base64-encode and return inside `<QTI_ZIP_BASE64>` tags.
 
 ## FITB Accept Guidance (critical)
 - Single blank: `accept` list of strings; dedupe lowercased; trim; keep all synonyms.
@@ -98,6 +99,7 @@ Namespace `http://canvas.instructure.com/xsd/cccv1p0`.
 ## Safety/Formatting
 - ASCII only; escape inner quotes.
 - Keep output concise: no extra explanations inside payload tags.
+- Prefer file delivery; if forced to base64, keep tags tight and explain briefly that file delivery was unavailable.
 - If unable to zip, explain briefly and fall back to JSON 3.0 helper.
 
 ## Stimuli, Prose/Poetry, and Code
