@@ -37,13 +37,11 @@ Question,Correct Answer,Incorrect Answer 1,Incorrect Answer 2 (Optional),Incorre
 - **Type**: String
 - **Max Length**: ~500 characters recommended
 - **Formatting**: Plain text only (no HTML, no Markdown)
-- **Special Characters**: Minimize use; avoid unescaped quotes
+- **Special Characters**: Punctuation is welcome for clarity; for CSV safety, if ANY punctuation appears (comma, question mark, colon, semicolon, quote, dash, period, parentheses, etc.), wrap the entire field in double quotes (escape quotes by doubling). Underscores and hyphens are safe even unquoted, but quoting them is fine for consistency. Spaces inside a field are fine when quoted (e.g., "The dog barked at the cat, which made the cat jump."). Do not add spaces before/after the commas that divide fields.
 - **Required**: Yes
 
 **CRITICAL RULES:**
-- Avoid superfluous punctuation (can break CSV formatting)
-- Only include commas when absolutely necessary
-- When commas ARE necessary, enclose entire question in quotes
+- Punctuation is OK; wrap the entire question in double quotes whenever any punctuation is present (comma, question mark, colon, semicolon, quote, dash, period, parentheses, etc.) to protect CSV integrity
 - All questions must be self-contained (no references to external passages)
 
 **Good Examples:**
@@ -69,8 +67,7 @@ What's the **correct** answer?  [WRONG] (markdown formatting)
 
 **Important:**
 - Keep answers concise (1-15 words ideal)
-- Avoid unnecessary punctuation
-- If answer contains comma, wrap in quotes
+- Punctuation is OK; if ANY punctuation appears (comma, question mark, colon, semicolon, quote, dash, period, parentheses, etc.), wrap the entire field in double quotes (escape quotes by doubling). Underscores and hyphens are safe even unquoted, but quoting them is fine for consistency. Spaces inside a field are fine when quoted; do not add spaces before/after the commas that divide fields.
 
 ### Column 3: Incorrect Answer 1
 - **Type**: String
@@ -87,29 +84,17 @@ What's the **correct** answer?  [WRONG] (markdown formatting)
 
 ## CSV Formatting Rules
 
-### 1. Comma Handling (CRITICAL)
-Gimkit CSV formatting is sensitive to commas. Follow these rules:
-
-**Rule 1: Avoid commas in questions/answers when possible**
-```
-Good: What is the output of print(1 2 3)?
-Bad: What is the output of print(1, 2, 3)?
-```
-
-**Rule 2: If comma is absolutely necessary, wrap entire field in quotes**
-```
-"What is the output of print(1, 2, 3)?",1 2 3,123,1-2-3,Error
-```
-
-**Rule 3: Never use commas unnecessarily in answers**
-```
-Good: Syntax error
-Bad: Syntax error, which prevents code from running
-```
+### 1. Punctuation Handling (CRITICAL)
+- Gimkit CSV formatting is sensitive to punctuation; quoting makes it safe.
+- If ANY punctuation appears in a field (comma, question mark, colon, semicolon, quote, dash, period, parentheses, etc.), wrap the entire field in double quotes; escape quotes by doubling. This is to protect CSV parsing, not to discourage punctuation.
+  - Example: "The dog barked at the cat, which made the cat jump."
+  - Example: "What is the output of print(1, 2, 3)?",1 2 3,123,1-2-3,Error
+- Underscores (and hyphens) are allowed/encouraged for code-like tokens; they do not require quotes, but quoting them is acceptable.
+- Do not add spaces before or after the commas that divide fields; spaces inside fields are fine when quoted. Trim accidental leading/trailing spaces unless intentional.
 
 ### 2. Quote Handling
 - Avoid quotes within text when possible
-- If quotes are necessary, escape by doubling:
+- If quotes are necessary, escape by doubling (even when the field is already quoted for punctuation):
 ```
 "What does print(""Hello"") output?",Hello,"""Hello""",Error,Nothing
 ```
@@ -267,12 +252,13 @@ Before outputting a Gimkit CSV, verify:
 - [ ] Headers match exactly (case-sensitive, including "(Optional)")
 - [ ] Every question is self-contained (no external references)
 - [ ] Every question has at least 2 total answers (1 correct + 1 incorrect minimum)
-- [ ] Commas are avoided when possible, quoted when necessary
+- [ ] Any field with punctuation is wrapped in double quotes; quotes inside are doubled
+- [ ] No spaces before/after delimiter commas; spaces inside fields are fine when quoted; trim accidental leading/trailing spaces
 - [ ] No HTML, Markdown, or special formatting in text
 - [ ] All distractors are plausible, not random
 - [ ] No line breaks within questions/answers
 - [ ] Answer lengths are balanced
-- [ ] Quotes are escaped by doubling when needed
+- [ ] Underscores/hyphens are allowed unquoted; quoting them is also acceptable
 - [ ] Optional columns are left blank (not "N/A") when unused
 
 ---
@@ -293,7 +279,7 @@ When asked to create a Gimkit review/quiz:
    - 2-3 total incorrect answers recommended (up to 3 max)
    - All incorrect answers must be plausible distractors
 5. **Format as CSV**: Follow exact header structure above
-6. **Minimize punctuation**: Avoid commas, quotes, and special characters when possible
+6. **Quote punctuation**: Any field with punctuation should be wrapped in double quotes; double any quotes inside; no spaces around delimiter commas (spaces inside fields are fine when quoted)
 7. **Output the file**: Save as .csv extension
 
 ---
@@ -325,7 +311,7 @@ When should you start code review?,At the beginning,At the error line,At the end
 | Correct answer format | Text string | Number (1-4) |
 | Multiple correct answers | Not supported | Supported (e.g., "1,3") |
 | Header format | Includes "(Optional)" text | No optional markers |
-| Comma sensitivity | Very sensitive - avoid | Less sensitive |
+| Punctuation handling | Quote any field with punctuation; underscores/hyphens safe unquoted (quoting OK) | Quote any field with punctuation; numeric correct-answer slots |
 | Self-contained requirement | Strict requirement | Less strict |
 
 ---
@@ -366,7 +352,7 @@ True or False: Comments help explain code,True,False,,
 If Gimkit rejects your CSV:
 
 1. **Check headers**: Must match exactly (case-sensitive)
-2. **Check for unquoted commas**: Quote any field containing commas
+2. **Check punctuation quoting**: Quote any field containing punctuation; double quotes inside fields
 3. **Check for line breaks**: All text must be on single row
 4. **Check for external references**: Questions must be self-contained
 5. **Check answer count**: Must have at least 1 correct + 1 incorrect
@@ -386,7 +372,7 @@ If Gimkit rejects your CSV:
 
 ---
 
-**Version**: 1.0  
-**Last Updated**: 2024  
+**Version**: 1.1  
+**Last Updated**: 2025  
 **Format Verified**: Gimkit Import (via Spreadsheet Upload)
-**Critical Success Factor**: Self-contained questions with minimal punctuation
+**Critical Success Factor**: Self-contained questions with correctly quoted punctuation and balanced distractors
