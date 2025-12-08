@@ -80,6 +80,14 @@ Namespace `http://canvas.instructure.com/xsd/cccv1p0`.
 - Numerical: `<response_str ident="response1" rcardinality="Single"><render_fib fibtype="Decimal"/></response_str>`; scoring with `<respcondition>` using `<varequal>` or range per Canvas numerical pattern; metadata `question_type=numerical_question`, `points_possible`, `calculator_type=none`.
 - Scoring boilerplate: `<outcomes><decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/></outcomes>` then respconditions per logic above.
 
+## HTML vs Plaintext (where HTML is allowed)
+- Prompts (including stimuli) and answer choices render as HTML: use `<mattext texttype="text/html">` with escaped content; wrap in `<p>` unless content already contains block elements (`<pre>`, `<div>`, `<table>`, `<ul>`, `<ol>`, `<blockquote>`, headings).
+- Matching/categorization/ordering labels are HTML-capable (same `<mattext texttype="text/html">` rule).
+- FITB accepted answers MUST be plaintext tokens (no HTML) with `scoring_algorithm="TextContainsAnswer" answer_type="openEntry"`; keep them ASCII-safe.
+- Numerical answers MUST be plain numbers or numeric ranges (no HTML, no units unless the prompt asks for them).
+- Metadata fields (question_type, calculator_type, points_possible, identifiers) are plaintext only.
+- Do not embed HTML in ids/idents; only in mattext for prompts/choices where allowed.
+
 ## Per-question-type QTI templates (known-good Canvas)
 - **Stimulus (text_only_question, 0 pts)**: Item with prompt material only, itemmetadata question_type=text_only_question, points_possible=0, no response/scoring. Child items reference this via `parent_stimulus_item_ident=<stim_ident>`.
 - **MC**: `response_lid rcardinality="Single"`, response_labels A/B/C..., scoring sets SCORE=100 on correct ident. qtimetadata question_type=multiple_choice_question, points_possible, calculator_type=none.
