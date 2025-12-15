@@ -82,10 +82,21 @@ function App() {
       if (!response.ok) {
         let detail = "QuizForge failed to process the request.";
         try {
-          const data = await response.json();
-          detail = data?.detail ?? detail;
+          const bodyText = await response.text();
+          if (bodyText) {
+            try {
+              const data = JSON.parse(bodyText);
+              if (data?.detail) {
+                detail = data.detail;
+              } else {
+                detail = bodyText;
+              }
+            } catch {
+              detail = bodyText;
+            }
+          }
         } catch {
-          detail = await response.text();
+          // Ignore secondary errors while extracting details
         }
         throw new Error(detail || "QuizForge failed to process the request.");
       }

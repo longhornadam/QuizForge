@@ -32,9 +32,16 @@ def extract_tagged_payload(text: str) -> str:
     Raises ValueError when tags are missing or empty.
     """
     start = text.find(TAG_OPEN)
-    end = text.find(TAG_CLOSE)
-    if start == -1 or end == -1 or end <= start:
-        raise ValueError("QUIZFORGE_JSON tags not found or malformed.")
+    end = text.find(TAG_CLOSE, start + len(TAG_OPEN)) if start != -1 else -1
+
+    # Be forgiving when the closing tag is missing or mistyped (common LLM slip):
+    # fall back to the next opening tag or the end of text so we can still parse.
+    if start == -1:
+        raise ValueError("QUIZFORGE_JSON tags not found.")
+    if end == -1 or end <= start:
+        alt_end = text.find(TAG_OPEN, start + len(TAG_OPEN))
+        end = alt_end if alt_end != -1 else len(text)
+
     payload = text[start + len(TAG_OPEN) : end].strip()
     if not payload:
         raise ValueError("Tagged JSON payload is empty.")

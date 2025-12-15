@@ -150,12 +150,12 @@ FITB questions have historically caused the most LLM errors. Follow these rules 
 - Provide `rationales` as an array of objects:
 ```
 "rationales": [
-  { "item_id": "mc_example", "correct": "Why the right answer works.", "distractor": "Why the strongest distractor fails." }
+  { "item_id": "mc_example", "correct": "Why the right answer works.", "distractor": "" }
 ]
 ```
 - Skip STIMULUS and STIMULUS_END when generating rationales entries.
 - One entry per scored item (skip STIMULUS/STIMULUS_END). Keep each explanation to one sentence per field; focus on the why.
-- Primary job: explain why the correct answer(s) is/are correct; use `distractor` to flag the strongest misconception only.
+- Primary job: explain why the correct answer(s) is/are correct. Do not describe distractors; leave `distractor` empty if the field is required.
 - Never tell students to "ask/see your teacher" or suggest office hours; rationales must stand alone without deferring to a teacher.
 
 ## 12. EXECUTION WORKFLOW
@@ -172,6 +172,7 @@ FITB questions have historically caused the most LLM errors. Follow these rules 
  Envelope: JSON only between tags; ASCII-safe; escape inner quotes; no trailing commas.
  Prompts: Non-empty for all scored items; STIMULUS/STIMULUS_END may be empty; ORDERING may reuse `header`.
  Counts/answers: MC/MA have 2-7 choices; MC exactly 1 correct; MA at least 1 correct; TF is boolean; FITB has one or more `[blank]`/`[blank1]` tokens + `accept`; ORDERING has >=2 items; CATEGORIZATION has prompt + categories (>=2) + labeled items; NUMERICAL has `answer` (+ `evaluation` if not exact).
+ Incorrect options check: Every distractor must truly be incorrect (no accidental second correct answer hidden among distractors).
  **Answer length check:** For all MC/MA questions, ensure the correct answer is not the longest choice more than 30% of the time. If the correct answer exceeds 30 characters, its length must not differ from other choices by more than ~30%.
  FITB check: Single blank preferred; multi-blank only for conceptually linked content; max 3 blanks; Tier 1 uses dropdown/wordbank.
  Rationales: One per scored item `id`; skip stimuli.

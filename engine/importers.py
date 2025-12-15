@@ -79,7 +79,12 @@ class JsonImporter:
         try:
             payload = news_parser.parse_news_json(raw_spec)
         except json.JSONDecodeError as e:
-            message = f"Invalid JSON payload (line {e.lineno}, column {e.colno}): {e.msg}"
+            message = (
+                "Invalid JSON payload: the JSON could not be parsed. "
+                f"The parser stopped at line {e.lineno}, column {e.colno} with '{e.msg}', "
+                "which usually means a missing comma or an unescaped double quote inside a string. "
+                "Fix the JSON syntax around that spot so it becomes valid."
+            )
             raise JsonImportError(message, line=e.lineno, column=e.colno, char=e.pos) from e
         except Exception as e:
             raise JsonImportError(f"JSON import failed: {e}") from e

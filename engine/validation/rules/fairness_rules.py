@@ -48,12 +48,12 @@ def check_length_bias(quiz: Quiz) -> List[str]:
     if longest_pct >= 60:
         errors.append(
             f"Longest answer is correct in {longest_pct:.0f}% of MC questions "
-            f"({longest_correct_count}/{total}). Balance answer lengths."
+            f"({longest_correct_count}/{total}). Balance answer lengths by shortening correct answers or lengthening distractors so the right answer is not obviously the longest."
         )
     if shortest_pct >= 60:
         errors.append(
             f"Shortest answer is correct in {shortest_pct:.0f}% of MC questions "
-            f"({shortest_correct_count}/{total}). Balance answer lengths."
+            f"({shortest_correct_count}/{total}). Balance answer lengths by padding distractors or tightening the correct answer so it is not obviously the shortest."
         )
 
     return errors

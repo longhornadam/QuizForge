@@ -56,47 +56,47 @@ class NumericalAnswer:
         
         # Check answer is present for non-range modes
         if mode != "range" and self.answer is None:
-            errors.append("Numerical question requires answer")
+            errors.append("Numerical question requires answer; provide a numeric 'answer' field for this item.")
         
         # Validate percent_margin mode
         if mode == "percent_margin":
             if self.margin_value is None:
-                errors.append("Percent margin requires tolerance value")
+                errors.append("Percent margin requires tolerance value; set 'margin_value' to the allowed percent wiggle room (e.g., 5 for ±5%).")
             elif self.margin_value < 0:
-                errors.append("Percent margin must be non-negative")
+                errors.append("Percent margin must be non-negative; use zero or a positive percent tolerance.")
         
         # Validate absolute_margin mode
         elif mode == "absolute_margin":
             if self.margin_value is None:
-                errors.append("Absolute margin requires tolerance value")
+                errors.append("Absolute margin requires tolerance value; set 'margin_value' to the allowed numeric wiggle room (e.g., 2 for ±2).")
             elif self.margin_value < 0:
-                errors.append("Absolute margin must be non-negative")
+                errors.append("Absolute margin must be non-negative; use zero or a positive tolerance.")
         
         # Validate significant_digits mode
         elif mode == "significant_digits":
             if self.precision_value is None:
-                errors.append("Significant digits mode requires precision value")
+                errors.append("Significant digits mode requires precision value; set 'precision_value' to how many significant digits are graded.")
             elif self.precision_value < 0:
-                errors.append("Precision must be non-negative")
+                errors.append("Precision must be non-negative; use a zero or positive integer for significant digits.")
         
         # Validate decimal_places mode
         elif mode == "decimal_places":
             if self.precision_value is None:
-                errors.append("Decimal places mode requires precision value")
+                errors.append("Decimal places mode requires precision value; set 'precision_value' to how many decimal places are graded.")
             elif self.precision_value < 0:
-                errors.append("Precision must be non-negative")
+                errors.append("Precision must be non-negative; use a zero or positive integer for decimal places.")
         
         # Validate range mode
         elif mode == "range":
             if self.range_min is None or self.range_max is None:
-                errors.append("Range mode requires both minimum and maximum values")
+                errors.append("Range mode requires both minimum and maximum values; provide 'range_min' and 'range_max'.")
             elif self.range_min >= self.range_max:
-                errors.append("Range minimum must be less than maximum")
+                errors.append("Range minimum must be less than maximum; swap or adjust the values so min < max.")
         
         # Check bounds are present and valid
         if self.lower_bound is None or self.upper_bound is None:
-            errors.append("Computed bounds missing for numerical question")
+            errors.append("Computed bounds missing for numerical question; ensure bounds are calculated from the answer/tolerance settings.")
         elif self.lower_bound > self.upper_bound:
-            errors.append("Lower bound cannot exceed upper bound")
+            errors.append("Lower bound cannot exceed upper bound; check tolerance/range settings so lower <= upper.")
         
         return errors

@@ -1,0 +1,74 @@
+============================================================
+QuizForge Processing Log
+============================================================
+Quiz: Christmas Quiz 5 - The Workshop Countdown (Revised Choices)
+Processed: 2025-12-06 10:53:25
+Questions: 17
+Total Points: 100.0
+
+STATUS: PASS (No issues)
+
+AUTO-FIXES APPLIED:
+------------------------------------------------------------
+1. Cleaned text (normalized quotes, whitespace)
+2. Balanced answer distributions (shuffled MC/MA/TF correct positions)
+
+============================================================
+Quiz packages generated successfully!
+============================================================
+
+============================================================
+PHYSICAL QUIZ VALIDATION STATISTICS
+============================================================
+
+ANSWER CHOICE STATISTICS
+----------------------------------------
+Total MC questions: 15
+Average choice length: 79.6 chars
+Min choice length: 57 chars
+Max choice length: 131 chars
+
+Correct answer distribution:
+  A: 3 (20.0%)
+  B: 4 (26.7%)
+  C: 4 (26.7%)
+  D: 4 (26.7%)
+
+Questions eligible for 2-column layout: 0/15
+
+QUESTION LENGTH STATISTICS
+----------------------------------------
+Total questions: 17
+Average question length: 136.6 chars
+Min question length: 0 chars
+Max question length: 1406 chars
+
+Questions over 200 chars (may need formatting review):
+  Q1: 1406 chars
+
+POINT VALUE DISTRIBUTION
+----------------------------------------
+Total points: 100
+Average points per question: 6.67
+
+Point value breakdown:
+  6 pt: 5 questions (33.3%)
+  7 pt: 10 questions (66.7%)
+
+STIMULUS USAGE STATISTICS
+----------------------------------------
+Questions with stimuli: 15/15
+Average stimulus length: 1406.0 chars
+Unique stimuli: 1
+Questions per stimulus (avg): 15.0
+
+
+============================================================
+ANSWER DISTRIBUTION (AFTER BALANCING)
+============================================================
+
+Multiple Choice Distribution:
+  A: 3 (20.0%)
+  B: 4 (26.7%)
+  C: 4 (26.7%)
+  D: 4 (26.7%)
