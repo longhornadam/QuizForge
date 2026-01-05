@@ -26,14 +26,6 @@ def generate_fail_prompt(
     """
     lines = []
     
-    # Original quiz
-    lines.append("=" * 60)
-    lines.append("ORIGINAL QUIZ (Contains Errors)")
-    lines.append("=" * 60)
-    lines.append("")
-    lines.append(original_text)
-    lines.append("")
-    
     # Error report
     lines.append("=" * 60)
     lines.append("VALIDATION ERRORS DETECTED")
@@ -62,6 +54,14 @@ def generate_fail_prompt(
     lines.append("")
     lines.append("Once fixed, save the revised quiz as a new .txt file and")
     lines.append("drop it back into the DropZone folder.")
+    lines.append("")
+
+    # Original quiz (placed last so errors stay visible at the top)
+    lines.append("=" * 60)
+    lines.append("ORIGINAL QUIZ (Contains Errors)")
+    lines.append("=" * 60)
+    lines.append("")
+    lines.append(original_text)
     lines.append("")
     
     return "\n".join(lines)

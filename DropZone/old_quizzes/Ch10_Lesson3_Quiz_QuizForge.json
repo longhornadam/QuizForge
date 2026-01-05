@@ -1,0 +1,35 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Chapter 10 Lesson 3 Quiz: The Math Library",
+  "metadata": {"chapter": 10, "lesson": 3, "assessment_type": "formative", "question_count": 12},
+  "items": [
+    {"id": "l3q1", "type": "MC", "prompt": "Which statement loads the math library?", "choices": [{"text": "import math", "correct": true, "id": "B"}, {"text": "use math", "correct": false, "id": "A"}, {"text": "math.load()", "correct": false, "id": "C"}, {"text": "include math", "correct": false, "id": "D"}]},
+    {"id": "l3q2", "type": "MC", "prompt": "What does math.ceil(3.2) return?", "choices": [{"text": "4", "correct": true, "id": "C"}, {"text": "3", "correct": false, "id": "A"}, {"text": "3.2", "correct": false, "id": "B"}, {"text": "3.0", "correct": false, "id": "D"}]},
+    {"id": "l3q3", "type": "MC", "prompt": "What does math.floor(3.8) return?", "choices": [{"text": "3", "correct": true, "id": "A"}, {"text": "4", "correct": false, "id": "B"}, {"text": "3.8", "correct": false, "id": "C"}, {"text": "3.0", "correct": false, "id": "D"}]},
+    {"id": "l3q4", "type": "MC", "prompt": "What does math.fabs(-12) return?", "choices": [{"text": "12.0", "correct": true, "id": "D"}, {"text": "-12", "correct": false, "id": "A"}, {"text": "12", "correct": false, "id": "B"}, {"text": "-12.0", "correct": false, "id": "C"}]},
+    {"id": "l3q5", "type": "MC", "prompt": "What does math.factorial(5) return?", "choices": [{"text": "120", "correct": true, "id": "C"}, {"text": "25", "correct": false, "id": "A"}, {"text": "10", "correct": false, "id": "B"}, {"text": "5", "correct": false, "id": "D"}]},
+    {"id": "l3q6", "type": "MC", "prompt": "What does math.pow(2, 3) return?", "choices": [{"text": "8.0", "correct": true, "id": "C"}, {"text": "6", "correct": false, "id": "A"}, {"text": "8", "correct": false, "id": "B"}, {"text": "2.3", "correct": false, "id": "D"}]},
+    {"id": "l3q7", "type": "MC", "prompt": "What requirement does math.sqrt() have for its input?", "choices": [{"text": "must be positive", "correct": true, "id": "A"}, {"text": "must be negative", "correct": false, "id": "B"}, {"text": "must be zero", "correct": false, "id": "C"}, {"text": "must be an integer", "correct": false, "id": "D"}]},
+    {"id": "l3q8", "type": "MC", "prompt": "Which math library constant represents the ratio of a circle's circumference to its diameter?", "choices": [{"text": "math.pi", "correct": true, "id": "B"}, {"text": "math.e", "correct": false, "id": "A"}, {"text": "math.radius", "correct": false, "id": "C"}, {"text": "math.circle", "correct": false, "id": "D"}]},
+    {"id": "l3q9", "type": "MC", "prompt": "What does math.e represent?", "choices": [{"text": "Euler's number (base of natural logarithm)", "correct": true, "id": "A"}, {"text": "the speed of light", "correct": false, "id": "B"}, {"text": "an error constant", "correct": false, "id": "C"}, {"text": "pi divided by 2", "correct": false, "id": "D"}]},
+    {"id": "l3q10", "type": "MC", "prompt": "In what unit does math.sin() expect angle input?", "choices": [{"text": "radians", "correct": true, "id": "B"}, {"text": "degrees", "correct": false, "id": "A"}, {"text": "gradians", "correct": false, "id": "C"}, {"text": "rotations", "correct": false, "id": "D"}]},
+    {"id": "l3q11", "type": "MC", "prompt": "Why is round() available without importing math?", "choices": [{"text": "it's a core built-in function", "correct": true, "id": "C"}, {"text": "it's experimental", "correct": false, "id": "A"}, {"text": "it's deprecated", "correct": false, "id": "B"}, {"text": "it's automatically imported", "correct": false, "id": "D"}]},
+    {"id": "l3q12", "type": "MC", "prompt": "Which core function returns the largest value in a list?", "choices": [{"text": "max()", "correct": true, "id": "B"}, {"text": "math.max()", "correct": false, "id": "A"}, {"text": "math.maximum()", "correct": false, "id": "C"}, {"text": "largest()", "correct": false, "id": "D"}]}
+  ],
+  "rationales": [
+    {"item_id": "l3q1", "rationale": "import math is required to load the math module."},
+    {"item_id": "l3q2", "rationale": "ceil() rounds up to the next integer (3.2 becomes 4)."},
+    {"item_id": "l3q3", "rationale": "floor() rounds down to the previous integer (3.8 becomes 3)."},
+    {"item_id": "l3q4", "rationale": "fabs() returns the absolute value as a float (12.0)."},
+    {"item_id": "l3q5", "rationale": "5! = 5×4×3×2×1 = 120."},
+    {"item_id": "l3q6", "rationale": "pow(2,3) returns 2³ = 8 as a float (8.0)."},
+    {"item_id": "l3q7", "rationale": "sqrt() requires positive input (cannot take square root of negative in real numbers)."},
+    {"item_id": "l3q8", "rationale": "math.pi stores the value 3.14159... (circumference/diameter ratio)."},
+    {"item_id": "l3q9", "rationale": "math.e is Euler's number (approximately 2.71828), the base of natural logarithms."},
+    {"item_id": "l3q10", "rationale": "Trigonometric functions in Python use radians, not degrees."},
+    {"item_id": "l3q11", "rationale": "round() is built into core Python, not the math library."},
+    {"item_id": "l3q12", "rationale": "max() is a core function that works on lists."}
+  ]
+}
+</QUIZFORGE_JSON>

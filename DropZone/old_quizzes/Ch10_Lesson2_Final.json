@@ -1,0 +1,35 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Chapter 10 Lesson 2 Quiz: Random Numbers",
+  "metadata": {"chapter": 10, "lesson": 2, "assessment_type": "formative", "question_count": 12},
+  "items": [
+    {"id": "l2q1", "type": "MC", "prompt": "What statement must appear at the top of your code to use random functions?", "choices": [{"text": "import random", "correct": true, "id": "B"}, {"text": "use random", "correct": false, "id": "A"}, {"text": "random.start()", "correct": false, "id": "C"}, {"text": "include random", "correct": false, "id": "D"}]},
+    {"id": "l2q2", "type": "MC", "prompt": "What does random.randrange(5, 15) return?", "choices": [{"text": "a random integer from 5 to 14", "correct": true, "id": "A"}, {"text": "a random integer from 5 to 15", "correct": false, "id": "B"}, {"text": "a random decimal from 5 to 15", "correct": false, "id": "C"}, {"text": "a list of random numbers", "correct": false, "id": "D"}]},
+    {"id": "l2q3", "type": "MC", "prompt": "What is the main difference between random.randrange(0,10) and random.randint(0,10)?", "choices": [{"text": "whether 10 can be returned", "correct": true, "id": "C"}, {"text": "speed of execution", "correct": false, "id": "A"}, {"text": "data type returned", "correct": false, "id": "B"}, {"text": "random quality", "correct": false, "id": "D"}]},
+    {"id": "l2q4", "type": "MC", "prompt": "Random number generators are called \"pseudo-random\" because", "choices": [{"text": "they use complex algorithms, not true randomness", "correct": true, "id": "A"}, {"text": "they only work with integers", "correct": false, "id": "B"}, {"text": "they require imported modules", "correct": false, "id": "C"}, {"text": "they are slow to execute", "correct": false, "id": "D"}]},
+    {"id": "l2q5", "type": "MC", "prompt": "By default, what does Python use to seed the random number generator?", "choices": [{"text": "the current time", "correct": true, "id": "C"}, {"text": "the value 0", "correct": false, "id": "A"}, {"text": "the user's name", "correct": false, "id": "B"}, {"text": "a fixed constant", "correct": false, "id": "D"}]},
+    {"id": "l2q6", "type": "MC", "prompt": "What parameter does random.seed() accept?", "choices": [{"text": "any numeric or string value", "correct": true, "id": "D"}, {"text": "only integers", "correct": false, "id": "A"}, {"text": "only strings", "correct": false, "id": "B"}, {"text": "only floating-point numbers", "correct": false, "id": "C"}]},
+    {"id": "l2q7", "type": "MC", "prompt": "After calling random.seed(42), then random.seed(42) again, what happens to the random sequence?", "choices": [{"text": "it restarts from the beginning", "correct": true, "id": "B"}, {"text": "it produces new random numbers", "correct": false, "id": "A"}, {"text": "it causes an error", "correct": false, "id": "C"}, {"text": "it stops generating numbers", "correct": false, "id": "D"}]},
+    {"id": "l2q8", "type": "MC", "prompt": "Which function returns a random element from a list without modifying the list?", "choices": [{"text": "random.choice()", "correct": true, "id": "B"}, {"text": "random.randrange()", "correct": false, "id": "A"}, {"text": "random.shuffle()", "correct": false, "id": "C"}, {"text": "random.pick()", "correct": false, "id": "D"}]},
+    {"id": "l2q9", "type": "MC", "prompt": "What does random.shuffle() do to a list?", "choices": [{"text": "rearranges elements in place", "correct": true, "id": "C"}, {"text": "creates a copy in random order", "correct": false, "id": "A"}, {"text": "randomly removes elements", "correct": false, "id": "B"}, {"text": "returns a random element", "correct": false, "id": "D"}]},
+    {"id": "l2q10", "type": "MC", "prompt": "What does random.random() return?", "choices": [{"text": "a decimal between 0.0 and 1.0", "correct": true, "id": "C"}, {"text": "a random integer", "correct": false, "id": "A"}, {"text": "a random Boolean", "correct": false, "id": "B"}, {"text": "a random list element", "correct": false, "id": "D"}]},
+    {"id": "l2q11", "type": "MC", "prompt": "What does random.uniform(10.0, 20.0) return?", "choices": [{"text": "a random decimal from 10.0 to 20.0", "correct": true, "id": "B"}, {"text": "a random integer from 10 to 20", "correct": false, "id": "A"}, {"text": "always 15.0", "correct": false, "id": "C"}, {"text": "a Boolean value", "correct": false, "id": "D"}]},
+    {"id": "l2q12", "type": "MC", "prompt": "Why might you use random.seed(1) before generating a game level?", "choices": [{"text": "to ensure players get the same level", "correct": true, "id": "B"}, {"text": "to make the game faster", "correct": false, "id": "A"}, {"text": "to make levels more random", "correct": false, "id": "C"}, {"text": "to prevent errors", "correct": false, "id": "D"}]}
+  ],
+  "rationales": [
+    {"item_id": "l2q1", "rationale": "import random is required to load the random module."},
+    {"item_id": "l2q2", "rationale": "randrange(5,15) returns integers from 5 up to but not including 15."},
+    {"item_id": "l2q3", "rationale": "randint includes the maximum value; randrange excludes it."},
+    {"item_id": "l2q4", "rationale": "Pseudo-random means using algorithms that approximate randomness, not true randomness."},
+    {"item_id": "l2q5", "rationale": "Python uses the current time as the default seed, making results different each run."},
+    {"item_id": "l2q6", "rationale": "seed() accepts any numeric or string value to initialize the generator."},
+    {"item_id": "l2q7", "rationale": "Re-seeding with the same value restarts the random sequence from the beginning."},
+    {"item_id": "l2q8", "rationale": "choice() returns a copy of an element without changing the original list."},
+    {"item_id": "l2q9", "rationale": "shuffle() rearranges list elements in place (modifies the original list)."},
+    {"item_id": "l2q10", "rationale": "random() returns a floating-point value between 0.0 and 1.0."},
+    {"item_id": "l2q11", "rationale": "uniform() returns a random decimal within the specified range."},
+    {"item_id": "l2q12", "rationale": "Seeding ensures all players experience the same randomly generated level."}
+  ]
+}
+</QUIZFORGE_JSON>

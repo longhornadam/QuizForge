@@ -33,13 +33,11 @@
   "rationales": [
     {
       "item_id": "fitb_dropdown",
-      "correct": "Chloroplasts contain chlorophyll and run photosynthesis.",
-      "distractor": "Mitochondria handle respiration, not photosynthesis."
+      "rationale": "Chloroplasts contain chlorophyll and run photosynthesis. Mitochondria handle respiration, not photosynthesis."
     },
     {
       "item_id": "fitb_wordbank",
-      "correct": "0 C is the freezing point of water.",
-      "distractor": "32 C is the Fahrenheit freezing point, not Celsius."
+      "rationale": "0 C is the freezing point of water. 32 C is the Fahrenheit freezing point, not Celsius."
     }
   ]
 }

@@ -109,11 +109,10 @@ def _parse_rationales(raw: Any) -> List[RationalesEntry]:
         if not isinstance(entry, dict):
             continue
         item_id = entry.get("item_id")
-        correct = entry.get("correct")
-        distractor = entry.get("distractor")
-        if not (isinstance(item_id, str) and isinstance(correct, str) and isinstance(distractor, str)):
+        rationale_text = entry.get("rationale")
+        if not (isinstance(item_id, str) and isinstance(rationale_text, str)):
             continue
-        rationale = RationalesEntry(item_id=item_id, correct=correct, distractor=distractor)
+        rationale = RationalesEntry(item_id=item_id, rationale=rationale_text)
         entries.append(rationale)
     return entries
 

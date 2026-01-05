@@ -150,12 +150,12 @@ FITB questions have historically caused the most LLM errors. Follow these rules 
 - Provide `rationales` as an array of objects:
 ```
 "rationales": [
-  { "item_id": "mc_example", "correct": "Why the right answer works.", "distractor": "" }
+  { "item_id": "mc_example", "rationale": "Why the right answer works."}
 ]
 ```
 - Skip STIMULUS and STIMULUS_END when generating rationales entries.
 - One entry per scored item (skip STIMULUS/STIMULUS_END). Keep each explanation to one sentence per field; focus on the why.
-- Primary job: explain why the correct answer(s) is/are correct. Do not describe distractors; leave `distractor` empty if the field is required.
+- Primary job: explain why the correct answer(s) is/are correct.
 - Never tell students to "ask/see your teacher" or suggest office hours; rationales must stand alone without deferring to a teacher.
 
 ## 12. EXECUTION WORKFLOW

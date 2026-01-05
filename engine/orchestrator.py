@@ -90,7 +90,7 @@ class QuizForgeOrchestrator:
             if isinstance(e, JsonImportError):
                 context = self._format_json_error_context(original_text, e)
             # Parser failed - create fail prompt
-            self._handle_parse_failure(filepath, original_text, str(e), context)
+            self._handle_parse_failure(filepath, original_text, str(e), context, parse_exc=e)
             return
         
         # Step 2a: Calculate point values for quiz (automated)
@@ -115,17 +115,27 @@ class QuizForgeOrchestrator:
         else:
             self._handle_validation_success(filepath, result)
     
-    def _handle_parse_failure(self, filepath: Path, original_text: str, error: str, context: Optional[str] = None) -> None:
+    def _handle_parse_failure(
+        self,
+        filepath: Path,
+        original_text: str,
+        error: str,
+        context: Optional[str] = None,
+        parse_exc: Optional[Exception] = None,
+    ) -> None:
         """Handle parser failure by creating fail prompt."""
         quiz_name = filepath.stem
-        error_text = f"Parse error: {error}"
+        primary_error = f"Parse error: {error}"
         if context:
-            error_text = f"{error_text}\nContext:\n{context}"
+            primary_error = f"{primary_error}\nContext:\n{context}"
+        errors = [primary_error]
+        lint_errors = getattr(parse_exc, "lint_errors", []) if parse_exc else []
+        errors.extend(lint_errors)
         
         # Generate fail prompt
         prompt = generate_fail_prompt(
             original_text=original_text,
-            errors=[error_text],
+            errors=errors,
             quiz_title=quiz_name
         )
         

@@ -58,18 +58,15 @@
   "rationales": [
     {
       "item_id": "cat1",
-      "correct": "Accurate statements reflect the 3-paragraph prose and its content.",
-      "distractor": "Inaccurate statements misstate the genre or structure."
+      "rationale": "Accurate statements reflect the 3-paragraph prose and its content. Inaccurate statements misstate the genre or structure."
     },
     {
       "item_id": "mc_poetry",
-      "correct": "The poem has three numbered lines.",
-      "distractor": "Other counts do not match the numbered lines."
+      "rationale": "The poem has three numbered lines. Other counts do not match the numbered lines."
     },
     {
       "item_id": "tf_code",
-      "correct": "1+2+3 equals 6.",
-      "distractor": "Any other output would mis-sum the list."
+      "rationale": "1+2+3 equals 6. Any other output would mis-sum the list."
     }
   ]
 }

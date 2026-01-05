@@ -27,8 +27,7 @@ class RationalesEntry:
     """Single rationale aligned to a scored item."""
 
     item_id: str
-    correct: str
-    distractor: str
+    rationale: str
 
 
 @dataclass

@@ -59,23 +59,19 @@
   "rationales": [
     {
       "item_id": "mc_below",
-      "correct": "Default layout attaches questions below the stimulus.",
-      "distractor": "Right-side layout must be explicitly set."
+      "rationale": "Default layout attaches questions below the stimulus. Right-side layout must be explicitly set."
     },
     {
       "item_id": "fitb_multiblank",
-      "correct": "The Sun is classified as a star; Earth is a planet.",
-      "distractor": "Both blanks must match their respective celestial classifications."
+      "rationale": "The Sun is classified as a star; Earth is a planet. Both blanks must match their respective celestial classifications."
     },
     {
       "item_id": "fitb_dropdown",
-      "correct": "Chloroplasts run photosynthesis.",
-      "distractor": "Mitochondria handle respiration, not photosynthesis."
+      "rationale": "Chloroplasts run photosynthesis. Mitochondria handle respiration, not photosynthesis."
     },
     {
       "item_id": "fitb_wordbank",
-      "correct": "0 C is the freezing point of water.",
-      "distractor": "32 C is the Fahrenheit freezing point, not Celsius."
+      "rationale": "0 C is the freezing point of water. 32 C is the Fahrenheit freezing point, not Celsius."
     }
   ]
 }

@@ -1,0 +1,68 @@
+============================================================
+QuizForge Processing Log
+============================================================
+Quiz: Chapter 10 Lesson 4 Quiz: Computer Number Systems
+Processed: 2026-01-05 14:48:44
+Questions: 14
+Total Points: 100
+
+STATUS: PASS (No issues)
+
+AUTO-FIXES APPLIED:
+------------------------------------------------------------
+1. Cleaned text (normalized quotes, whitespace)
+2. Balanced answer distributions (shuffled MC/MA/TF correct positions)
+
+============================================================
+Quiz packages generated successfully!
+============================================================
+
+============================================================
+PHYSICAL QUIZ VALIDATION STATISTICS
+============================================================
+
+ANSWER CHOICE STATISTICS
+----------------------------------------
+Total MC questions: 14
+Average choice length: 7.6 chars
+Min choice length: 1 chars
+Max choice length: 35 chars
+
+Correct answer distribution:
+  A: 3 (21.4%)
+  B: 3 (21.4%)
+  C: 4 (28.6%)
+  D: 4 (28.6%)
+
+Questions eligible for 2-column layout: 14/14
+
+QUESTION LENGTH STATISTICS
+----------------------------------------
+Total questions: 14
+Average question length: 50.4 chars
+Min question length: 14 chars
+Max question length: 120 chars
+
+POINT VALUE DISTRIBUTION
+----------------------------------------
+Total points: 100
+Average points per question: 7.14
+
+Point value breakdown:
+  7 pt: 12 questions (85.7%)
+  8 pt: 2 questions (14.3%)
+
+STIMULUS USAGE STATISTICS
+----------------------------------------
+Questions with stimuli: 0/14
+
+
+============================================================
+ANSWER DISTRIBUTION (AFTER BALANCING)
+============================================================
+
+Multiple Choice Distribution:
+  A: 3 (21.4%)
+  B: 3 (21.4%)
+  C: 4 (28.6%)
+  D: 4 (28.6%)

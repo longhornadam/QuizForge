@@ -35,6 +35,8 @@ from engine.core.quiz import Quiz
 from engine.parsing.text_parser import TextOutlineParser
 from engine.spec_engine import packager as news_packager
 from engine.spec_engine import parser as news_parser
+from engine.spec_engine import parser as spec_parser
+from engine.utils.json_lint import lint_json_syntax
 
 logger = logging.getLogger(__name__)
 
@@ -53,11 +55,19 @@ class Importer(Protocol):
 class JsonImportError(Exception):
     """Raised when JSON 3.0 import fails (no text fallback)."""
 
-    def __init__(self, message: str, line: int | None = None, column: int | None = None, char: int | None = None):
+    def __init__(
+        self,
+        message: str,
+        line: int | None = None,
+        column: int | None = None,
+        char: int | None = None,
+        lint_errors: list[str] | None = None,
+    ):
         super().__init__(message)
         self.line = line
         self.column = column
         self.char = char
+        self.lint_errors = lint_errors or []
 
 
 class TextImporter:
@@ -76,16 +86,33 @@ class JsonImporter:
 
     def import_quiz(self, raw_spec: str) -> ImportedQuiz:
         logger.debug("JSON spec mode active (QUIZFORGE_SPEC_MODE=json)")
+        lint_target = raw_spec
+
+        # Preflight: ensure tags exist and capture payload for linting
+        try:
+            lint_target = spec_parser.extract_tagged_payload(raw_spec)
+        except Exception as e:
+            lint_errors = lint_json_syntax(raw_spec, max_errors=5)
+            message = f"Invalid JSON wrapper: {e}"
+            if lint_errors:
+                lint_errors = lint_errors[:5]
+            raise JsonImportError(message, lint_errors=lint_errors) from e
+
         try:
             payload = news_parser.parse_news_json(raw_spec)
         except json.JSONDecodeError as e:
+            lint_errors = lint_json_syntax(lint_target, max_errors=5)
             message = (
                 "Invalid JSON payload: the JSON could not be parsed. "
                 f"The parser stopped at line {e.lineno}, column {e.colno} with '{e.msg}', "
                 "which usually means a missing comma or an unescaped double quote inside a string. "
                 "Fix the JSON syntax around that spot so it becomes valid."
             )
-            raise JsonImportError(message, line=e.lineno, column=e.colno, char=e.pos) from e
+            raise JsonImportError(message, line=e.lineno, column=e.colno, char=e.pos, lint_errors=lint_errors) from e
+        except ValueError as e:
+            # parser-level structural errors (missing fields, bad types)
+            lint_errors = lint_json_syntax(lint_target, max_errors=5)
+            raise JsonImportError(f"JSON import failed: {e}", lint_errors=lint_errors) from e
         except Exception as e:
             raise JsonImportError(f"JSON import failed: {e}") from e
         logger.debug("Parsed JSON payload version=%s", payload.version)
@@ -280,7 +307,7 @@ def _packaged_to_domain(packaged) -> Quiz:
     rationale_entries = []
     for r in packaged.rationales:
         rationale_entries.append(
-            {"item_id": r.item_id, "correct": r.correct, "distractor": r.distractor, "text": f"{r.correct} | {r.distractor}"}
+            {"item_id": r.item_id, "text": r.rationale}
         )
 
     title = packaged.title or "Untitled Quiz"

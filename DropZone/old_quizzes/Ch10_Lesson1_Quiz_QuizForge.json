@@ -1,0 +1,31 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Chapter 10 Lesson 1 Quiz: Libraries and Documentation",
+  "metadata": {"chapter": 10, "lesson": 1, "assessment_type": "formative", "question_count": 10},
+  "items": [
+    {"id": "l1q1", "type": "MC", "prompt": "Which term describes a collection of related functions grouped together?", "choices": [{"text": "library", "correct": true, "id": "B"}, {"text": "variable", "correct": false, "id": "A"}, {"text": "statement", "correct": false, "id": "C"}, {"text": "operator", "correct": false, "id": "D"}]},
+    {"id": "l1q2", "type": "MC", "prompt": "What is a main benefit of using libraries in your programs?", "choices": [{"text": "you can reuse existing solutions", "correct": true, "id": "C"}, {"text": "programs run faster automatically", "correct": false, "id": "A"}, {"text": "code is harder to read", "correct": false, "id": "B"}, {"text": "syntax errors are prevented", "correct": false, "id": "D"}]},
+    {"id": "l1q3", "type": "MC", "prompt": "In Python, what term describes a library that focuses on specific tasks like math or time functions?", "choices": [{"text": "module", "correct": true, "id": "A"}, {"text": "procedure", "correct": false, "id": "B"}, {"text": "algorithm", "correct": false, "id": "C"}, {"text": "protocol", "correct": false, "id": "D"}]},
+    {"id": "l1q4", "type": "MC", "prompt": "Which module would you use to generate random numbers?", "choices": [{"text": "random", "correct": true, "id": "B"}, {"text": "math", "correct": false, "id": "A"}, {"text": "os", "correct": false, "id": "C"}, {"text": "time", "correct": false, "id": "D"}]},
+    {"id": "l1q5", "type": "MC", "prompt": "You need detailed information about how to use a Python function, including its parameters and return values. What should you look for?", "choices": [{"text": "API documentation", "correct": true, "id": "B"}, {"text": "source code files", "correct": false, "id": "A"}, {"text": "installation guides", "correct": false, "id": "C"}, {"text": "error logs", "correct": false, "id": "D"}]},
+    {"id": "l1q6", "type": "MC", "prompt": "Where can you find free Python API documentation?", "choices": [{"text": "Python's official website", "correct": true, "id": "C"}, {"text": "only in paid books", "correct": false, "id": "A"}, {"text": "only by asking teachers", "correct": false, "id": "B"}, {"text": "by reading source code only", "correct": false, "id": "D"}]},
+    {"id": "l1q7", "type": "MC", "prompt": "A programmer creates a series of chemistry functions for modeling molecules. This is an example of", "choices": [{"text": "creating a custom library", "correct": true, "id": "B"}, {"text": "downloading a module", "correct": false, "id": "A"}, {"text": "breaking copyright rules", "correct": false, "id": "C"}, {"text": "avoiding documentation", "correct": false, "id": "D"}]},
+    {"id": "l1q8", "type": "MC", "prompt": "What does API stand for?", "choices": [{"text": "Application Programming Interface", "correct": true, "id": "C"}, {"text": "Automatic Programming Interface", "correct": false, "id": "A"}, {"text": "Advanced Python Installation", "correct": false, "id": "B"}, {"text": "Algorithm Processing Input", "correct": false, "id": "D"}]},
+    {"id": "l1q9", "type": "MC", "prompt": "Using libraries reduces development time mainly because", "choices": [{"text": "you avoid writing code for common tasks", "correct": true, "id": "B"}, {"text": "computers run faster", "correct": false, "id": "A"}, {"text": "syntax errors disappear", "correct": false, "id": "C"}, {"text": "variables need less memory", "correct": false, "id": "D"}]},
+    {"id": "l1q10", "type": "MC", "prompt": "If a function in your program isn't working correctly, where should you check first?", "choices": [{"text": "read the API documentation", "correct": true, "id": "C"}, {"text": "rewrite the entire program", "correct": false, "id": "A"}, {"text": "guess random parameter values", "correct": false, "id": "B"}, {"text": "delete the function", "correct": false, "id": "D"}]}
+  ],
+  "rationales": [
+    {"item_id": "l1q1", "rationale": "A library is a collection of functions or other components grouped together."},
+    {"item_id": "l1q2", "rationale": "Libraries allow you to reuse existing, tested solutions instead of writing everything from scratch."},
+    {"item_id": "l1q3", "rationale": "Python organizes its built-in libraries into modules that focus on specific types of tasks."},
+    {"item_id": "l1q4", "rationale": "The random module contains functions for generating random numbers."},
+    {"item_id": "l1q5", "rationale": "API documentation describes a function's name, inputs, outputs, and behavior."},
+    {"item_id": "l1q6", "rationale": "Python publishes complete reference documentation online at docs.python.org."},
+    {"item_id": "l1q7", "rationale": "Creating your own collection of reusable functions is building a custom library."},
+    {"item_id": "l1q8", "rationale": "API stands for Application Programming Interface."},
+    {"item_id": "l1q9", "rationale": "Libraries reduce development time by letting you call prewritten functions instead of coding everything yourself."},
+    {"item_id": "l1q10", "rationale": "API documentation explains how to use functions correctly, making it the first troubleshooting resource."}
+  ]
+}
+</QUIZFORGE_JSON>

@@ -1,0 +1,408 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "7th Grade ELA Semester 1 Practice Exam",
+  "metadata": {
+    "grade": 7,
+    "subject": "ELA",
+    "semester": 1,
+    "estimated_time_minutes": 50,
+    "description": "Comprehensive semester review covering sentence correction, ECR components, inference, and core ELA skills"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "type": "MC",
+      "prompt": "Read the sentence below. Choose the answer that corrects the error.\n\nThe students was working on their essays when the bell rings.",
+      "choices": [
+        {"text": "The students were working on their essays when the bell rang.", "correct": true, "id": "A"},
+        {"text": "The students was working on their essays when the bell rang, signaling the end of class.", "correct": false, "id": "B"},
+        {"text": "The students were working on their essays when the bell rings at the end of the period.", "correct": false, "id": "C"},
+        {"text": "The student were working on their essays when the bell rang.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "MC",
+      "prompt": "Read the sentence below. Choose the answer that corrects the error.\n\nThe collection of poems were organized by theme and displayed for the class.",
+      "choices": [
+        {"text": "The collection of poems was organized by theme and displayed for the class.", "correct": true, "id": "A"},
+        {"text": "The collection of poems were organized by theme and displays for the class to see.", "correct": false, "id": "B"},
+        {"text": "The collections of poems were organized by theme and displayed for the whole class.", "correct": false, "id": "C"},
+        {"text": "The collection of poem was organized by theme and displayed for the class period.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "MC",
+      "prompt": "Read the sentence below. Choose the answer that corrects the error.\n\nThe author establishes a somber mood, the imagery of dark clouds and rain creates a sense of sadness.",
+      "choices": [
+        {"text": "The author establishes a somber mood, and the imagery of dark clouds and rain creates a sense of sadness.", "correct": true, "id": "A"},
+        {"text": "The author establishes a somber mood. The imagery of dark clouds and rain creates a sense of sadness.", "correct": true, "id": "B"},
+        {"text": "The author establishes a somber mood; the imagery of dark clouds and rain creates a sense of sadness.", "correct": true, "id": "C"},
+        {"text": "The author establishes a somber mood, but the imagery of dark clouds and rain creates happiness instead.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "MC",
+      "prompt": "Read the sentence below. Choose the answer that corrects the error.\n\nThe teacher gave the class she a new assignment before the break.",
+      "choices": [
+        {"text": "The teacher gave the class and her a new assignment before the break started.", "correct": false, "id": "A"},
+        {"text": "The teacher gave she and the class a new assignment before the holiday break.", "correct": false, "id": "B"},
+        {"text": "The teacher gave her and the class a new assignment before the break.", "correct": true, "id": "C"},
+        {"text": "The teacher gave the class she a assignment before the break ended completely.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "stimulus_gift_of_time",
+      "type": "STIMULUS",
+      "prompt": "The following questions (5-10) are based on this passage. Read the passage carefully before answering.\n\n**The Gift of Time**\n\nEmma sat at her grandmother's bedside, watching the afternoon sunlight stream through the hospital window. Her grandmother's hands, once quick and strong from years of gardening, now rested quietly on the white blanket. Emma held one of those hands gently, noticing how thin and papery the skin had become.\n\n\"Tell me about the garden,\" Emma said softly.\n\nHer grandmother's eyes brightened. \"Oh, the roses are probably blooming now,\" she said, her voice weak but warm. \"The red ones by the fence—I planted those the year you were born. Every time I see them, I think of you.\"\n\nEmma felt tears prick her eyes. She had been so busy with school and friends that she hadn't visited the garden in months. Now, sitting here, she realized how much time she had wasted. The homework assignments and social media posts that had seemed so important suddenly felt meaningless.\n\n\"I'm sorry I haven't been around more,\" Emma whispered.\n\n\"Hush now,\" her grandmother said, squeezing Emma's hand with surprising strength. \"You're here now. That's what matters. We don't get to choose how much time we have, but we can choose what we do with the time we're given.\"\n\nThat evening, as Emma walked through her grandmother's garden, she noticed things she had overlooked before: the way the evening light made the rose petals glow, the sound of bees humming among the lavender, the sweet scent of jasmine on the breeze. She pulled out her phone, not to scroll through messages, but to take photos—not for posting online, but for remembering.\n\nOver the next few weeks, Emma visited every day. Sometimes they talked; sometimes they just sat together in comfortable silence. Emma learned to treasure these quiet moments, understanding now that love isn't measured in grand gestures but in simple presence.\n\nWhen her grandmother passed away peacefully one morning, Emma felt profound sadness, but also gratitude. She had been given a gift—the gift of time—and she had chosen to use it well. Standing in the garden at the funeral, surrounded by the blooming roses her grandmother had planted, Emma made a promise to herself: she would never again take for granted the precious, fleeting moments she had with the people she loved."
+    },
+    {
+      "id": "q5",
+      "type": "MC",
+      "prompt": "What is the theme of \"The Gift of Time\"? Choose the best answer.",
+      "stimulus_id": "stimulus_gift_of_time",
+      "choices": [
+        {"text": "Gardens are beautiful places that remind us of family members and the time we spent with them.", "correct": false, "id": "A"},
+        {"text": "The precious moments we share with loved ones are what truly matter in life.", "correct": true, "id": "B"},
+        {"text": "It is important to visit relatives in the hospital regularly and spend time with them there.", "correct": false, "id": "C"},
+        {"text": "Social media is a waste of time that prevents us from connecting with the people we love.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "MC",
+      "prompt": "Which piece of evidence BEST supports the theme that spending quality time with loved ones is more important than other distractions?",
+      "stimulus_id": "stimulus_gift_of_time",
+      "choices": [
+        {"text": "\"Her grandmother's hands, once quick and strong from years of gardening, now rested quietly on the white blanket,\" showing the passage of time and family memories.", "correct": false, "id": "A"},
+        {"text": "\"The homework assignments and social media posts that had seemed so important suddenly felt meaningless.\"", "correct": true, "id": "B"},
+        {"text": "\"The red ones by the fence—I planted those the year you were born,\" which connects Emma to her grandmother through the garden over many years.", "correct": false, "id": "C"},
+        {"text": "\"She pulled out her phone, not to scroll through messages, but to take photos,\" demonstrating how Emma learned to use technology in a more meaningful way.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "MC",
+      "prompt": "Which additional piece of evidence supports how Emma's perspective changed?",
+      "stimulus_id": "stimulus_gift_of_time",
+      "choices": [
+        {"text": "\"Emma sat at her grandmother's bedside, watching the afternoon sunlight stream through the hospital window,\" which establishes the peaceful setting where Emma's transformation begins.", "correct": false, "id": "A"},
+        {"text": "\"Emma learned to treasure these quiet moments, understanding now that love isn't measured in grand gestures but in simple presence.\"", "correct": true, "id": "B"},
+        {"text": "\"That evening, as Emma walked through her grandmother's garden, she noticed things she had overlooked before,\" showing her newfound ability to appreciate small details.", "correct": false, "id": "C"},
+        {"text": "\"Standing in the garden at the funeral, surrounded by the blooming roses her grandmother had planted,\" which demonstrates how Emma honors her grandmother's memory.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "MC",
+      "prompt": "How does the evidence \"The homework assignments and social media posts that had seemed so important suddenly felt meaningless\" support the theme?",
+      "stimulus_id": "stimulus_gift_of_time",
+      "choices": [
+        {"text": "It shows that Emma should focus more on her schoolwork and academic responsibilities to honor her grandmother's expectations for her future.", "correct": false, "id": "A"},
+        {"text": "It reveals that Emma realized everyday distractions were less valuable than time with her grandmother, illustrating that we should prioritize meaningful connections.", "correct": true, "id": "B"},
+        {"text": "It proves that social media is bad for teenagers and that young people waste too much time on their phones instead of studying.", "correct": false, "id": "C"},
+        {"text": "It demonstrates that Emma was a careless student who didn't take her education seriously and needed to improve her study habits.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q9",
+      "type": "MC",
+      "prompt": "How does the evidence \"Emma learned to treasure these quiet moments, understanding now that love isn't measured in grand gestures but in simple presence\" develop the theme?",
+      "stimulus_id": "stimulus_gift_of_time",
+      "choices": [
+        {"text": "It shows Emma visiting her grandmother in the hospital and spending time together during the grandmother's final illness.", "correct": false, "id": "A"},
+        {"text": "It explains that love requires expensive gifts and grand gestures like parties and celebrations to show people that you care about them.", "correct": false, "id": "B"},
+        {"text": "It demonstrates that Emma came to understand that meaningful connection happens through being present with loved ones, not through big actions, which reinforces that quality time is what truly matters.", "correct": true, "id": "C"},
+        {"text": "It proves that Emma's grandmother was kind, loving, and generous with her wisdom about relationships and taught Emma important lessons.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "MC",
+      "prompt": "A strong introduction for an ECR about this passage should include which elements in order?",
+      "stimulus_id": "stimulus_gift_of_time",
+      "choices": [
+        {"text": "Hook to engage the reader, thesis statement that makes your claim, then background information about the text", "correct": false, "id": "A"},
+        {"text": "Hook to engage the reader, background information about the text, then thesis statement that makes your claim", "correct": true, "id": "B"},
+        {"text": "Thesis statement that makes your claim, hook to engage the reader, then background information about the text", "correct": false, "id": "C"},
+        {"text": "Background information about the text, hook to engage the reader, then thesis statement that makes your claim", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "stimulus_end",
+      "type": "STIMULUS_END",
+      "prompt": ""
+    },
+    {
+      "id": "q11",
+      "type": "ORDERING",
+      "header": "Order the Introduction Paragraph",
+      "prompt": "The following sentences form an introduction paragraph for an ECR response about \"The Gift of Time.\" Arrange them in the most logical and effective order.",
+      "items": [
+        "Many people get so caught up in daily distractions that they forget to appreciate the people who matter most.",
+        "Through Emma's experience with her dying grandmother, we learn that time is a gift we should use wisely.",
+        "In the story \"The Gift of Time,\" the author develops the theme that the precious moments we share with loved ones are what truly matter in life.",
+        "Throughout the narrative, Emma's transformation from a distracted teenager to someone who values meaningful connection illustrates this important life lesson."
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "ORDERING",
+      "header": "Order the Body Paragraph",
+      "prompt": "The following sentences form a body paragraph for an ECR response about \"The Gift of Time.\" Arrange them in the most logical and effective order.",
+      "items": [
+        "One way the author develops this theme is through Emma's realization in the hospital room.",
+        "The text states, \"The homework assignments and social media posts that had seemed so important suddenly felt meaningless.\"",
+        "This moment is significant because it marks the turning point when Emma recognizes that her daily concerns are trivial compared to the limited time she has with her grandmother.",
+        "The author uses this realization to develop the theme by showing readers that we often don't recognize what truly matters until we face the possibility of losing it.",
+        "Emma's shift in perspective demonstrates how love and connection should take priority over the busy distractions of modern life."
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "MC",
+      "prompt": "Read the following excerpt from a poem:\n\nThe old house stood silent on the hill,\nIts windows dark like vacant eyes,\nThe garden wild with thorns and weeds,\nWhere once bright flowers reached for skies.\n\nWhat can you infer about the house?",
+      "choices": [
+        {"text": "The house is brand new and waiting for its first occupants to move in and make it their home.", "correct": false, "id": "A"},
+        {"text": "The house was once cared for but has been abandoned for some time and is now deteriorating.", "correct": true, "id": "B"},
+        {"text": "The house is currently being renovated by a family who plans to restore it to its former beauty.", "correct": false, "id": "C"},
+        {"text": "The house was never lived in and was always empty since the day that it was originally built.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "MC",
+      "prompt": "Read this passage:\n\nMarcus checked his phone for the fifteenth time in ten minutes. Still no message. He glanced at the door again, then at his watch. The restaurant was filling up with couples and families, their laughter echoing off the walls. He straightened his tie and smoothed down his shirt, then checked his phone once more.\n\nWhat can you infer about Marcus's emotional state?",
+      "choices": [
+        {"text": "Marcus is relaxed and enjoying his meal at the restaurant while waiting patiently for his food to arrive.", "correct": false, "id": "A"},
+        {"text": "Marcus is anxiously waiting for someone who is late or may not show up at all for their meeting.", "correct": true, "id": "B"},
+        {"text": "Marcus is angry and frustrated about the situation and wants to leave the restaurant immediately.", "correct": false, "id": "C"},
+        {"text": "Marcus is celebrating a successful business meeting and is excited about sharing the news with others.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "MC",
+      "prompt": "Based on this excerpt, what can you infer about the relationship between the two characters?\n\n\"You always do this,\" Maya said, her voice barely above a whisper. She turned away, arms crossed tightly against her chest.\n\"I'm sorry,\" Jake replied, reaching out but stopping short of touching her shoulder. \"I really thought I could make it this time.\"\n\"That's what you said last time. And the time before that.\" Maya's voice cracked slightly. \"I just...I can't keep being disappointed.\"",
+      "choices": [
+        {"text": "Maya and Jake have just met recently and are getting to know each other for the first time in their relationship.", "correct": false, "id": "A"},
+        {"text": "Maya and Jake have a pattern of broken promises that has damaged their relationship and Maya's trust in Jake over time.", "correct": true, "id": "B"},
+        {"text": "Maya and Jake are having a minor disagreement that will be quickly resolved and forgotten by the next day.", "correct": false, "id": "C"},
+        {"text": "Maya is overreacting to a situation that doesn't really matter and is being unfair to Jake about his honest efforts.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "MC",
+      "prompt": "Read this passage:\n\nDr. Chen closed the lab notebook and removed her safety goggles, setting them carefully on the counter. Outside the window, the sun was rising, painting the sky in shades of orange and pink. She rubbed her tired eyes and smiled. After three years, countless failed attempts, and more sleepless nights than she could count, the results were finally what she had hoped for.\n\nWhat can you infer about Dr. Chen's experiment?",
+      "choices": [
+        {"text": "The experiment failed completely and Dr. Chen is disappointed with the results and must start over from the beginning.", "correct": false, "id": "A"},
+        {"text": "The experiment was simple and took only one night to complete, which is why she worked through the darkness.", "correct": false, "id": "B"},
+        {"text": "The experiment was successful after a long period of persistent effort and previous failures that she had to overcome.", "correct": true, "id": "C"},
+        {"text": "Dr. Chen is just starting her research project and has many more years of work ahead before seeing results.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "MC",
+      "prompt": "Two different texts both explore the theme that facing challenges helps people grow stronger. Which type of evidence would BEST support this theme in both texts?",
+      "choices": [
+        {"text": "Descriptions of the setting in each text and how the environment affects the characters' daily lives and routines.", "correct": false, "id": "A"},
+        {"text": "Examples of characters overcoming difficulties and becoming more capable or confident as a result of their struggles.", "correct": true, "id": "B"},
+        {"text": "Information about when each text was published and details about the historical context during that time period.", "correct": false, "id": "C"},
+        {"text": "Details about the authors' backgrounds, their education, and their personal experiences that led them to write the texts.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "MC",
+      "prompt": "What is a controlling idea in an informational text?",
+      "choices": [
+        {"text": "A minor detail that appears in one paragraph but doesn't connect to the rest of the article's main focus.", "correct": false, "id": "A"},
+        {"text": "The main point or thesis that the author develops throughout the text with supporting evidence and explanation.", "correct": true, "id": "B"},
+        {"text": "The title of the article, which tells readers what the general topic will be but doesn't state a claim.", "correct": false, "id": "C"},
+        {"text": "A question the author asks readers to think about at the beginning or end of the article for reflection.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "MC",
+      "prompt": "Read this sentence:\n\n\"Her words were daggers, each one cutting deeper than the last.\"\n\nWhat is the most likely reason the author used this metaphor?",
+      "choices": [
+        {"text": "To show that the character was holding a dangerous weapon like a knife or dagger in her hand.", "correct": false, "id": "A"},
+        {"text": "To emphasize how hurtful and painful the words were to the listener who received them.", "correct": true, "id": "B"},
+        {"text": "To describe what the character looked like physically and to help readers picture her appearance.", "correct": false, "id": "C"},
+        {"text": "To show that the character was speaking very quietly and softly so no one else could hear her.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "MC",
+      "prompt": "An author writes an article using a problem-and-solution structure. What is most likely the author's purpose?",
+      "choices": [
+        {"text": "To entertain readers with an interesting story that has exciting characters and a dramatic plot line.", "correct": false, "id": "A"},
+        {"text": "To inform readers about an issue and present possible ways to address it or solve the problem.", "correct": true, "id": "B"},
+        {"text": "To describe what something looks like in detail using sensory language and vivid descriptive words.", "correct": false, "id": "C"},
+        {"text": "To tell events in the order they happened, showing a clear timeline from beginning to end.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "MC",
+      "prompt": "A student reads a novel about a character who overcomes fear to stand up for what is right. The student connects this to a time when they spoke up against bullying at school. What type of connection is this?",
+      "choices": [
+        {"text": "Text-to-text connection, which links one text to another text that the student has read previously.", "correct": false, "id": "A"},
+        {"text": "Text-to-world connection, which links the text to larger issues and events happening in society.", "correct": false, "id": "B"},
+        {"text": "Text-to-self connection, which links the text to the student's own personal experiences and life.", "correct": true, "id": "C"},
+        {"text": "Text-to-author connection, which links the text to what the student knows about who wrote it.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "MC",
+      "prompt": "What is the difference between paraphrasing and summarizing?",
+      "choices": [
+        {"text": "They are exactly the same thing and can be used interchangeably in any situation without any difference.", "correct": false, "id": "A"},
+        {"text": "Paraphrasing restates information in your own words at similar length; summarizing condenses to main ideas only.", "correct": true, "id": "B"},
+        {"text": "Paraphrasing is always longer than summarizing and includes more details from the original text than a summary.", "correct": false, "id": "C"},
+        {"text": "Summarizing uses the author's exact words with quotation marks; paraphrasing doesn't use any original words.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "MC",
+      "prompt": "Read this excerpt:\n\nThe wind howled through the broken shutters, and shadows danced across the cracked walls. Somewhere in the distance, a door creaked slowly open, then slammed shut. The floorboards groaned beneath my feet.\n\nWhat mood does the author create?",
+      "choices": [
+        {"text": "Joyful and celebratory, filled with happiness and excitement about what will happen next in the story.", "correct": false, "id": "A"},
+        {"text": "Calm and peaceful, creating a relaxing atmosphere where readers feel safe and comfortable in the setting.", "correct": false, "id": "B"},
+        {"text": "Eerie and suspenseful, building tension and making readers feel nervous about what might happen.", "correct": true, "id": "C"},
+        {"text": "Angry and aggressive, showing frustration and hostility toward other characters in the scene.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "MC",
+      "prompt": "Read this sentence:\n\n\"The ancient artifact was so fragile that even the slightest touch could shatter it into pieces.\"\n\nBased on context clues, what does \"fragile\" most likely mean?",
+      "choices": [
+        {"text": "Strong and durable, able to withstand pressure and rough handling without breaking or getting damaged.", "correct": false, "id": "A"},
+        {"text": "Valuable and expensive, worth a lot of money because of its age and historical importance.", "correct": false, "id": "B"},
+        {"text": "Easily broken or damaged, delicate and requiring careful handling to avoid destruction.", "correct": true, "id": "C"},
+        {"text": "Old and mysterious, from a time period long ago that we don't know much about today.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q25",
+      "type": "MC",
+      "prompt": "Which sentence is written in third-person limited point of view?",
+      "choices": [
+        {"text": "I walked into the room and immediately felt nervous about what would happen during the presentation.", "correct": false, "id": "A"},
+        {"text": "You should always check your work carefully before submitting it to make sure there are no errors.", "correct": false, "id": "B"},
+        {"text": "Sarah felt her heart racing as she approached the stage, though she didn't know that her teacher was equally nervous in the audience.", "correct": false, "id": "C"},
+        {"text": "Sarah felt her heart racing as she approached the stage to give her speech to the class.", "correct": true, "id": "D"}
+      ]
+    },
+    {
+      "id": "q26",
+      "type": "MC",
+      "prompt": "When writing an ECR response, why is it important to include specific text evidence?",
+      "choices": [
+        {"text": "To make the response longer and meet the required word count or page length for the assignment.", "correct": false, "id": "A"},
+        {"text": "To prove you read the text and support your ideas with facts from the text that show your understanding.", "correct": true, "id": "B"},
+        {"text": "To copy the author's writing style exactly and show that you can write just like the original author.", "correct": false, "id": "C"},
+        {"text": "To fill up space on the page and make your essay look more complete without adding your own ideas.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q27",
+      "type": "MC",
+      "prompt": "Which sentence BEST represents a cause-and-effect relationship?",
+      "choices": [
+        {"text": "The library and the bookstore are both good places to find books to read for enjoyment or research.", "correct": false, "id": "A"},
+        {"text": "First, I went to school; then, I went home; finally, I did my homework and studied for the test.", "correct": false, "id": "B"},
+        {"text": "Because the temperature dropped below freezing, the water in the pipes froze and burst overnight.", "correct": true, "id": "C"},
+        {"text": "Soccer and basketball are both team sports that require cooperation and communication among players.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q28",
+      "type": "MC",
+      "prompt": "Read this stanza:\n\nThe sky was dark and full of rain (A)\nThe thunder rolled across the plain (A)\nA flash of lightning split the night (B)\nAnd filled the world with brilliant light (B)\n\nWhat is the rhyme scheme of this stanza?",
+      "choices": [
+        {"text": "ABAB, where lines 1 and 3 rhyme with each other, and lines 2 and 4 rhyme with each other.", "correct": false, "id": "A"},
+        {"text": "AABB, where lines 1 and 2 rhyme with each other, and lines 3 and 4 rhyme with each other.", "correct": true, "id": "B"},
+        {"text": "ABCD, where none of the lines rhyme with any of the other lines in the stanza at all.", "correct": false, "id": "C"},
+        {"text": "AAAA, where all four lines in the stanza rhyme with each other throughout the entire poem.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q29",
+      "type": "MC",
+      "prompt": "Which transition word would BEST connect these two ideas?\n\n\"The research clearly showed that exercise improves mental health. _____, many schools have started adding more physical activity to their schedules.\"",
+      "choices": [
+        {"text": "However, which shows contrast or opposition between two ideas that seem to contradict each other.", "correct": false, "id": "A"},
+        {"text": "For example, which introduces a specific instance or illustration that demonstrates the previous point.", "correct": false, "id": "B"},
+        {"text": "Therefore, which shows that the second sentence is a result or logical conclusion of the first.", "correct": true, "id": "C"},
+        {"text": "Meanwhile, which shows two things happening at the same time but in different places or situations.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q30",
+      "type": "MC",
+      "prompt": "A poet uses very short lines and frequent line breaks in a poem about anxiety. What effect might this choice have?",
+      "choices": [
+        {"text": "It creates a slow, calm feeling that helps readers relax and feel peaceful as they read the poem.", "correct": false, "id": "A"},
+        {"text": "It mirrors the choppy, quick breathing associated with anxiety and creates a fragmented, tense feeling.", "correct": true, "id": "B"},
+        {"text": "It makes the poem easier to read and understand for all readers regardless of their reading level.", "correct": false, "id": "C"},
+        {"text": "It helps the poem rhyme better and creates a more musical sound when the poem is read aloud.", "correct": false, "id": "D"}
+      ]
+    },
+    {
+      "id": "q31",
+      "type": "MC",
+      "prompt": "An author writes an article titled \"Five Simple Steps to Reduce Your Carbon Footprint.\" What is most likely the author's purpose?",
+      "choices": [
+        {"text": "To entertain readers with a funny story about environmental issues and make them laugh about climate problems.", "correct": false, "id": "A"},
+        {"text": "To persuade readers to take action to help the environment by making specific changes in their daily lives.", "correct": true, "id": "B"},
+        {"text": "To describe what carbon footprints look like physically and explain how they appear in different situations.", "correct": false, "id": "C"},
+        {"text": "To explain the history of environmental science and discuss how scientists discovered carbon footprints over time.", "correct": false, "id": "D"}
+      ]
+    }
+  ],
+  "rationales": [
+    {"item_id": "q1", "correct": "The subject 'students' is plural, requiring 'were,' and the past tense 'rang' maintains consistent tense with 'were working.'", "distractor": "Choice B adds detail but keeps the subject-verb agreement error 'was.'"},
+    {"item_id": "q2", "correct": "The subject is 'collection' (singular), not 'poems,' so the prepositional phrase 'of poems' does not affect subject-verb agreement.", "distractor": "Choice B keeps the agreement error and adds a tense error with 'displays.'"},
+    {"item_id": "q3", "correct": "All three options correctly fix the comma splice error by adding a coordinating conjunction, separating into two sentences, or using a semicolon.", "distractor": "Choice D fixes the comma splice but adds a logical contradiction that changes the meaning."},
+    {"item_id": "q4", "correct": "Pronouns functioning as indirect objects must be in objective case ('her' not 'she'), and convention puts 'she/her' last when combined with other nouns.", "distractor": "Choice A fixes case but keeps awkward order and adds unnecessary words."},
+    {"item_id": "q5", "correct": "This captures the universal life lesson about valuing time with loved ones, developed throughout the story through Emma's realization and actions.", "distractor": "A is too literal and focused on the setting rather than the universal message."},
+    {"item_id": "q6", "correct": "This directly addresses Emma's shift in priorities, recognizing that what once seemed important was actually meaningless compared to time with her grandmother.", "distractor": "A describes setting and physical details but doesn't address the priority shift."},
+    {"item_id": "q7", "correct": "This explicitly states Emma's new understanding about valuing quiet moments and simple presence, which directly supports the theme.", "distractor": "A is setting description that doesn't explain the perspective change."},
+    {"item_id": "q8", "correct": "This explains the significance of the evidence by connecting Emma's realization to the broader theme about prioritizing meaningful relationships.", "distractor": "A misinterprets the message as being about academics rather than relationships."},
+    {"item_id": "q9", "correct": "This fully explains how the evidence connects to the theme by showing Emma's growth in understanding what makes relationships meaningful.", "distractor": "A states what happens in the plot but doesn't explain the significance or connection to theme."},
+    {"item_id": "q10", "correct": "Effective introductions begin with an engaging hook, provide necessary context, then state the controlling idea/thesis.", "distractor": "Starting with thesis is too abrupt; ending with background leaves readers hanging without direction."},
+    {"item_id": "q11", "correct": "Sentence 3 serves as the hook, sentence 4 provides background/context, sentence 1 is the thesis statement, and sentence 2 provides a roadmap.", "distractor": "Other orders don't follow the logical flow of hook-background-thesis-roadmap."},
+    {"item_id": "q12", "correct": "Sentence 4 is the topic sentence, sentence 5 provides textual evidence, sentence 1 explains significance, sentence 2 connects to theme, and sentence 3 provides concluding insight.", "distractor": "Other orders don't follow the logical progression of topic-evidence-explanation-connection-insight."},
+    {"item_id": "q13", "correct": "The details 'once bright flowers' and the current state of being 'wild with thorns and weeds' suggest a past of care contrasted with present neglect.", "distractor": "A contradicts 'old' and the deteriorated state described."},
+    {"item_id": "q14", "correct": "The repeated phone checking, watching the door, and nervous gestures (straightening tie) indicate anxiety about waiting for someone.", "distractor": "A contradicts the anxious behaviors like repeated checking."},
+    {"item_id": "q15", "correct": "Phrases like 'always do this,' 'last time,' and 'the time before that' indicate a repeated pattern, while Maya's emotional response shows damaged trust.", "distractor": "A contradicts the established history suggested by the repeated references."},
+    {"item_id": "q16", "correct": "'After three years,' 'countless failed attempts,' and 'the results were finally what she had hoped for' clearly indicate success after persistent struggle.", "distractor": "A contradicts 'smiled' and 'what she had hoped for.'"},
+    {"item_id": "q17", "correct": "Evidence of characters overcoming difficulties directly supports a theme about growth through challenges.", "distractor": "A (setting) doesn't directly address character growth through challenges."},
+    {"item_id": "q18", "correct": "A controlling idea is the central thesis or main argument that organizes and drives an informational text.", "distractor": "A is too small in scope and doesn't control the whole text."},
+    {"item_id": "q19", "correct": "Comparing words to daggers emphasizes their painful, hurtful impact on the listener.", "distractor": "A takes the metaphor literally rather than figuratively."},
+    {"item_id": "q20", "correct": "Problem-solution structure is typically used to inform readers about issues and present solutions, often with persuasive intent.", "distractor": "A relates to entertainment/narrative purpose."},
+    {"item_id": "q21", "correct": "When readers connect a text to their own personal experiences, it's a text-to-self connection.", "distractor": "A would be connecting to another text the student read."},
+    {"item_id": "q22", "correct": "Paraphrasing restates all information in your own words; summarizing selects only the most important ideas and condenses them.", "distractor": "A is incorrect—they're different skills with different purposes."},
+    {"item_id": "q23", "correct": "Words like 'howled,' 'shadows danced,' 'creaked,' 'slammed,' and 'groaned' create an eerie, suspenseful atmosphere.", "distractor": "A and B contradict the ominous details entirely."},
+    {"item_id": "q24", "correct": "The context 'slightest touch could shatter it' directly defines fragile as easily broken.", "distractor": "A is an antonym of the intended meaning."},
+    {"item_id": "q25", "correct": "Third-person limited uses he/she/they and shows one character's thoughts/feelings; D shows only Sarah's perspective.", "distractor": "A is first person using 'I.'"},
+    {"item_id": "q26", "correct": "Text evidence validates your interpretation and proves your understanding of the text with concrete support.", "distractor": "A, C, and D are not valid purposes for including evidence—they miss the analytical purpose of providing proof and support for claims."},
+    {"item_id": "q27", "correct": "This shows a clear cause (temperature drop) leading to an effect (pipes freezing and bursting), signaled by 'because.'", "distractor": "A shows comparison/contrast between two locations."},
+    {"item_id": "q28", "correct": "Lines 1 and 2 rhyme (rain/plain = AA), and lines 3 and 4 rhyme (night/light = BB), creating AABB pattern.", "distractor": "A would alternate rhymes in a different pattern."},
+    {"item_id": "q29", "correct": "'Therefore' shows that the second sentence is a result or logical conclusion of the first sentence.", "distractor": "A shows contrast, which doesn't fit."},
+    {"item_id": "q30", "correct": "Short, broken lines can visually and rhythmically represent the fragmented, quick quality of anxious thoughts and breathing.", "distractor": "A describes the opposite effect."},
+    {"item_id": "q31", "correct": "The prescriptive format ('Five Simple Steps') suggests the author wants to persuade/encourage readers to take specific actions.", "distractor": "A relates to entertainment, which doesn't match the instructional format."}
+  ]
+}
+</QUIZFORGE_JSON>

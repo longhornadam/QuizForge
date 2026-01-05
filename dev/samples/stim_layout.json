@@ -26,8 +26,7 @@
   "rationales": [
     {
       "item_id": "q1",
-      "correct": "Canvas renders questions to the right when the stimulus orientation is left/top markup.",
-      "distractor": "Below is the default layout, not the specified right-side layout."
+      "rationale": "Canvas renders questions to the right when the stimulus orientation is left/top markup. Below is the default layout, not the specified right-side layout."
     }
   ]
 }

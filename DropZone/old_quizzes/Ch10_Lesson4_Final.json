@@ -1,0 +1,39 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Chapter 10 Lesson 4 Quiz: Computer Number Systems",
+  "metadata": {"chapter": 10, "lesson": 4, "assessment_type": "formative", "question_count": 14},
+  "items": [
+    {"id": "l4q1", "type": "MC", "prompt": "What is a bit?", "choices": [{"text": "a single binary digit (0 or 1)", "correct": true, "id": "B"}, {"text": "a group of 8 zeros or ones", "correct": false, "id": "A"}, {"text": "a decimal number", "correct": false, "id": "C"}, {"text": "a programming error", "correct": false, "id": "D"}]},
+    {"id": "l4q2", "type": "MC", "prompt": "How many bits are in one byte?", "choices": [{"text": "8", "correct": true, "id": "B"}, {"text": "4", "correct": false, "id": "A"}, {"text": "16", "correct": false, "id": "C"}, {"text": "32", "correct": false, "id": "D"}]},
+    {"id": "l4q3", "type": "MC", "prompt": "In binary, what is the \"base\" of the numbering system?", "choices": [{"text": "2", "correct": true, "id": "A"}, {"text": "8", "correct": false, "id": "B"}, {"text": "10", "correct": false, "id": "C"}, {"text": "16", "correct": false, "id": "D"}]},
+    {"id": "l4q4", "type": "MC", "prompt": "What is the decimal \"base\" of our normal numbering system?", "choices": [{"text": "10", "correct": true, "id": "C"}, {"text": "2", "correct": false, "id": "A"}, {"text": "8", "correct": false, "id": "B"}, {"text": "16", "correct": false, "id": "D"}]},
+    {"id": "l4q5", "type": "MC", "prompt": "How many kilobytes are in one megabyte?", "choices": [{"text": "1024", "correct": true, "id": "C"}, {"text": "100", "correct": false, "id": "A"}, {"text": "1000", "correct": false, "id": "B"}, {"text": "10000", "correct": false, "id": "D"}]},
+    {"id": "l4q6", "type": "MC", "prompt": "In binary counting, what happens when you add 1 to binary 011?", "choices": [{"text": "you get 100", "correct": true, "id": "A"}, {"text": "you get 012", "correct": false, "id": "B"}, {"text": "you get 010", "correct": false, "id": "C"}, {"text": "you get 111", "correct": false, "id": "D"}]},
+    {"id": "l4q7", "type": "MC", "prompt": "In the 4-bit \"8-4-2-1\" conversion shortcut, what decimal weight does the leftmost bit represent?", "choices": [{"text": "8", "correct": true, "id": "D"}, {"text": "1", "correct": false, "id": "A"}, {"text": "2", "correct": false, "id": "B"}, {"text": "4", "correct": false, "id": "C"}]},
+    {"id": "l4q8", "type": "MC", "prompt": "Using the \"8-4-2-1\" shortcut, what is binary 1010 in decimal?", "choices": [{"text": "10", "correct": true, "id": "B"}, {"text": "8", "correct": false, "id": "A"}, {"text": "12", "correct": false, "id": "C"}, {"text": "14", "correct": false, "id": "D"}]},
+    {"id": "l4q9", "type": "MC", "prompt": "What is the decimal value of binary 0101?", "choices": [{"text": "5", "correct": true, "id": "B"}, {"text": "3", "correct": false, "id": "A"}, {"text": "7", "correct": false, "id": "C"}, {"text": "9", "correct": false, "id": "D"}]},
+    {"id": "l4q10", "type": "MC", "prompt": "To convert decimal to binary, you repeatedly", "choices": [{"text": "subtract powers of 2", "correct": true, "id": "D"}, {"text": "add powers of 2", "correct": false, "id": "A"}, {"text": "multiply by 2", "correct": false, "id": "B"}, {"text": "divide by 2 and track remainders", "correct": false, "id": "C"}]},
+    {"id": "l4q11", "type": "MC", "prompt": "What is hexadecimal's base?", "choices": [{"text": "16", "correct": true, "id": "D"}, {"text": "2", "correct": false, "id": "A"}, {"text": "8", "correct": false, "id": "B"}, {"text": "10", "correct": false, "id": "C"}]},
+    {"id": "l4q12", "type": "MC", "prompt": "What is octal's base?", "choices": [{"text": "8", "correct": true, "id": "B"}, {"text": "2", "correct": false, "id": "A"}, {"text": "10", "correct": false, "id": "C"}, {"text": "16", "correct": false, "id": "D"}]},
+    {"id": "l4q13", "type": "MC", "prompt": "Why do computers naturally use binary?", "choices": [{"text": "transistors represent on/off states", "correct": true, "id": "B"}, {"text": "binary math is easier", "correct": false, "id": "A"}, {"text": "decimal takes too much memory", "correct": false, "id": "C"}, {"text": "programmers prefer it", "correct": false, "id": "D"}]},
+    {"id": "l4q14", "type": "MC", "prompt": "The same binary sequence representing different things (number, text, color) depending on how it's used is an example of", "choices": [{"text": "abstraction", "correct": true, "id": "C"}, {"text": "encryption", "correct": false, "id": "A"}, {"text": "compilation", "correct": false, "id": "B"}, {"text": "translation", "correct": false, "id": "D"}]}
+  ],
+  "rationales": [
+    {"item_id": "l4q1", "rationale": "A bit is a single binary digit that can be either 0 or 1."},
+    {"item_id": "l4q2", "rationale": "A byte consists of 8 bits."},
+    {"item_id": "l4q3", "rationale": "Binary is base-2, meaning it uses 2 digits (0 and 1)."},
+    {"item_id": "l4q4", "rationale": "Decimal is base-10, using digits 0 through 9."},
+    {"item_id": "l4q5", "rationale": "1 megabyte = 1024 kilobytes."},
+    {"item_id": "l4q6", "rationale": "Binary 011 (3) plus 1 equals 100 (4)."},
+    {"item_id": "l4q7", "rationale": "In a 4-bit number, the leftmost position has a weight of 2³ = 8."},
+    {"item_id": "l4q8", "rationale": "1010 = 8 + 0 + 2 + 0 = 10."},
+    {"item_id": "l4q9", "rationale": "0101 = 0 + 4 + 0 + 1 = 5."},
+    {"item_id": "l4q10", "rationale": "Decimal to binary conversion involves subtracting powers of 2 (128, 64, 32, etc.)."},
+    {"item_id": "l4q11", "rationale": "Hexadecimal is base-16, using digits 0-9 and letters A-F."},
+    {"item_id": "l4q12", "rationale": "Octal is base-8, using digits 0-7."},
+    {"item_id": "l4q13", "rationale": "Computer hardware (transistors) naturally represents on/off states as binary 1/0."},
+    {"item_id": "l4q14", "rationale": "Abstraction allows the same data to represent different concepts based on context."}
+  ]
+}
+</QUIZFORGE_JSON>

@@ -135,53 +135,43 @@
   "rationales": [
     {
       "item_id": "mc_indicator",
-      "correct": "Survival near sensor sites directly signals that planted grasses are taking hold in the monitored areas.",
-      "distractor": "High salinity or unchanged bird counts do not confirm plant establishment."
+      "rationale": "Survival near sensor sites directly signals that planted grasses are taking hold in the monitored areas. High salinity or unchanged bird counts do not confirm plant establishment."
     },
     {
       "item_id": "ma_code_safety",
-      "correct": "Filtering None values and guarding against zero-length data prevents crashes while keeping valid readings.",
-      "distractor": "Zeroing all data or skipping averaging removes the evidence needed to detect salinity problems."
+      "rationale": "Filtering None values and guarding against zero-length data prevents crashes while keeping valid readings. Zeroing all data or skipping averaging removes the evidence needed to detect salinity problems."
     },
     {
       "item_id": "tf_biodiversity",
-      "correct": "A single species leaves the marsh vulnerable because one pest or stressor can wipe out that monoculture.",
-      "distractor": "Biodiverse plantings spread risk, so monoculture is not safer."
+      "rationale": "A single species leaves the marsh vulnerable because one pest or stressor can wipe out that monoculture. Biodiverse plantings spread risk, so monoculture is not safer."
     },
     {
       "item_id": "fitb_phasechange",
-      "correct": "Evaporation moves water from liquid to gas, so both blanks must reflect that phase change.",
-      "distractor": "States like solid ice or mist do not match the described evaporation process."
+      "rationale": "Evaporation moves water from liquid to gas, so both blanks must reflect that phase change. States like solid ice or mist do not match the described evaporation process."
     },
     {
       "item_id": "essay_fieldnotes",
-      "correct": "Strong responses link qualitative observations to data trends and propose decisions those insights justify.",
-      "distractor": "Weak responses only restate observations without connecting them to actions."
+      "rationale": "Strong responses link qualitative observations to data trends and propose decisions those insights justify. Weak responses only restate observations without connecting them to actions."
     },
     {
       "item_id": "fileupload_monitor",
-      "correct": "The upload must show placement reasoning and obstacles so reviewers can judge data quality.",
-      "distractor": "Generic images without context do not explain how sensor location affects readings."
+      "rationale": "The upload must show placement reasoning and obstacles so reviewers can judge data quality. Generic images without context do not explain how sensor location affects readings."
     },
     {
       "item_id": "matching_terms",
-      "correct": "Each term aligns with its fieldwork definition, reinforcing vocabulary accuracy.",
-      "distractor": "Swapping pairs would misrepresent methods like control plots or transects."
+      "rationale": "Each term aligns with its fieldwork definition, reinforcing vocabulary accuracy. Swapping pairs would misrepresent methods like control plots or transects."
     },
     {
       "item_id": "ordering_fieldwork",
-      "correct": "Calibration precedes placement, then observation, then data upload to mirror real workflows.",
-      "distractor": "Jumping to data upload before collection would skip critical quality steps."
+      "rationale": "Calibration precedes placement, then observation, then data upload to mirror real workflows. Jumping to data upload before collection would skip critical quality steps."
     },
     {
       "item_id": "categorization_poem",
-      "correct": "Lines with human-like actions are personification; vivid sensory images belong under imagery.",
-      "distractor": "Treating every line as imagery ignores the intentional personification of the marsh and sensors."
+      "rationale": "Lines with human-like actions are personification; vivid sensory images belong under imagery. Treating every line as imagery ignores the intentional personification of the marsh and sensors."
     },
     {
       "item_id": "numerical_carbon",
-      "correct": "Multiplying 2.5 hectares by 5.8 tons yields 14.5 tons, with a 2% margin allowing minor rounding.",
-      "distractor": "Using addition or ignoring the percent margin would misstate the stored carbon."
+      "rationale": "Multiplying 2.5 hectares by 5.8 tons yields 14.5 tons, with a 2% margin allowing minor rounding. Using addition or ignoring the percent margin would misstate the stored carbon."
     }
   ]
 }
