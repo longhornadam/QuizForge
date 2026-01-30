@@ -1,0 +1,126 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Sci-Fi Suspense Semicolon Revision (Tone and Clarity)",
+"metadata": {
+"grade": 7,
+"focus": "Semicolons to connect ideas and shape mood (STAAR-style revising and editing)",
+"standard_hint": "TEKS 7.10D (Editing)"
+},
+"items": [
+{
+"id": "stim_main",
+"type": "STIMULUS",
+"format": "markdown",
+"layout": "below",
+"prompt": "Read the passage. Paragraphs are numbered.\n\n**Suspense Passage (Semicolon Draft With Problems)**\n\n**[1]** At 2:17 a.m., the Borealis Gate sounded like a refrigerator that could not decide whether to breathe or die. Juno sat alone in the control booth under the snowline, watching frost creep across the glass.\n\n**[2]** The monitors showed two live feeds of the same hallway, one from her camera, one from somewhere else. In the second feed the floor tiles were cracked, the exit sign read EAST DOOR, and the clock in the corner counted backward. Juno told herself it was a calibration glitch, she did not believe it.\n\n**[3]** A line of text appeared on her screen: DO NOT TRUST THE NEXT YOU. The message did not have a sender, it did not need one. Juno checked the hallway again, her hallway was empty.\n\n**[4]** The intercom popped with a soft click, then a voice that sounded like her own whispered, \"Open it.\" Juno froze, her hand hovered above the release switch.\n\n**[5]** She could shut the Gate down, she could call for backup, she could run. Instead she reached for the manual; it had never felt heavier. The first page was marked with a note in pencil: If the second door opens you will hear three knocks.\n\n**[6]** Three knocks came immediately; slow, careful, polite. Juno stared at the window and saw movement in the second feed. Someone stood just outside the booth, smiling, wearing her coat.\n\n**[7]** Juno raised her hand; to the glass. The other Juno raised hers too and mouthed a single word: \"Soon.\" The booth lights flickered, and the hallway cameras went dark.\n\n**[8]** On the emergency screen, a message flashed, seal the chamber immediately, do not look into the hallway window. Juno read it once, then twice, and realized the warning was not written for one world."
+},
+{
+"id": "q1",
+"type": "MC",
+"stimulus_id": "stim_main",
+"prompt": "Paragraph 2: The writer wants the second sentence to feel tense but controlled. Which revision best fixes the sentence and keeps the ideas closely connected?",
+"choices": [
+{ "id": "A", "text": "Juno told herself it was a calibration glitch; she did not believe it.", "correct": true },
+{ "id": "B", "text": "Juno told herself it was a calibration glitch, she did not believe it.", "correct": false },
+{ "id": "C", "text": "Juno told herself it was a calibration glitch; but she did not believe it.", "correct": false },
+{ "id": "D", "text": "Juno told herself it was a calibration glitch. And she did not believe it.", "correct": false }
+]
+},
+{
+"id": "q2",
+"type": "MC",
+"stimulus_id": "stim_main",
+"prompt": "Paragraph 4: The writer wants a clear pause before the suspenseful detail. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "Juno froze; her hand hovered above the release switch.", "correct": true },
+{ "id": "B", "text": "Juno froze, her hand; hovered above the release switch.", "correct": false },
+{ "id": "C", "text": "Juno froze; and her hand hovered above the release switch.", "correct": false },
+{ "id": "D", "text": "Juno froze her hand hovered; above the release switch.", "correct": false }
+]
+},
+{
+"id": "q3",
+"type": "MC",
+"stimulus_id": "stim_main",
+"prompt": "Paragraph 6: The writer wants to connect two complete thoughts without making the sentence feel rushed. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "Three knocks came immediately; slow, careful, polite.", "correct": false },
+{ "id": "B", "text": "Three knocks came immediately; they were slow, careful, and polite.", "correct": true },
+{ "id": "C", "text": "Three knocks came immediately, they were slow, careful, and polite.", "correct": false },
+{ "id": "D", "text": "Three knocks came immediately. They were slow, careful, and polite.", "correct": false }
+]
+},
+{
+"id": "q4",
+"type": "MC",
+"stimulus_id": "stim_main",
+"prompt": "Paragraph 7: The writer wants the action to read smoothly. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "Juno raised her hand to the glass.", "correct": true },
+{ "id": "B", "text": "Juno raised her hand; to the glass.", "correct": false },
+{ "id": "C", "text": "Juno raised her hand to; the glass.", "correct": false },
+{ "id": "D", "text": "Juno; raised her hand to the glass.", "correct": false }
+]
+},
+{
+"id": "q5",
+"type": "MC",
+"stimulus_id": "stim_main",
+"prompt": "Paragraph 5: The writer wants the sentence to feel steady and escalating, like a countdown. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "She could shut the Gate down; she could call for backup; she could run.", "correct": true },
+{ "id": "B", "text": "She could shut the Gate down, she could call for backup; she could run.", "correct": false },
+{ "id": "C", "text": "She could shut the Gate down; and she could call for backup; and she could run.", "correct": false },
+{ "id": "D", "text": "She could shut the Gate down. She could call for backup; she could run.", "correct": false }
+]
+},
+{
+"id": "q6",
+"type": "MC",
+"stimulus_id": "stim_main",
+"prompt": "Paragraph 8: The writer wants the warning to feel urgent but clear. Which revision best fixes the sentence?",
+"choices": [
+{ "id": "A", "text": "On the emergency screen, a message flashed: seal the chamber immediately; do not look into the hallway window.", "correct": true },
+{ "id": "B", "text": "On the emergency screen, a message flashed, seal the chamber immediately, do not look into the hallway window.", "correct": false },
+{ "id": "C", "text": "On the emergency screen, a message flashed; seal the chamber immediately, do not look into the hallway window.", "correct": false },
+{ "id": "D", "text": "On the emergency screen a message flashed: seal the chamber immediately do not look into the hallway window.", "correct": false }
+]
+},
+{
+"id": "q7",
+"type": "MC",
+"stimulus_id": "stim_main",
+"prompt": "Paragraph 3: The writer wants the second sentence to feel like a warning that keeps coming. Which revision best creates that effect?",
+"choices": [
+{ "id": "A", "text": "The message did not have a sender; it did not need one.", "correct": true },
+{ "id": "B", "text": "The message did not have a sender, it did not need one.", "correct": false },
+{ "id": "C", "text": "The message did not have a sender; and it did not need one.", "correct": false },
+{ "id": "D", "text": "The message did not have a sender. It did not need one.", "correct": false }
+]
+},
+{
+"id": "q8",
+"type": "MC",
+"stimulus_id": "stim_main",
+"prompt": "Paragraph 1: The writer wants to show two images that belong together in the reader's mind. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "Juno sat alone in the control booth under the snowline; watching frost creep across the glass.", "correct": false },
+{ "id": "B", "text": "Juno sat alone in the control booth under the snowline, watching frost creep across the glass.", "correct": true },
+{ "id": "C", "text": "Juno sat alone in the control booth under the snowline; and watching frost creep across the glass.", "correct": false },
+{ "id": "D", "text": "Juno sat alone; in the control booth under the snowline, watching frost creep across the glass.", "correct": false }
+]
+}
+],
+"rationales": [
+{ "item_id": "q1", "rationale": "Choice A correctly uses a semicolon to connect two complete thoughts, creating a controlled pause that heightens tension." },
+{ "item_id": "q2", "rationale": "Choice A correctly joins two complete thoughts with a semicolon, creating a clean break before the suspenseful detail." },
+{ "item_id": "q3", "rationale": "Choice B correctly uses a semicolon to connect two complete thoughts and keeps the description from feeling rushed or choppy." },
+{ "item_id": "q4", "rationale": "Choice A is best because this sentence is not two complete thoughts, so it should not use a semicolon; it reads smoothly as written." },
+{ "item_id": "q5", "rationale": "Choice A correctly uses semicolons to connect a set of complete thoughts, creating an even, escalating rhythm like a countdown." },
+{ "item_id": "q6", "rationale": "Choice A clearly introduces the warning with a colon and uses a semicolon to separate two complete commands, keeping the message urgent and easy to follow." },
+{ "item_id": "q7", "rationale": "Choice A correctly uses a semicolon to link two complete thoughts so the warning feels continuous and insistent." },
+{ "item_id": "q8", "rationale": "Choice B correctly uses a comma to attach the descriptive phrase to the main sentence; a semicolon would be incorrect here because the second part is not a complete sentence." }
+]
+}
+</QUIZFORGE_JSON>

@@ -1,0 +1,192 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "The Monsters Are Due on Maple Street – Act 1 Reading Quiz",
+"metadata": {
+"grade": 7,
+"unit": "Unit 5: The Power of One",
+"focus_teks": ["7.5(E)", "7.6(C)"],
+"notes": "14 MC and 1 SCR; correct answer is longest in 3 of 14 items (~21%)"
+},
+"items": [
+{
+"id": "mc1",
+"type": "MC",
+"prompt": "What event first disrupts the calm atmosphere on Maple Street?",
+"choices": [
+{ "id": "A", "text": "A strange flash of light moves across the sky", "correct": true },
+{ "id": "B", "text": "A loud argument breaks out between several neighbors on the street", "correct": false },
+{ "id": "C", "text": "A police car suddenly drives through the neighborhood", "correct": false },
+{ "id": "D", "text": "A house alarm begins ringing without explanation", "correct": false }
+]
+},
+{
+"id": "mc2",
+"type": "MC",
+"prompt": "Which detail best shows that something is wrong in the neighborhood?",
+"choices": [
+{ "id": "A", "text": "The electricity and phones stop working", "correct": true },
+{ "id": "B", "text": "Children continue playing games in the street as usual", "correct": false },
+{ "id": "C", "text": "Neighbors sit calmly on their porches talking with each other", "correct": false },
+{ "id": "D", "text": "The sun begins to set at the end of the day", "correct": false }
+]
+},
+{
+"id": "mc3",
+"type": "MC",
+"prompt": "Why do Steve and Charlie decide to go into town?",
+"choices": [
+{ "id": "A", "text": "They want to check if the problem is happening elsewhere", "correct": true },
+{ "id": "B", "text": "They plan to report their neighbors for acting strangely", "correct": false },
+{ "id": "C", "text": "They believe the situation has already been solved", "correct": false },
+{ "id": "D", "text": "They are ordered to leave by the other adults", "correct": false }
+]
+},
+{
+"id": "mc4",
+"type": "MC",
+"prompt": "What explanation do the adults first give for the power failure?",
+"choices": [
+{ "id": "A", "text": "It might have been caused by a storm or sunspots", "correct": true },
+{ "id": "B", "text": "Aliens are secretly controlling the neighborhood devices", "correct": false },
+{ "id": "C", "text": "The government shut off power for an experiment", "correct": false },
+{ "id": "D", "text": "Someone on the street cut the power lines on purpose", "correct": false }
+]
+},
+{
+"id": "mc5",
+"type": "MC",
+"prompt": "What idea does Tommy introduce that changes the mood of the group?",
+"choices": [
+{ "id": "A", "text": "Aliens may be behind the strange events on the street", "correct": true },
+{ "id": "B", "text": "A storm damaged equipment in the neighborhood earlier that day", "correct": false },
+{ "id": "C", "text": "The power company made a simple mistake", "correct": false },
+{ "id": "D", "text": "The problem will fix itself very soon", "correct": false }
+]
+},
+{
+"id": "mc6",
+"type": "MC",
+"prompt": "How do most adults react when Tommy first shares his theory?",
+"choices": [
+{ "id": "A", "text": "They laugh and do not take him seriously", "correct": true },
+{ "id": "B", "text": "They immediately believe every detail of his story", "correct": false },
+{ "id": "C", "text": "They panic and begin accusing each other", "correct": false },
+{ "id": "D", "text": "They quietly leave their homes without speaking", "correct": false }
+]
+},
+{
+"id": "mc7",
+"type": "MC",
+"prompt": "What detail makes the neighbors begin to suspect Les Goodman?",
+"choices": [
+{ "id": "A", "text": "His car starts when other machines do not", "correct": true },
+{ "id": "B", "text": "He refuses to talk to anyone on the street for a long time", "correct": false },
+{ "id": "C", "text": "He leaves the neighborhood without explanation", "correct": false },
+{ "id": "D", "text": "He openly accuses the other neighbors of wrongdoing", "correct": false }
+]
+},
+{
+"id": "mc8",
+"type": "MC",
+"prompt": "Why does Steve warn the neighbors not to act like a mob?",
+"choices": [
+{ "id": "A", "text": "He believes fear is causing them to act without thinking", "correct": true },
+{ "id": "B", "text": "He wants to protect Les Goodman because they are close friends", "correct": false },
+{ "id": "C", "text": "He is worried the police will punish everyone involved", "correct": false },
+{ "id": "D", "text": "He already knows the true cause of the problem", "correct": false }
+]
+},
+{
+"id": "mc9",
+"type": "MC",
+"prompt": "Which word best describes the neighbors behavior by the end of Act 1?",
+"choices": [
+{ "id": "A", "text": "Suspicious", "correct": true },
+{ "id": "B", "text": "Relaxed and confident about the situation", "correct": false },
+{ "id": "C", "text": "Completely uninterested in what is happening", "correct": false },
+{ "id": "D", "text": "Joyful because the problem is solved", "correct": false }
+]
+},
+{
+"id": "mc10",
+"type": "MC",
+"prompt": "What does the failure of technology mostly symbolize in Act 1?",
+"choices": [
+{ "id": "A", "text": "The loss of control and growing fear among the people", "correct": true },
+{ "id": "B", "text": "The importance of modern machines in daily life only", "correct": false },
+{ "id": "C", "text": "A permanent breakdown of society everywhere", "correct": false },
+{ "id": "D", "text": "A planned test by scientists", "correct": false }
+]
+},
+{
+"id": "mc11",
+"type": "MC",
+"prompt": "Which detail best supports the idea that fear is spreading?",
+"choices": [
+{ "id": "A", "text": "Neighbors begin watching and accusing one another", "correct": true },
+{ "id": "B", "text": "Children continue playing games without concern", "correct": false },
+{ "id": "C", "text": "People calmly wait for help to arrive", "correct": false },
+{ "id": "D", "text": "Everyone agrees on the same explanation", "correct": false }
+]
+},
+{
+"id": "mc12",
+"type": "MC",
+"prompt": "Why is Tommy’s age important to how his ideas are received?",
+"choices": [
+{ "id": "A", "text": "Adults dismiss him at first because he is a child", "correct": true },
+{ "id": "B", "text": "Adults trust him more because children are always honest", "correct": false },
+{ "id": "C", "text": "He is old enough to be responsible for the outage", "correct": false },
+{ "id": "D", "text": "His age gives him authority over the adults", "correct": false }
+]
+},
+{
+"id": "mc13",
+"type": "MC",
+"prompt": "What theme clearly begins to develop in Act 1?",
+"choices": [
+{ "id": "A", "text": "Fear can cause people to turn against each other", "correct": true },
+{ "id": "B", "text": "Technology always creates more problems than solutions", "correct": false },
+{ "id": "C", "text": "Children are wiser than adults in every situation", "correct": false },
+{ "id": "D", "text": "Neighbors should avoid close relationships", "correct": false }
+]
+},
+{
+"id": "mc14",
+"type": "MC",
+"prompt": "Which action best shows that logic is starting to break down?",
+"choices": [
+{ "id": "A", "text": "Neighbors suspect Les because his car works differently", "correct": true },
+{ "id": "B", "text": "Steve calmly suggests checking with the authorities", "correct": false },
+{ "id": "C", "text": "Charlie asks reasonable questions about the outage", "correct": false },
+{ "id": "D", "text": "People wait for Pete Van Horn to return", "correct": false }
+]
+},
+{
+"id": "scr1",
+"type": "ESSAY",
+"prompt": "How does fear begin to influence the neighbors decisions in Act 1? Use one specific detail from the play to support your answer.",
+"length_guidance": "2-3 sentences",
+"rubric_hint": "Explain an effect of fear and support it with a clear detail from Act 1."
+}
+],
+"rationales": [
+{ "item_id": "mc1", "rationale": "The flash of light in the sky interrupts the normal evening and causes concern." },
+{ "item_id": "mc2", "rationale": "The loss of power and communication clearly signals that something is wrong." },
+{ "item_id": "mc3", "rationale": "Steve and Charlie leave to see if the issue is limited to Maple Street." },
+{ "item_id": "mc4", "rationale": "The adults first rely on scientific explanations like storms or sunspots." },
+{ "item_id": "mc5", "rationale": "Tommy introduces the idea of aliens, which increases fear." },
+{ "item_id": "mc6", "rationale": "The adults laugh at Tommy, showing initial disbelief." },
+{ "item_id": "mc7", "rationale": "Les becomes suspicious because his car works when others do not." },
+{ "item_id": "mc8", "rationale": "Steve recognizes that fear is driving the group toward irrational behavior." },
+{ "item_id": "mc9", "rationale": "Suspicion grows as neighbors question each other." },
+{ "item_id": "mc10", "rationale": "Broken technology reflects growing fear and loss of control." },
+{ "item_id": "mc11", "rationale": "Accusations show fear spreading through the group." },
+{ "item_id": "mc12", "rationale": "Tommy is ignored at first because adults see him as just a child." },
+{ "item_id": "mc13", "rationale": "The play begins showing how fear can divide a community." },
+{ "item_id": "mc14", "rationale": "Suspicion based on Les car shows reasoning is breaking down." },
+{ "item_id": "scr1", "rationale": "A strong response explains how fear affects behavior and cites a specific Act 1 event." }
+]
+}
+</QUIZFORGE_JSON>

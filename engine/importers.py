@@ -149,6 +149,11 @@ def _packaged_to_domain(packaged) -> Quiz:
     questions: List[Question] = []
     current_stimulus_id: Optional[str] = None
 
+    def _render_mode(item: dict) -> str:
+        raw = item.get("render_mode", "executable")
+        mode = raw.lower() if isinstance(raw, str) else "executable"
+        return mode if mode in {"verbatim", "executable"} else "executable"
+
     def _points(item: dict) -> float:
         return float(item["points"]) if "points" in item else 0.0
 
@@ -157,6 +162,7 @@ def _packaged_to_domain(packaged) -> Quiz:
         prompt = item.get("prompt", "")
         stim_id = item.get("stimulus_id")
         forced_ident = item.get("id")
+        render_mode = _render_mode(item)
 
         if qtype == "STIMULUS":
             forced_ident = forced_ident or f"stim_{uuid.uuid4().hex[:8]}"
@@ -164,13 +170,13 @@ def _packaged_to_domain(packaged) -> Quiz:
             layout = str(layout_raw).lower() if isinstance(layout_raw, str) else "below"
             if layout not in {"below", "right"}:
                 layout = "below"
-            q = StimulusItem(qtype="STIMULUS", prompt=prompt, points=0.0, points_set=False, forced_ident=forced_ident, layout=layout)
+            q = StimulusItem(qtype="STIMULUS", prompt=prompt, render_mode=render_mode, points=0.0, points_set=False, forced_ident=forced_ident, layout=layout)
             current_stimulus_id = forced_ident
             questions.append(q)
             continue
 
         if qtype == "STIMULUS_END":
-            q = StimulusEnd(qtype="STIMULUS_END", prompt=prompt, points=0.0, points_set=False)
+            q = StimulusEnd(qtype="STIMULUS_END", prompt=prompt, render_mode=render_mode, points=0.0, points_set=False)
             current_stimulus_id = None
             questions.append(q)
             continue
@@ -181,15 +187,16 @@ def _packaged_to_domain(packaged) -> Quiz:
 
         if qtype == "MC":
             choices = [MCChoice(text=c["text"], correct=bool(c.get("correct"))) for c in item.get("choices", [])]
-            q = MCQuestion(qtype="MC", prompt=prompt, points=pts, points_set=pts_set, choices=choices, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
+            q = MCQuestion(qtype="MC", prompt=prompt, render_mode=render_mode, points=pts, points_set=pts_set, choices=choices, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "MA":
             choices = [MCChoice(text=c["text"], correct=bool(c.get("correct"))) for c in item.get("choices", [])]
-            q = MAQuestion(qtype="MA", prompt=prompt, points=pts, points_set=pts_set, choices=choices, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
+            q = MAQuestion(qtype="MA", prompt=prompt, render_mode=render_mode, points=pts, points_set=pts_set, choices=choices, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "TF":
             answer_raw = item.get("answer")
             q = TFQuestion(
                 qtype="TF",
                 prompt=prompt,
+                render_mode=render_mode,
                 points=pts,
                 points_set=pts_set,
                 answer_true=_parse_tf_answer(answer_raw),
@@ -198,7 +205,7 @@ def _packaged_to_domain(packaged) -> Quiz:
             )
         elif qtype == "MATCHING":
             pairs = [MatchingPair(prompt=p["left"], answer=p["right"]) for p in item.get("pairs", [])]
-            q = MatchingQuestion(qtype="MATCHING", prompt=prompt, points=pts, points_set=pts_set, pairs=pairs, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
+            q = MatchingQuestion(qtype="MATCHING", prompt=prompt, render_mode=render_mode, points=pts, points_set=pts_set, pairs=pairs, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "FITB":
             accept_list = item.get("accept", []) or []
             variants: List[str] = []
@@ -245,6 +252,7 @@ def _packaged_to_domain(packaged) -> Quiz:
             q = FITBQuestion(
                 qtype="FITB",
                 prompt=prompt_with_token,
+                render_mode=render_mode,
                 points=pts,
                 points_set=pts_set,
                 variants=variants,
@@ -257,14 +265,15 @@ def _packaged_to_domain(packaged) -> Quiz:
                 forced_ident=forced_ident,
             )
         elif qtype == "ESSAY":
-            q = EssayQuestion(qtype="ESSAY", prompt=prompt, points=pts, points_set=pts_set, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
+            q = EssayQuestion(qtype="ESSAY", prompt=prompt, render_mode=render_mode, points=pts, points_set=pts_set, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "FILEUPLOAD":
-            q = FileUploadQuestion(qtype="FILEUPLOAD", prompt=prompt, points=pts, points_set=pts_set, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
+            q = FileUploadQuestion(qtype="FILEUPLOAD", prompt=prompt, render_mode=render_mode, points=pts, points_set=pts_set, parent_stimulus_ident=parent_stimulus, forced_ident=forced_ident)
         elif qtype == "ORDERING":
             items = [OrderingItem(text=text, ident=str(uuid.uuid4())) for text in item.get("items", [])]
             q = OrderingQuestion(
                 qtype="ORDERING",
                 prompt=prompt,
+                render_mode=render_mode,
                 points=pts,
                 points_set=pts_set,
                 items=items,
@@ -286,6 +295,7 @@ def _packaged_to_domain(packaged) -> Quiz:
             q = CategorizationQuestion(
                 qtype="CATEGORIZATION",
                 prompt=prompt,
+                render_mode=render_mode,
                 points=pts,
                 points_set=pts_set,
                 categories=categories,
@@ -297,7 +307,7 @@ def _packaged_to_domain(packaged) -> Quiz:
                 forced_ident=forced_ident,
             )
         elif qtype == "NUMERICAL":
-            q = _convert_numerical(item, pts, pts_set, parent_stimulus, forced_ident)
+            q = _convert_numerical(item, pts, pts_set, parent_stimulus, forced_ident, render_mode=render_mode)
         else:
             logger.warning("Unsupported item type '%s' encountered; skipping", qtype)
             continue
@@ -314,7 +324,7 @@ def _packaged_to_domain(packaged) -> Quiz:
     return Quiz(title=title, questions=questions, rationales=rationale_entries)
 
 
-def _convert_numerical(item: dict, pts: float, pts_set: bool, parent_stimulus: Optional[str], forced_ident: Optional[str]) -> NumericalQuestion:
+def _convert_numerical(item: dict, pts: float, pts_set: bool, parent_stimulus: Optional[str], forced_ident: Optional[str], *, render_mode: str = "verbatim") -> NumericalQuestion:
     evaluation = item.get("evaluation", {}) or {}
     mode = evaluation.get("mode", "exact")
     answer_raw = item.get("answer")
@@ -345,6 +355,7 @@ def _convert_numerical(item: dict, pts: float, pts_set: bool, parent_stimulus: O
     return NumericalQuestion(
         qtype="NUMERICAL",
         prompt=item.get("prompt", ""),
+        render_mode=render_mode,
         points=pts,
         points_set=pts_set,
         answer=answer_spec,

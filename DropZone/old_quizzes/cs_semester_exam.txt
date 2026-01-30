@@ -663,5 +663,4 @@
 { "item_id": "ch9_q5", "correct": "Sequential search can stop immediately when it finds the target value.", "distractor": "Sorting matters for binary search, not for whether sequential search can stop on a match." },
 { "item_id": "ch9_q6", "correct": "Tuples are immutable, so they protect values that should not be changed.", "distractor": "Frequent editing is a reason to use lists, not tuples." }
 ]
-}
-</QUIZFORGE_JSON>
+}</QUIZFORGE_JSON>

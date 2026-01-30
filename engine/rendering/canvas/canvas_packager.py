@@ -6,7 +6,9 @@ Performs NO validation - trusts input is perfect.
 
 from typing import Tuple
 from engine.core.quiz import Quiz
+from engine.validation.rules.render_mode_rules import validate_render_mode
 from .qti_builder import build_assessment_xml
+from .qti_roundtrip import verify_qti_round_trip
 from .manifest_builder import build_manifest_xml
 from .metadata_builder import build_assessment_meta_xml
 from .zip_packager import create_zip_bytes
@@ -26,7 +28,13 @@ class CanvasPackager:
         """
         import uuid
         guid = str(uuid.uuid4())
+
+        errors = validate_render_mode(quiz)
+        if errors:
+            raise ValueError("Render mode validation failed: " + " | ".join(errors))
+
         assessment_xml = build_assessment_xml(quiz)
+        verify_qti_round_trip(quiz, assessment_xml)
         manifest_xml = build_manifest_xml(quiz.title, guid)
         meta_xml = build_assessment_meta_xml(quiz.title, quiz.total_points(), guid)
         zip_bytes = create_zip_bytes(manifest_xml, assessment_xml, meta_xml, guid)

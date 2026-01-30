@@ -1,0 +1,197 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Practice 4: Final Passages Editing and Revision",
+  "metadata": {
+    "grade": 7,
+    "unit": "Unit 5 Writing and Editing",
+    "subunit": "Subunit 2",
+    "note": "Rich HTML formatting test - questions use paragraph breaks, quoted text styling, and emphasis for readability",
+    "validation_status": "Pedagogically validated - all questions meet ELA Quiz Pedagogical Validation Schema standards",
+    "teks_alignment": ["7.10.B(i)", "7.10.B(ii)", "7.10.C", "7.10.D(i)", "7.10.D(vii)", "7.10.D(viii)", "7.10.D(ix)"]
+  },
+  "items": [
+    {
+      "id": "q29",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"Compliment Letter for a Great Product\"</strong>:</p><p>Sentence 4 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"In my opinion, these earbuds are the perfect blend of comfort, clear sound, and they are affordable.\"</blockquote><p>What is the best way to revise sentence four for clarity and style?</p>",
+      "choices": [
+        { "id": "A", "text": "In my opinion, these earbuds combine comfort, clear sound, and affordability.", "correct": true },
+        { "id": "B", "text": "These earbuds are, in my opinion, a perfect mix of comfort, clear sound, and value.", "correct": false },
+        { "id": "C", "text": "In my opinion, the earbuds show a blend of comfort and sound that works well.", "correct": false },
+        { "id": "D", "text": "These earbuds are what I believe show a strong balance of features.", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q30",
+      "type": "ESSAY",
+      "prompt": "<p>From <strong>\"Compliment Letter for a Great Product\"</strong>:</p><p>Sentences 10 and 11 read:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"I once used them at a school pep rally. This involved loud music and cheering.\"</blockquote><p>Combine the ideas from sentences ten and eleven into one clear sentence.</p>",
+      "length_guidance": "One sentence",
+      "points": 1
+    },
+    {
+      "id": "q31",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"Compliment Letter for a Great Product\"</strong>:</p><p>Sentence 17 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"In contrast, earbuds that do not block background noise can make people turn the volume up too high.\"</blockquote><p>Which transition should replace <strong>\"In contrast\"</strong> in sentence seventeen?</p>",
+      "choices": [
+        { "id": "A", "text": "Even worse", "correct": true },
+        { "id": "B", "text": "At the same time", "correct": false },
+        { "id": "C", "text": "As a result", "correct": false },
+        { "id": "D", "text": "In general", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q32",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"Compliment Letter for a Great Product\"</strong>:</p><p>Sentence 25 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"Right now, they come only in black, gray, and white.\"</blockquote><p>Which sentence best supports sentence twenty-five?</p>",
+      "choices": [
+        { "id": "A", "text": "Adding more colors could encourage customers to buy another pair.", "correct": true },
+        { "id": "B", "text": "Some people might enjoy sharing them with family members.", "correct": false },
+        { "id": "C", "text": "Advertising during events could help attract attention.", "correct": false },
+        { "id": "D", "text": "They feel comfortable enough for long periods of use.", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q33",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"Training Your Brain with Strategy Games\"</strong>:</p><p>Sentence 2 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"Training the mind can happen in many ways, including reading books, playing board games, and learning new hobbies.\"</blockquote><p>Which sentence can replace sentence two to create a more effective introduction?</p>",
+      "choices": [
+        { "id": "A", "text": "There are several ways to strengthen the brain through daily activities.", "correct": true },
+        { "id": "B", "text": "Many people argue that diet matters more than anything else.", "correct": false },
+        { "id": "C", "text": "The human brain remains difficult to fully understand.", "correct": false },
+        { "id": "D", "text": "Physical movement is the best form of mental training.", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q34",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"Training Your Brain with Strategy Games\"</strong>:</p><p>Sentence 5 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"Studies have shown that students who play strategy games often improve their ability to plan and pay attention.\"</blockquote><p>What revision, if any, should be made in sentence five?</p>",
+      "choices": [
+        { "id": "A", "text": "No change is needed at this time.", "correct": false },
+        { "id": "B", "text": "Remove extra wording while keeping the original meaning.", "correct": true },
+        { "id": "C", "text": "Move the phrase to a later point in the paragraph.", "correct": false },
+        { "id": "D", "text": "Replace one word to slightly adjust the tone.", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q35",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"Training Your Brain with Strategy Games\"</strong>:</p><p>Sentence 14 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"They claim that spending an hour on chess, checkers, or a logic puzzle app is not a good use of a person's time.\"</blockquote><p>What is the best way to revise sentence fourteen to avoid repetition?</p>",
+      "choices": [
+        { "id": "A", "text": "They claim that spending an hour on games or puzzles is not a good use of time.", "correct": true },
+        { "id": "B", "text": "They claim that chess and checkers take too much time.", "correct": false },
+        { "id": "C", "text": "They claim that games are often not useful.", "correct": false },
+        { "id": "D", "text": "They claim that an hour is usually wasted.", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q36",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"Training Your Brain with Strategy Games\"</strong>:</p><p>Sentence 16 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"Taking time for strategy games is clearly beneficial.\"</blockquote><p>Which word should replace <strong>\"beneficial\"</strong> in sentence sixteen?</p>",
+      "choices": [
+        { "id": "A", "text": "Helpful", "correct": true },
+        { "id": "B", "text": "Effective", "correct": false },
+        { "id": "C", "text": "Reflective", "correct": false },
+        { "id": "D", "text": "Professional", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q37",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"After-School Hike\"</strong>:</p><p>Sentence 2 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"Their first stop would be Big Bend national park, near Terlingua, Texas.\"</blockquote><p>What change needs to be made in sentence two?</p>",
+      "choices": [
+        { "id": "A", "text": "Capitalize Big Bend National Park.", "correct": true },
+        { "id": "B", "text": "Change the pronoun to improve agreement.", "correct": false },
+        { "id": "C", "text": "Revise the verb phrase for tense consistency.", "correct": false },
+        { "id": "D", "text": "Remove punctuation that interrupts the sentence.", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q38",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"After-School Hike\"</strong>:</p><p>Sentence 3 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"While Ms. Ortiz drove, the students talked excited about the trail they hoped to hike.\"</blockquote><p>What change needs to be made in sentence three?</p>",
+      "choices": [
+        { "id": "A", "text": "Change the adjective to an adverb form.", "correct": true },
+        { "id": "B", "text": "Delete punctuation that separates the subject and verb.", "correct": false },
+        { "id": "C", "text": "Revise the possessive form of the title.", "correct": false },
+        { "id": "D", "text": "Adjust the verb tense for clarity.", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q39",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"After-School Hike\"</strong>:</p><p>Sentence 4 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"One student mentioned climbing a 'ridge line,' this is a long, narrow stretch of high ground.\"</blockquote><p>What is the correct way to write sentence four?</p>",
+      "choices": [
+        { "id": "A", "text": "One student mentioned climbing a ridgeline, a long, narrow stretch of high ground.", "correct": true },
+        { "id": "B", "text": "One student mentioned climbing a ridgeline, which is a long stretch of ground.", "correct": false },
+        { "id": "C", "text": "One student mentioned climbing a ridgeline during the hike along the trail.", "correct": false },
+        { "id": "D", "text": "One student mentioned a ridgeline, a narrow stretch of elevated ground.", "correct": false }
+      ],
+      "points": 1,
+      "notes": "Revised answer choices B, C, D for length balance (11-13 words each)"
+    },
+    {
+      "id": "q40",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"The Real Value of Helping at Home\"</strong>:</p><p>Sentence 4 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"Instead of paying kids to help with household tasks parents should help them understand that caring for the home is a team effort and that everyone needs to contribute.\"</blockquote><p>What change needs to be made in sentence four?</p>",
+      "choices": [
+        { "id": "A", "text": "Add a comma after \"tasks\"", "correct": true },
+        { "id": "B", "text": "Change \"parents\" to \"parent's\"", "correct": false },
+        { "id": "C", "text": "Change \"understand\" to \"understood\"", "correct": false },
+        { "id": "D", "text": "Add a semicolon after \"effort\"", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q41",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"The Real Value of Helping at Home\"</strong>:</p><p>Sentence 6 reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"They can foster a sense around responsibility and accomplishment.\"</blockquote><p>What revision should be made in sentence six?</p>",
+      "choices": [
+        { "id": "A", "text": "Change \"around\" to \"of\"", "correct": true },
+        { "id": "B", "text": "Change \"foster\" to \"create\"", "correct": false },
+        { "id": "C", "text": "Change \"accomplishment\" to \"accomplishments\"", "correct": false },
+        { "id": "D", "text": "Add a comma after \"sense\"", "correct": false }
+      ],
+      "points": 1
+    },
+    {
+      "id": "q42",
+      "type": "MC",
+      "prompt": "<p>From <strong>\"The Real Value of Helping at Home\"</strong>:</p><p><strong>Sentence 7</strong> reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"They can help kids grow in independance.\"</blockquote><p><strong>Sentence 8</strong> reads:</p><blockquote style=\"margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;\">\"Although kids might not enjoy chores without pay, this practice can help lay the foundation for a successful Adulthood.\"</blockquote><p>What changes need to be made in sentences seven and eight?</p>",
+      "choices": [
+        { "id": "A", "text": "Change \"independance\" to \"independence\" in sentence 7; change \"Adulthood\" to \"adulthood\" in sentence 8", "correct": true },
+        { "id": "B", "text": "Change \"grow\" to \"growing\" in sentence 7; remove the comma after \"pay\" in sentence 8", "correct": false },
+        { "id": "C", "text": "Add a comma after \"kids\" in sentence 7; change \"successful\" to \"successfully\" in sentence 8", "correct": false },
+        { "id": "D", "text": "Change \"grow\" to \"grows\" in sentence 7; change \"foundation\" to \"foundations\" in sentence 8", "correct": false }
+      ],
+      "points": 1,
+      "notes": "Revised answer choice D completely for plausibility and length balance (14 words)"
+    }
+  ],
+  "rationales": [
+    { "item_id": "q29", "rationale": "The revision presents the ideas clearly and smoothly without unnecessary wording by using parallel structure with three nouns." },
+    { "item_id": "q30", "rationale": "A combined sentence should logically connect both ideas into one clear thought using appropriate punctuation or subordination." },
+    { "item_id": "q31", "rationale": "The transition signals a worsening condition rather than a contrast, as the second problem (not blocking noise) compounds the first." },
+    { "item_id": "q32", "rationale": "The sentence directly develops the idea introduced in sentence twenty-five by explaining why more color options would be beneficial." },
+    { "item_id": "q33", "rationale": "The sentence introduces the topic in a broad and engaging way that sets up the discussion of brain-training activities." },
+    { "item_id": "q34", "rationale": "Removing extra wording improves clarity while keeping the intended meaning; phrases like 'have shown that' can be streamlined." },
+    { "item_id": "q35", "rationale": "The revision eliminates repeated ideas while preserving the original point by using 'games or puzzles' instead of listing specific examples." },
+    { "item_id": "q36", "rationale": "The replacement word 'helpful' best matches the meaning of beneficial in context and maintains appropriate tone." },
+    { "item_id": "q37", "rationale": "Proper nouns for official place names must be fully capitalized according to standard conventions." },
+    { "item_id": "q38", "rationale": "An adverb ('excitedly') is required to correctly modify the verb 'talked' rather than the adjective 'excited.'" },
+    { "item_id": "q39", "rationale": "The sentence correctly uses an appositive phrase set off by a comma to add clarifying information about 'ridgeline.'" },
+    { "item_id": "q40", "rationale": "A comma is needed after the introductory prepositional phrase 'Instead of paying kids to help with household tasks' to separate it from the main clause." },
+    { "item_id": "q41", "rationale": "The preposition 'of' is idiomatically correct with 'sense' to mean a feeling or awareness of something, not 'around.'" },
+    { "item_id": "q42", "rationale": "Both sentences contain errors: 'independance' is misspelled (should be 'independence') and 'Adulthood' should not be capitalized mid-sentence." }
+  ]
+}
+</QUIZFORGE_JSON>

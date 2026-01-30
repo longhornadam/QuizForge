@@ -1,0 +1,107 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Practice 3 Ink in the Rain",
+"metadata": {
+"grade": 7,
+"unit": "Unit 5 Literary Analysis",
+"note": "Passage provided separately by teacher. No stimulus included."
+},
+"items": [
+{
+"id": "q21",
+"type": "MC",
+"prompt": "Based on the Latin root luc meaning light what does translucent most nearly mean as used in paragraph two",
+"choices": [
+{ "id": "A", "text": "Able to let some light pass through", "correct": true },
+{ "id": "B", "text": "Completely dark, blocking light so you cannot see through it", "correct": false },
+{ "id": "C", "text": "Covered in bright colors that stand out strongly in sunlight", "correct": false },
+{ "id": "D", "text": "Made from heavy, dense material that does not let light pass", "correct": false }
+]
+},
+{
+"id": "q22",
+"type": "MC",
+"prompt": "Which sentence best conveys a sentimental mood",
+"choices": [
+{ "id": "A", "text": "Even now when the rain starts tapping at the window and the day feels too fast I think of that table", "correct": true },
+{ "id": "B", "text": "The stairs always smelled like oranges and cardboard from the store downstairs", "correct": false },
+{ "id": "C", "text": "I used to think he chose rainy days on purpose to slow everything down", "correct": false },
+{ "id": "D", "text": "I was no longer being crushed by the problem that had followed me all week", "correct": false }
+]
+},
+{
+"id": "q23",
+"type": "MC",
+"prompt": "Which key idea about calligraphy is best supported by details in paragraphs four and five",
+"choices": [
+{ "id": "A", "text": "Practicing calligraphy requires patience and care", "correct": true },
+{ "id": "B", "text": "Calligraphy is easiest when done quickly with fast, messy strokes", "correct": false },
+{ "id": "C", "text": "Calligraphy is only useful for artists and not for everyday writing", "correct": false },
+{ "id": "D", "text": "Calligraphy depends on expensive tools and special paper to work", "correct": false }
+]
+},
+{
+"id": "q24",
+"type": "MC",
+"prompt": "What is the main theme of the selection",
+"choices": [
+{ "id": "A", "text": "Small routines and quiet moments can teach lasting lessons", "correct": true },
+{ "id": "B", "text": "People should avoid thinking about problems and distract themselves instead", "correct": false },
+{ "id": "C", "text": "Success requires constant correction and never making any mistakes", "correct": false },
+{ "id": "D", "text": "Hobbies matter more than relationships and should always come first", "correct": false }
+]
+},
+{
+"id": "q25",
+"type": "MC",
+"prompt": "Why does the grandfather say your hands need something calm to do in paragraph two",
+"choices": [
+{ "id": "A", "text": "He believes the narrator energy needs a peaceful focus", "correct": true },
+{ "id": "B", "text": "He wants the narrator to impress others by showing off neat handwriting", "correct": false },
+{ "id": "C", "text": "He worries about ink spilling everywhere and ruining the furniture", "correct": false },
+{ "id": "D", "text": "He thinks rainy days are required for calligraphy lessons to work", "correct": false }
+]
+},
+{
+"id": "q26",
+"type": "MC",
+"prompt": "The subjective point of view helps the reader understand",
+"choices": [
+{ "id": "A", "text": "How the narrators feelings about calligraphy changed over time", "correct": true },
+{ "id": "B", "text": "The exact steps for making ink, mixing pigments, and preparing brushes", "correct": false },
+{ "id": "C", "text": "The full history of calligraphy across many cultures and centuries", "correct": false },
+{ "id": "D", "text": "Why rainy weather occurs and how storms form in the atmosphere", "correct": false }
+]
+},
+{
+"id": "q27",
+"type": "MC",
+"prompt": "How does the narrators ability to focus on calligraphy influence the plot",
+"choices": [
+{ "id": "A", "text": "It replaces overwhelming emotions with a calming routine", "correct": true },
+{ "id": "B", "text": "It leads to a professional career in art and public performances later", "correct": false },
+{ "id": "C", "text": "It causes the narrator to forget the grandfather and stop visiting", "correct": false },
+{ "id": "D", "text": "It solves the school problem immediately without any effort or help", "correct": false }
+]
+},
+{
+"id": "q28",
+"type": "ESSAY",
+"prompt": "Describe how the relationship between the narrator and the grandfather influenced the narrators life Use specific evidence from the selection to support your response",
+"length_guidance": "One well organized paragraph or short essay",
+"rubric_hint": "Clear controlling idea organized response specific evidence correct conventions"
+}
+],
+"rationales": [
+{ "item_id": "q21", "rationale": "The root luc connects translucent to allowing light to pass through." },
+{ "item_id": "q22", "rationale": "The final reflection shows warm emotional memory which creates sentiment." },
+{ "item_id": "q23", "rationale": "Descriptions of careful strokes and waiting show patience is required." },
+{ "item_id": "q24", "rationale": "The story shows quiet repeated moments shaping lasting understanding." },
+{ "item_id": "q25", "rationale": "The grandfather guides the narrator toward calm focus through activity." },
+{ "item_id": "q26", "rationale": "First person narration reveals changing feelings and reflections." },
+{ "item_id": "q27", "rationale": "Calligraphy becomes a tool for emotional regulation in the plot." },
+{ "item_id": "q28", "rationale": "The relationship teaches patience calm and lasting coping strategies." }
+]
+}
+</QUIZFORGE_JSON>

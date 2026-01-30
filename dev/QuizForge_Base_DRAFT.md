@@ -113,15 +113,136 @@ FITB questions have historically caused the most LLM errors. Follow these rules 
 - ❌ Case-sensitive grading without explicit teacher request
 - ❌ Open-entry at Tier 1 (use word bank or dropdown instead)
 
-## 6. PASSAGES & TEXT FENCES (INSIDE `prompt`)
-- Use these literal fences inside the JSON string (escape newlines with `\n`):
-  - ```prose
-  - ```excerpt
-  - ```poetry
-  - ```python / ```javascript / ```code
-  - ```math
-- Poetry: preserve line breaks and indentation; always wrap in ```poetry.
-- Never convert poetry into prose. Do not invent fences; stick to the whitelist.
+## 6. PASSAGES & POETRY (INSIDE `prompt`)
+- **Poetry:** Preserve line breaks and indentation using `<div>` tags with proper styling. For poetry, use:
+  ```html
+  <div style="font-family: inherit; white-space: pre-line; padding: 14px; border-left: 3px solid #4b79ff;">
+  First line of poem
+  Second line with indent
+      Deeper indent
+  </div>
+  ```
+- **Long prose passages:** Consider using STIMULUS blocks when 2+ questions reference the same passage
+- **Never convert poetry into prose.** Poetry formatting is pedagogically significant.
+
+## 6a. RICH HTML FORMATTING (DEFAULT - GENERATE HTML DIRECTLY)
+
+**QuizForge expects HTML-formatted prompts.** Modern LLMs are excellent at HTML - use it directly for predictable, beautiful output in Canvas.
+
+### Core HTML Elements You Should Use:
+
+#### 1. Text Structure
+- **Paragraphs:** `<p>Your text here</p>` (separate logical sections)
+- **Bold:** `<strong>important term</strong>` (keywords, passage titles)
+- **Italic:** `<em>emphasis</em>` (use sparingly)
+- **Line breaks:** `<br>` (within paragraphs only)
+
+#### 2. Quoted Text (Sentence Excerpts)
+**Use this exact blockquote template for quoted sentences:**
+```html
+<blockquote style='margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;'>"The exact quoted sentence."</blockquote>
+```
+
+#### 3. Code Blocks (Python, JavaScript, etc.)
+**Use this exact template for multi-line code with dark VSCode-style formatting:**
+```html
+<pre style='background-color: #272822; color: #F8F8F2; padding: 10px; border-radius: 4px; font-family: Courier New, Consolas, monospace; overflow-x: auto; line-height: 1.5; white-space: pre; display: block;'><code>for i in range(3):
+    print(i)</code></pre>
+```
+**Important:** 
+- Preserve exact indentation inside `<code>` tags
+- Use actual newlines (not `\n`) inside the code block
+- For special characters like `<`, `>`, `&` in code, escape them: `&lt;`, `&gt;`, `&amp;`
+
+#### 4. Inline Code (Variables, Short Expressions)
+**Use this template for inline code:**
+```html
+<code style='background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;'>variable_name</code>
+```
+
+### Complete Examples:
+
+#### ELA Editing Question:
+```json
+{
+  "type": "MC",
+  "prompt": "<p>From <strong>\"The Great Adventure\"</strong>:</p><p>Sentence 4 reads:</p><blockquote style='margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;'>\"The students was excited about the field trip.\"</blockquote><p>What change needs to be made in sentence four?</p>",
+  "choices": [
+    {"text": "Change <em>was</em> to <em>were</em>", "correct": true},
+    {"text": "Change <em>excited</em> to <em>exciting</em>", "correct": false}
+  ]
+}
+```
+
+#### CS Question with Code Block:
+```json
+{
+  "type": "MC",
+  "prompt": "<p>What does this Python code print?</p><pre style='background-color: #272822; color: #F8F8F2; padding: 10px; border-radius: 4px; font-family: Courier New, Consolas, monospace; overflow-x: auto; line-height: 1.5; white-space: pre; display: block;'><code>for i in range(3):\n    print(i)</code></pre><p>Choose the correct output:</p>",
+  "choices": [
+    {"text": "0, 1, 2 (each on a new line)", "correct": true},
+    {"text": "1, 2, 3", "correct": false}
+  ]
+}
+```
+
+#### CS Question with Inline Code (Character Counting):
+```json
+{
+  "type": "MC",
+  "prompt": "<p>How many characters are in the string literal <code style='background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;'>\"\\n\"</code>?</p><p>(Count the backslash and n as separate characters)</p>",
+  "choices": [
+    {"text": "2 (backslash + n)", "correct": true},
+    {"text": "1 (it's a newline character)", "correct": false}
+  ]
+}
+```
+**Note:** The code snippet with styling appears in the prompt. Answer choices use plain descriptive text.
+
+### When to Use STIMULUS vs. Inline HTML:
+- **Use inline HTML:** For single questions with quoted text, code, or multi-paragraph prompts
+- **Use STIMULUS:** Only when 2-4 questions share the same passage, code block, or data table
+
+### Important Notes:
+- **Use single quotes for HTML attributes:** Always use `style='...'` not `style="..."` to avoid JSON escaping issues
+- **Escape inner quotes:** Inside JSON strings, use `\"` for any quote that appears in your HTML content (not in attributes)
+- **Code with special chars:** Escape `<` as `&lt;`, `>` as `&gt;`, `&` as `&amp;` inside `<code>` tags
+- **Consistent styling:** Copy the exact style attributes from the templates above - they're optimized for Canvas
+
+### CRITICAL: Newlines vs Literal Backslash-N
+**Distinguish between actual line breaks and showing literal `\n` to students:**
+
+**For actual line breaks in code** (code that spans multiple lines):
+```json
+"prompt": "<pre ...><code>for i in range(3):\n    print(i)</code></pre>"
+```
+The `\n` in the JSON string becomes a real newline when parsed, so the code displays properly formatted.
+
+**For showing literal `\n` to students** (teaching about escape sequences):
+```json
+"prompt": "<p>The string <code>\"\\n\"</code> contains 2 characters</p>"
+```
+Use `\\n` in JSON (four characters) which becomes `\n` (two characters: backslash + n) when parsed.
+
+**Summary:**
+- `\n` in JSON = actual newline in output (for code formatting)
+- `\\n` in JSON = literal backslash-n in output (for teaching escape sequences)
+
+### CRITICAL: Answer Choice HTML Limitations
+**Answer choices (in MC/MA questions) do NOT support inline styles.** Use plain text for choices, not styled HTML:
+
+❌ **DON'T** use styled code in choices:
+```json
+{"text": "<code style='background-color: #f4f4f4;'>0 1 2</code>", "correct": true}
+```
+
+✅ **DO** use plain text or simple inline code:
+```json
+{"text": "0 1 2 (each on a new line)", "correct": true}
+{"text": "print(\"Hello\\nWorld\")", "correct": true}
+```
+
+If you need formatted code in answer choices, put it in the prompt and use descriptive choice text like "Option A", "Choice 1", etc.
 
 ## 7. REQUIRED PEDAGOGY DEFAULTS (ALWAYS ACTIVE)
 **Teach Up** — All versions assess the same standard. Adjust only cognitive load, language clarity, structure, and scaffolds.

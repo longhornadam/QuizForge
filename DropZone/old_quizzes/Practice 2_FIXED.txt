@@ -1,0 +1,160 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Practice 2 Counting Knots and Floating Farming",
+"metadata": {
+"grade": 7,
+"unit": "Unit 5 Informational Text",
+"note": "Passages provided separately by teacher. No stimuli included."
+},
+"items": [
+{
+"id": "q9",
+"type": "MC",
+"prompt": "What tone does the authors language create in paragraphs four and six of the article Knots That Count",
+"choices": [
+{ "id": "A", "text": "Enthusiasm", "correct": true },
+{ "id": "B", "text": "Surprise that the system worked so well", "correct": false },
+{ "id": "C", "text": "Exaggeration to entertain the reader", "correct": false },
+{ "id": "D", "text": "Certainty that there is only one answer", "correct": false }
+]
+},
+{
+"id": "q10",
+"type": "MC",
+"prompt": "What does the diagram in the article Knots That Count help the reader understand",
+"choices": [
+{ "id": "A", "text": "How knot patterns and place value combine to show numbers", "correct": true },
+{ "id": "B", "text": "Why knot math can require less memorization than traditional school math", "correct": false },
+{ "id": "C", "text": "Why many students may enjoy tying knots more than doing long worksheets", "correct": false },
+{ "id": "D", "text": "How teachers might grade quipu number-reading activities in class", "correct": false }
+]
+},
+{
+"id": "q11",
+"type": "MC",
+"prompt": "What is the controlling idea of the article Knots That Count",
+"choices": [
+{ "id": "A", "text": "The quipu is an ancient hands-on system for representing numbers", "correct": true },
+{ "id": "B", "text": "Quipus were mostly decorations used to accessorize clothing and ceremonies", "correct": false },
+{ "id": "C", "text": "Students use quipus only for games and never for real counting", "correct": false },
+{ "id": "D", "text": "Quipus were used only for astronomy and tracking stars", "correct": false }
+]
+},
+{
+"id": "q12",
+"type": "MC",
+"prompt": "What is the most likely reason the author wrote the article Knots That Count",
+"choices": [
+{ "id": "A", "text": "To describe the origins and features of quipu counting", "correct": true },
+{ "id": "B", "text": "To argue that all schools should replace modern math instruction entirely", "correct": false },
+{ "id": "C", "text": "To explain how the Inca predicted weather patterns using cords and knots", "correct": false },
+{ "id": "D", "text": "To prove that cords are better than calculators for every kind of math", "correct": false }
+]
+},
+{
+"id": "q13",
+"type": "MC",
+"prompt": "Why does the author include the phrase rediscovered chinampas in paragraph three of A Floating Farming Method",
+"choices": [
+{ "id": "A", "text": "To show the method had to be learned again", "correct": true },
+{ "id": "B", "text": "To suggest that chinampas never existed and are just a modern myth", "correct": false },
+{ "id": "C", "text": "To claim that modern farming is always harmful and should be stopped", "correct": false },
+{ "id": "D", "text": "To explain that chinampas were only built for travel and transportation", "correct": false }
+]
+},
+{
+"id": "q14",
+"type": "MC",
+"prompt": "Which phrase best supports the idea that the Aztec had a powerful civilization",
+"choices": [
+{ "id": "A", "text": "Helped feed an empire across central Mexico", "correct": true },
+{ "id": "B", "text": "Birds skim the surface of canals as people move through the city", "correct": false },
+{ "id": "C", "text": "Encourage farmers to use natural materials instead of chemical products", "correct": false },
+{ "id": "D", "text": "Communities benefit from the return of older farming knowledge", "correct": false }
+]
+},
+{
+"id": "q15",
+"type": "MC",
+"prompt": "Which word from paragraph three gives the best clue to the meaning of insight in paragraph four",
+"choices": [
+{ "id": "A", "text": "Rediscovered", "correct": true },
+{ "id": "B", "text": "Layered", "correct": false },
+{ "id": "C", "text": "Anchored", "correct": false },
+{ "id": "D", "text": "Replaced", "correct": false }
+]
+},
+{
+"id": "q16",
+"type": "MC",
+"prompt": "How does the cause and effect structure in paragraphs four through six support the topic of A Floating Farming Method",
+"choices": [
+{ "id": "A", "text": "It explains what each chinampa strategy does", "correct": true },
+{ "id": "B", "text": "It shows the Aztec copied their neighbors instead of developing ideas themselves", "correct": false },
+{ "id": "C", "text": "It proves that only one crop can grow in the region without failure", "correct": false },
+{ "id": "D", "text": "It shows that the canals were decorative features and not useful at all", "correct": false }
+]
+},
+{
+"id": "q17",
+"type": "MC",
+"prompt": "Which sentence shows a difference in why the authors mention modern experts",
+"choices": [
+{ "id": "A", "text": "One uses experts to support the method while the other shows experts restoring it", "correct": true },
+{ "id": "B", "text": "One proves quipus are modern inventions and the other completely denies history", "correct": false },
+{ "id": "C", "text": "Both authors criticize schools and farmers rather than explaining the methods", "correct": false },
+{ "id": "D", "text": "Only one article includes expert opinions, while the other avoids them entirely", "correct": false }
+]
+},
+{
+"id": "q18",
+"type": "MC",
+"prompt": "Which detail from A Floating Farming Method shows a similar idea to using materials people already have",
+"choices": [
+{ "id": "A", "text": "Using natural materials that are easy to repair", "correct": true },
+{ "id": "B", "text": "Birds skim the surface of canals while insects buzz over the water", "correct": false },
+{ "id": "C", "text": "Beds protect soil from runoff during heavy rains and flooding", "correct": false },
+{ "id": "D", "text": "Mud becomes fertilizer as it settles and is spread onto the beds", "correct": false }
+]
+},
+{
+"id": "q19",
+"type": "MC",
+"prompt": "What is the main difference in how agriculture is used in the two articles",
+"choices": [
+{ "id": "A", "text": "One uses farming as background while the other makes it the main focus", "correct": true },
+{ "id": "B", "text": "One criticizes farming and the other praises it as the only solution", "correct": false },
+{ "id": "C", "text": "One describes modern farming only, without mentioning ancient practices", "correct": false },
+{ "id": "D", "text": "One uses farming to criticize ancient people rather than explain their ideas", "correct": false }
+]
+},
+{
+"id": "q20",
+"type": "MA",
+"prompt": "Which conclusions are supported by both articles Select two",
+"choices": [
+{ "id": "A", "text": "Ancient problem solving still influences modern communities", "correct": true },
+{ "id": "B", "text": "Ancient inventions were inspired by the natural environment", "correct": true },
+{ "id": "C", "text": "The Inca and Aztec shared ideas with Europeans", "correct": false },
+{ "id": "D", "text": "Survival left little time for learning", "correct": false },
+{ "id": "E", "text": "Writing had to come before farming", "correct": false }
+]
+}
+],
+"rationales": [
+{ "item_id": "q9", "rationale": "Word choices highlight excitement about how students benefit from quipu learning." },
+{ "item_id": "q10", "rationale": "The diagram visually explains how knots and place value form numbers." },
+{ "item_id": "q11", "rationale": "The article centers on quipu as a simple effective tool for understanding numbers." },
+{ "item_id": "q12", "rationale": "The author explains where quipus came from and how they work." },
+{ "item_id": "q13", "rationale": "Rediscovered shows the method had to be learned again after being replaced." },
+{ "item_id": "q14", "rationale": "An empire spreading across central Mexico signals power and influence." },
+{ "item_id": "q15", "rationale": "Rediscovered suggests gaining new understanding which clarifies insight." },
+{ "item_id": "q16", "rationale": "Each farming feature is followed by its result which explains its purpose." },
+{ "item_id": "q17", "rationale": "One article uses experts to support learning while the other shows restoration work." },
+{ "item_id": "q18", "rationale": "Both passages emphasize using materials that are already available." },
+{ "item_id": "q19", "rationale": "Agriculture introduces counting in one text but drives the entire focus in the other." },
+{ "item_id": "q20", "rationale": "Both texts show ancient ideas shaped by nature and still useful today." }
+]
+}
+</QUIZFORGE_JSON>

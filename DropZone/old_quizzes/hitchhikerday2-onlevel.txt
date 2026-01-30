@@ -1,0 +1,130 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "The Hitchhiker — Day 2 Reading Check (Half 2, On/Below Level, No Text) — Length-Balanced",
+  "metadata": {
+    "grade_level": "7",
+    "unit": "Unit 5",
+    "text": "The Hitchhiker (radio drama)",
+    "note": "Student text provided separately; simplified language. Correct answers are NOT the longest more than 30% of the time."
+  },
+  "items": [
+    {
+      "id": "d2_q1",
+      "type": "MC",
+      "prompt": "Why does Adams pick up the girl?",
+      "choices": [
+        { "id": "A", "text": "He wants someone to talk to on the long drive.", "correct": false },
+        { "id": "B", "text": "He wants someone with him so he feels safer and less alone during the drive.", "correct": true },
+        { "id": "C", "text": "He is tired and wants her to drive for a while.", "correct": false },
+        { "id": "D", "text": "He thinks a passenger will stop the hitchhiker from showing up again.", "correct": false }
+      ]
+    },
+    {
+      "id": "d2_q2",
+      "type": "MC",
+      "prompt": "After the car crashes, what does the girl decide to do?",
+      "choices": [
+        { "id": "A", "text": "She stays because she thinks it will be fine soon.", "correct": false },
+        { "id": "B", "text": "She gets out and leaves the car because she feels unsafe with him.", "correct": true },
+        { "id": "C", "text": "She asks Adams to pull over and take a long break.", "correct": false },
+        { "id": "D", "text": "She runs to the road to find a ride with another driver.", "correct": false }
+      ]
+    },
+    {
+      "id": "d2_q3",
+      "type": "MC",
+      "prompt": "What is the main reason the girl does NOT believe Adams about the hitchhiker?",
+      "choices": [
+        { "id": "A", "text": "She never sees the hitchhiker when Adams points.", "correct": true },
+        { "id": "B", "text": "She thinks he is making it up to scare her for fun.", "correct": false },
+        { "id": "C", "text": "She believes the hitchhiker is friendly and harmless.", "correct": false },
+        { "id": "D", "text": "She is distracted because she is focused on her sore feet.", "correct": false }
+      ]
+    },
+    {
+      "id": "d2_q4",
+      "type": "MC",
+      "prompt": "How does Adams act as Half 2 continues?",
+      "choices": [
+        { "id": "A", "text": "He gets more upset and makes riskier choices while driving.", "correct": false },
+        { "id": "B", "text": "He becomes more panicked and out of control.", "correct": true },
+        { "id": "C", "text": "He stays calm and carefully thinks through each problem.", "correct": false },
+        { "id": "D", "text": "He forgets about the hitchhiker and relaxes again.", "correct": false }
+      ]
+    },
+    {
+      "id": "d2_q5",
+      "type": "MC",
+      "prompt": "The repeated call \"Hall-ooo\" is MOST likely used to show—",
+      "choices": [
+        { "id": "A", "text": "the hitchhiker keeps returning and won’t leave Adams alone.", "correct": true },
+        { "id": "B", "text": "the hitchhiker is trying to make Adams laugh.", "correct": false },
+        { "id": "C", "text": "the danger is getting closer each time Adams tries to stop and rest.", "correct": false },
+        { "id": "D", "text": "the story is moving into a happier, calmer part.", "correct": false }
+      ]
+    },
+    {
+      "id": "d2_q6",
+      "type": "MC",
+      "prompt": "Which event is the BIG twist near the end?",
+      "choices": [
+        { "id": "A", "text": "The girl takes Adams’s car and drives away.", "correct": false },
+        { "id": "B", "text": "Adams learns he died in a crash days earlier.", "correct": true },
+        { "id": "C", "text": "Adams gets arrested for speeding across the desert.", "correct": false },
+        { "id": "D", "text": "Adams finds out the hitchhiker has been dead the whole time and is not human.", "correct": false }
+      ]
+    },
+    {
+      "id": "d2_q7",
+      "type": "MC",
+      "prompt": "After the phone call, what is the BEST guess about who the hitchhiker is?",
+      "choices": [
+        { "id": "A", "text": "A sign of death that is coming for Adams, no matter where he drives.", "correct": false },
+        { "id": "B", "text": "A sign that death is coming for Adams.", "correct": true },
+        { "id": "C", "text": "A friend from home playing a prank on him.", "correct": false },
+        { "id": "D", "text": "A police officer watching the highway at night.", "correct": false }
+      ]
+    },
+    {
+      "id": "d2_q8",
+      "type": "MC",
+      "prompt": "Which line best shows that Adams is letting fear control him?",
+      "choices": [
+        { "id": "A", "text": "\"I was in excellent spirits.\"", "correct": false },
+        { "id": "B", "text": "\"I began to drive faster and faster.\"", "correct": true },
+        { "id": "C", "text": "\"I was so scared that I could not think clearly anymore.\"", "correct": false },
+        { "id": "D", "text": "\"A million stars are in the sky.\"", "correct": false }
+      ]
+    },
+    {
+      "id": "d2_scr",
+      "type": "ESSAY",
+      "prompt": "In 3–5 sentences, explain what the hitchhiker probably stands for (represents) in the story. Use TWO details from the drama to support your answer.",
+      "length_guidance": "3-5 sentences",
+      "rubric_hint": "Say what the hitchhiker represents, then give two details from the text and explain how they connect."
+    }
+  ],
+  "rationales": [
+    { "item_id": "d2_q1", "rationale": "Adams believes being alone makes him vulnerable, so he picks up the girl for safety and company." },
+    { "item_id": "d2_q2", "rationale": "After the crash and Adams’s behavior, the girl decides to leave because she feels unsafe." },
+    { "item_id": "d2_q3", "rationale": "She does not see the hitchhiker when Adams points, so she thinks Adams is imagining it." },
+    { "item_id": "d2_q4", "rationale": "Adams becomes more frantic and makes worse choices, showing fear is taking over." },
+    { "item_id": "d2_q5", "rationale": "The repeated call works like a haunting reminder that the hitchhiker keeps returning." },
+    { "item_id": "d2_q6", "rationale": "The phone call reveals Ronald Adams died days earlier, changing the meaning of everything that happened." },
+    { "item_id": "d2_q7", "rationale": "Since Adams is already dead, the hitchhiker most likely represents death coming for him." },
+    { "item_id": "d2_q8", "rationale": "Driving faster and faster shows panic is controlling Adams instead of calm thinking." },
+    { "item_id": "d2_scr", "rationale": "A strong response names a symbol and supports it with two explained details from the drama." }
+  ],
+  "answer_key": {
+    "d2_q1": "B",
+    "d2_q2": "B",
+    "d2_q3": "A",
+    "d2_q4": "B",
+    "d2_q5": "A",
+    "d2_q6": "B",
+    "d2_q7": "B",
+    "d2_q8": "B"
+  }
+}
+</QUIZFORGE_JSON>

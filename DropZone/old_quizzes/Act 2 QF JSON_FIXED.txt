@@ -1,0 +1,718 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "The Observation - Act 2 Quiz (Friday)",
+  "metadata": {
+    "grade": "7",
+    "subject": "ELA",
+    "duration_minutes": "50",
+    "teks_focus": [
+      "7.5E",
+      "7.5F",
+      "7.10B.i",
+      "7.7A",
+      "7.6C",
+      "7.9A"
+    ],
+    "description": "Post-play assessment focusing on making connections, inferences, and synthesis skills demonstrated in Act 2"
+  },
+  "items": [
+    {
+      "id": "q1_compare",
+      "type": "MC",
+      "prompt": "Mrs. J shows two different explanations of the same feudal system concept on the board.\n\nVersion A (Coach's way): The lords controlled land by controlling the people who controlled resources that controlled the economy.\n\nVersion B (Revised): Feudal lords governed territories by managing resources and collecting taxes from the people who worked the land.\n\nWhat is the most important difference between these two explanations?",
+      "choices": [
+        {
+          "text": "Version B uses clearer and more specific wording (in class) (in the lesson)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Version A explains the topic in much greater historical detail",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Version B adds more historical information about feudal territories",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Version A is written specifically for advanced middle school students",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q2_connection_act1",
+      "type": "MC",
+      "prompt": "How does the revision of the feudal system explanation connect to what happened with the sentence on the board in Act 1?",
+      "choices": [
+        {
+          "text": "Both revisions fix wording that caused confusion",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Both remove mistakes about historical facts and accuracy",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Both shorten the lesson content to save time",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Both change who is teaching the lesson to students",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q3_synthesize",
+      "type": "MC",
+      "prompt": "Based on both acts, what connection can be made about effective communication?",
+      "choices": [
+        {
+          "text": "Clear wording helps people understand ideas (in class) (in the lesson)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Repeating words helps students remember information better",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Longer explanations show stronger teaching skills and knowledge",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Strong opinions make lessons clearer for most students",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q4_approaches",
+      "type": "MC",
+      "prompt": "How does Coach Beckham's teaching approach in Act 2 differ from his approach in Act 1?",
+      "choices": [
+        {
+          "text": "He switches from vague words to clear actions (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "He allows students to lead the lesson with more discussion",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "He spends more time correcting behavior problems in class",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "He uses more examples than before to explain concepts",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q5_evidence_across",
+      "type": "MC",
+      "prompt": "Which detail from Act 1 best connects to the improvement shown in Act 2?",
+      "choices": [
+        {
+          "text": "The confusing board sentence matches Version A (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Arthur's comments interrupt both lessons throughout the play",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Mr. Barcelona watches in both acts without saying anything",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Students speak more in Act 2 than they did in Act 1",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q6_infer_barcelona",
+      "type": "MC",
+      "prompt": "What can the reader infer about why Mr. Barcelona stops writing on his clipboard?",
+      "choices": [
+        {
+          "text": "The lesson becomes clearer",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "He finishes writing all notes",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "He becomes bored",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "He disagrees with the teacher",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q7_infer_philosophy",
+      "type": "MC",
+      "prompt": "What does Mrs. J's decision to rewrite the sentence suggest about her teaching philosophy?",
+      "choices": [
+        {
+          "text": "Clear language helps students learn (in class) (in the lesson)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Teachers should avoid making any mistakes during lessons",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Grammar matters more than meaning in all education",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Students should fix teacher errors during every class",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q8_infer_structure",
+      "type": "MC",
+      "prompt": "What can be inferred about why the playwright shows confusion before understanding?",
+      "choices": [
+        {
+          "text": "To show why clarity matters",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "To make the play more realistic",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "To show students dislike history",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "To slow down the lesson",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q9_infer_learning",
+      "type": "MC",
+      "prompt": "Based on the students' reactions, what can be inferred about what causes effective learning?",
+      "choices": [
+        {
+          "text": "Clear word choice reduces confusion (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Faster lessons hold attention better",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Humor improves understanding greatly",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Repetition guarantees learning always",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q10_infer_relationship",
+      "type": "MC",
+      "prompt": "What can be inferred about the relationship between word choice and comprehension?",
+      "choices": [
+        {
+          "text": "Word choice affects understanding (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Longer words show intelligence levels",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Repeated words add importance always",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Metaphors always help readers think",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q11_transition",
+      "type": "MC",
+      "prompt": "A student writes: Coach Beckham's first explanation was confusing. _____ his second explanation was much clearer.\n\nWhich transition word best shows the relationship between these ideas?",
+      "choices": [
+        {
+          "text": "However (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "For example",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Meanwhile",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Similarly",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q12_wrong_transition",
+      "type": "MC",
+      "prompt": "Mrs. J writes on the board: Lords controlled land. However, they also protected it.\n\nWhat is wrong with the transition word used?",
+      "choices": [
+        {
+          "text": "The ideas do not contrast",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "The sentence lacks punctuation",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "The verb tense is wrong here",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "The sentence is informal",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q13_sentence_connection",
+      "type": "MC",
+      "prompt": "Which sentence best connects these two ideas with appropriate transition?\n\nIdea 1: The lesson started with confusion.\nIdea 2: Students understood by the end.",
+      "choices": [
+        {
+          "text": "The lesson began confusing but ended clear (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "The lesson began confusing for example it ended clear",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "The lesson began confusing because it ended clear",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "The lesson began confusing similarly it ended clear",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q14_theme_v_summary",
+      "type": "MC",
+      "prompt": "Which statement best expresses the theme of the play rather than just summarizing events?",
+      "choices": [
+        {
+          "text": "How words are used matters (in class) (in the lesson)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Students learn about feudal lords in Japanese history",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Teachers revise lessons throughout the school day",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Class improves in Act 2 because of better teaching",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q15_theme_evidence",
+      "type": "MC",
+      "prompt": "Which detail from the play best supports the theme that how you say something matters as much as what you say?",
+      "choices": [
+        {
+          "text": "Students understand after wording changes (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Arthur makes jokes throughout both acts of the play",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Mr. Barcelona observes without speaking at all during class",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Rachel explains ideas in detail to help other students",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q16_universal_message",
+      "type": "MC",
+      "prompt": "What universal message does the playwright communicate through the classroom setting?",
+      "choices": [
+        {
+          "text": "Clear communication helps learning (in class) (in the lesson)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Teachers should avoid all metaphors completely in lessons",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "History lessons confuse most students often in classrooms",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Classrooms need administrative observers watching at all times",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q17_text_evidence_1",
+      "type": "MC",
+      "prompt": "Which line from the play best supports the idea that clear language improves understanding?",
+      "choices": [
+        {
+          "text": "Students respond better to revised language (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Arthur interrupts discussion with random comments",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Rachel summarizes content in great detail for everyone",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Mr. Barcelona takes notes on his clipboard throughout class",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q18_word_choice_impact",
+      "type": "MC",
+      "prompt": "Which detail best shows that word choice affects comprehension?",
+      "choices": [
+        {
+          "text": "Specific verbs improve understanding (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Students ask fewer questions after the revision happens",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Writing is neater on the board now than before",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Lessons move faster with clear language and better explanations",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q19_teaching_change",
+      "type": "MC",
+      "prompt": "Which quotation from Act 2 best demonstrates the change in teaching effectiveness?",
+      "choices": [
+        {
+          "text": "Coach uses clearer action words (in class) (in the lesson)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Coach sounds much more confident in his teaching now",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Students interrupt less during the second lesson",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Mrs. J writes more detailed information on the board",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q20_author_purpose_structure",
+      "type": "MC",
+      "prompt": "Why does the playwright show the confused lesson before the clear lesson?",
+      "choices": [
+        {
+          "text": "To compare confusing and clear lessons (in class) (in the lesson)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "To add humor before the serious instruction begins",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "To show teacher conflict in the classroom environment",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "To teach history slowly over time to help students",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q21_barcelona_purpose",
+      "type": "MC",
+      "prompt": "What is the most likely reason the author includes Mr. Barcelona as a silent observer throughout the play?",
+      "choices": [
+        {
+          "text": "He shows when the lesson works (in class)",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "He controls the classroom environment",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "He explains the lesson to students",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "He entertains the audience members",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q22_multiselect",
+      "type": "MA",
+      "prompt": "Select TWO answers.\n\nWhich TWO statements best describe how clarity in language affects the classroom?",
+      "choices": [
+        {
+          "text": "Students understand ideas better",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "Confusion decreases with clear words",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "Lessons become much shorter than before",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Teachers talk much less during class",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "ecr_act2",
+      "type": "ESSAY",
+      "prompt": "Write a multi-paragraph essay explaining how word choice affects understanding. Use evidence from BOTH Act 1 and Act 2 to support your explanation.\n\nRemember to:\n- Clearly state your controlling idea\n- Organize your writing with an introduction, body, and conclusion\n- Use specific evidence from the play\n- Explain how your evidence supports your controlling idea\n- Use correct spelling, capitalization, punctuation, and grammar\n\nScoring Rubric:\nDevelopment & Organization (0-3 points):\n- 3: Clear controlling idea, effective organization, specific evidence from both acts, clear explanation\n- 2: Controlling idea present, limited organization, some evidence, basic explanation\n- 1: Weak controlling idea, minimal organization, insufficient evidence\n- 0: No controlling idea, no organization, no evidence\n\nConventions (0-2 points):\n- 2: Consistent command of grade-level conventions\n- 1: Inconsistent command of conventions\n- 0: Little to no command of conventions",
+      "points": 5,
+      "length_guidance": "3-4 paragraphs (approximately 250-350 words)",
+      "rubric_hint": "Your essay should have a clear thesis about how word choice affects understanding, use specific examples from both acts (like the board sentence, Coach's repetitive language, and the revised explanations), and explain why these examples support your thesis."
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q1_compare",
+      "rationale": "Version B replaces the repetitive and vague controlled with specific action verbs (governed, managing, collecting) that clearly describe different functions."
+    },
+    {
+      "item_id": "q2_connection_act1",
+      "rationale": "In both cases, the revision eliminates unclear or repetitive wording that prevented students from understanding the content."
+    },
+    {
+      "item_id": "q3_synthesize",
+      "rationale": "Throughout both acts, the play demonstrates that precise, specific wording helps audiences understand ideas better than vague or repetitive language."
+    },
+    {
+      "item_id": "q4_approaches",
+      "rationale": "In Act 1, Coach uses vague, repetitive language; in Act 2, he uses specific action verbs that clearly describe what feudal lords did."
+    },
+    {
+      "item_id": "q5_evidence_across",
+      "rationale": "The board sentence with capitalization errors and unclear structure in Act 1 parallels Version A's unclear, repetitive wording in Act 2."
+    },
+    {
+      "item_id": "q6_infer_barcelona",
+      "rationale": "Mr. Barcelona stops writing when the lesson becomes clear, suggesting he was noting problems that no longer exist."
+    },
+    {
+      "item_id": "q7_infer_philosophy",
+      "rationale": "By taking time to fix the sentence instead of rushing ahead, Mrs. J shows she values clarity over speed."
+    },
+    {
+      "item_id": "q8_infer_structure",
+      "rationale": "The playwright deliberately contrasts confusion with clarity to demonstrate the importance of precise language."
+    },
+    {
+      "item_id": "q9_infer_learning",
+      "rationale": "Students understand the content once Coach uses specific verbs instead of repeating vague words, showing that word choice affects learning."
+    },
+    {
+      "item_id": "q10_infer_relationship",
+      "rationale": "The play consistently shows that when word choice improves (specific verbs, corrected errors), comprehension improves."
+    },
+    {
+      "item_id": "q11_transition",
+      "rationale": "However correctly shows contrast between the confusing first explanation and the clear second explanation."
+    },
+    {
+      "item_id": "q12_wrong_transition",
+      "rationale": "However signals contrast, but controlling and protecting land are complementary actions, not contrasting ones; Additionally or Furthermore would be correct."
+    },
+    {
+      "item_id": "q13_sentence_connection",
+      "rationale": "But (implied in began confusing but ended clear) correctly shows the contrast between the beginning and end of the lesson."
+    },
+    {
+      "item_id": "q14_theme_v_summary",
+      "rationale": "A theme expresses a universal message; the other options summarize specific events from the play."
+    },
+    {
+      "item_id": "q15_theme_evidence",
+      "rationale": "This detail directly supports the theme by showing that changing HOW something is said (wording) affects WHAT is understood."
+    },
+    {
+      "item_id": "q16_universal_message",
+      "rationale": "The classroom setting demonstrates a universal truth about communication that applies beyond just this specific lesson."
+    },
+    {
+      "item_id": "q17_text_evidence_1",
+      "rationale": "Students' positive reaction to revised language directly demonstrates that clear wording improves understanding."
+    },
+    {
+      "item_id": "q18_word_choice_impact",
+      "rationale": "The shift from vague controlled to specific verbs (governed, managed, collected) directly improves clarity and comprehension."
+    },
+    {
+      "item_id": "q19_teaching_change",
+      "rationale": "Using specific action words instead of repetitive vague terms is the key change that makes Coach's teaching more effective."
+    },
+    {
+      "item_id": "q20_author_purpose_structure",
+      "rationale": "By showing both confusion and clarity, the playwright demonstrates the difference that word choice makes in understanding."
+    },
+    {
+      "item_id": "q21_barcelona_purpose",
+      "rationale": "Mr. Barcelona's changing behavior (writing, then stopping, then nodding) signals when the lesson has problems and when it succeeds."
+    },
+    {
+      "item_id": "q22_multiselect",
+      "rationale": "Both statements correctly describe effects of clear language shown in the play: improved student understanding and reduced confusion."
+    },
+    {
+      "item_id": "ecr_act2",
+      "rationale": "Students should write a thesis about word choice affecting understanding, provide examples from both acts (board errors, repetitive controlled, revised explanations with specific verbs), and explain how each example supports the thesis."
+    }
+  ]
+}
+</QUIZFORGE_JSON>

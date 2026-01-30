@@ -42,22 +42,27 @@ def balance_answers(questions: List[Question], seed: Optional[int] = None) -> Li
 
 
 def _balance_mc_questions(mc_questions: List[MCQuestion]) -> None:
+    if not mc_questions:
+        return
+
+    # Shuffle all choices first to break LLM's original answer bias
+    # This must happen regardless of whether we can "balance" the distribution
+    for q in mc_questions:
+        random.shuffle(q.choices)
+
     # Determine number of positions (assume first question's number of choices)
-    num_positions = len(mc_questions[0].choices) if mc_questions else 0
+    num_positions = len(mc_questions[0].choices)
     # Validate counts
     for q in mc_questions:
         if len(q.choices) != num_positions:
             # For simplicity, if varying lengths, skip balancing of this set
+            # But they are already shuffled now!
             return
 
     num_questions = len(mc_questions)
     position_counts = [0] * num_positions
 
     random.shuffle(mc_questions)
-
-    # Shuffle all choices first to break LLM's original answer bias
-    for q in mc_questions:
-        random.shuffle(q.choices)
 
     for q in mc_questions:
         # Determine current correct index

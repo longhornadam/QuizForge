@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 
-def transform_code_blocks(text: str) -> str:
+def transform_code_blocks(text: str, *, render_mode: str = "verbatim") -> str:
     """Transform Markdown code blocks to Canvas-safe HTML.
     
     Canvas New Quizzes cannot render Markdown fenced code blocks properly.
@@ -38,6 +38,14 @@ def transform_code_blocks(text: str) -> str:
     """
     if not text:
         return text
+
+    mode = (render_mode or "verbatim").lower() if isinstance(render_mode, str) else "verbatim"
+    if mode != "executable":
+        # Verbatim mode must be strict identity.
+        output_text = text
+        if output_text != text or len(output_text) != len(text):
+            raise ValueError("Verbatim render_mode mutated student-facing text during formatting.")
+        return output_text
     
     # Already contains HTML code tags - skip transformation
     if re.search(r'<pre>|<code>', text, re.IGNORECASE):
@@ -57,7 +65,7 @@ def transform_code_blocks(text: str) -> str:
         code = match.group(2)
         
         # Clean up the code content
-        code = _clean_code_content(code)
+        code = _clean_code_content(code, render_mode=render_mode)
         
         # Apply syntax highlighting for Python
         if lang.lower() == 'python':
@@ -77,7 +85,7 @@ def transform_code_blocks(text: str) -> str:
     def replace_inline(match: re.Match) -> str:
         code = match.group(1)
         # Clean up inline code
-        code = _clean_code_content(code)
+        code = _clean_code_content(code, render_mode=render_mode)
         escaped = xml_escape(code)
         return f'<code>{escaped}</code>'
     
@@ -95,41 +103,104 @@ def transform_code_blocks(text: str) -> str:
 
 
 def _clean_text_content(text: str) -> str:
-    """Clean text content by fixing escaped sequences.
+    """DEPRECATED: escape-cleaning must be render-mode gated.
+
+    This function remains for backwards compatibility but MUST NOT be used for
+    student-facing verbatim strings. Use _clean_text(text, render_mode=...).
+    """
+    return _clean_text(text, render_mode="executable")
+
+
+def _clean_text_verbatim(text: str) -> str:
+    """Verbatim mode: treat text as opaque payload (no escape interpretation)."""
+    return text
+
+
+def _clean_text_executable(text: str) -> str:
+    """Executable mode: interpret escape sequences EXCEPT in code contexts.
     
-    Handles:
-    - Literal backslash-n sequences (\\n) → actual newlines
-    - Double-escaped newlines from JSON
-    - Should be applied to ALL text before rendering
+    This preserves literal text inside:
+    - Backticks: `code here`
+    - Fenced blocks: ```code here```
+    - HTML code tags: <code>code here</code>
+    
+    While interpreting escapes in regular text (paragraph breaks, etc.).
+    This eliminates the need for verbatim mode in 99.9% of cases.
     """
     if not text:
         return text
     
+    import re
+    
+    # Step 1: Extract and protect code contexts
+    protected_regions = []
+    placeholder_prefix = "__PROTECTED_CODE_"
+    
+    def protect_region(match):
+        """Store region and return placeholder."""
+        idx = len(protected_regions)
+        protected_regions.append(match.group(0))
+        return f"{placeholder_prefix}{idx}__"
+    
+    # Protect fenced code blocks: ```lang\ncode\n```
+    text = re.sub(r'```[\s\S]*?```', protect_region, text)
+    
+    # Protect inline backticks: `code`
+    text = re.sub(r'`[^`]+`', protect_region, text)
+    
+    # Protect HTML code tags: <code>...</code> and <pre>...</pre>
+    text = re.sub(r'<code[^>]*>[\s\S]*?</code>', protect_region, text, flags=re.IGNORECASE)
+    text = re.sub(r'<pre[^>]*>[\s\S]*?</pre>', protect_region, text, flags=re.IGNORECASE)
+    
+    # Step 2: Interpret escapes in non-code text
     # Handle double-escaped newlines from JSON (literal \\n → \n)
-    text = text.replace('\\\\n', '\n')
+    text = text.replace("\\\\n", "\n")
     
     # Handle literal backslash-n (\n as two characters → actual newline)
-    # This handles cases where JSON had \\n which became \n after parsing
-    text = text.replace('\\n', '\n')
+    text = text.replace("\\n", "\n")
     
     # Handle escaped tabs similarly
-    text = text.replace('\\t', '\t')
+    text = text.replace("\\t", "\t")
+    
+    # Step 3: Restore protected code regions with original content
+    # CRITICAL: Restore in reverse order to handle nested protections correctly
+    # (e.g., <pre><code>...</code></pre> protects <code> first, then <pre>)
+    for idx in reversed(range(len(protected_regions))):
+        placeholder = f"{placeholder_prefix}{idx}__"
+        text = text.replace(placeholder, protected_regions[idx])
     
     return text
 
 
-def _clean_code_content(code: str) -> str:
-    """Clean code content by fixing escaped sequences.
-    
-    Handles:
-    - JSON-escaped newlines (\\n) → actual newlines
-    - Literal backslash-n sequences → actual newlines
-    - HTML entities that shouldn't be escaped in code
+def _clean_text(text: str, *, render_mode: str = "verbatim") -> str:
+    """Render-mode gated cleaning.
+
+    - verbatim: no-op (hard-assert no mutation)
+    - executable: interpret escape sequences
+
+    Missing/unknown render_mode is treated as verbatim.
     """
-    # First apply general text cleaning
-    code = _clean_text_content(code)
+    original = text
+    mode = (render_mode or "verbatim").lower() if isinstance(render_mode, str) else "verbatim"
+    if mode != "executable":
+        cleaned = _clean_text_verbatim(text)
+        # Hard invariant: verbatim cleaning must be strict identity.
+        if original != cleaned or (original is not None and cleaned is not None and len(original) != len(cleaned)):
+            raise ValueError("Verbatim render_mode mutated student-facing text during cleaning.")
+        return cleaned
+
+    return _clean_text_executable(text)
+
+
+def _clean_code_content(code: str, *, render_mode: str = "verbatim") -> str:
+    """Clean code content - primarily handles HTML entity fixes.
     
-    # Fix incorrectly escaped HTML entities (common in JSON)
+    Note: In executable mode, code contexts are now protected upstream by
+    _clean_text_executable, so we don't interpret escapes here. We only
+    fix HTML entities that may have been incorrectly escaped.
+    """
+    # In executable mode with context-aware cleaning, the code arrives protected.
+    # Only fix HTML entities that shouldn't be escaped.
     code = code.replace('&lt;', '<')
     code = code.replace('&gt;', '>')
     code = code.replace('&amp;', '&')
@@ -189,11 +260,11 @@ def sanitize_for_canvas(text: str) -> str:
     if not text:
         return text
     
-    # First clean escaped sequences
-    result = _clean_text_content(text)
+    # Default to executable here (this helper is explicitly for Canvas display cleanup).
+    result = _clean_text(text, render_mode="executable")
     
     # Then transform code blocks
-    result = transform_code_blocks(result)
+    result = transform_code_blocks(result, render_mode="executable")
     
     return result
 
@@ -388,11 +459,58 @@ def syntax_highlight_python(code: str) -> str:
     return result
 
 
-def htmlize_prompt(text: str, *, excerpt_numbering: bool = True) -> str:
-    # First clean escaped sequences
-    text = _clean_text_content(text)
+def apply_syntax_highlighting_to_html(html: str) -> str:
+    """Apply Python syntax highlighting to <code> blocks within <pre> tags in existing HTML.
+    
+    This processes pre-formed HTML and adds Monokai-style syntax highlighting
+    to Python code blocks.
+    
+    Args:
+        html: HTML string that may contain <pre><code>...</code></pre> blocks
+        
+    Returns:
+        HTML with syntax-highlighted code blocks
+    """
+    import re as _re
+    
+    def highlight_code_block(match):
+        """Apply syntax highlighting to a matched code block."""
+        # Extract the code content (between <code> and </code>)
+        full_match = match.group(0)
+        code_content = match.group(1)
+        
+        # Apply Python syntax highlighting
+        highlighted = syntax_highlight_python(code_content)
+        
+        # Reconstruct the pre/code structure with highlighted content
+        # Keep the original <pre> tag with all its attributes
+        pre_start = full_match[:full_match.index('<code>')]
+        pre_end = '</code></pre>'
+        
+        return f"{pre_start}<code>{highlighted}</code></pre>"
+    
+    # Match <pre...><code>content</code></pre> patterns
+    # Use DOTALL to match across newlines
+    pattern = r'<pre[^>]*>\s*<code[^>]*>(.*?)</code>\s*</pre>'
+    result = _re.sub(pattern, highlight_code_block, html, flags=_re.DOTALL)
+    
+    return result
+
+
+def htmlize_prompt(text: str, *, excerpt_numbering: bool = True, render_mode: str = "verbatim") -> str:
+    original_text = text
+    mode = (render_mode or "verbatim").lower() if isinstance(render_mode, str) else "verbatim"
+    if mode != "executable":
+        if original_text != text or len(original_text) != len(text):
+            raise ValueError("Verbatim render_mode mutated student-facing text during formatting.")
+        return text
+
+    # Executable: allow escape interpretation and formatting
+    text = _clean_text(text, render_mode="executable")
     
     if re.search(r"<\w+[^>]*>", text):
+        # HTML is already present - apply syntax highlighting to code blocks
+        text = apply_syntax_highlighting_to_html(text)
         return text
 
     monokai_style = (
@@ -634,7 +752,7 @@ def htmlize_prompt(text: str, *, excerpt_numbering: bool = True) -> str:
     return "\n".join(part for part in html_parts if part) or "<p></p>"
 
 
-def htmlize_choice(text: str) -> str:
+def htmlize_choice(text: str, *, render_mode: str = "verbatim") -> str:
     """Convert choice text to Canvas-safe HTML.
     
     Handles:
@@ -648,16 +766,22 @@ def htmlize_choice(text: str) -> str:
     Returns:
         Canvas-safe HTML wrapped in <p> tags (unless it's a code block)
     """
+    original_text = text
+    mode = (render_mode or "verbatim").lower() if isinstance(render_mode, str) else "verbatim"
+    if mode != "executable":
+        if original_text != text or len(original_text) != len(text):
+            raise ValueError("Verbatim render_mode mutated student-facing text during formatting.")
+        return text or ""
+
     if not text:
         return "<p></p>"
-    
-    # First clean escaped sequences
-    text = _clean_text_content(text)
+
+    text = _clean_text(text, render_mode="executable")
     
     # Check if text contains fenced code blocks
     if '```' in text:
         # Use the full transformer for complex content
-        transformed = transform_code_blocks(text)
+        transformed = transform_code_blocks(text, render_mode=render_mode)
         # If the entire choice is a code block, don't wrap in <p>
         if transformed.strip().startswith('<pre'):
             return transformed
@@ -672,7 +796,7 @@ def htmlize_choice(text: str) -> str:
     def replace_inline(match: re.Match) -> str:
         code = match.group(1)
         # Clean up the code content
-        code = _clean_code_content(code)
+        code = _clean_code_content(code, render_mode=render_mode)
         return f"<code>{esc(code)}</code>"
     
     processed = re.sub(r"`([^`]+)`", replace_inline, text)
@@ -689,7 +813,7 @@ def htmlize_choice(text: str) -> str:
     
     return f"<p>{''.join(result_parts)}</p>"
 
-def htmlize_item_text(text: str) -> str:
+def htmlize_item_text(text: str, *, render_mode: str = "verbatim") -> str:
     """Convert item text (ordering, categorization, matching) to Canvas-safe HTML.
     
     Similar to htmlize_choice but returns just the transformed content
@@ -701,15 +825,21 @@ def htmlize_item_text(text: str) -> str:
     Returns:
         Canvas-safe HTML content (no outer <p> wrapper)
     """
+    original_text = text
+    mode = (render_mode or "verbatim").lower() if isinstance(render_mode, str) else "verbatim"
+    if mode != "executable":
+        if original_text != text or len(original_text) != len(text):
+            raise ValueError("Verbatim render_mode mutated student-facing text during formatting.")
+        return text or ""
+
     if not text:
         return ""
-    
-    # First clean escaped sequences
-    text = _clean_text_content(text)
+
+    text = _clean_text(text, render_mode="executable")
     
     # Check if text contains fenced code blocks
     if '```' in text:
-        return transform_code_blocks(text)
+        return transform_code_blocks(text, render_mode=render_mode)
     
     # Handle inline backticks
     def esc(value: str) -> str:
@@ -717,7 +847,7 @@ def htmlize_item_text(text: str) -> str:
     
     def replace_inline(match: re.Match) -> str:
         code = match.group(1)
-        code = _clean_code_content(code)
+        code = _clean_code_content(code, render_mode=render_mode)
         return f"<code>{esc(code)}</code>"
     
     processed = re.sub(r"`([^`]+)`", replace_inline, text)
@@ -734,7 +864,7 @@ def htmlize_item_text(text: str) -> str:
     return ''.join(result_parts)
 
 
-def plaintext_item_text(text: str) -> str:
+def plaintext_item_text(text: str, *, render_mode: str = "verbatim") -> str:
     """Convert item text to plain text, stripping Markdown code fences.
     
     Use this for question types where Canvas doesn't render HTML
@@ -746,11 +876,17 @@ def plaintext_item_text(text: str) -> str:
     Returns:
         Plain text with code fences removed
     """
+    original_text = text
+    mode = (render_mode or "verbatim").lower() if isinstance(render_mode, str) else "verbatim"
+    if mode != "executable":
+        if original_text != text or len(original_text) != len(text):
+            raise ValueError("Verbatim render_mode mutated student-facing text during formatting.")
+        return text or ""
+
     if not text:
         return ""
-    
-    # Clean escaped sequences first
-    text = _clean_text_content(text)
+
+    text = _clean_text(text, render_mode="executable")
     
     # Remove fenced code blocks but keep the code content
     # Pattern: ```language\ncode\n``` or ```code```

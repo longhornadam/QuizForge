@@ -1,0 +1,74 @@
+============================================================
+QuizForge Processing Log
+============================================================
+Quiz: Sci-Fi Suspense Semicolon Revision (Tone and Clarity)
+Processed: 2026-01-06 12:33:58
+Questions: 9
+Total Points: 100.0
+
+STATUS: PASS (No issues)
+
+AUTO-FIXES APPLIED:
+------------------------------------------------------------
+1. Cleaned text (normalized quotes, whitespace)
+2. Balanced answer distributions (shuffled MC/MA/TF correct positions)
+
+============================================================
+Quiz packages generated successfully!
+============================================================
+
+============================================================
+PHYSICAL QUIZ VALIDATION STATISTICS
+============================================================
+
+ANSWER CHOICE STATISTICS
+----------------------------------------
+Total MC questions: 8
+Average choice length: 69.9 chars
+Min choice length: 34 chars
+Max choice length: 110 chars
+
+Correct answer distribution:
+  A: 2 (25.0%)
+  B: 2 (25.0%)
+  C: 2 (25.0%)
+  D: 2 (25.0%)
+
+Questions eligible for 2-column layout: 1/8
+
+QUESTION LENGTH STATISTICS
+----------------------------------------
+Total questions: 9
+Average question length: 301.9 chars
+Min question length: 82 chars
+Max question length: 1784 chars
+
+Questions over 200 chars (may need formatting review):
+  Q1: 1784 chars
+
+POINT VALUE DISTRIBUTION
+----------------------------------------
+Total points: 100
+Average points per question: 12.50
+
+Point value breakdown:
+  12 pt: 4 questions (50.0%)
+  13 pt: 4 questions (50.0%)
+
+STIMULUS USAGE STATISTICS
+----------------------------------------
+Questions with stimuli: 8/8
+Average stimulus length: 1784.0 chars
+Unique stimuli: 1
+Questions per stimulus (avg): 8.0
+
+
+============================================================
+ANSWER DISTRIBUTION (AFTER BALANCING)
+============================================================
+
+Multiple Choice Distribution:
+  A: 2 (25.0%)
+  B: 2 (25.0%)
+  C: 2 (25.0%)
+  D: 2 (25.0%)

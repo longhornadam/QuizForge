@@ -1,0 +1,171 @@
+============================================================
+VALIDATION ERRORS DETECTED
+============================================================
+
+The quiz 'Practice 4 Final Passages Editing and Revision' has critical errors that must be fixed
+before it can be processed. Please fix the following issues:
+
+1. Longest answer is correct in 70% of MC questions (7/10). Balance answer lengths by shortening correct answers or lengthening distractors so the right answer is not obviously the longest.
+
+============================================================
+INSTRUCTIONS FOR REVISION
+============================================================
+
+Please revise the quiz above to fix all the errors listed.
+Make sure:
+  - All required fields are present (Type, Prompt, Choices, etc.)
+  - MC questions have 2-7 choices with exactly 1 correct answer
+  - MA questions have at least 1 correct answer
+  - Numerical questions have valid answer/tolerance/range settings
+  - All questions have non-empty prompts
+
+Once fixed, save the revised quiz as a new .txt file and
+drop it back into the DropZone folder.
+
+============================================================
+ORIGINAL QUIZ (Contains Errors)
+============================================================
+
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Practice 4 Final Passages Editing and Revision",
+  "metadata": {
+    "grade": 7,
+    "unit": "Unit 5 Writing and Editing",
+    "note": "Passages provided separately by teacher. No stimuli included."
+  },
+  "items": [
+    {
+      "id": "q29",
+      "type": "MC",
+      "prompt": "What is the best way to revise sentence four for clarity and style?",
+      "choices": [
+        { "id": "A", "text": "In my opinion, these earbuds are the perfect blend of comfort, clear sound, and affordability.", "correct": true },
+        { "id": "B", "text": "These earbuds are the perfect blend, in my opinion, of comfort and clear sound, and they are affordable.", "correct": false },
+        { "id": "C", "text": "In my opinion, the perfect blend of comfort and clear sound is what these earbuds are.", "correct": false },
+        { "id": "D", "text": "These earbuds, in my opinion, are what I think is the perfect blend.", "correct": false }
+      ]
+    },
+    {
+      "id": "q30",
+      "type": "ESSAY",
+      "prompt": "Combine the ideas from sentences ten and eleven into one clear sentence.",
+      "length_guidance": "One sentence"
+    },
+    {
+      "id": "q31",
+      "type": "MC",
+      "prompt": "Which transition should replace \"In contrast\" in sentence seventeen?",
+      "choices": [
+        { "id": "A", "text": "Even worse", "correct": true },
+        { "id": "B", "text": "Currently", "correct": false },
+        { "id": "C", "text": "To summarize", "correct": false },
+        { "id": "D", "text": "Incidentally", "correct": false }
+      ]
+    },
+    {
+      "id": "q32",
+      "type": "MC",
+      "prompt": "Which sentence best supports sentence twenty-five?",
+      "choices": [
+        { "id": "A", "text": "Please consider adding more colors so people could buy a second pair.", "correct": true },
+        { "id": "B", "text": "I am sure my cousin would like them.", "correct": false },
+        { "id": "C", "text": "You should advertise during sports events.", "correct": false },
+        { "id": "D", "text": "They are comfortable enough to wear while sleeping.", "correct": false }
+      ]
+    },
+    {
+      "id": "q33",
+      "type": "MC",
+      "prompt": "Which sentence can replace sentence two to create a more effective introduction?",
+      "choices": [
+        { "id": "A", "text": "There are many ways to do this, including reading books and playing games.", "correct": true },
+        { "id": "B", "text": "People insist diet is the only factor.", "correct": false },
+        { "id": "C", "text": "The brain is mysterious and unknowable.", "correct": false },
+        { "id": "D", "text": "Running is the best mental exercise.", "correct": false }
+      ]
+    },
+    {
+      "id": "q34",
+      "type": "MC",
+      "prompt": "What revision, if any, should be made in sentence five?",
+      "choices": [
+        { "id": "A", "text": "No change is needed.", "correct": false },
+        { "id": "B", "text": "Rewrite to remove extra wording and keep the meaning.", "correct": true },
+        { "id": "C", "text": "Move the phrase to the end of the paragraph.", "correct": false },
+        { "id": "D", "text": "Change \"often\" to \"sometimes.\"", "correct": false }
+      ]
+    },
+    {
+      "id": "q35",
+      "type": "MC",
+      "prompt": "What is the best way to revise sentence fourteen to avoid repetition?",
+      "choices": [
+        { "id": "A", "text": "They claim spending an hour on chess, checkers, or a logic puzzle app is not a good use of time.", "correct": true },
+        { "id": "B", "text": "They claim spending an hour on chess is not a good use of time or checkers.", "correct": false },
+        { "id": "C", "text": "They claim chess time is not good.", "correct": false },
+        { "id": "D", "text": "They claim an hour is not good.", "correct": false }
+      ]
+    },
+    {
+      "id": "q36",
+      "type": "MC",
+      "prompt": "Which word should replace \"beneficial\" in sentence sixteen?",
+      "choices": [
+        { "id": "A", "text": "Helpful", "correct": true },
+        { "id": "B", "text": "Supreme", "correct": false },
+        { "id": "C", "text": "Reflective", "correct": false },
+        { "id": "D", "text": "Professional", "correct": false }
+      ]
+    },
+    {
+      "id": "q37",
+      "type": "MC",
+      "prompt": "What change needs to be made in sentence two?",
+      "choices": [
+        { "id": "A", "text": "Capitalize Big Bend National Park.", "correct": true },
+        { "id": "B", "text": "Change \"their\" to \"our.\"", "correct": false },
+        { "id": "C", "text": "Change \"would be\" to \"being.\"", "correct": false },
+        { "id": "D", "text": "Remove the comma.", "correct": false }
+      ]
+    },
+    {
+      "id": "q38",
+      "type": "MC",
+      "prompt": "What change needs to be made in sentence three?",
+      "choices": [
+        { "id": "A", "text": "Change \"excited\" to \"excitedly.\"", "correct": true },
+        { "id": "B", "text": "Delete the comma.", "correct": false },
+        { "id": "C", "text": "Change \"Ms\" to \"Ms.'s.\"", "correct": false },
+        { "id": "D", "text": "Change \"talked\" to \"talking.\"", "correct": false }
+      ]
+    },
+    {
+      "id": "q39",
+      "type": "MC",
+      "prompt": "What is the correct way to write sentence four?",
+      "choices": [
+        { "id": "A", "text": "One student mentioned climbing a ridgeline, which is a long, narrow stretch of high ground.", "correct": true },
+        { "id": "B", "text": "One student mentioned climbing a ridgeline. This is a stretch of ground.", "correct": false },
+        { "id": "C", "text": "One student mentioned it climbing a ridgeline.", "correct": false },
+        { "id": "D", "text": "One student mentioned ridgeline; it is narrow.", "correct": false }
+      ]
+    }
+  ],
+  "rationales": [
+    { "item_id": "q29", "rationale": "The revision improves clarity and flow by organizing ideas logically and adding proper punctuation." },
+    { "item_id": "q30", "rationale": "A combined sentence should clearly merge both ideas without redundancy." },
+    { "item_id": "q31", "rationale": "The transition signals a stronger negative progression than contrast." },
+    { "item_id": "q32", "rationale": "The sentence directly elaborates on the idea introduced in sentence twenty-five." },
+    { "item_id": "q33", "rationale": "The sentence effectively introduces the topic with clear, relevant details." },
+    { "item_id": "q34", "rationale": "Removing unnecessary wording improves clarity while preserving meaning." },
+    { "item_id": "q35", "rationale": "The revision eliminates repeated ideas while keeping the original intent." },
+    { "item_id": "q36", "rationale": "The replacement word maintains the original meaning more clearly." },
+    { "item_id": "q37", "rationale": "Proper nouns require capitalization to follow standard conventions." },
+    { "item_id": "q38", "rationale": "An adverb is needed to correctly modify the verb." },
+    { "item_id": "q39", "rationale": "The sentence is correctly punctuated as a complex sentence with a nonrestrictive clause." }
+  ]
+}
+</QUIZFORGE_JSON>
+

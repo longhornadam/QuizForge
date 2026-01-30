@@ -1,0 +1,296 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Suspense Comma Revision (Meaning and Tone)",
+"metadata": {
+"grade": 7,
+"focus": "Commas that change meaning and tone (STAAR-style revising and editing)",
+"standard_hint": "TEKS 7.10D (Editing)"
+},
+"items": [
+{
+"id": "stim_a",
+"type": "STIMULUS",
+"format": "markdown",
+"layout": "below",
+"prompt": "Read the passage. Paragraphs are numbered.\n\n**Suspense Passage (Draft With Comma Problems)**\n\n**[1]** When the last porch light died Mira knew the street was holding its breath. Maple Court was usually loud at dusk, dogs barking, sprinklers clicking, kids arguing over bikes. Tonight it sounded empty, like someone had muted the world.\n\n**[2]** She stepped onto the sidewalk to bring in the trash cans when a paper scrap skittered to her shoe. It was folded tight like a warning, and written in blocky pen it said: IF YOU SEE HIM RUN HIDE DO NOT TRUST ANYONE. The message was so short it felt unfinished, like a sentence cut off before the worst part.\n\n**[3]** Mira looked up. At the end of the street the neighbor who always watered his lawn at dusk stood in the middle of the road smiling. He lifted one hand, as if he were waving her closer. Behind him, every house window was dark except one, the Goodman place, where a single lamp flickered."
+},
+{
+"id": "q1",
+"type": "MC",
+"stimulus_id": "stim_a",
+"prompt": "Paragraph 1: The writer wants Mira's realization to hit right after the lights go out. Which revision uses a comma correctly?",
+"choices": [
+{
+"id": "A",
+"text": "When the last porch light, died Mira knew the street was holding its breath.",
+"correct": false
+},
+{
+"id": "B",
+"text": "When the last porch light died, Mira knew the street was holding its breath.",
+"correct": true
+},
+{
+"id": "C",
+"text": "When the last porch light died Mira, knew the street was holding its breath.",
+"correct": false
+},
+{
+"id": "D",
+"text": "When, the last porch light died Mira knew the street was holding its breath.",
+"correct": false
+}
+]
+},
+{
+"id": "q8",
+"type": "MC",
+"stimulus_id": "stim_a",
+"prompt": "Paragraph 3: The writer wants to show there are many neighbors, but only one specific neighbor is standing in the road. Which revision keeps that meaning?",
+"choices": [
+{
+"id": "A",
+"text": "At the end of the street, the neighbor, who always watered his lawn at dusk, stood in the middle of the road smiling.",
+"correct": false
+},
+{
+"id": "B",
+"text": "At the end of the street the neighbor, who always watered his lawn at dusk stood in the middle of the road smiling.",
+"correct": false
+},
+{
+"id": "C",
+"text": "At the end of the street the neighbor who always watered his lawn, at dusk stood in the middle of the road smiling.",
+"correct": false
+},
+{
+"id": "D",
+"text": "At the end of the street, the neighbor who always watered his lawn at dusk stood in the middle of the road smiling.",
+"correct": true
+}
+]
+},
+{
+"id": "stim_b",
+"type": "STIMULUS",
+"format": "markdown",
+"layout": "below",
+"prompt": "Read paragraph 4.\n\n**[4]** Stop Charlie she whispered, then remembered Charlie was not with her. Her brother was inside, asleep, and their dad was still at work. She tried the phone anyway it gave only a thin dead tone, and she suddenly felt foolish for expecting help."
+},
+{
+"id": "q2",
+"type": "MC",
+"stimulus_id": "stim_b",
+"prompt": "Paragraph 4: Mira is speaking directly to her brother, using his name. Which revision correctly punctuates the direct address?",
+"choices": [
+{
+"id": "A",
+"text": "\"Stop Charlie,\" she whispered, then remembered Charlie was not with her.",
+"correct": false
+},
+{
+"id": "B",
+"text": "\"Stop, Charlie\" she whispered, then remembered Charlie was not with her.",
+"correct": false
+},
+{
+"id": "C",
+"text": "\"Stop, Charlie,\" she whispered, then remembered Charlie was not with her.",
+"correct": true
+},
+{
+"id": "D",
+"text": "\"Stop Charlie\" she whispered then remembered, Charlie was not with her.",
+"correct": false
+}
+]
+},
+{
+"id": "q3",
+"type": "MC",
+"stimulus_id": "stim_b",
+"prompt": "Paragraph 4: The writer wants the phone's silence to feel lifeless and unsettling. Which revision correctly separates the two describing words?",
+"choices": [
+{
+"id": "A",
+"text": "It gave only a thin dead, tone, and she suddenly felt foolish for expecting help.",
+"correct": false
+},
+{
+"id": "B",
+"text": "It gave only a thin, dead, tone and she suddenly felt foolish for expecting help.",
+"correct": false
+},
+{
+"id": "C",
+"text": "It gave only a thin dead tone, and she suddenly felt foolish for expecting help.",
+"correct": false
+},
+{
+"id": "D",
+"text": "It gave only a thin, dead tone, and she suddenly felt foolish for expecting help.",
+"correct": true
+}
+]
+},
+{
+"id": "stim_c",
+"type": "STIMULUS",
+"format": "markdown",
+"layout": "below",
+"prompt": "Read paragraphs 5-8.\n\n**[5]** Mira read the note again and heard footsteps slow, patient, coming from behind the hedges. The sound was too careful to be a dog. She gripped her phone a flashlight and the rusted key she wore on a string, the one their grandmother said opened the shortcut.\n\n**[6]** If you see him run hide she mouthed, trying to decide what it meant. If she saw him, should she run and then hide? Or if she saw him run, should she hide immediately? The difference felt like life and death, but the note refused to explain itself.\n\n**[7]** Mira reached the old gate by the alley it opened on its own with a wet click. Cold air slid out, smelling of rain even though the sky was clear. The neighbor at the end of the street turned his head toward her, and his smile did not change.\n\n**[8]** Mira stepped through. She did not look back. Behind her, someone called softly \"Mira come here,\" and the words sounded almost kind."
+},
+{
+"id": "q4",
+"type": "MC",
+"stimulus_id": "stim_c",
+"prompt": "Paragraph 5: The writer wants to show that Mira grabs several items quickly. Which revision correctly uses commas in a series?",
+"choices": [
+{
+"id": "A",
+"text": "She gripped her phone, a flashlight and the rusted key she wore on a string.",
+"correct": false
+},
+{
+"id": "B",
+"text": "She gripped her phone, a flashlight, and the rusted key she wore on a string.",
+"correct": true
+},
+{
+"id": "C",
+"text": "She gripped, her phone a flashlight, and the rusted key she wore on a string.",
+"correct": false
+},
+{
+"id": "D",
+"text": "She gripped her phone a flashlight, and the rusted key she wore on a string.",
+"correct": false
+}
+]
+},
+{
+"id": "q5",
+"type": "MC",
+"stimulus_id": "stim_c",
+"prompt": "Paragraph 6: The note's meaning depends on comma placement. The writer wants the note to warn Mira to run immediately when she sees him. Which revision makes this meaning clear?",
+"choices": [
+{
+"id": "A",
+"text": "If you see him, run. Hide.",
+"correct": true
+},
+{
+"id": "B",
+"text": "If you see him run, hide.",
+"correct": false
+},
+{
+"id": "C",
+"text": "If, you see him run hide.",
+"correct": false
+},
+{
+"id": "D",
+"text": "If you see, him run, hide.",
+"correct": false
+}
+]
+},
+{
+"id": "q6",
+"type": "MC",
+"stimulus_id": "stim_c",
+"prompt": "Paragraph 6: Now the writer wants the opposite meaning: Mira should hide only if she sees him running. Which revision creates that meaning?",
+"choices": [
+{
+"id": "A",
+"text": "If you see him, run. Hide.",
+"correct": false
+},
+{
+"id": "B",
+"text": "If you see, him run, hide.",
+"correct": false
+},
+{
+"id": "C",
+"text": "If you see him run, hide.",
+"correct": true
+},
+{
+"id": "D",
+"text": "If you, see him run hide.",
+"correct": false
+}
+]
+},
+{
+"id": "q7",
+"type": "MC",
+"stimulus_id": "stim_c",
+"prompt": "Paragraph 8: The writer wants the voice calling Mira's name to sound calm and personal. Which revision correctly punctuates the sentence?",
+"choices": [
+{
+"id": "A",
+"text": "Behind her someone called softly, \"Mira, come here\", and the words sounded almost kind.",
+"correct": false
+},
+{
+"id": "B",
+"text": "Behind her, someone called softly, \"Mira, come here,\" and the words sounded almost kind.",
+"correct": true
+},
+{
+"id": "C",
+"text": "Behind her, someone called softly \"Mira come here,\" and the words sounded almost kind.",
+"correct": false
+},
+{
+"id": "D",
+"text": "Behind her, someone called softly, \"Mira come, here,\" and the words sounded almost kind.",
+"correct": false
+}
+]
+},
+{
+"type": "STIMULUS_END",
+"prompt": ""
+}
+],
+"rationales": [
+{
+"item_id": "q1",
+"rationale": "Choice B correctly places a comma after the introductory clause to separate the setup from Mira's realization and create a suspenseful pause."
+},
+{
+"item_id": "q8",
+"rationale": "Choice D correctly keeps the clause \"who always watered his lawn at dusk\" restrictive, identifying which neighbor is in the road without adding nonessential commas."
+},
+{
+"item_id": "q2",
+"rationale": "Choice C correctly uses commas to show direct address, making it clear Mira is speaking to Charlie rather than giving a command about Charlie."
+},
+{
+"item_id": "q3",
+"rationale": "Choice D correctly uses a comma between the coordinate adjectives \"thin\" and \"dead\" to emphasize both qualities of the tone."
+},
+{
+"item_id": "q4",
+"rationale": "Choice B correctly uses commas to separate items in a series, matching the quick, urgent rhythm of Mira grabbing multiple objects."
+},
+{
+"item_id": "q5",
+"rationale": "Choice A uses a comma to make \"run\" the immediate action after seeing him and makes \"Hide\" a second, separate command."
+},
+{
+"item_id": "q6",
+"rationale": "Choice C keeps \"see him run\" together as the condition, so the instruction is to hide only when she sees him running."
+},
+{
+"item_id": "q7",
+"rationale": "Choice B correctly uses commas for direct address inside the quotation and properly punctuates the dialogue tag to keep the voice calm and personal."
+}
+]
+}
+</QUIZFORGE_JSON>

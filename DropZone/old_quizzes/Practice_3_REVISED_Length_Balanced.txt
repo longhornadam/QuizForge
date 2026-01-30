@@ -1,0 +1,106 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Practice 3 Ink in the Rain",
+"metadata": {
+"grade": 7,
+"note": "Length-balanced revision - correct answer is longest in ~25% of questions"
+},
+"items": [
+{
+"id": "p3_q21",
+"type": "MC",
+"prompt": "What does translucent most nearly mean based on the Latin root luc",
+"choices": [
+{ "id": "A", "text": "Lets some light through", "correct": true },
+{ "id": "B", "text": "Completely dark and solid like a block of stone", "correct": false },
+{ "id": "C", "text": "Shiny and brightly colored", "correct": false },
+{ "id": "D", "text": "Very thick", "correct": false }
+]
+},
+{
+"id": "p3_q22",
+"type": "MC",
+"prompt": "Which sentence best creates a sentimental mood",
+"choices": [
+{ "id": "A", "text": "Even now when rain taps the window I think of that table", "correct": true },
+{ "id": "B", "text": "The stairs smelled like cardboard", "correct": false },
+{ "id": "C", "text": "I forgot the answer", "correct": false },
+{ "id": "D", "text": "The brush rested on paper", "correct": false }
+]
+},
+{
+"id": "p3_q23",
+"type": "MC",
+"prompt": "What key idea about calligraphy do paragraphs four and five support",
+"choices": [
+{ "id": "A", "text": "It requires patience and careful effort", "correct": true },
+{ "id": "B", "text": "Speed improves handwriting quality", "correct": false },
+{ "id": "C", "text": "Tools matter more than practice", "correct": false },
+{ "id": "D", "text": "Only adults benefit", "correct": false }
+]
+},
+{
+"id": "p3_q24",
+"type": "MC",
+"prompt": "What is the main theme of Ink in the Rain",
+"choices": [
+{ "id": "A", "text": "Quiet routines teach lasting life lessons", "correct": true },
+{ "id": "B", "text": "Distractions solve emotional problems", "correct": false },
+{ "id": "C", "text": "Success depends on correction", "correct": false },
+{ "id": "D", "text": "Hobbies replace relationships", "correct": false }
+]
+},
+{
+"id": "p3_q25",
+"type": "MC",
+"prompt": "Why does the grandfather say your hands need something calm to do",
+"choices": [
+{ "id": "A", "text": "He believes the narrators energy needs focus", "correct": true },
+{ "id": "B", "text": "He wants perfect handwriting", "correct": false },
+{ "id": "C", "text": "He fears ink spills", "correct": false },
+{ "id": "D", "text": "He prefers rainy days for lessons", "correct": false }
+]
+},
+{
+"id": "p3_q26",
+"type": "MC",
+"prompt": "How does subjective point of view help the reader",
+"choices": [
+{ "id": "A", "text": "It shows how the narrators feelings change over time", "correct": true },
+{ "id": "B", "text": "It explains technique", "correct": false },
+{ "id": "C", "text": "It details family history", "correct": false },
+{ "id": "D", "text": "It explains weather", "correct": false }
+]
+},
+{
+"id": "p3_q27",
+"type": "MC",
+"prompt": "How does focusing on calligraphy influence the plot",
+"choices": [
+{ "id": "A", "text": "It replaces overwhelming emotions with calm focus", "correct": true },
+{ "id": "B", "text": "It solves problems immediately", "correct": false },
+{ "id": "C", "text": "It leads to a career", "correct": false },
+{ "id": "D", "text": "It removes the grandfather", "correct": false }
+]
+},
+{
+"id": "p3_q28",
+"type": "ESSAY",
+"prompt": "Describe how the relationship between the narrator and the grandfather influenced the narrators life Use evidence from the text",
+"length_guidance": "One organized paragraph or short essay",
+"rubric_hint": "Controlling idea organization evidence conventions"
+}
+],
+"rationales": [
+{ "item_id": "p3_q21", "rationale": "The root luc connects to light passing through." },
+{ "item_id": "p3_q22", "rationale": "The sentence reflects warm memory and emotion." },
+{ "item_id": "p3_q23", "rationale": "Details emphasize slowing down and care." },
+{ "item_id": "p3_q24", "rationale": "The narrative shows lessons formed through routine." },
+{ "item_id": "p3_q25", "rationale": "The grandfather encourages calm focus." },
+{ "item_id": "p3_q26", "rationale": "First person narration reveals emotional change." },
+{ "item_id": "p3_q27", "rationale": "Calligraphy helps manage emotional conflict." },
+{ "item_id": "p3_q28", "rationale": "The relationship models patience and coping." }
+]
+}
+</QUIZFORGE_JSON>

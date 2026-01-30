@@ -1,0 +1,159 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Practice 2 Counting Knots and Floating Farming",
+"metadata": {
+"grade": 7,
+"note": "Length-balanced revision - correct answer is longest in ~25% of questions"
+},
+"items": [
+{
+"id": "p2_q9",
+"type": "MC",
+"prompt": "What tone does the authors language create in paragraphs four and six of Knots That Count",
+"choices": [
+{ "id": "A", "text": "Excitement about learning", "correct": true },
+{ "id": "B", "text": "Surprise and mild worry about ancient tools not being modern anymore", "correct": false },
+{ "id": "C", "text": "Exaggeration", "correct": false },
+{ "id": "D", "text": "Cold certainty", "correct": false }
+]
+},
+{
+"id": "p2_q10",
+"type": "MC",
+"prompt": "What does the diagram in Knots That Count help the reader understand",
+"choices": [
+{ "id": "A", "text": "How knots show place value", "correct": true },
+{ "id": "B", "text": "Why we no longer need memorization strategies", "correct": false },
+{ "id": "C", "text": "Scoring methods", "correct": false },
+{ "id": "D", "text": "Why hands-on activities appeal to students", "correct": false }
+]
+},
+{
+"id": "p2_q11",
+"type": "MC",
+"prompt": "What is the controlling idea of Knots That Count",
+"choices": [
+{ "id": "A", "text": "Quipus help students learn about numbers", "correct": true },
+{ "id": "B", "text": "Quipus were mainly decorative items used by ancient peoples", "correct": false },
+{ "id": "C", "text": "Only ancient cultures used knot systems", "correct": false },
+{ "id": "D", "text": "Students find quipus entertaining", "correct": false }
+]
+},
+{
+"id": "p2_q12",
+"type": "MC",
+"prompt": "Why did the author most likely write Knots That Count",
+"choices": [
+{ "id": "A", "text": "To explain how quipu counting works", "correct": true },
+{ "id": "B", "text": "To argue that schools must change all math programs immediately", "correct": false },
+{ "id": "C", "text": "To describe ancient weather systems", "correct": false },
+{ "id": "D", "text": "To prove cords are better than calculators", "correct": false }
+]
+},
+{
+"id": "p2_q13",
+"type": "MC",
+"prompt": "Why does the author use the phrase rediscovered chinampas",
+"choices": [
+{ "id": "A", "text": "To show the method was forgotten and relearned", "correct": true },
+{ "id": "B", "text": "To claim chinampas never truly existed in history", "correct": false },
+{ "id": "C", "text": "To criticize modern farming", "correct": false },
+{ "id": "D", "text": "To explain ancient water routes", "correct": false }
+]
+},
+{
+"id": "p2_q14",
+"type": "MC",
+"prompt": "Which phrase best supports the idea that the Aztec had a powerful civilization",
+"choices": [
+{ "id": "A", "text": "Helped feed an empire across central Mexico", "correct": true },
+{ "id": "B", "text": "Birds skim water", "correct": false },
+{ "id": "C", "text": "Canals run between fields", "correct": false },
+{ "id": "D", "text": "Modern communities benefit today", "correct": false }
+]
+},
+{
+"id": "p2_q15",
+"type": "MC",
+"prompt": "Which word from paragraph three best helps define insight in paragraph four",
+"choices": [
+{ "id": "A", "text": "Rediscovered through study and learning", "correct": true },
+{ "id": "B", "text": "Layered", "correct": false },
+{ "id": "C", "text": "Anchored", "correct": false },
+{ "id": "D", "text": "Replaced", "correct": false }
+]
+},
+{
+"id": "p2_q16",
+"type": "MC",
+"prompt": "How does cause and effect organization help support the article topic",
+"choices": [
+{ "id": "A", "text": "It explains what each farming feature accomplishes", "correct": true },
+{ "id": "B", "text": "It proves only one crop grows in these systems", "correct": false },
+{ "id": "C", "text": "It shows canal design", "correct": false },
+{ "id": "D", "text": "It compares Aztec neighbors", "correct": false }
+]
+},
+{
+"id": "p2_q17",
+"type": "MC",
+"prompt": "How do the authors use experts differently in the two articles",
+"choices": [
+{ "id": "A", "text": "One uses experts to support classroom learning, the other explains restoration", "correct": true },
+{ "id": "B", "text": "One rejects all experts", "correct": false },
+{ "id": "C", "text": "Both criticize schools", "correct": false },
+{ "id": "D", "text": "Both focus on history", "correct": false }
+]
+},
+{
+"id": "p2_q18",
+"type": "MC",
+"prompt": "Which detail from A Floating Farming Method shows a similar idea to using materials people already have",
+"choices": [
+{ "id": "A", "text": "Using natural, replaceable materials", "correct": true },
+{ "id": "B", "text": "Birds fly above", "correct": false },
+{ "id": "C", "text": "Soil resists erosion", "correct": false },
+{ "id": "D", "text": "Mud improves crops", "correct": false }
+]
+},
+{
+"id": "p2_q19",
+"type": "MC",
+"prompt": "What is the main difference in how agriculture is used in the two articles",
+"choices": [
+{ "id": "A", "text": "One uses farming as background, the other makes it central to the focus", "correct": true },
+{ "id": "B", "text": "One criticizes ancient farmers", "correct": false },
+{ "id": "C", "text": "Both focus on modern farming only", "correct": false },
+{ "id": "D", "text": "Both dismiss agriculture", "correct": false }
+]
+},
+{
+"id": "p2_q20",
+"type": "MA",
+"prompt": "Which conclusions are supported by both articles Select two",
+"choices": [
+{ "id": "A", "text": "Ancient problem solving still influences modern communities", "correct": true },
+{ "id": "B", "text": "Inventions were shaped by the natural environment", "correct": true },
+{ "id": "C", "text": "Europeans learned from these ideas", "correct": false },
+{ "id": "D", "text": "Survival left no time for learning", "correct": false },
+{ "id": "E", "text": "Writing came first", "correct": false }
+]
+}
+],
+"rationales": [
+{ "item_id": "p2_q9", "rationale": "The author highlights genuine excitement and engagement with learning." },
+{ "item_id": "p2_q10", "rationale": "The diagram visually explains place value through knots." },
+{ "item_id": "p2_q11", "rationale": "The article emphasizes quipus as effective learning tools for students." },
+{ "item_id": "p2_q12", "rationale": "The purpose is to explain quipu counting and its value." },
+{ "item_id": "p2_q13", "rationale": "Rediscovered shows the method required renewed understanding." },
+{ "item_id": "p2_q14", "rationale": "An empire indicates strength and power." },
+{ "item_id": "p2_q15", "rationale": "Rediscovered implies gaining understanding again." },
+{ "item_id": "p2_q16", "rationale": "Each strategy is followed by its effect." },
+{ "item_id": "p2_q17", "rationale": "Experts serve different explanatory purposes." },
+{ "item_id": "p2_q18", "rationale": "Both texts stress practical, accessible materials." },
+{ "item_id": "p2_q19", "rationale": "Agriculture plays different roles across the texts." },
+{ "item_id": "p2_q20", "rationale": "Both articles connect ancient ideas to modern life." }
+]
+}
+</QUIZFORGE_JSON>

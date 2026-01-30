@@ -1,0 +1,103 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "String Fidelity Pipeline Test",
+  "metadata": {
+    "purpose": "Pipeline integrity validation for verbatim string handling, escape preservation, and indexing correctness"
+  },
+  "items": [
+    {
+      "id": "stim_verbatim",
+      "type": "STIMULUS",
+      "format": "code",
+      "prompt": "The following questions test whether strings are preserved exactly as written. Do not interpret or execute them."
+    },
+
+    {
+      "id": "q_len_literal",
+      "type": "MC",
+      "prompt": "What is the value of len(\"A\\\\nB\") ?",
+      "choices": [
+        { "id": "A", "text": "4", "correct": true },
+        { "id": "B", "text": "3", "correct": false },
+        { "id": "C", "text": "2", "correct": false },
+        { "id": "D", "text": "5", "correct": false }
+      ]
+    },
+
+    {
+      "id": "q_index_backslash",
+      "type": "MC",
+      "prompt": "What character is at index 1 in the string \"A\\\\nB\" ?",
+      "choices": [
+        { "id": "A", "text": "\\\\ (backslash)", "correct": true },
+        { "id": "B", "text": "n", "correct": false },
+        { "id": "C", "text": "newline", "correct": false },
+        { "id": "D", "text": "B", "correct": false }
+      ]
+    },
+
+    {
+      "id": "q_slice_literal",
+      "type": "MC",
+      "prompt": "What is the value of \"A\\\\tBC\"[1:3] ?",
+      "choices": [
+        { "id": "A", "text": "\\\\t", "correct": true },
+        { "id": "B", "text": "tab character", "correct": false },
+        { "id": "C", "text": "tB", "correct": false },
+        { "id": "D", "text": "BC", "correct": false }
+      ]
+    },
+
+    {
+      "id": "q_print_visibility",
+      "type": "MC",
+      "prompt": "Which output exactly matches the literal string \"A\\\\nB\" as written?",
+      "choices": [
+        { "id": "A", "text": "A\\\\nB", "correct": true },
+        { "id": "B", "text": "A\nB", "correct": false },
+        { "id": "C", "text": "A B", "correct": false },
+        { "id": "D", "text": "AB", "correct": false }
+      ]
+    },
+
+    {
+      "id": "q_double_backslash",
+      "type": "MC",
+      "prompt": "How many characters are in the string \"\\\\\\\\\" ?",
+      "choices": [
+        { "id": "A", "text": "2", "correct": true },
+        { "id": "B", "text": "1", "correct": false },
+        { "id": "C", "text": "4", "correct": false },
+        { "id": "D", "text": "0", "correct": false }
+      ]
+    },
+
+    {
+      "id": "q_quote_escape",
+      "type": "MC",
+      "prompt": "What does the string \"\\\\\\\"\" contain?",
+      "choices": [
+        { "id": "A", "text": "A backslash followed by a quote", "correct": true },
+        { "id": "B", "text": "A quote only", "correct": false },
+        { "id": "C", "text": "An escaped quote rendered as \"", "correct": false },
+        { "id": "D", "text": "Nothing", "correct": false }
+      ]
+    },
+
+    {
+      "id": "end",
+      "type": "STIMULUS_END",
+      "prompt": ""
+    }
+  ],
+  "rationales": [
+    { "item_id": "q_len_literal", "correct": "The literal string contains four characters: A, backslash, n, and B.", "distractor": "" },
+    { "item_id": "q_index_backslash", "correct": "Index 1 refers to the backslash character, not a newline.", "distractor": "" },
+    { "item_id": "q_slice_literal", "correct": "The slice captures the backslash and the letter t as literal characters.", "distractor": "" },
+    { "item_id": "q_print_visibility", "correct": "The correct output must show the characters backslash and n explicitly.", "distractor": "" },
+    { "item_id": "q_double_backslash", "correct": "Each backslash is a separate character, so the string length is two.", "distractor": "" },
+    { "item_id": "q_quote_escape", "correct": "The string contains two characters: a backslash and a quote.", "distractor": "" }
+  ]
+}
+</QUIZFORGE_JSON>

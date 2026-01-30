@@ -1,0 +1,159 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Practice 2 Counting Knots and Floating Farming",
+"metadata": {
+"grade": 7,
+"note": "Strict answer-length parity enforced"
+},
+"items": [
+{
+"id": "p2_q9",
+"type": "MC",
+"prompt": "What tone does the authors language create in paragraphs four and six of Knots That Count",
+"choices": [
+{ "id": "A", "text": "Excited and encouraging", "correct": true },
+{ "id": "B", "text": "Careful and uncertain", "correct": false },
+{ "id": "C", "text": "Overly dramatic", "correct": false },
+{ "id": "D", "text": "Strictly factual", "correct": false }
+]
+},
+{
+"id": "p2_q10",
+"type": "MC",
+"prompt": "What does the diagram in Knots That Count help the reader understand",
+"choices": [
+{ "id": "A", "text": "How knots show place value", "correct": true },
+{ "id": "B", "text": "Why math avoids numbers", "correct": false },
+{ "id": "C", "text": "How teachers grade work", "correct": false },
+{ "id": "D", "text": "Why students like crafts", "correct": false }
+]
+},
+{
+"id": "p2_q11",
+"type": "MC",
+"prompt": "What is the controlling idea of Knots That Count",
+"choices": [
+{ "id": "A", "text": "Quipus help students understand numbers", "correct": true },
+{ "id": "B", "text": "Quipus were mainly decorative", "correct": false },
+{ "id": "C", "text": "Quipus mattered only long ago", "correct": false },
+{ "id": "D", "text": "Quipus are used only for games", "correct": false }
+]
+},
+{
+"id": "p2_q12",
+"type": "MC",
+"prompt": "Why did the author most likely write Knots That Count",
+"choices": [
+{ "id": "A", "text": "To explain quipu counting", "correct": true },
+{ "id": "B", "text": "To demand math reform", "correct": false },
+{ "id": "C", "text": "To predict weather events", "correct": false },
+{ "id": "D", "text": "To compare tools and apps", "correct": false }
+]
+},
+{
+"id": "p2_q13",
+"type": "MC",
+"prompt": "Why does the author use the phrase rediscovered chinampas",
+"choices": [
+{ "id": "A", "text": "The method had to be relearned", "correct": true },
+{ "id": "B", "text": "The system never existed", "correct": false },
+{ "id": "C", "text": "Modern farming failed fully", "correct": false },
+{ "id": "D", "text": "Canals were for travel", "correct": false }
+]
+},
+{
+"id": "p2_q14",
+"type": "MC",
+"prompt": "Which phrase best supports the idea that the Aztec had a powerful civilization",
+"choices": [
+{ "id": "A", "text": "Helped feed a large empire", "correct": true },
+{ "id": "B", "text": "Birds skimmed the water", "correct": false },
+{ "id": "C", "text": "Fields lined the canals", "correct": false },
+{ "id": "D", "text": "Farms returned recently", "correct": false }
+]
+},
+{
+"id": "p2_q15",
+"type": "MC",
+"prompt": "Which word from paragraph three best helps define insight in paragraph four",
+"choices": [
+{ "id": "A", "text": "Rediscovered", "correct": true },
+{ "id": "B", "text": "Layered", "correct": false },
+{ "id": "C", "text": "Anchored", "correct": false },
+{ "id": "D", "text": "Replaced", "correct": false }
+]
+},
+{
+"id": "p2_q16",
+"type": "MC",
+"prompt": "How does cause and effect organization support the topic of the article",
+"choices": [
+{ "id": "A", "text": "It explains what strategies do", "correct": true },
+{ "id": "B", "text": "It compares nearby cultures", "correct": false },
+{ "id": "C", "text": "It lists crop varieties", "correct": false },
+{ "id": "D", "text": "It shows decoration methods", "correct": false }
+]
+},
+{
+"id": "p2_q17",
+"type": "MC",
+"prompt": "How do the authors use experts differently in the two articles",
+"choices": [
+{ "id": "A", "text": "One supports learning and one restoration", "correct": true },
+{ "id": "B", "text": "Both criticize modern schools", "correct": false },
+{ "id": "C", "text": "Only one mentions experts", "correct": false },
+{ "id": "D", "text": "Both reject expert views", "correct": false }
+]
+},
+{
+"id": "p2_q18",
+"type": "MC",
+"prompt": "Which detail from A Floating Farming Method matches the idea of using available materials",
+"choices": [
+{ "id": "A", "text": "Using natural local materials", "correct": true },
+{ "id": "B", "text": "Birds fly over canals", "correct": false },
+{ "id": "C", "text": "Soil resists erosion", "correct": false },
+{ "id": "D", "text": "Crops grow faster", "correct": false }
+]
+},
+{
+"id": "p2_q19",
+"type": "MC",
+"prompt": "What is the main difference in how agriculture is used in the two articles",
+"choices": [
+{ "id": "A", "text": "One is background and one is central", "correct": true },
+{ "id": "B", "text": "One criticizes farming", "correct": false },
+{ "id": "C", "text": "Both focus on technology", "correct": false },
+{ "id": "D", "text": "Both avoid agriculture", "correct": false }
+]
+},
+{
+"id": "p2_q20",
+"type": "MA",
+"prompt": "Which conclusions are supported by both articles Select two",
+"choices": [
+{ "id": "A", "text": "Ancient ideas still matter today", "correct": true },
+{ "id": "B", "text": "Nature inspired inventions", "correct": true },
+{ "id": "C", "text": "Europeans learned these methods", "correct": false },
+{ "id": "D", "text": "Survival limited learning", "correct": false },
+{ "id": "E", "text": "Writing came first", "correct": false }
+]
+}
+],
+"rationales": [
+{ "item_id": "p2_q9", "rationale": "The wording highlights excitement about learning." },
+{ "item_id": "p2_q10", "rationale": "The diagram shows how knots represent value." },
+{ "item_id": "p2_q11", "rationale": "The article centers on quipus helping learners." },
+{ "item_id": "p2_q12", "rationale": "The author explains quipu counting." },
+{ "item_id": "p2_q13", "rationale": "Rediscovered implies relearning the method." },
+{ "item_id": "p2_q14", "rationale": "An empire suggests power." },
+{ "item_id": "p2_q15", "rationale": "Rediscovered signals new understanding." },
+{ "item_id": "p2_q16", "rationale": "Each strategy is followed by its effect." },
+{ "item_id": "p2_q17", "rationale": "Experts serve different purposes." },
+{ "item_id": "p2_q18", "rationale": "Both texts stress available materials." },
+{ "item_id": "p2_q19", "rationale": "Agriculture plays different roles." },
+{ "item_id": "p2_q20", "rationale": "Both articles connect past ideas to today." }
+]
+}
+</QUIZFORGE_JSON>

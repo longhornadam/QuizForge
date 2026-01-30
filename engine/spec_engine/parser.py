@@ -37,6 +37,15 @@ def extract_tagged_payload(text: str) -> str:
     # Be forgiving when the closing tag is missing or mistyped (common LLM slip):
     # fall back to the next opening tag or the end of text so we can still parse.
     if start == -1:
+        # Check if the raw text is valid JSON (support for manual .json files without tags)
+        try:
+            trimmed = text.strip()
+            # Optimization: only attempt parse if it looks like an object
+            if trimmed.startswith("{"):
+                json.loads(trimmed)
+                return trimmed
+        except json.JSONDecodeError:
+            pass
         raise ValueError("QUIZFORGE_JSON tags not found.")
     if end == -1 or end <= start:
         alt_end = text.find(TAG_OPEN, start + len(TAG_OPEN))
@@ -68,6 +77,15 @@ def _sanitize_item(item: Dict[str, Any]) -> Dict[str, Any]:
         item["metadata"] = {}
     if "extensions" not in item["metadata"] or not isinstance(item["metadata"].get("extensions"), dict):
         item["metadata"]["extensions"] = {}
+
+    # Rendering mode for student-facing strings.
+    # Default is executable (enables rich HTML formatting for better readability).
+    # Use "verbatim" only when string-reasoning tasks require exact character preservation.
+    render_mode_raw = item.get("render_mode", "executable")
+    render_mode = render_mode_raw.lower() if isinstance(render_mode_raw, str) else "executable"
+    if render_mode not in {"verbatim", "executable"}:
+        render_mode = "executable"
+    item["render_mode"] = render_mode
 
     if qtype == "FITB":
         mode_raw = item.get("answer_mode", "open_entry")

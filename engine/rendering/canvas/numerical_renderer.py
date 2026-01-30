@@ -32,7 +32,7 @@ def build_numerical_item(question: NumericalQuestion, index: int) -> ET.Element:
 
     presentation = ET.SubElement(item, "presentation")
     material = ET.SubElement(presentation, "material")
-    material.append(html_mattext(htmlize_prompt(question.prompt)))
+    material.append(html_mattext(htmlize_prompt(question.prompt, render_mode=getattr(question, "render_mode", "verbatim"))))
 
     response_str = ET.SubElement(presentation, "response_str", {"ident": "response1", "rcardinality": "Single"})
     render_fib = ET.SubElement(response_str, "render_fib", {"fibtype": "Decimal"})

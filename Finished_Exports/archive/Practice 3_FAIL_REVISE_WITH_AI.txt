@@ -1,0 +1,134 @@
+============================================================
+VALIDATION ERRORS DETECTED
+============================================================
+
+The quiz 'Practice 3 Ink in the Rain' has critical errors that must be fixed
+before it can be processed. Please fix the following issues:
+
+1. Longest answer is correct in 100% of MC questions (7/7). Balance answer lengths by shortening correct answers or lengthening distractors so the right answer is not obviously the longest.
+
+============================================================
+INSTRUCTIONS FOR REVISION
+============================================================
+
+Please revise the quiz above to fix all the errors listed.
+Make sure:
+  - All required fields are present (Type, Prompt, Choices, etc.)
+  - MC questions have 2-7 choices with exactly 1 correct answer
+  - MA questions have at least 1 correct answer
+  - Numerical questions have valid answer/tolerance/range settings
+  - All questions have non-empty prompts
+
+Once fixed, save the revised quiz as a new .txt file and
+drop it back into the DropZone folder.
+
+============================================================
+ORIGINAL QUIZ (Contains Errors)
+============================================================
+
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Practice 3 Ink in the Rain",
+"metadata": {
+"grade": 7,
+"note": "Length-balanced revision for QuizForge validation"
+},
+"items": [
+{
+"id": "p3_q21",
+"type": "MC",
+"prompt": "What does translucent most nearly mean based on the Latin root luc",
+"choices": [
+{ "id": "A", "text": "Able to let some light pass through", "correct": true },
+{ "id": "B", "text": "Completely dark and solid", "correct": false },
+{ "id": "C", "text": "Brightly colored and shiny", "correct": false },
+{ "id": "D", "text": "Very thick and heavy", "correct": false }
+]
+},
+{
+"id": "p3_q22",
+"type": "MC",
+"prompt": "Which sentence best creates a sentimental mood",
+"choices": [
+{ "id": "A", "text": "Even now when rain taps the window I think of that table", "correct": true },
+{ "id": "B", "text": "The stairs smelled like cardboard", "correct": false },
+{ "id": "C", "text": "I could not remember the problem", "correct": false },
+{ "id": "D", "text": "The brush rested on paper", "correct": false }
+]
+},
+{
+"id": "p3_q23",
+"type": "MC",
+"prompt": "What key idea about calligraphy do paragraphs four and five support",
+"choices": [
+{ "id": "A", "text": "Calligraphy requires patience and careful effort", "correct": true },
+{ "id": "B", "text": "Speed improves handwriting", "correct": false },
+{ "id": "C", "text": "Tools matter more than practice", "correct": false },
+{ "id": "D", "text": "Only adults benefit from calligraphy", "correct": false }
+]
+},
+{
+"id": "p3_q24",
+"type": "MC",
+"prompt": "What is the main theme of Ink in the Rain",
+"choices": [
+{ "id": "A", "text": "Quiet routines can teach lasting life lessons", "correct": true },
+{ "id": "B", "text": "Distractions solve emotional problems", "correct": false },
+{ "id": "C", "text": "Success depends on correction", "correct": false },
+{ "id": "D", "text": "Hobbies replace relationships", "correct": false }
+]
+},
+{
+"id": "p3_q25",
+"type": "MC",
+"prompt": "Why does the grandfather say your hands need something calm to do",
+"choices": [
+{ "id": "A", "text": "He believes the narrators energy needs focus", "correct": true },
+{ "id": "B", "text": "He wants perfect handwriting", "correct": false },
+{ "id": "C", "text": "He fears ink spills", "correct": false },
+{ "id": "D", "text": "He prefers rainy lessons", "correct": false }
+]
+},
+{
+"id": "p3_q26",
+"type": "MC",
+"prompt": "How does subjective point of view help the reader",
+"choices": [
+{ "id": "A", "text": "It shows how the narrators feelings change over time", "correct": true },
+{ "id": "B", "text": "It explains brush technique", "correct": false },
+{ "id": "C", "text": "It details family history", "correct": false },
+{ "id": "D", "text": "It explains weather patterns", "correct": false }
+]
+},
+{
+"id": "p3_q27",
+"type": "MC",
+"prompt": "How does focusing on calligraphy influence the plot",
+"choices": [
+{ "id": "A", "text": "It replaces overwhelming emotions with calm focus", "correct": true },
+{ "id": "B", "text": "It solves the school problem immediately", "correct": false },
+{ "id": "C", "text": "It leads to a career choice", "correct": false },
+{ "id": "D", "text": "It removes the grandfather completely", "correct": false }
+]
+},
+{
+"id": "p3_q28",
+"type": "ESSAY",
+"prompt": "Describe how the relationship between the narrator and the grandfather influenced the narrators life Use evidence from the text",
+"length_guidance": "One organized paragraph or short essay",
+"rubric_hint": "Controlling idea organization evidence conventions"
+}
+],
+"rationales": [
+{ "item_id": "p3_q21", "rationale": "The root luc connects to light passing through." },
+{ "item_id": "p3_q22", "rationale": "The sentence reflects warm memory and emotion." },
+{ "item_id": "p3_q23", "rationale": "Details emphasize slowing down and care." },
+{ "item_id": "p3_q24", "rationale": "The narrative shows lessons formed through routine." },
+{ "item_id": "p3_q25", "rationale": "The grandfather encourages calm focus." },
+{ "item_id": "p3_q26", "rationale": "First person narration reveals emotional change." },
+{ "item_id": "p3_q27", "rationale": "Calligraphy helps manage emotional conflict." },
+{ "item_id": "p3_q28", "rationale": "The relationship models patience and coping." }
+]
+}
+</QUIZFORGE_JSON>

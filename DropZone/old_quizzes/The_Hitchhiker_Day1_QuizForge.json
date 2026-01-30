@@ -1,0 +1,283 @@
+{
+  "version": "3.0-json",
+  "title": "The Hitchhiker — Day 1 Reading Check (Half 1, No Text)",
+  "metadata": {
+    "grade_level": "7",
+    "unit": "Unit 5",
+    "text": "The Hitchhiker (radio drama)",
+    "note": "Student text provided separately; assessment contains questions only."
+  },
+  "items": [
+    {
+      "id": "d1_q1",
+      "type": "MC",
+      "prompt": "Which detail best creates suspense early in the drama?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Adams lists his age, looks, and license number.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Welles jokes about what the show will not include.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Adams warns the link with life could break soon.",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Mother asks him to wire her when he reaches Hollywood.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d1_q2",
+      "type": "MC",
+      "prompt": "Which inference is most supported by the repeated \"fresh rain\" on the man's shoulders?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "He keeps arriving soaked, as if storms follow him everywhere.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "The hitchhiker is tied to something impossible or unnatural.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "He works outdoors and hasn't changed after a shift.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "He's signaling Adams to stop driving and pick him up.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d1_q3",
+      "type": "MC",
+      "prompt": "How does the Pennsylvania Turnpike setting influence the plot?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It gives Adams many safe places to pull over and rest.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It forces Adams to drive slowly most of the night.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "It makes stopping unlikely, increasing fear and urgency.",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "It lets Adams easily question other drivers about the man.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d1_q4",
+      "type": "MC",
+      "prompt": "What do Adams's actions at the Ohio detour most clearly reveal about his character?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "He stays relaxed and enjoys meeting strangers on the road.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "He feels fear and lies to avoid the hitchhiker.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "He is careless and ignores every warning he hears.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "He is curious and tries to solve the mystery by talking.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d1_q5",
+      "type": "MC",
+      "prompt": "Which line best supports the idea that Adams feels isolated?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "\"I was in excellent spirits.\"",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "\"I felt... unspeakably alone.\"",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "\"It was a bright sunshiny afternoon.\"",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "\"Nice night, isn't it?\"",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d1_q6",
+      "type": "MC",
+      "prompt": "What is the MOST reasonable prediction at the end of Half 1?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Adams will report the hitchhiker to the sheriff tomorrow.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Adams will decide the hitchhiker is harmless and forget him.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Adams will see him again and react more desperately.",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "Adams will return to Brooklyn instead of continuing west.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d1_q7",
+      "type": "MC",
+      "prompt": "How do the sound directions (tires screeching, engine stalling, train whistle) mainly affect the drama?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "They replace the narrator by giving the listener all the facts.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "They reveal inner thoughts more clearly than dialogue does.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "They heighten tension by making danger feel immediate.",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "They slow the pace so the listener can catch every detail.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d1_q8",
+      "type": "MC",
+      "prompt": "Which idea is implied by the mechanic's comments about hitchhikers on the turnpike?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Hitchhikers are common because drivers have time to stop.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "A hitchhiker there would be rare—and unsettling.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "The mechanic regularly gives rides to travelers at night.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Most drivers prefer to pick up strangers for long rides.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d1_scr",
+      "type": "ESSAY",
+      "prompt": "In 3–5 sentences, explain how the drama builds suspense in Half 1 using setting and sound directions. Use one specific setting detail and one specific sound cue as evidence.",
+      "length_guidance": "3-5 sentences",
+      "rubric_hint": "Name a setting detail, name a sound cue, and explain how each increases tension/uncertainty."
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "d1_q1",
+      "rationale": "A warning that life could end at any moment creates immediate danger and suspense."
+    },
+    {
+      "item_id": "d1_q2",
+      "rationale": "Rain appearing where it shouldn’t suggests the man is not bound by normal reality."
+    },
+    {
+      "item_id": "d1_q3",
+      "rationale": "A fast, isolated highway makes stopping feel unsafe, increasing fear and urgency."
+    },
+    {
+      "item_id": "d1_q4",
+      "rationale": "Lying about his destination shows fear is driving his decisions and behavior."
+    },
+    {
+      "item_id": "d1_q5",
+      "rationale": "This line directly states isolation, making it the strongest evidence of loneliness."
+    },
+    {
+      "item_id": "d1_q6",
+      "rationale": "Sightings repeat and escalate, so another encounter and stronger panic is most likely."
+    },
+    {
+      "item_id": "d1_q7",
+      "rationale": "Realistic sound cues make danger feel immediate, which heightens tension for listeners."
+    },
+    {
+      "item_id": "d1_q8",
+      "rationale": "The mechanic stresses how unusual hitchhikers are there, making the sight alarming."
+    },
+    {
+      "item_id": "d1_scr",
+      "rationale": "A strong response connects one setting detail and one sound cue to how suspense is built."
+    }
+  ],
+  "answer_key": {
+    "d1_q1": "C",
+    "d1_q2": "B",
+    "d1_q3": "C",
+    "d1_q4": "B",
+    "d1_q5": "B",
+    "d1_q6": "C",
+    "d1_q7": "C",
+    "d1_q8": "B"
+  }
+}

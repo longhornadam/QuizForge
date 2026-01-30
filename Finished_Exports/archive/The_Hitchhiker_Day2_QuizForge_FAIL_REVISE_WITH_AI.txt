@@ -1,0 +1,311 @@
+============================================================
+VALIDATION ERRORS DETECTED
+============================================================
+
+The quiz 'The_Hitchhiker_Day2_QuizForge' has critical errors that must be fixed
+before it can be processed. Please fix the following issues:
+
+1. Parse error: Invalid JSON wrapper: QUIZFORGE_JSON tags not found.
+
+============================================================
+INSTRUCTIONS FOR REVISION
+============================================================
+
+Please revise the quiz above to fix all the errors listed.
+Make sure:
+  - All required fields are present (Type, Prompt, Choices, etc.)
+  - MC questions have 2-7 choices with exactly 1 correct answer
+  - MA questions have at least 1 correct answer
+  - Numerical questions have valid answer/tolerance/range settings
+  - All questions have non-empty prompts
+
+Once fixed, save the revised quiz as a new .txt file and
+drop it back into the DropZone folder.
+
+============================================================
+ORIGINAL QUIZ (Contains Errors)
+============================================================
+
+{
+  "version": "3.0-json",
+  "title": "The Hitchhiker — Day 2 Reading Check (Half 2, No Text)",
+  "metadata": {
+    "grade_level": "7",
+    "unit": "Unit 5",
+    "text": "The Hitchhiker (radio drama)",
+    "note": "Student text provided separately; assessment contains questions only."
+  },
+  "items": [
+    {
+      "id": "d2_q1",
+      "type": "MC",
+      "prompt": "Why does Adams pick up the girl in Texas?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "He needs her help after the car gets damaged.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "He thinks company will keep the hitchhiker away.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "He feels guilty for refusing hitchhikers earlier.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "He wants a witness who can confirm what he sees.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d2_q2",
+      "type": "MC",
+      "prompt": "What does the girl's reaction after the fence crash show about Adams?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "He stays calm and makes careful choices the whole time.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "His fear is making him reckless and unsafe around others.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "He's imaginative, but he never risks anyone's safety.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "He gains trust easily because he is polite and charming.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d2_q3",
+      "type": "MC",
+      "prompt": "Which detail best supports the claim that the hitchhiker cannot be proven by witnesses?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "The girl says she didn't see anyone at all.",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Adams describes his exact car model and speed.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "The mechanic says it hasn't rained there in days.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Mother warns him not to pick up strangers.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d2_q4",
+      "type": "MC",
+      "prompt": "How does the Texas prairie setting affect the mood?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It creates a cheerful, relaxed travel vibe for Adams.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It emphasizes emptiness, loneliness, and vulnerability.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "It shifts the conflict to food and roadside stops.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "It suggests help will be easy to find nearby.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d2_q5",
+      "type": "MC",
+      "prompt": "What is the effect of the repeated line \"Hall-ooo\"?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "It adds humor to lighten the tone of the story.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "It marks time passing in a neutral, factual way.",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "It becomes a haunting cue that tracks Adams.",
+          "correct": true
+        },
+        {
+          "id": "D",
+          "text": "It explains the hitchhiker's personal goals clearly.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d2_q6",
+      "type": "MC",
+      "prompt": "Which statement best describes how pacing changes in Half 2?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Events slow down as Adams rests more often and feels safer.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Events speed up as sightings become constant and unavoidable.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Events stay steady because Adams keeps the same driving pace.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Events get calmer because the hitchhiker appears less often.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d2_q7",
+      "type": "MC",
+      "prompt": "What is the most important implied meaning of the phone call twist?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Adams is traveling only to visit friends in Hollywood.",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "Adams likely died, and the hitchhiker represents death.",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "Mother lied because she wanted him to drive home.",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "The operator connected the wrong number by mistake.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d2_q8",
+      "type": "MC",
+      "prompt": "Which line most strongly supports the theme that fear can break a person's grip on reality?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "\"I was in excellent spirits.\"",
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": "\"I began to drive faster and faster.\"",
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": "\"It was a perfectly airless, dry day.\"",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "\"A million stars are in the sky.\"",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "d2_scr",
+      "type": "ESSAY",
+      "prompt": "In 3–5 sentences, explain what the hitchhiker most likely symbolizes by the end of the drama. Include two pieces of evidence (dialogue and/or sound/stage direction moments) to support your interpretation.",
+      "length_guidance": "3-5 sentences",
+      "rubric_hint": "State the symbol, then provide two specific details from the drama and explain how each supports your claim."
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "d2_q1",
+      "rationale": "Adams believes being alone makes him vulnerable, so he picks up the girl for company/protection."
+    },
+    {
+      "item_id": "d2_q2",
+      "rationale": "Swerving and crashing shows fear is escalating into reckless behavior that endangers others."
+    },
+    {
+      "item_id": "d2_q3",
+      "rationale": "If a nearby passenger cannot see the man, the sightings cannot be verified by witnesses."
+    },
+    {
+      "item_id": "d2_q4",
+      "rationale": "The wide, empty prairie amplifies loneliness and vulnerability, deepening the fearful mood."
+    },
+    {
+      "item_id": "d2_q5",
+      "rationale": "The repeated call functions like a haunting signal that returns whenever danger approaches."
+    },
+    {
+      "item_id": "d2_q6",
+      "rationale": "Sightings become more frequent and unavoidable, which speeds up the action and intensity."
+    },
+    {
+      "item_id": "d2_q7",
+      "rationale": "The call reveals Ronald died six days ago, implying the hitchhiker is death (or a guide to death)."
+    },
+    {
+      "item_id": "d2_q8",
+      "rationale": "The line shows fear driving irrational, escalating choices—evidence of reality slipping."
+    },
+    {
+      "item_id": "d2_scr",
+      "rationale": "A strong response names a symbol and supports it with two specific, explained pieces of evidence."
+    }
+  ],
+  "answer_key": {
+    "d2_q1": "B",
+    "d2_q2": "B",
+    "d2_q3": "A",
+    "d2_q4": "B",
+    "d2_q5": "C",
+    "d2_q6": "B",
+    "d2_q7": "B",
+    "d2_q8": "B"
+  }
+}

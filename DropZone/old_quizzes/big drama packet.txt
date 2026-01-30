@@ -1,0 +1,410 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Drama Minis - Vocab and Genre Assessment",
+"items": [
+{
+"id": "stim1",
+"type": "STIMULUS",
+"prompt": "PASTE STIMULUS 1 HERE\nDrama Word Bank and Directions"
+},
+
+{
+  "id": "q1",
+  "type": "FITB",
+  "prompt": "The person who writes a play and creates its characters is the [blank].",
+  "accept": ["playwright"],
+  "answer_mode": "wordbank",
+  "options": ["playwright","script","actor","director"]
+},
+{
+  "id": "q2",
+  "type": "FITB",
+  "prompt": "The written text of a play including dialogue and directions is the [blank].",
+  "accept": ["script"],
+  "answer_mode": "wordbank",
+  "options": ["script","scene","set","act"]
+},
+{
+  "id": "q3",
+  "type": "FITB",
+  "prompt": "The list of all actors who perform in a play is the [blank].",
+  "accept": ["cast"],
+  "answer_mode": "wordbank",
+  "options": ["cast","crew","audience","narrator"]
+},
+{
+  "id": "q4",
+  "type": "FITB",
+  "prompt": "Words spoken back and forth between characters are called [blank].",
+  "accept": ["dialogue"],
+  "answer_mode": "wordbank",
+  "options": ["dialogue","monologue","narration","script"]
+},
+{
+  "id": "q5",
+  "type": "FITB",
+  "prompt": "A long uninterrupted speech by one character is a [blank].",
+  "accept": ["monologue"],
+  "answer_mode": "wordbank",
+  "options": ["monologue","dialogue","scene","act"]
+},
+{
+  "id": "q6",
+  "type": "FITB",
+  "prompt": "Directions that tell actors how to move or speak are called [blank].",
+  "accept": ["stage directions"],
+  "answer_mode": "wordbank",
+  "options": ["stage directions","props","dialogue","narration"]
+},
+{
+  "id": "q7",
+  "type": "FITB",
+  "prompt": "A major division of a play that contains multiple scenes is an [blank].",
+  "accept": ["act"],
+  "answer_mode": "wordbank",
+  "options": ["act","scene","script","set"]
+},
+{
+  "id": "q8",
+  "type": "FITB",
+  "prompt": "A smaller section of an act that usually takes place in one setting is a [blank].",
+  "accept": ["scene"],
+  "answer_mode": "wordbank",
+  "options": ["scene","act","dialogue","prop"]
+},
+{
+  "id": "q9",
+  "type": "FITB",
+  "prompt": "An object an actor uses on stage is called a [blank].",
+  "accept": ["prop"],
+  "answer_mode": "wordbank",
+  "options": ["prop","set","costume","script"]
+},
+{
+  "id": "q10",
+  "type": "FITB",
+  "prompt": "The physical environment of a play is known as the [blank].",
+  "accept": ["set"],
+  "answer_mode": "wordbank",
+  "options": ["set","scene","act","cast"]
+},
+{
+  "id": "q11",
+  "type": "FITB",
+  "prompt": "A character who explains events directly to the audience is the [blank].",
+  "accept": ["narrator"],
+  "answer_mode": "wordbank",
+  "options": ["narrator","actor","playwright","director"]
+},
+{
+  "id": "q12",
+  "type": "FITB",
+  "prompt": "Tension created by making the audience wonder what will happen next is called [blank].",
+  "accept": ["suspense"],
+  "answer_mode": "wordbank",
+  "options": ["suspense","irony","dialogue","conflict"]
+},
+{
+  "id": "q13",
+  "type": "FITB",
+  "prompt": "When the audience knows something a character does not, the play uses [blank].",
+  "accept": ["irony"],
+  "answer_mode": "wordbank",
+  "options": ["irony","suspense","dialogue","scene"]
+},
+{
+  "id": "q14",
+  "type": "FITB",
+  "prompt": "The [blank] helps show whether the play takes place indoors or outdoors.",
+  "accept": ["set"],
+  "answer_mode": "wordbank",
+  "options": ["set","prop","scene","script"]
+},
+{
+  "id": "q15",
+  "type": "FITB",
+  "prompt": "Actors rely on the [blank] to know what lines to say.",
+  "accept": ["script"],
+  "answer_mode": "wordbank",
+  "options": ["script","act","set","scene"]
+},
+{
+  "id": "q16",
+  "type": "FITB",
+  "prompt": "Scenes are grouped together into an [blank].",
+  "accept": ["act"],
+  "answer_mode": "wordbank",
+  "options": ["act","set","cast","dialogue"]
+},
+{
+  "id": "q17",
+  "type": "FITB",
+  "prompt": "A [blank] often changes when characters enter or leave the stage.",
+  "accept": ["scene"],
+  "answer_mode": "wordbank",
+  "options": ["scene","act","monologue","narrator"]
+},
+{
+  "id": "q18",
+  "type": "FITB",
+  "prompt": "Written instructions like whispering or sitting appear as [blank].",
+  "accept": ["stage directions"],
+  "answer_mode": "wordbank",
+  "options": ["stage directions","dialogue","script","props"]
+},
+{
+  "id": "q19",
+  "type": "FITB",
+  "prompt": "A [blank] allows one character to reveal thoughts to the audience.",
+  "accept": ["monologue"],
+  "answer_mode": "wordbank",
+  "options": ["monologue","dialogue","narration","scene"]
+},
+{
+  "id": "q20",
+  "type": "FITB",
+  "prompt": "Conversation between characters is known as [blank].",
+  "accept": ["dialogue"],
+  "answer_mode": "wordbank",
+  "options": ["dialogue","narration","monologue","script"]
+},
+{
+  "id": "q21",
+  "type": "FITB",
+  "prompt": "Furniture and backdrops are part of the [blank].",
+  "accept": ["set"],
+  "answer_mode": "wordbank",
+  "options": ["set","prop","scene","cast"]
+},
+{
+  "id": "q22",
+  "type": "FITB",
+  "prompt": "A surprise created when expectations are reversed is an example of [blank].",
+  "accept": ["irony"],
+  "answer_mode": "wordbank",
+  "options": ["irony","suspense","conflict","dialogue"]
+},
+
+{
+  "type": "STIMULUS_END"
+},
+
+{
+  "id": "stim2",
+  "type": "STIMULUS",
+  "prompt": "PASTE STIMULUS 2 HERE\nVersion A and Version B"
+},
+
+{
+  "id": "q23",
+  "type": "MC",
+  "prompt": "In Version A the playwright most strongly suggests that Emily is",
+  "choices": [
+    { "id": "A", "text": "vain", "correct": true },
+    { "id": "B", "text": "careless", "correct": false },
+    { "id": "C", "text": "confident", "correct": false },
+    { "id": "D", "text": "distracted", "correct": false }
+  ]
+},
+{
+  "id": "q24",
+  "type": "MC",
+  "prompt": "In Version B Emily's actions suggest that she feels",
+  "choices": [
+    { "id": "A", "text": "indifferent about her appearance", "correct": true },
+    { "id": "B", "text": "anxious about appearances", "correct": false },
+    { "id": "C", "text": "proud of her looks", "correct": false },
+    { "id": "D", "text": "embarrassed by the mirror", "correct": false }
+  ]
+},
+
+{
+  "type": "STIMULUS_END"
+},
+
+{
+  "id": "stim3",
+  "type": "STIMULUS",
+  "prompt": "PASTE STIMULUS 3 HERE\nAct 1 Scene 1"
+},
+
+{
+  "id": "q25",
+  "type": "MC",
+  "prompt": "Why does the playwright include the characters' ages",
+  "choices": [
+    { "id": "A", "text": "To help directors cast appropriate actors", "correct": true },
+    { "id": "B", "text": "To explain the setting", "correct": false },
+    { "id": "C", "text": "To describe the conflict", "correct": false },
+    { "id": "D", "text": "To indicate time period", "correct": false }
+  ]
+},
+{
+  "id": "q26",
+  "type": "MC",
+  "prompt": "Mrs. Olsen's tone is best described as",
+  "choices": [
+    { "id": "A", "text": "formal", "correct": true },
+    { "id": "B", "text": "relaxed", "correct": false },
+    { "id": "C", "text": "emotional", "correct": false },
+    { "id": "D", "text": "playful", "correct": false }
+  ]
+},
+{
+  "id": "q27",
+  "type": "MC",
+  "prompt": "The stage directions mainly establish",
+  "choices": [
+    { "id": "A", "text": "a professional power dynamic", "correct": true },
+    { "id": "B", "text": "emotional tension", "correct": false },
+    { "id": "C", "text": "family relationships", "correct": false },
+    { "id": "D", "text": "long term friendship", "correct": false }
+  ]
+},
+{
+  "id": "q28",
+  "type": "MC",
+  "prompt": "In this scene sufficient most nearly means",
+  "choices": [
+    { "id": "A", "text": "appropriate", "correct": true },
+    { "id": "B", "text": "excessive", "correct": false },
+    { "id": "C", "text": "painful", "correct": false },
+    { "id": "D", "text": "temporary", "correct": false }
+  ]
+},
+
+{
+  "type": "STIMULUS_END"
+},
+
+{
+  "id": "stim4",
+  "type": "STIMULUS",
+  "prompt": "PASTE STIMULUS 4 HERE\nAct 1 Scene 2"
+},
+
+{
+  "id": "q29",
+  "type": "MC",
+  "prompt": "Rachel's repeated comparisons are examples of",
+  "choices": [
+    { "id": "A", "text": "idioms", "correct": true },
+    { "id": "B", "text": "similes", "correct": false },
+    { "id": "C", "text": "metaphors", "correct": false },
+    { "id": "D", "text": "exaggeration", "correct": false }
+  ]
+},
+{
+  "id": "q30",
+  "type": "MC",
+  "prompt": "Rachel's language mainly reveals that she",
+  "choices": [
+    { "id": "A", "text": "believes the job may be risky", "correct": true },
+    { "id": "B", "text": "envies the pay", "correct": false },
+    { "id": "C", "text": "misunderstands the situation", "correct": false },
+    { "id": "D", "text": "wants the job herself", "correct": false }
+  ]
+},
+{
+  "id": "q31",
+  "type": "MC",
+  "prompt": "Which line best shows Whitney is annoyed",
+  "choices": [
+    { "id": "A", "text": "Why do you always have to speak in riddles", "correct": true },
+    { "id": "B", "text": "I can handle it", "correct": false },
+    { "id": "C", "text": "How tough can it be", "correct": false },
+    { "id": "D", "text": "That is more than double", "correct": false }
+  ]
+},
+{
+  "id": "q32",
+  "type": "MC",
+  "prompt": "Whitney standing with her hands on her hips suggests",
+  "choices": [
+    { "id": "A", "text": "frustration", "correct": true },
+    { "id": "B", "text": "excitement", "correct": false },
+    { "id": "C", "text": "confusion", "correct": false },
+    { "id": "D", "text": "embarrassment", "correct": false }
+  ]
+},
+
+{
+  "type": "STIMULUS_END"
+},
+
+{
+  "id": "stim5",
+  "type": "STIMULUS",
+  "prompt": "PASTE STIMULUS 5 HERE\nAct 1 Scene 3"
+},
+
+{
+  "id": "q33",
+  "type": "MC",
+  "prompt": "Which moment represents the climax of the play",
+  "choices": [
+    { "id": "A", "text": "Russell admitting he misses his mother", "correct": true },
+    { "id": "B", "text": "Whitney chasing Russell", "correct": false },
+    { "id": "C", "text": "Russell refusing to listen", "correct": false },
+    { "id": "D", "text": "Whitney agreeing to build a castle", "correct": false }
+  ]
+},
+{
+  "id": "q34",
+  "type": "MC",
+  "prompt": "The central conflict of the play is that",
+  "choices": [
+    { "id": "A", "text": "Russell resists Whitneys authority", "correct": true },
+    { "id": "B", "text": "Whitney fears quitting", "correct": false },
+    { "id": "C", "text": "Rachel discourages Whitney", "correct": false },
+    { "id": "D", "text": "Mrs Olsen overworks her nanny", "correct": false }
+  ]
+},
+{
+  "id": "q35",
+  "type": "MC",
+  "prompt": "Russell's behavior suggests that he",
+  "choices": [
+    { "id": "A", "text": "wants his mothers attention", "correct": true },
+    { "id": "B", "text": "enjoys teasing adults", "correct": false },
+    { "id": "C", "text": "lacks discipline", "correct": false },
+    { "id": "D", "text": "dislikes being outside", "correct": false }
+  ]
+},
+{
+  "id": "q36",
+  "type": "MC",
+  "prompt": "Which theme is best supported by the play",
+  "choices": [
+    { "id": "A", "text": "Understanding others builds relationships", "correct": true },
+    { "id": "B", "text": "Money guarantees happiness", "correct": false },
+    { "id": "C", "text": "Children must obey authority", "correct": false },
+    { "id": "D", "text": "Adults always know best", "correct": false }
+  ]
+},
+
+{
+  "type": "STIMULUS_END"
+}
+
+
+],
+"rationales": [
+{ "item_id": "q23", "rationale": "Emily focuses on her appearance and reacts strongly to flaws which shows vanity." },
+{ "item_id": "q24", "rationale": "Emily casually fixes the problem and leaves which shows she does not care much about her appearance." },
+{ "item_id": "q25", "rationale": "Ages help directors select actors who realistically fit each character." },
+{ "item_id": "q26", "rationale": "Mrs. Olsen speaks in a controlled and businesslike way throughout the scene." },
+{ "item_id": "q27", "rationale": "The directions show Mrs. Olsen leading the interaction while Whitney follows her cues." },
+{ "item_id": "q28", "rationale": "Sufficient means an amount that is acceptable or enough for the situation." },
+{ "item_id": "q29", "rationale": "The phrases are common expressions whose meanings go beyond literal words which makes them idioms." },
+{ "item_id": "q30", "rationale": "Rachel uses warnings and comparisons to suggest the job may be harder than it seems." },
+{ "item_id": "q31", "rationale": "Whitney directly criticizes Rachel's way of speaking which shows irritation." },
+{ "item_id": "q32", "rationale": "Standing with hands on hips commonly signals annoyance or frustration." },
+{ "item_id": "q33", "rationale": "The emotional shift happens when Russell admits his feelings which resolves the conflict." },
+{ "item_id": "q34", "rationale": "The story centers on Russell refusing to listen to Whitney as his caregiver." },
+{ "item_id": "q35", "rationale": "Russell acts out because he wants attention from his mother." },
+{ "item_id": "q36", "rationale": "The play shows that empathy helps Whitney and Russell connect and solve problems." }
+]
+}
+</QUIZFORGE_JSON>

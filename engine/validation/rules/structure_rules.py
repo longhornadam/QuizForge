@@ -21,6 +21,7 @@ from ...core.questions import (
     StimulusEnd,
     StimulusItem,
 )
+from .render_mode_rules import validate_render_mode
 
 
 def validate_structure(quiz: Quiz) -> List[str]:
@@ -38,6 +39,9 @@ def validate_structure(quiz: Quiz) -> List[str]:
     if not quiz.questions:
         errors.append("Quiz must contain at least one question; add at least one item before submitting for validation.")
         return errors
+
+    # Hard fail: render_mode enforcement for student-visible strings
+    errors.extend(validate_render_mode(quiz))
     
     # Validate each question
     for i, question in enumerate(quiz.questions, 1):

@@ -9,10 +9,10 @@ def build_assessment_meta_xml(title: str, total_points: float, guid: str) -> str
     return (
         "<?xml version=\"1.0\"?>\n"
         f"<quiz xmlns=\"http://canvas.instructure.com/xsd/cccv1p0\" xmlns:xsi=\"http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd\" identifier=\"{guid}\">\n"
-        f"  <title>{xml_escape(title)}</title>\n"
+                f"  <title>{xml_escape(title)}</title>\n"
         "  <description></description>\n"
         "  <shuffle_questions>false</shuffle_questions>\n"
-        "  <shuffle_answers>false</shuffle_answers>\n"
+        "  <shuffle_answers>true</shuffle_answers>\n"
         "  <calculator_type>none</calculator_type>\n"
         "  <scoring_policy>keep_highest</scoring_policy>\n"
         "  <allowed_attempts>1</allowed_attempts>\n"

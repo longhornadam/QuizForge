@@ -1,0 +1,106 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Practice 3 Ink in the Rain",
+"metadata": {
+"grade": 7,
+"note": "Length-balanced answers with no visual cues"
+},
+"items": [
+{
+"id": "p3_q21",
+"type": "MC",
+"prompt": "What does translucent most nearly mean based on the Latin root luc",
+"choices": [
+{ "id": "A", "text": "Lets some light pass through", "correct": true },
+{ "id": "B", "text": "Blocks nearly all light inside", "correct": false },
+{ "id": "C", "text": "Reflects light off surfaces", "correct": false },
+{ "id": "D", "text": "Feels thick and very heavy", "correct": false }
+]
+},
+{
+"id": "p3_q22",
+"type": "MC",
+"prompt": "Which sentence best creates a sentimental mood",
+"choices": [
+{ "id": "A", "text": "I think of that table", "correct": true },
+{ "id": "B", "text": "The stairs smelled old", "correct": false },
+{ "id": "C", "text": "I forgot the problem", "correct": false },
+{ "id": "D", "text": "The brush touched paper", "correct": false }
+]
+},
+{
+"id": "p3_q23",
+"type": "MC",
+"prompt": "What key idea about calligraphy do paragraphs four and five support",
+"choices": [
+{ "id": "A", "text": "It requires patience and care", "correct": true },
+{ "id": "B", "text": "It depends on speed", "correct": false },
+{ "id": "C", "text": "It needs costly tools", "correct": false },
+{ "id": "D", "text": "It favors adults only", "correct": false }
+]
+},
+{
+"id": "p3_q24",
+"type": "MC",
+"prompt": "What is the main theme of Ink in the Rain",
+"choices": [
+{ "id": "A", "text": "Quiet routines teach lessons", "correct": true },
+{ "id": "B", "text": "Problems fade with time", "correct": false },
+{ "id": "C", "text": "Rules shape success", "correct": false },
+{ "id": "D", "text": "Hobbies replace people", "correct": false }
+]
+},
+{
+"id": "p3_q25",
+"type": "MC",
+"prompt": "Why does the grandfather say your hands need something calm to do",
+"choices": [
+{ "id": "A", "text": "To help focus energy", "correct": true },
+{ "id": "B", "text": "To improve handwriting", "correct": false },
+{ "id": "C", "text": "To avoid ink spills", "correct": false },
+{ "id": "D", "text": "To follow a routine", "correct": false }
+]
+},
+{
+"id": "p3_q26",
+"type": "MC",
+"prompt": "How does subjective point of view help the reader",
+"choices": [
+{ "id": "A", "text": "It shows changing feelings", "correct": true },
+{ "id": "B", "text": "It lists clear steps", "correct": false },
+{ "id": "C", "text": "It explains history", "correct": false },
+{ "id": "D", "text": "It describes weather", "correct": false }
+]
+},
+{
+"id": "p3_q27",
+"type": "MC",
+"prompt": "How does focusing on calligraphy influence the plot",
+"choices": [
+{ "id": "A", "text": "It calms emotions", "correct": true },
+{ "id": "B", "text": "It solves the conflict", "correct": false },
+{ "id": "C", "text": "It creates a career", "correct": false },
+{ "id": "D", "text": "It ends the relationship", "correct": false }
+]
+},
+{
+"id": "p3_q28",
+"type": "ESSAY",
+"prompt": "Describe how the relationship between the narrator and the grandfather influenced the narrators life Use evidence from the text",
+"length_guidance": "One organized paragraph or short essay",
+"rubric_hint": "Controlling idea organization evidence conventions"
+}
+],
+"rationales": [
+{ "item_id": "p3_q21", "rationale": "Luc refers to light passing through an object." },
+{ "item_id": "p3_q22", "rationale": "The line reflects emotional memory and warmth." },
+{ "item_id": "p3_q23", "rationale": "The paragraphs stress slowing down and control." },
+{ "item_id": "p3_q24", "rationale": "The story centers on quiet repeated lessons." },
+{ "item_id": "p3_q25", "rationale": "The activity helps channel restless energy." },
+{ "item_id": "p3_q26", "rationale": "First person narration reveals feelings over time." },
+{ "item_id": "p3_q27", "rationale": "The practice reduces emotional pressure." },
+{ "item_id": "p3_q28", "rationale": "The grandfather models patience and calm." }
+]
+}
+</QUIZFORGE_JSON>

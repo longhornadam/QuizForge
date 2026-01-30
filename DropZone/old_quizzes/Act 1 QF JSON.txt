@@ -1,0 +1,302 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "The Observation - Act 1 Quiz (Thursday)",
+"metadata": {
+"grade": "7",
+"subject": "ELA",
+"duration_minutes": "45",
+"teks_focus": ["7.10C", "7.10D", "7.6D", "7.5G", "7.9D"],
+"description": "Post-play assessment focusing on editing, revising, and comprehension skills demonstrated in Act 1"
+},
+"items": [
+{
+"id": "q1_cap",
+"type": "MC",
+"prompt": "What is the correct way to write the sentence on the board?\n\nOriginal: Today We will learn about Japanese Feudal Lords and how they ruled their lands",
+"choices": [
+{"text": "Today, we will learn about Japanese feudal lords and how they ruled their lands.", "correct": true, "id": "A"},
+{"text": "Today We will learn about Japanese Feudal Lords and how they ruled their lands.", "correct": false, "id": "B"},
+{"text": "today, we will learn about japanese feudal lords and how they ruled their lands.", "correct": false, "id": "C"},
+{"text": "Today, We will learn about Japanese Feudal Lords and how they ruled their lands.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q2_comma",
+"type": "MC",
+"prompt": "What change should be made to improve the sentence?\n\nSentence: Today we will learn about Japanese feudal lords, and how they ruled their lands",
+"choices": [
+{"text": "Remove the comma before the word and", "correct": true, "id": "A"},
+{"text": "Add a comma after the word learn", "correct": false, "id": "B"},
+{"text": "Change the comma to a semicolon", "correct": false, "id": "C"},
+{"text": "Add a comma after the word feudal", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q3_runon",
+"type": "MC",
+"prompt": "Which version corrects the run-on sentence?\n\nOriginal: The lords controlled everything they controlled the land and the people and the taxes.",
+"choices": [
+{"text": "The lords controlled everything. They controlled the land, the people, and the taxes.", "correct": true, "id": "A"},
+{"text": "The lords controlled everything they controlled the land and the people and the taxes.", "correct": false, "id": "B"},
+{"text": "The lords controlled everything, they controlled the land and the people and the taxes.", "correct": false, "id": "C"},
+{"text": "The lords controlled everything and they controlled the land and the people and the taxes.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q4_spelling",
+"type": "MC",
+"prompt": "Which word is used incorrectly in Coach Beckham's explanation?\n\nSentence: Their going to learn about how feudal lords had alot of power over they're territories.",
+"choices": [
+{"text": "All three underlined words are incorrect", "correct": true, "id": "A"},
+{"text": "Only Their is incorrect", "correct": false, "id": "B"},
+{"text": "Only alot is incorrect", "correct": false, "id": "C"},
+{"text": "Only they're is incorrect", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q5_series_comma",
+"type": "MC",
+"prompt": "What punctuation change should be made?\n\nSentence: The feudal lords had three main responsibilities protecting the land collecting taxes and maintaining order.",
+"choices": [
+{"text": "Add a colon after responsibilities and commas between items", "correct": true, "id": "A"},
+{"text": "Add commas between items only", "correct": false, "id": "B"},
+{"text": "Add semicolons between items", "correct": false, "id": "C"},
+{"text": "No changes needed", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q6_cap_proper",
+"type": "MC",
+"prompt": "Which words should be capitalized?\n\nSentence: In medieval japan, the feudal system was similar to what existed in europe during the middle ages.",
+"choices": [
+{"text": "Japan, Europe, Middle Ages", "correct": true, "id": "A"},
+{"text": "Japan, Europe only", "correct": false, "id": "B"},
+{"text": "Medieval, Japan, Feudal, Europe, Middle, Ages", "correct": false, "id": "C"},
+{"text": "All words as written are correct", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q7_splice",
+"type": "MC",
+"prompt": "How should this sentence be corrected?\n\nSentence: Feudal lords were powerful, they controlled everything in their domain.",
+"choices": [
+{"text": "Change the comma to a period or semicolon", "correct": true, "id": "A"},
+{"text": "Add and after the comma", "correct": false, "id": "B"},
+{"text": "Remove the comma", "correct": false, "id": "C"},
+{"text": "The sentence is correct as written", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q8_spelling2",
+"type": "MC",
+"prompt": "Which sentence is spelled correctly?",
+"choices": [
+{"text": "The lords maintained their territories through careful management.", "correct": true, "id": "A"},
+{"text": "The lords maintaned there territories through carefull management.", "correct": false, "id": "B"},
+{"text": "The lords maintained their territorys through careful managment.", "correct": false, "id": "C"},
+{"text": "The lords maintaned they're territories through careful management.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q9_wordchoice",
+"type": "MC",
+"prompt": "Which word should replace control to make the sentence more precise?\n\nSentence: The feudal lords controlled the land by controlling the people who controlled the resources.",
+"choices": [
+{"text": "governed, managing, accessed", "correct": true, "id": "A"},
+{"text": "ruled, controlling, owning", "correct": false, "id": "B"},
+{"text": "dominated, dominating, dominated", "correct": false, "id": "C"},
+{"text": "controlled, supervising, handled", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q10_parallel",
+"type": "MC",
+"prompt": "What is the best way to revise the sentence?\n\nSentence: The lords protected land, collecting taxes, and loyalty was expected from peasants.",
+"choices": [
+{"text": "The lords protected land, collected taxes, and expected loyalty from peasants.", "correct": true, "id": "A"},
+{"text": "The lords were protecting land, collecting taxes, and loyalty was expected from peasants.", "correct": false, "id": "B"},
+{"text": "The lords protected land, they collected taxes, and expected loyalty from peasants.", "correct": false, "id": "C"},
+{"text": "Protecting land, collecting taxes, and loyalty was expected from peasants by the lords.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q11_redundancy",
+"type": "MC",
+"prompt": "Which revision eliminates unnecessary repetition?\n\nSentence: The feudal lords who ruled over the feudal territories had control and ruled with power over everyone.",
+"choices": [
+{"text": "The feudal lords governed their territories with authority.", "correct": true, "id": "A"},
+{"text": "The feudal lords who ruled had control over everyone in the territories.", "correct": false, "id": "B"},
+{"text": "The lords who ruled the feudal territories had power and control.", "correct": false, "id": "C"},
+{"text": "The feudal lords ruled over the territories with control and power.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q12_combining",
+"type": "MC",
+"prompt": "Which sentence best combines these two ideas?\n\nSentence A: Feudal lords had power.\nSentence B: They used this power to control land.",
+"choices": [
+{"text": "Feudal lords used their power to control land.", "correct": true, "id": "A"},
+{"text": "Feudal lords had power, they used it to control land.", "correct": false, "id": "B"},
+{"text": "Feudal lords had power and used this power to control land.", "correct": false, "id": "C"},
+{"text": "Having power, feudal lords controlled land with it.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q13_clarity",
+"type": "MC",
+"prompt": "Which revision makes the meaning clearer?\n\nSentence: They did stuff with the things that made the people do what they wanted.",
+"choices": [
+{"text": "The lords used laws and taxes to control their subjects.", "correct": true, "id": "A"},
+{"text": "They did things with items that made people comply with them.", "correct": false, "id": "B"},
+{"text": "The people did stuff because of things the lords did.", "correct": false, "id": "C"},
+{"text": "Things were done by them to make people do what was wanted.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q14_precision",
+"type": "MC",
+"prompt": "Which word best replaces controlled in this context?\n\nSentence: The feudal lords controlled the peasants through laws, taxes, and military force.",
+"choices": [
+{"text": "governed", "correct": true, "id": "A"},
+{"text": "bossed", "correct": false, "id": "B"},
+{"text": "handled", "correct": false, "id": "C"},
+{"text": "managed", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q15_development",
+"type": "MC",
+"prompt": "Which sentence would best develop this paragraph?\n\nContext: Feudal lords were important in Japanese society. [ADD SENTENCE HERE] This system lasted for centuries.",
+"choices": [
+{"text": "They governed territories, collected taxes, and protected their people from threats.", "correct": true, "id": "A"},
+{"text": "People lived in Japan during this time period.", "correct": false, "id": "B"},
+{"text": "The system was important and lasted a long time.", "correct": false, "id": "C"},
+{"text": "Many things happened during the feudal period.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q16_summary",
+"type": "MC",
+"prompt": "Which sentence should be included in a summary of Coach Beckham's lesson?\n\nCoach's explanation included:\n- Feudal lords controlled land\n- They controlled people\n- They controlled taxes\n- They controlled armies\n- They controlled everything",
+"choices": [
+{"text": "Feudal lords had authority over multiple aspects of society.", "correct": true, "id": "A"},
+{"text": "Coach Beckham talked about feudal lords for a long time.", "correct": false, "id": "B"},
+{"text": "The word controlled was used many times in the lesson.", "correct": false, "id": "C"},
+{"text": "Students were confused by the explanation about Japan.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q17_mainidea",
+"type": "MC",
+"prompt": "Which statement best summarizes the main lesson Mrs. J is trying to teach?",
+"choices": [
+{"text": "Clear and specific language improves understanding.", "correct": true, "id": "A"},
+{"text": "Japanese feudal lords were powerful leaders.", "correct": false, "id": "B"},
+{"text": "Teachers should write sentences on the board correctly.", "correct": false, "id": "C"},
+{"text": "Students should correct teachers when they make mistakes.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q18_paraphrase",
+"type": "MC",
+"prompt": "Which sentence best paraphrases: The feudal lords maintained order by controlling all aspects of life in their territories?",
+"choices": [
+{"text": "Lords kept peace by managing all parts of life in their lands.", "correct": true, "id": "A"},
+{"text": "The feudal lords maintained order by controlling all aspects of life in their territories.", "correct": false, "id": "B"},
+{"text": "People in territories had all aspects of life controlled by feudal lords who maintained order.", "correct": false, "id": "C"},
+{"text": "Lords controlled everything and kept order.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q19_supportdetail",
+"type": "MC",
+"prompt": "Which detail from the board best supports the idea that the sentence needs revision?\n\nDetails on board:\n- Today has a comma after it\n- We is capitalized mid-sentence\n- Multiple commas are missing\n- Feudal Lords is unnecessarily capitalized",
+"choices": [
+{"text": "We is capitalized mid-sentence", "correct": true, "id": "A"},
+{"text": "The sentence is about Japanese history", "correct": false, "id": "B"},
+{"text": "The board is white", "correct": false, "id": "C"},
+{"text": "Students are reading the sentence", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q20_keyidea_confusion",
+"type": "MC",
+"prompt": "Which detail most clearly shows that students are confused by Coach Beckham's explanation?",
+"choices": [
+{"text": "Students ask Coach to repeat himself", "correct": true, "id": "A"},
+{"text": "Arthur shouts random things", "correct": false, "id": "B"},
+{"text": "Mr. Barcelona writes on his clipboard", "correct": false, "id": "C"},
+{"text": "The lesson is about feudal lords", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q21_keyidea",
+"type": "MC",
+"prompt": "Which statement represents the key idea, not just a supporting detail?",
+"choices": [
+{"text": "Word choice affects how well people understand explanations.", "correct": true, "id": "A"},
+{"text": "Coach Beckham uses the word controlled many times.", "correct": false, "id": "B"},
+{"text": "Mrs. J rewrites the sentence on the board.", "correct": false, "id": "C"},
+{"text": "The lesson takes place in a classroom.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q22_metaphor",
+"type": "MC",
+"prompt": "Why does Coach Beckham's metaphor Feudal lords were like Wi-Fi routers of medieval Japan confuse the students?",
+"choices": [
+{"text": "The comparison doesn't help explain how feudal lords actually functioned.", "correct": true, "id": "A"},
+{"text": "Students don't know what Wi-Fi routers are.", "correct": false, "id": "B"},
+{"text": "The metaphor is too complicated for seventh graders.", "correct": false, "id": "C"},
+{"text": "Medieval Japan didn't have technology.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "q23_fig_effect",
+"type": "MC",
+"prompt": "What effect does the author create by having Coach Beckham use confusing comparisons?",
+"choices": [
+{"text": "It shows that unclear language creates obstacles to learning.", "correct": true, "id": "A"},
+{"text": "It proves that metaphors should never be used in lessons.", "correct": false, "id": "B"},
+{"text": "It demonstrates that Coach Beckham is a bad teacher.", "correct": false, "id": "C"},
+{"text": "It makes the play funnier for the audience.", "correct": false, "id": "D"}
+]
+},
+{
+"id": "scr_act1",
+"type": "ESSAY",
+"prompt": "Explain how unclear language causes confusion in the classroom. Use evidence from the play to support your answer.\n\nScoring:\n- 2 points: Clear explanation with accurate text evidence\n- 1 point: Partial explanation OR weak/missing evidence\n- 0 points: Incorrect or no response",
+"points": 2,
+"length_guidance": "4-6 sentences",
+"rubric_hint": "Your response should identify a specific example of unclear language from Act 1 and explain how it caused confusion for the students."
+}
+],
+"rationales": [
+{"item_id": "q1_cap", "rationale": "The comma after Today is required for an introductory word, we should be lowercase mid-sentence, and feudal lords are common nouns that do not need capitals."},
+{"item_id": "q2_comma", "rationale": "The comma before and is unnecessary because how they ruled their lands is not an independent clause."},
+{"item_id": "q3_runon", "rationale": "The original is a run-on sentence that needs to be split into two sentences with proper punctuation."},
+{"item_id": "q4_spelling", "rationale": "Their should be They're (they are), alot should be a lot (two words), and they're should be their (possessive)."},
+{"item_id": "q5_series_comma", "rationale": "A colon introduces the list, and commas separate items in a series."},
+{"item_id": "q6_cap_proper", "rationale": "Japan, Europe, and Middle Ages are proper nouns requiring capitalization; medieval, feudal, and system are not."},
+{"item_id": "q7_splice", "rationale": "This is a comma splice error where two independent clauses are joined only by a comma; a period, semicolon, or conjunction with comma is needed."},
+{"item_id": "q8_spelling2", "rationale": "All words are spelled correctly: maintained, their, territories, careful, management."},
+{"item_id": "q9_wordchoice", "rationale": "Using different, specific verbs (governed, managing, accessed) eliminates the repetitive and vague use of controlled."},
+{"item_id": "q10_parallel", "rationale": "Parallel structure requires all items in a series to use the same grammatical form; here all three verbs should be in past tense."},
+{"item_id": "q11_redundancy", "rationale": "The original repeats feudal, ruled, control, and power; the revision eliminates redundancy while keeping the meaning."},
+{"item_id": "q12_combining", "rationale": "This option combines the ideas smoothly without creating a run-on or awkward phrasing."},
+{"item_id": "q13_clarity", "rationale": "Replacing vague words (stuff, things, people) with specific terms (laws, taxes, subjects) makes the meaning clear."},
+{"item_id": "q14_precision", "rationale": "Governed is formal and precise for how feudal lords used their authority; bossed is too informal, while handled and managed are less precise in this context."},
+{"item_id": "q15_development", "rationale": "This sentence provides specific details about what feudal lords did, developing the paragraph's main idea."},
+{"item_id": "q16_summary", "rationale": "A summary captures the main idea (lords had authority) without listing every detail from the explanation."},
+{"item_id": "q17_mainidea", "rationale": "The lesson's purpose is to demonstrate how word choice affects understanding, not to teach about Japanese history."},
+{"item_id": "q18_paraphrase", "rationale": "A paraphrase restates the idea in different words while maintaining the original meaning; option A does this successfully."},
+{"item_id": "q19_supportdetail", "rationale": "Capitalizing We mid-sentence is a clear error that supports the need for revision."},
+{"item_id": "q20_keyidea_confusion", "rationale": "When students ask a teacher to repeat an explanation, it directly shows they didn't understand the first time."},
+{"item_id": "q21_keyidea", "rationale": "This is the overarching concept; the other options are specific examples that support this key idea."},
+{"item_id": "q22_metaphor", "rationale": "The metaphor fails because Wi-Fi routers distribute signals, but this doesn't meaningfully explain feudal lords' roles in society."},
+{"item_id": "q23_fig_effect", "rationale": "The playwright intentionally uses a bad metaphor to demonstrate how poor language choices prevent understanding."},
+{"item_id": "scr_act1", "rationale": "Students should identify specific unclear language (repetitive controlled, bad metaphor, or errors on board) and explain how it prevented understanding."}
+]
+}
+</QUIZFORGE_JSON>

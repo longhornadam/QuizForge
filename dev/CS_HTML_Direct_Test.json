@@ -1,0 +1,73 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "CS Test - Direct HTML Code Blocks",
+  "metadata": {
+    "note": "Testing LLM-generated HTML with proper code block styling"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "type": "MC",
+      "prompt": "<p>What does this Python code print?</p><pre style='background-color: #272822; color: #F8F8F2; padding: 10px; border-radius: 4px; font-family: Courier New, Consolas, monospace; overflow-x: auto; line-height: 1.5; white-space: pre; display: block;'><code>for i in range(3):\n    print(i)</code></pre><p>Choose the correct output:</p>",
+      "choices": [
+        {"text": "0, 1, 2 (each on a new line)", "correct": true},
+        {"text": "1, 2, 3", "correct": false},
+        {"text": "0, 1, 2, 3", "correct": false},
+        {"text": "range(3)", "correct": false}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "MC",
+      "prompt": "<p>How many characters are in the string literal <code style='background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;'>\"\\n\"</code>?</p><p>(Count the backslash and the n as separate characters)</p>",
+      "choices": [
+        {"text": "2 (backslash + n)", "correct": true},
+        {"text": "1 (it's a newline character)", "correct": false},
+        {"text": "3 (quote + backslash + n)", "correct": false},
+        {"text": "4 (both quotes + backslash + n)", "correct": false}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "MC",
+      "prompt": "<p>Consider this code:</p><pre style='background-color: #272822; color: #F8F8F2; padding: 10px; border-radius: 4px; font-family: Courier New, Consolas, monospace; overflow-x: auto; line-height: 1.5; white-space: pre; display: block;'><code>text = \"Hello\\nWorld\"\nprint(len(text))</code></pre><p>What is the output?</p>",
+      "choices": [
+        {"text": "11", "correct": true},
+        {"text": "10", "correct": false},
+        {"text": "12", "correct": false},
+        {"text": "13", "correct": false}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "MC",
+      "prompt": "<p>In Python, what does the escape sequence <code style='background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;'>\\t</code> represent?</p>",
+      "choices": [
+        {"text": "A tab character", "correct": true},
+        {"text": "The letter 't'", "correct": false},
+        {"text": "A backslash followed by 't'", "correct": false},
+        {"text": "A terminal character", "correct": false}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "MC",
+      "prompt": "<p>Which Python code correctly prints <code style='background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;'>Hello</code> followed by <code style='background-color: #f4f4f4; padding: 2px 4px; border-radius: 3px; font-family: monospace;'>World</code> on separate lines?</p>",
+      "choices": [
+        {"text": "print(\"Hello\\nWorld\")", "correct": true},
+        {"text": "print(\"Hello\" + \"World\")", "correct": false},
+        {"text": "print(\"Hello\", \"World\")", "correct": false},
+        {"text": "print(\"Hello\\\\nWorld\")", "correct": false}
+      ]
+    }
+  ],
+  "rationales": [
+    {"item_id": "q1", "rationale": "The range function generates 0, 1, 2 and the loop prints each value on a separate line."},
+    {"item_id": "q2", "rationale": "The string literal contains a backslash character followed by the letter n, totaling 2 characters."},
+    {"item_id": "q3", "rationale": "The string 'Hello\\nWorld' contains 5 + 1 (newline) + 5 = 11 characters."},
+    {"item_id": "q4", "rationale": "The escape sequence \\t represents a horizontal tab character in Python strings."},
+    {"item_id": "q5", "rationale": "The \\n escape sequence produces a newline character, putting World on the next line after Hello."}
+  ]
+}
+</QUIZFORGE_JSON>

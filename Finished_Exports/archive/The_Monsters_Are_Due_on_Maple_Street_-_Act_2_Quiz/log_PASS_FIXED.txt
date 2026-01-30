@@ -1,0 +1,69 @@
+============================================================
+QuizForge Processing Log
+============================================================
+Quiz: The Monsters Are Due on Maple Street - Act 2 Quiz
+Processed: 2026-01-21 13:36:36
+Questions: 11
+Total Points: 100
+
+STATUS: PASS (No issues)
+
+AUTO-FIXES APPLIED:
+------------------------------------------------------------
+1. Cleaned text (normalized quotes, whitespace)
+2. Balanced answer distributions (shuffled MC/MA/TF correct positions)
+
+============================================================
+Quiz packages generated successfully!
+============================================================
+
+============================================================
+PHYSICAL QUIZ VALIDATION STATISTICS
+============================================================
+
+ANSWER CHOICE STATISTICS
+----------------------------------------
+Total MC questions: 10
+Average choice length: 40.1 chars
+Min choice length: 24 chars
+Max choice length: 74 chars
+
+Correct answer distribution:
+  A: 3 (30.0%)
+  B: 2 (20.0%)
+  C: 3 (30.0%)
+  D: 2 (20.0%)
+
+Questions eligible for 2-column layout: 5/10
+
+QUESTION LENGTH STATISTICS
+----------------------------------------
+Total questions: 11
+Average question length: 73.6 chars
+Min question length: 45 chars
+Max question length: 159 chars
+
+POINT VALUE DISTRIBUTION
+----------------------------------------
+Total points: 100
+Average points per question: 9.09
+
+Point value breakdown:
+  7 pt: 9 questions (81.8%)
+  8 pt: 1 questions (9.1%)
+  29 pt: 1 questions (9.1%)
+
+STIMULUS USAGE STATISTICS
+----------------------------------------
+Questions with stimuli: 0/11
+
+
+============================================================
+ANSWER DISTRIBUTION (AFTER BALANCING)
+============================================================
+
+Multiple Choice Distribution:
+  A: 3 (30.0%)
+  B: 2 (20.0%)
+  C: 3 (30.0%)
+  D: 2 (20.0%)

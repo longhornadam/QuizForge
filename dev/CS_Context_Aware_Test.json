@@ -1,0 +1,73 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Context-Aware Escape Test - CS Questions",
+  "metadata": {
+    "note": "Testing that executable mode now handles code contexts correctly without verbatim"
+  },
+  "items": [
+    {
+      "id": "q1",
+      "type": "MC",
+      "prompt": "<p>What does this Python code print?</p><p>```python\nfor i in range(3):\n    print(i)\n```</p><p>Choose the correct output:</p>",
+      "choices": [
+        {"text": "0 1 2", "correct": true},
+        {"text": "1 2 3", "correct": false},
+        {"text": "0 1 2 3", "correct": false},
+        {"text": "range(3)", "correct": false}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "MC",
+      "prompt": "<p>How many characters are in the string literal `\"\\n\"`?</p><p>(Count the backslash and the n as separate characters)</p>",
+      "choices": [
+        {"text": "1 (it's a newline character)", "correct": false},
+        {"text": "2 (backslash + n)", "correct": true},
+        {"text": "3 (quote + backslash + n)", "correct": false},
+        {"text": "4 (both quotes + backslash + n)", "correct": false}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "MC",
+      "prompt": "<p>Consider this code:</p><p>```python\ntext = \"Hello\\nWorld\"\nprint(len(text))\n```</p><p>What is the output?</p>",
+      "choices": [
+        {"text": "10", "correct": false},
+        {"text": "11", "correct": true},
+        {"text": "12", "correct": false},
+        {"text": "13", "correct": false}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "MC",
+      "prompt": "<p>In Python, what does the escape sequence `\\t` represent?</p>",
+      "choices": [
+        {"text": "A tab character", "correct": true},
+        {"text": "The letter 't'", "correct": false},
+        {"text": "A backslash followed by 't'", "correct": false},
+        {"text": "A terminal character", "correct": false}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "MC",
+      "prompt": "<p>Which Python string contains exactly 5 literal characters (not counting the quotes)?</p>",
+      "choices": [
+        {"text": "`\"Hi\\n\"`", "correct": false},
+        {"text": "`\"Hello\"`", "correct": true},
+        {"text": "`\"Hi\\t\"`", "correct": false},
+        {"text": "`\"\\n\\n\\n\\n\\n\"`", "correct": false}
+      ]
+    }
+  ],
+  "rationales": [
+    {"item_id": "q1", "rationale": "The range function generates 0, 1, 2 and the loop prints each value on a separate line."},
+    {"item_id": "q2", "rationale": "The string literal contains a backslash character followed by the letter n, totaling 2 characters."},
+    {"item_id": "q3", "rationale": "The string 'Hello\\nWorld' contains 5 + 1 (newline) + 5 = 11 characters."},
+    {"item_id": "q4", "rationale": "The escape sequence \\t represents a horizontal tab character in Python strings."},
+    {"item_id": "q5", "rationale": "The string 'Hello' contains 5 literal characters. The others contain escape sequences like \\n and \\t which count as single characters in the actual string."}
+  ]
+}
+</QUIZFORGE_JSON>

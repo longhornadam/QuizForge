@@ -1,0 +1,150 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "High Fantasy Suspense Capitalization (Meaning and Tone)",
+"metadata": {
+"grade": 7,
+"focus": "Capitalization to clarify meaning and build suspense (STAAR-style revising and editing)",
+"standard_hint": "TEKS 7.10D (Editing)"
+},
+"items": [
+{
+"id": "stim_fantasy_caps",
+"type": "STIMULUS",
+"format": "markdown",
+"layout": "below",
+"prompt": "Read the passage. Paragraphs are numbered.\n\n**High-Fantasy Suspense Passage (Capitalization Draft With Problems)**\n\n**[1]** At midnight the last bell of thornwatch keep rang once and then went silent. Elowen pulled her cloak tighter and watched the fog collect between the standing stones like breath trapped in a throat.\n\n**[2]** The old map said the path would open only for a sworn messenger of the crown. Elowen was not sworn, not anymore, but the seal in her pocket still burned against her palm as if it remembered the king's hand.\n\n**[3]** A whisper slid through the heather: return it to the vault. The words did not sound like wind, they sounded like a person choosing each syllable. Elowen turned toward the ruins and saw a lantern moving where no traveler should be.\n\n**[4]** On the gate of black iron, a sign hung crooked. it read: enter, and be judged. She should have laughed at such a warning, but the letters looked freshly written, wet as ink, and the air tasted of cold metal.\n\n**[5]** The lantern stopped. A figure stood behind it, tall and patient, with a hood that hid the face. When the figure spoke, the voice was calm, almost kind: \"i know what you carry, Elowen.\"\n\n**[6]** Her name in a stranger's mouth made the night feel narrower. She stepped back, and the fog stepped with her, as if it listened. In her mind she heard the court mage's last instruction: do not speak to the warden.\n\n**[7]** Elowen had never met the Warden, but every story in the keep treated the title like a blade. Some called him the warden of oaths, others called him the Warden, and the difference suddenly mattered.\n\n**[8]** The hooded figure lifted a hand, palm up, as if offering mercy. \"Give the seal to the Crown,\" he said, and the word crown sounded like an order, not a person. Behind him, the iron gate opened without a sound."
+},
+{
+"id": "q1",
+"type": "MC",
+"stimulus_id": "stim_fantasy_caps",
+"prompt": "Paragraph 1: Which revision correctly capitalizes the name of the keep?",
+"choices": [
+{ "id": "A", "text": "At midnight the last bell of Thornwatch keep rang once and then went silent.", "correct": false },
+{ "id": "B", "text": "At midnight the last bell of thornwatch Keep rang once and then went silent.", "correct": false },
+{ "id": "C", "text": "At midnight the last bell of Thornwatch Keep rang once and then went silent.", "correct": true },
+{ "id": "D", "text": "At midnight the last bell of thornwatch keep rang once and then went silent.", "correct": false }
+]
+},
+{
+"id": "q2",
+"type": "MC",
+"stimulus_id": "stim_fantasy_caps",
+"prompt": "Paragraph 4: The writer wants the sign's first word to look official and chilling. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "On the gate of black iron, a sign hung crooked. It read: enter, and be judged.", "correct": false },
+{ "id": "B", "text": "On the gate of black iron, a sign hung crooked. It read: Enter, and be judged.", "correct": true },
+{ "id": "C", "text": "On the gate of black iron, a sign hung crooked. it read: Enter, and be judged.", "correct": false },
+{ "id": "D", "text": "On the gate of black iron, a sign hung crooked. it read: enter, and be judged.", "correct": false }
+]
+},
+{
+"id": "q3",
+"type": "MC",
+"stimulus_id": "stim_fantasy_caps",
+"prompt": "Paragraph 5: The writer wants the figure's message to feel deliberate, not sloppy. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "\"I know what you carry, Elowen.\"", "correct": true },
+{ "id": "B", "text": "\"i know what you carry, Elowen.\"", "correct": false },
+{ "id": "C", "text": "\"I know what you carry, elowen.\"", "correct": false },
+{ "id": "D", "text": "\"i know what you carry, elowen.\"", "correct": false }
+]
+},
+{
+"id": "q4",
+"type": "MC",
+"stimulus_id": "stim_fantasy_caps",
+"prompt": "Paragraph 2: Which revision correctly capitalizes the title used for a specific person?",
+"choices": [
+{ "id": "A", "text": "...as if it remembered the King's hand.", "correct": false },
+{ "id": "B", "text": "...as if it remembered the king's hand.", "correct": true },
+{ "id": "C", "text": "...as if it remembered the king's Hand.", "correct": false },
+{ "id": "D", "text": "...as if it remembered the Kings hand.", "correct": false }
+]
+},
+{
+"id": "q5",
+"type": "MC",
+"stimulus_id": "stim_fantasy_caps",
+"prompt": "Paragraph 7: The writer wants to show that \"Warden\" is a special title in the stories, not just a job. Which revision best matches that meaning?",
+"choices": [
+{ "id": "A", "text": "Some called him the Warden of Oaths, others called him the warden...", "correct": false },
+{ "id": "B", "text": "Some called him the warden of Oaths, others called him the Warden...", "correct": false },
+{ "id": "C", "text": "Some called him the Warden of Oaths, others called him the Warden...", "correct": true },
+{ "id": "D", "text": "Some called him the warden of oaths, others called him the warden...", "correct": false }
+]
+},
+{
+"id": "q6",
+"type": "MC",
+"stimulus_id": "stim_fantasy_caps",
+"prompt": "Paragraph 8: The writer wants \"Crown\" to feel like an official force or authority. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "\"Give the seal to the crown,\" he said...", "correct": false },
+{ "id": "B", "text": "\"Give the seal to the Crown,\" he said...", "correct": true },
+{ "id": "C", "text": "\"Give the Seal to the Crown,\" he said...", "correct": false },
+{ "id": "D", "text": "\"Give the seal to the Crown,\" He said...", "correct": false }
+]
+},
+{
+"id": "q7",
+"type": "MC",
+"stimulus_id": "stim_fantasy_caps",
+"prompt": "Paragraph 6: The writer wants the title \"Court Mage\" to sound like an official position. Which revision is best?",
+"choices": [
+{ "id": "A", "text": "...she heard the Court Mage's last instruction...", "correct": true },
+{ "id": "B", "text": "...she heard the court mage's last instruction...", "correct": false },
+{ "id": "C", "text": "...she heard the court Mage's last instruction...", "correct": false },
+{ "id": "D", "text": "...she heard the Court mage's last instruction...", "correct": false }
+]
+},
+{
+"id": "q8",
+"type": "MC",
+"stimulus_id": "stim_fantasy_caps",
+"prompt": "Paragraph 4: Which revision correctly capitalizes the first word of a sentence?",
+"choices": [
+{ "id": "A", "text": "On the gate of black iron, a sign hung crooked. it read: enter, and be judged.", "correct": false },
+{ "id": "B", "text": "On the gate of black iron, a sign hung crooked. It read: enter, and be judged.", "correct": true },
+{ "id": "C", "text": "On the gate of black iron, a sign hung crooked. It read: enter, and Be judged.", "correct": false },
+{ "id": "D", "text": "On the gate of black iron, a sign hung crooked. It Read: enter, and be judged.", "correct": false }
+]
+}
+],
+"rationales": [
+{
+"item_id": "q1",
+"rationale": "Choice C is best because proper names are capitalized, and the official name of the place is Thornwatch Keep."
+},
+{
+"item_id": "q2",
+"rationale": "Choice B is best because it correctly capitalizes the first word of the quoted sign message, making it read like an official warning."
+},
+{
+"item_id": "q3",
+"rationale": "Choice A is best because \"I\" is always capitalized, and Elowen is a proper name that must be capitalized to keep the voice controlled and intentional."
+},
+{
+"item_id": "q4",
+"rationale": "Choice B is best because \"king\" is not used as a formal title with a name here; it is a general reference, so it should not be capitalized."
+},
+{
+"item_id": "q5",
+"rationale": "Choice C is best because both \"Warden\" and \"Warden of Oaths\" function as special titles in the story, so they should be capitalized to show importance."
+},
+{
+"item_id": "q6",
+"rationale": "Choice B is best because capitalizing \"Crown\" shows it is an official authority, not just a literal crown, which strengthens the serious tone."
+},
+{
+"item_id": "q7",
+"rationale": "Choice A is best because \"Court Mage\" is presented as an official role, and capitalizing both words signals that it is a specific position."
+},
+{
+"item_id": "q8",
+"rationale": "Choice B is best because the first word of a new sentence must be capitalized, so \"It\" should be capitalized."
+}
+]
+}
+</QUIZFORGE_JSON>

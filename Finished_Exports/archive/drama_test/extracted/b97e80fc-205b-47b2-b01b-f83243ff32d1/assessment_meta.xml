@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<quiz xmlns="http://canvas.instructure.com/xsd/cccv1p0" xmlns:xsi="http://canvas.instructure.com/xsd/cccv1p0 https://canvas.instructure.com/xsd/cccv1p0.xsd" identifier="b97e80fc-205b-47b2-b01b-f83243ff32d1">
+  <title>Big Drama Packet 45</title>
+  <description></description>
+  <shuffle_questions>false</shuffle_questions>
+  <shuffle_answers>true</shuffle_answers>
+  <calculator_type>none</calculator_type>
+  <scoring_policy>keep_highest</scoring_policy>
+  <allowed_attempts>1</allowed_attempts>
+  <points_possible>100.0</points_possible>
+</quiz>

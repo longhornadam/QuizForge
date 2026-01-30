@@ -1,0 +1,126 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Practice 1 Deadline Drama",
+"metadata": {
+"grade": 7,
+"unit": "Unit 5 Drama",
+"note": "No passages or stimuli included by design"
+},
+"items": [
+{
+"id": "q1",
+"type": "MC",
+"prompt": "Based on the dialogue in the play Deadline Drama what prediction can the reader best make about Jayden and Lena",
+"choices": [
+{ "id": "A", "text": "Their project will be a success", "correct": true },
+{ "id": "B", "text": "They will switch partners for the project", "correct": false },
+{ "id": "C", "text": "They will have a big argument and stop working together", "correct": false },
+{ "id": "D", "text": "Jayden will refuse to use any of Lena ideas", "correct": false }
+]
+},
+{
+"id": "q2",
+"type": "MC",
+"prompt": "Which idea should be included to complete a summary of scene one of the play",
+"choices": [
+{ "id": "A", "text": "Jayden and Lena divide tasks and plan to meet the next day", "correct": true },
+{ "id": "B", "text": "Jayden times how long it takes to choose a topic", "correct": false },
+{ "id": "C", "text": "Lena explains why her backpack is missing", "correct": false },
+{ "id": "D", "text": "The narrator practices a dramatic face for later scenes", "correct": false }
+]
+},
+{
+"id": "q3",
+"type": "MC",
+"prompt": "Which narrator statement in scene one foreshadows events that occur later in the play",
+"choices": [
+{ "id": "A", "text": "The play promises bravery betrayal and a dramatic gasp", "correct": true },
+{ "id": "B", "text": "Jayden always arrives early", "correct": false },
+{ "id": "C", "text": "Lena is known for last minute ideas", "correct": false },
+{ "id": "D", "text": "The group must choose a topic quickly", "correct": false }
+]
+},
+{
+"id": "q4",
+"type": "MC",
+"prompt": "What do the stage directions reveal about the narrator character",
+"choices": [
+{ "id": "A", "text": "She wants the characters to have conflict", "correct": true },
+{ "id": "B", "text": "She tries to keep everyone calm", "correct": false },
+{ "id": "C", "text": "She is confused about the project", "correct": false },
+{ "id": "D", "text": "She wants the project to fail", "correct": false }
+]
+},
+{
+"id": "q5",
+"type": "ESSAY",
+"prompt": "How does Jayden focus on organization affect the plot of the play Support your answer with evidence",
+"length_guidance": "3 to 4 sentences"
+},
+{
+"id": "q6",
+"type": "FITB",
+"prompt": "The word improvise most nearly means to create or perform [blank]",
+"accept": ["without preparation"],
+"case_sensitive": false
+},
+{
+"id": "q7",
+"type": "MC",
+"prompt": "Which detail best supports the idea that habits are difficult to change",
+"choices": [
+{ "id": "A", "text": "Lena arrives nine minutes late", "correct": true },
+{ "id": "B", "text": "Jayden lines up sticky notes", "correct": false },
+{ "id": "C", "text": "The narrator jokes with the audience", "correct": false },
+{ "id": "D", "text": "Lena finds examples for the project", "correct": false }
+]
+},
+{
+"id": "q8",
+"type": "MC",
+"prompt": "Why does the playwright use figurative language when the narrator says she may turn up the heat",
+"choices": [
+{ "id": "A", "text": "To add humor for the audience", "correct": true },
+{ "id": "B", "text": "To predict the project grade", "correct": false },
+{ "id": "C", "text": "To explain the topic more clearly", "correct": false },
+{ "id": "D", "text": "To show the characters will stop working together", "correct": false }
+]
+}
+],
+"rationales": [
+{
+"item_id": "q1",
+"rationale": "Their cooperation and completed work show the project will succeed."
+},
+{
+"item_id": "q2",
+"rationale": "Dividing tasks and planning the next meeting completes the scene sequence."
+},
+{
+"item_id": "q3",
+"rationale": "The promise of betrayal and drama hints at later tension and resolution."
+},
+{
+"item_id": "q4",
+"rationale": "The stage directions show the narrator hopes for conflict and drama."
+},
+{
+"item_id": "q5",
+"rationale": "Jayden organization moves the project forward and helps resolve the conflict."
+},
+{
+"item_id": "q6",
+"rationale": "Improvise means to act without planning or preparation."
+},
+{
+"item_id": "q7",
+"rationale": "Lena being late again shows her pattern has not changed."
+},
+{
+"item_id": "q8",
+"rationale": "The figurative language exaggerates drama in a playful humorous way."
+}
+]
+}
+</QUIZFORGE_JSON>

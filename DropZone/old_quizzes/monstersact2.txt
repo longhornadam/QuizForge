@@ -1,0 +1,142 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "The Monsters Are Due on Maple Street - Act 2 Quiz",
+"metadata": {
+"text": "The Monsters Are Due on Maple Street",
+"act": "Act 2",
+"grade": 7,
+"tier": "Tier 2"
+},
+"items": [
+{
+"id": "mc1",
+"type": "MC",
+"prompt": "Why do the neighbors begin watching Les Goodman and his family at night?",
+"choices": [
+{ "id": "A", "text": "They suspect him because of his unusual nighttime behavior", "correct": true },
+{ "id": "B", "text": "They believe he plans to leave Maple Street", "correct": false },
+{ "id": "C", "text": "They think his house caused the power outage", "correct": false },
+{ "id": "D", "text": "They are following instructions from the police", "correct": false }
+]
+},
+{
+"id": "mc2",
+"type": "MC",
+"prompt": "What does Charlie's behavior in Act 2 reveal about his character?",
+"choices": [
+{ "id": "A", "text": "He enjoys controlling others through fear", "correct": true },
+{ "id": "B", "text": "He is calm and logical under pressure", "correct": false },
+{ "id": "C", "text": "He wants to protect Les Goodman", "correct": false },
+{ "id": "D", "text": "He avoids conflict whenever possible", "correct": false }
+]
+},
+{
+"id": "mc3",
+"type": "MC",
+"prompt": "Why does Steve Brand argue with the neighbors during Act 2?",
+"choices": [
+{ "id": "A", "text": "He believes fear is turning them against each other", "correct": true },
+{ "id": "B", "text": "He thinks the power outage is permanent", "correct": false },
+{ "id": "C", "text": "He wants to leave Maple Street alone", "correct": false },
+{ "id": "D", "text": "He suspects Tommy of causing the problem", "correct": false }
+]
+},
+{
+"id": "mc4",
+"type": "MC",
+"prompt": "What event causes the greatest shift from suspicion to violence?",
+"choices": [
+{ "id": "A", "text": "The shooting of Pete Van Horn", "correct": true },
+{ "id": "B", "text": "Les Goodman's car starting earlier", "correct": false },
+{ "id": "C", "text": "The lights turning off across the street", "correct": false },
+{ "id": "D", "text": "Tommy recalling science fiction stories", "correct": false }
+]
+},
+{
+"id": "mc5",
+"type": "MC",
+"prompt": "Why does Charlie claim he shot Pete Van Horn?",
+"choices": [
+{ "id": "A", "text": "He believed Pete was a threat in the darkness", "correct": true },
+{ "id": "B", "text": "Pete admitted causing the outage", "correct": false },
+{ "id": "C", "text": "Steve told him to fire the gun", "correct": false },
+{ "id": "D", "text": "Pete refused to answer questions", "correct": false }
+]
+},
+{
+"id": "mc6",
+"type": "MC",
+"prompt": "What does the sudden return of electricity to Charlie's house suggest to the crowd?",
+"choices": [
+{ "id": "A", "text": "Charlie may be responsible for the strange events", "correct": true },
+{ "id": "B", "text": "The power outage is ending", "correct": false },
+{ "id": "C", "text": "The police have arrived nearby", "correct": false },
+{ "id": "D", "text": "Les Goodman restored the power", "correct": false }
+]
+},
+{
+"id": "mc7",
+"type": "MC",
+"prompt": "Why does the crowd turn their suspicion toward Tommy near the end of Act 2?",
+"choices": [
+{ "id": "A", "text": "He seems to have predicted events before they happened", "correct": true },
+{ "id": "B", "text": "He was seen near the power lines", "correct": false },
+{ "id": "C", "text": "He tried to leave Maple Street with the adults to check what was happening", "correct": false },
+{ "id": "D", "text": "He admitted knowing the truth about the aliens", "correct": false }
+]
+},
+{
+"id": "mc8",
+"type": "MC",
+"prompt": "What theme is most strongly developed through the mob's actions in Act 2?",
+"choices": [
+{ "id": "A", "text": "Fear can destroy a community from within", "correct": true },
+{ "id": "B", "text": "Technology is unreliable", "correct": false },
+{ "id": "C", "text": "Children should not be trusted", "correct": false },
+{ "id": "D", "text": "Authority figures always fail despite their eforts", "correct": false }
+]
+},
+{
+"id": "mc9",
+"type": "MC",
+"prompt": "How does the playwright use darkness in Act 2?",
+"choices": [
+{ "id": "A", "text": "To increase fear and confusion among the characters", "correct": true },
+{ "id": "B", "text": "To hide the actions of the visitors", "correct": false },
+{ "id": "C", "text": "To show the passage of time only", "correct": false },
+{ "id": "D", "text": "To signal the end of the play; no light means no action or progress", "correct": false }
+]
+},
+{
+"id": "mc10",
+"type": "MC",
+"prompt": "What do the final actions of the neighbors reveal about human nature?",
+"choices": [
+{ "id": "A", "text": "People may seek scapegoats when afraid", "correct": true },
+{ "id": "B", "text": "People always work together in crises", "correct": false },
+{ "id": "C", "text": "People trust authority without question", "correct": false },
+{ "id": "D", "text": "People prefer isolation during danger", "correct": false }
+]
+},
+{
+"id": "scr1",
+"type": "ESSAY",
+"prompt": "How does Rod Serling use dialogue and actions in Act 2 to show how fear changes the neighbors? Use one specific example from the play to support your response.",
+"length_guidance": "3 to 5 sentences"
+}
+],
+"rationales": [
+{ "item_id": "mc1", "rationale": "The neighbors focus on Les Goodman because his nighttime habits make them suspicious during the outage." },
+{ "item_id": "mc2", "rationale": "Charlie's words and actions show he uses fear to gain influence over others." },
+{ "item_id": "mc3", "rationale": "Steve argues because he recognizes that fear is causing the neighbors to turn on one another." },
+{ "item_id": "mc4", "rationale": "The shooting of Pete Van Horn marks the moment fear turns into deadly action." },
+{ "item_id": "mc5", "rationale": "Charlie claims he fired because he believed Pete was a danger in the dark." },
+{ "item_id": "mc6", "rationale": "The crowd assumes Charlie is responsible when his house is the only one with power." },
+{ "item_id": "mc7", "rationale": "The neighbors turn on Tommy because his earlier predictions now seem suspicious." },
+{ "item_id": "mc8", "rationale": "The mob behavior in Act 2 shows how fear can tear apart a community." },
+{ "item_id": "mc9", "rationale": "Darkness heightens fear and confusion, increasing the tension of the act." },
+{ "item_id": "mc10", "rationale": "The neighbors seek someone to blame, revealing how fear leads to scapegoating." }
+]
+}
+</QUIZFORGE_JSON>

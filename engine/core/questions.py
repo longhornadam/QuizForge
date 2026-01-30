@@ -32,6 +32,9 @@ class Question:
     Attributes:
         qtype: Question type identifier (MC, TF, MA, NUMERICAL, etc.)
         prompt: Question text shown to student
+        render_mode: How student-visible strings are treated during rendering.
+            - verbatim (default): never interpret escape sequences like \\n or \\t
+            - executable: escape sequences may be interpreted (NOT safe for string-reasoning)
         points: Point value for this question
         points_set: True if points were explicitly set in input file
         parent_stimulus_ident: If set, this question follows a stimulus
@@ -39,6 +42,7 @@ class Question:
     """
     qtype: str
     prompt: str
+    render_mode: str = "executable"
     points: float = 10.0
     points_set: bool = False
     parent_stimulus_ident: Optional[str] = None

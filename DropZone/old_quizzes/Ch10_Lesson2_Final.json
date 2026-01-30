@@ -31,5 +31,4 @@
     {"item_id": "l2q11", "rationale": "uniform() returns a random decimal within the specified range."},
     {"item_id": "l2q12", "rationale": "Seeding ensures all players experience the same randomly generated level."}
   ]
-}
-</QUIZFORGE_JSON>
+}</QUIZFORGE_JSON>

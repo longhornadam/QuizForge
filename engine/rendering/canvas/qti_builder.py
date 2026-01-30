@@ -187,7 +187,15 @@ def _build_item(question: Question, index: int) -> ET.Element:
         orientation = "left" if getattr(question, "layout", "below") == "right" else "top"
         material.set("orientation", orientation)
     enable_excerpt_numbering = isinstance(question, StimulusItem)
-    material.append(html_mattext(htmlize_prompt(question.prompt, excerpt_numbering=enable_excerpt_numbering)))
+    material.append(
+        html_mattext(
+            htmlize_prompt(
+                question.prompt,
+                excerpt_numbering=enable_excerpt_numbering,
+                render_mode=getattr(question, "render_mode", "verbatim"),
+            )
+        )
+    )
 
     if isinstance(question, StimulusItem):
         return item
@@ -231,7 +239,7 @@ def _build_response(question: Question, presentation: ET.Element):
         for ident, choice in zip(identifiers, question.choices):
             label = ET.SubElement(render_choice, "response_label", {"ident": ident})
             material = ET.SubElement(label, "material")
-            material.append(html_mattext(htmlize_choice(choice.text)))
+            material.append(html_mattext(htmlize_choice(choice.text, render_mode=getattr(question, "render_mode", "verbatim"))))
         correct_ident = identifiers[[index for index, choice in enumerate(question.choices) if choice.correct][0]]
         return {"type": "mc", "correct": correct_ident}
 
@@ -253,7 +261,7 @@ def _build_response(question: Question, presentation: ET.Element):
         for ident, choice in zip(identifiers, question.choices):
             label = ET.SubElement(render_choice, "response_label", {"ident": ident})
             material = ET.SubElement(label, "material")
-            material.append(html_mattext(htmlize_choice(choice.text)))
+            material.append(html_mattext(htmlize_choice(choice.text, render_mode=getattr(question, "render_mode", "verbatim"))))
             if choice.correct:
                 correct.append(ident)
         return {"type": "ma", "choices": question.choices, "correct": correct}
@@ -271,14 +279,14 @@ def _build_response(question: Question, presentation: ET.Element):
             response_lid = ET.SubElement(presentation, "response_lid", {"ident": lid_ident})
             matq = ET.SubElement(response_lid, "material")
             # Transform code blocks in matching prompts
-            prompt_html = htmlize_item_text(pair.prompt)
+            prompt_html = htmlize_item_text(pair.prompt, render_mode=getattr(question, "render_mode", "verbatim"))
             matq.append(html_mattext(_wrap_content(prompt_html)))
             render_choice = ET.SubElement(response_lid, "render_choice")
             for answer_text, answer_ident in answer_id_by_text.items():
                 rl = ET.SubElement(render_choice, "response_label", {"ident": answer_ident})
                 mat = ET.SubElement(rl, "material")
                 # Transform code blocks in matching answers
-                answer_html = htmlize_item_text(answer_text)
+                answer_html = htmlize_item_text(answer_text, render_mode=getattr(question, "render_mode", "verbatim"))
                 mat.append(html_mattext(_wrap_content(answer_html)))
         return {"type": "matching", "pairs": question.pairs, "rlids": rlids, "answers": answer_id_by_text}
 
@@ -392,16 +400,16 @@ def _build_response(question: Question, presentation: ET.Element):
         if question.header:
             mat_top = ET.SubElement(render_extension, "material", {"position": "top"})
             # Transform code blocks in header
-            header_html = htmlize_item_text(question.header)
+            header_html = htmlize_item_text(question.header, render_mode=getattr(question, "render_mode", "verbatim"))
             mat_top.append(html_mattext(_wrap_content(header_html)))
         # Add items
-        ims_render = ET.SubElement(render_extension, "ims_render_object", {"shuffle": "No"})
+        ims_render = ET.SubElement(render_extension, "ims_render_object", {"shuffle": "Yes"})
         flow_label = ET.SubElement(ims_render, "flow_label")
         for item in question.items:
             response_label = ET.SubElement(flow_label, "response_label", {"ident": item.ident})
             material = ET.SubElement(response_label, "material")
             # Transform code blocks in ordering items
-            item_html = htmlize_item_text(item.text)
+            item_html = htmlize_item_text(item.text, render_mode=getattr(question, "render_mode", "verbatim"))
             material.append(html_mattext(_wrap_content(item_html)))
         # Add empty bottom material
         mat_bottom = ET.SubElement(render_extension, "material", {"position": "bottom"})
@@ -433,7 +441,7 @@ def _build_response(question: Question, presentation: ET.Element):
                 mat = ET.SubElement(response_label, "material")
                 # Use plain text for items (Canvas doesn't render HTML here)
                 # Strip code fences but keep the code content readable
-                plain_text = plaintext_item_text(item_text)
+                plain_text = plaintext_item_text(item_text, render_mode=getattr(question, "render_mode", "verbatim"))
                 mat.append(_plain_mattext(plain_text))
             
             # Store which items belong to this category
