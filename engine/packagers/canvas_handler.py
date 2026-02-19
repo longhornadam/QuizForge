@@ -39,7 +39,7 @@ class CanvasHandler:
         assessment_xml = build_assessment_xml(quiz)
         verify_qti_round_trip(quiz, assessment_xml)
         manifest_xml = build_manifest_xml(quiz.title, guid)
-        meta_xml = build_assessment_meta_xml(quiz.title, quiz.total_points(), guid)
+        meta_xml = build_assessment_meta_xml(quiz.title, quiz.total_points(), guid, quiz.instructions)
         zip_bytes = create_zip_bytes(manifest_xml, assessment_xml, meta_xml, guid)
 
         # Write to file with explicit QTI suffix so users can spot the Canvas import package

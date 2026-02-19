@@ -321,7 +321,8 @@ def _packaged_to_domain(packaged) -> Quiz:
         )
 
     title = packaged.title or "Untitled Quiz"
-    return Quiz(title=title, questions=questions, rationales=rationale_entries)
+    instructions = packaged.instructions or ""
+    return Quiz(title=title, questions=questions, rationales=rationale_entries, instructions=instructions)
 
 
 def _convert_numerical(item: dict, pts: float, pts_set: bool, parent_stimulus: Optional[str], forced_ident: Optional[str], *, render_mode: str = "verbatim") -> NumericalQuestion:

@@ -163,10 +163,14 @@ def parse_news_json(text: str) -> QuizPayload:
     rationales_raw = data.get("rationales")
     rationales = _parse_rationales(rationales_raw)
 
+    instructions_raw = data.get("instructions")
+    instructions = instructions_raw if isinstance(instructions_raw, str) and instructions_raw.strip() else None
+
     return QuizPayload(
         version=version,
         title=title if isinstance(title, str) else None,
         metadata=metadata,
         items=sanitized_items,
         rationales=rationales,
+        instructions=instructions,
     )

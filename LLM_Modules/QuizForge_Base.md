@@ -33,6 +33,7 @@
 {
   "version": "3.0-json",
   "title": "Optional quiz title",
+  "instructions": "Optional quiz-level directions shown before any questions (Canvas Instructions panel).",
   "metadata": {},               // Optional quiz-level metadata
   "items": [ ... ],             // Required, ordered list of items
   "rationales": [ ... ]         // Required for scored items
@@ -45,6 +46,7 @@
 - `metadata`: free-form key/value notes (strings/numbers/booleans).
 - Metadata may include tool-specific or extension-specific keys. Students never see metadata, and tools are free to ignore keys they do not recognize.
 - Extensions may place structured data under `metadata.extensions`. Tools that do not recognize an extension MUST ignore it without warning.
+- `instructions` (optional, string): Quiz-level directions displayed to students **before any questions**, in the Canvas Instructions panel. Use this for test-wide directions (e.g., "Read the article and answer the questions that follow."). HTML is supported. Do **not** use STIMULUS for this purpose.
 - `items`: every quiz block, including STIMULUS and STIMULUS_END.
 - `rationales`: array aligned to scored items; see Section 11.
 
@@ -68,7 +70,7 @@
 - **CATEGORIZATION** - `prompt` is required; tell students what to do. `categories`: array of labels (min 2). `items`: `[ { "label": "...", "category": "..." }, ... ]`. Optional `distractors` array.
 - **NUMERICAL** - `answer` (number). `evaluation`: `{ "mode": "exact" | "percent_margin" | "absolute_margin" | "range" | "significant_digits" | "decimal_places", "value": <number>, "min": <number>, "max": <number> }` using the one modifier required by the mode (pull details from `dev/QF_QTYPE_Numerical.md`). Precision/margin values are positive; range uses `min`/`max`. Default to exact if no mode is given.
 - Modes other than exact are experimental. The LLM may produce them, but tools are not required to support or validate them yet.
-- **STIMULUS** - Requires `id`. Optional `format`: `"text" | "code" | "markdown"`. Optional `layout`: `"below"` (default) or `"right"`. Optional `assets`: list of `{ "type": "image|table|audio|video|data", "uri": "...", "alt_text": "..." }`. STIMULUS items are never scored. Do not include a `points` field on STIMULUS items. Prompt is optional; empty prompts are accepted but include text when students need context. QuizForge treats them as zero-point containers only. Limit attached questions to 2-4 per stimulus; more creates cramped formatting, and scrolling back to the stimulus is not burdensome.
+- **STIMULUS** - Requires `id`. Optional `format`: `"text" | "code" | "markdown"`. Optional `layout`: `"below"` (default) or `"right"`. Optional `assets`: list of `{ "type": "image|table|audio|video|data", "uri": "...", "alt_text": "..." }`. STIMULUS items are never scored. Do not include a `points` field on STIMULUS items. Prompt is optional; empty prompts are accepted but include text when students need context. QuizForge treats them as zero-point containers only. Limit attached questions to 2-4 per stimulus; more creates cramped formatting, and scrolling back to the stimulus is not burdensome. **STIMULUS is for actual content students must reference** — a passage, excerpt, poem, code block, image, or data table. It is NOT a heading or instruction wrapper. Simple directions like "Read the passage below.", "Answer the following questions.", or "Use the chart to respond." are NOT valid STIMULUS content; place that text in individual question prompts instead. If there is no substantive content to display, do not create a STIMULUS block.
 - **STIMULUS_END** - Type only; `prompt` may be empty (`""`). STIMULUS_END is only a structural marker. Do not include points or rationales for STIMULUS_END.
 
 ## 5a. FILL IN THE BLANK (FITB) - DETAILED GUIDANCE
@@ -201,7 +203,8 @@ FITB questions have historically caused the most LLM errors. Follow these rules 
 
 ### When to Use STIMULUS vs. Inline HTML:
 - **Use inline HTML:** For single questions with quoted text, code, or multi-paragraph prompts
-- **Use STIMULUS:** Only when 2-4 questions share the same passage, code block, or data table
+- **Use STIMULUS:** Only when 2-4 questions share the **same substantive content** — a passage, code block, poem, image, or data table that students must actively refer back to
+- **Do NOT use STIMULUS for instructions:** Text like "Read the passage below." or "Answer all questions." is not a stimulus — it is an instruction. Wrapping instructions in a STIMULUS block incorrectly attaches all subsequent questions to it.
 
 ### Important Notes:
 - **Use single quotes for HTML attributes:** Always use `style='...'` not `style="..."` to avoid JSON escaping issues
@@ -298,7 +301,7 @@ Incorrect options check: Every distractor must truly be incorrect (no accidental
 **Answer length check:** For all MC/MA questions, ensure the correct answer is not the longest choice more than 30% of the time. If the correct answer exceeds 30 characters, its length must not differ from other choices by more than ~30%.
 FITB check: Single blank preferred; multi-blank only for conceptually linked content; max 3 blanks; Tier 1 uses dropdown/wordbank.
 Rationales: One per scored item `id`; skip stimuli.
-Stimuli links: Set `stimulus_id` when an item should attach to a specific stimulus. Limit 2-4 questions per stimulus.
+Stimuli links: Set `stimulus_id` when an item should attach to a specific stimulus. Limit 2-4 questions per stimulus. **Stimulus content check:** Every STIMULUS must contain an actual passage, excerpt, poem, code block, image, or data table. If the prompt is nothing but an instruction (e.g., "Read the following."), remove the STIMULUS block and fold any needed context into individual question prompts.
 
 **Maintainer:** QuizForge Core Team  
 **Target:** Canvas New Quizzes (QTI 1.2)  

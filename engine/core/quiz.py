@@ -21,6 +21,7 @@ class Quiz:
     title: str
     questions: List['Question'] = field(default_factory=list)
     rationales: List = field(default_factory=list)
+    instructions: str = ""
     
     def total_points(self) -> float:
         """Calculate total points across all scorable questions.

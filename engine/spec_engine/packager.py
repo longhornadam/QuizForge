@@ -78,6 +78,7 @@ def package_quiz(payload: QuizPayload, context: str = "default"):
         items=payload.items,
         rationales=rationales,
         experimental=experimental,
+        instructions=payload.instructions,
     )
     exporter = ExporterFactory.get_exporter(context)
     return exporter.export(packaged, context=context)

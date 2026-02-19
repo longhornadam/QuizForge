@@ -6,7 +6,7 @@ echo ========================================
 echo.
 
 REM Run the orchestrator
-python -m engine.orchestrator
+py -m engine.orchestrator
 
 echo.
 echo Processing complete. Press any key to exit...

@@ -39,6 +39,7 @@ class QuizPayload:
     metadata: Dict[str, Any] = field(default_factory=dict)
     items: List[Dict[str, Any]] = field(default_factory=list)
     rationales: List[RationalesEntry] = field(default_factory=list)
+    instructions: Optional[str] = None
 
 
 @dataclass
@@ -51,3 +52,4 @@ class PackagedQuiz:
     items: List[Dict[str, Any]]
     rationales: List[RationalesEntry]
     experimental: List[Dict[str, Any]] = field(default_factory=list)
+    instructions: Optional[str] = None
