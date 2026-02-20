@@ -230,6 +230,8 @@ class StimulusItem(Question):
     Used for reading passages, images, data tables, etc. that multiple questions reference.
     """
     layout: str = "below"
+    title: str = ""
+    author: str = ""
 
 
 @dataclass

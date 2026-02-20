@@ -170,7 +170,9 @@ def _packaged_to_domain(packaged) -> Quiz:
             layout = str(layout_raw).lower() if isinstance(layout_raw, str) else "below"
             if layout not in {"below", "right"}:
                 layout = "below"
-            q = StimulusItem(qtype="STIMULUS", prompt=prompt, render_mode=render_mode, points=0.0, points_set=False, forced_ident=forced_ident, layout=layout)
+            stim_title = str(item.get("title", "") or "")
+            stim_author = str(item.get("author", "") or "")
+            q = StimulusItem(qtype="STIMULUS", prompt=prompt, render_mode=render_mode, points=0.0, points_set=False, forced_ident=forced_ident, layout=layout, title=stim_title, author=stim_author)
             current_stimulus_id = forced_ident
             questions.append(q)
             continue

@@ -115,15 +115,18 @@ def _create_student_quiz(quiz: Quiz, output_folder: str) -> str:
         section.left_margin = Inches(DOCX_MARGIN_LEFT)
         section.right_margin = Inches(DOCX_MARGIN_RIGHT)
     
-    # Add quiz title
-    title = doc.add_paragraph(quiz.title)
-    title_format = title.runs[0].font
-    title_format.name = DOCX_FONT_FAMILY
-    title_format.size = Pt(DOCX_TITLE_SIZE)
-    title_format.bold = True
-    
-    # Add blank lines for student name/date
-    doc.add_paragraph('Name: _________________________  Date: __________')
+    # Name line — above the title to leave room for handwriting
+    name_para = doc.add_paragraph()
+    name_run = name_para.add_run(f'Name: {"_" * 50}')
+    name_run.font.name = DOCX_FONT_FAMILY
+    name_run.font.size = Pt(DOCX_SMALL_SIZE)
+
+    # Title line
+    title_para = doc.add_paragraph()
+    title_run = title_para.add_run(quiz.title)
+    title_run.bold = True
+    title_run.font.name = DOCX_FONT_FAMILY
+    title_run.font.size = Pt(DOCX_TITLE_SIZE)
     doc.add_paragraph()  # blank line
     
     # Process questions grouped by stimulus
@@ -132,12 +135,12 @@ def _create_student_quiz(quiz: Quiz, output_folder: str) -> str:
     question_number = 1
     for group in stimulus_groups:
         if group['stimulus']:
-            # Add stimulus passage
-            p = doc.add_paragraph()
-            stimulus_run = p.add_run(_clean_prompt_text(group['stimulus']))
-            stimulus_run.italic = True
-            stimulus_run.font.name = DOCX_FONT_FAMILY
-            stimulus_run.font.size = Pt(DOCX_BODY_SIZE)
+            _render_stimulus_boxed(
+                group['stimulus'], doc,
+                stimulus_format=group.get('stimulus_format', 'text'),
+                title=group.get('stimulus_title', ''),
+                author=group.get('stimulus_author', ''),
+            )
             doc.add_paragraph()  # spacing
         
         # Add questions in this group
@@ -493,22 +496,43 @@ def _group_questions_by_stimulus(questions):
     
     groups = []
     current_stimulus = None
+    current_stimulus_format = None
     current_questions = []
     
+    current_stimulus_title = ''
+    current_stimulus_author = ''
+
     for q in questions:
         if isinstance(q, StimulusItem):
             # Save previous group if exists
             if current_questions:
-                groups.append({'stimulus': current_stimulus, 'questions': current_questions})
-            
+                groups.append({
+                    'stimulus': current_stimulus,
+                    'stimulus_format': current_stimulus_format,
+                    'stimulus_title': current_stimulus_title,
+                    'stimulus_author': current_stimulus_author,
+                    'questions': current_questions
+                })
             # Start new stimulus group
             current_stimulus = q.prompt
+            current_stimulus_format = _detect_stimulus_format(q.prompt)
+            current_stimulus_title = getattr(q, 'title', '') or ''
+            current_stimulus_author = getattr(q, 'author', '') or ''
             current_questions = []
         elif isinstance(q, StimulusEnd):
             # End current stimulus group
             if current_questions:
-                groups.append({'stimulus': current_stimulus, 'questions': current_questions})
+                groups.append({
+                    'stimulus': current_stimulus,
+                    'stimulus_format': current_stimulus_format,
+                    'stimulus_title': current_stimulus_title,
+                    'stimulus_author': current_stimulus_author,
+                    'questions': current_questions
+                })
             current_stimulus = None
+            current_stimulus_format = None
+            current_stimulus_title = ''
+            current_stimulus_author = ''
             current_questions = []
         else:
             # Regular question
@@ -516,7 +540,13 @@ def _group_questions_by_stimulus(questions):
     
     # Add final group
     if current_questions:
-        groups.append({'stimulus': current_stimulus, 'questions': current_questions})
+        groups.append({
+            'stimulus': current_stimulus,
+            'stimulus_format': current_stimulus_format,
+            'stimulus_title': current_stimulus_title,
+            'stimulus_author': current_stimulus_author,
+            'questions': current_questions
+        })
     
     return groups
 
@@ -537,29 +567,76 @@ def _add_question_to_doc(doc, question, question_number):
         FileUploadQuestion,
     )
     
-    # Add question text
+    # Add question text (render HTML with question number prefix)
     q_text = _clean_prompt_text(question.prompt)
     if isinstance(question, FITBQuestion):
         token = getattr(question, "blank_token", "")
         if token and f"[{token}]" in q_text:
             q_text = q_text.replace(f"[{token}]", "__________________")
-    p = doc.add_paragraph(f"{question_number}. {q_text}")
+    
+    # For True/False questions, add a small label line above the stem
+    if isinstance(question, TFQuestion):
+        lbl_para = doc.add_paragraph()
+        lbl_para.paragraph_format.space_before = Pt(DOCX_PARA_SPACING_BEFORE)
+        lbl_para.paragraph_format.space_after = Pt(0)
+        lbl_run = lbl_para.add_run("(True/False)")
+        lbl_run.italic = True
+        lbl_run.font.name = DOCX_FONT_FAMILY
+        lbl_run.font.size = Pt(DOCX_SMALL_SIZE)
+
+    # Create first paragraph with question number prefix
+    p = doc.add_paragraph()
+    prefix_run = p.add_run(f"{question_number}. ")
+    prefix_run.font.name = DOCX_FONT_FAMILY
+    prefix_run.font.size = Pt(DOCX_BODY_SIZE)
+    
+    # Parse HTML and append to this paragraph
+    from html.parser import HTMLParser as _HTMLParser
+    class QuestionHTMLParser(_HTMLParser):
+        def __init__(self, para):
+            super().__init__()
+            self.para = para
+            self.formatting_stack = []
+        def handle_starttag(self, tag, attrs):
+            tag = tag.lower()
+            if tag in ('strong', 'b'):
+                self.formatting_stack.append(('bold', True))
+            elif tag in ('em', 'i'):
+                self.formatting_stack.append(('italic', True))
+        def handle_endtag(self, tag):
+            tag = tag.lower()
+            if tag in ('strong', 'b'):
+                self.formatting_stack = [f for f in self.formatting_stack if f[0] != 'bold']
+            elif tag in ('em', 'i'):
+                self.formatting_stack = [f for f in self.formatting_stack if f[0] != 'italic']
+        def handle_data(self, data):
+            if not data.strip():  # skip whitespace-only nodes (newlines between tags)
+                return
+            is_bold = any(fmt[0] == 'bold' for fmt in self.formatting_stack)
+            is_italic = any(fmt[0] == 'italic' for fmt in self.formatting_stack)
+            run = self.para.add_run(data)  # use data directly to preserve spaces
+            run.font.name = DOCX_FONT_FAMILY
+            run.font.size = Pt(DOCX_BODY_SIZE)
+            run.bold = is_bold
+            run.italic = is_italic
+    
+    try:
+        parser = QuestionHTMLParser(p)
+        parser.feed(q_text)
+    except Exception:
+        # Fallback: just add as plain text
+        p.add_run(q_text).font.name = DOCX_FONT_FAMILY
+    
     p.paragraph_format.space_before = Pt(DOCX_PARA_SPACING_BEFORE)
     p.paragraph_format.space_after = Pt(DOCX_PARA_SPACING_AFTER)
     p.paragraph_format.line_spacing = DOCX_LINE_SPACING
-    
-    # Style the question text
-    for run in p.runs:
-        run.font.name = DOCX_FONT_FAMILY
-        run.font.size = Pt(DOCX_BODY_SIZE)
     
     if isinstance(question, (MCQuestion, MAQuestion)):
         choices = [choice.text for choice in question.choices]
         _add_mc_single_column(doc, choices)
     
     elif isinstance(question, TFQuestion):
-        # Options already in prompt; nothing extra needed
-        pass
+        _add_tf_options(doc)
     
     elif isinstance(question, MatchingQuestion):
         _add_matching_block(doc, question.pairs)
@@ -614,18 +691,55 @@ def _add_mc_two_column(doc, choices):
 def _add_mc_single_column(doc, choices):
     """Add MC choices in single column."""
     from docx.shared import Pt, Inches
+    from html.parser import HTMLParser as _HTMLParser
     
     for idx, choice in enumerate(choices):
-        p = doc.add_paragraph(f"{chr(65+idx)}. {choice}")
+        # Create paragraph with choice letter prefix
+        p = doc.add_paragraph()
+        prefix_run = p.add_run(f"{chr(65+idx)}. ")
+        prefix_run.font.name = DOCX_FONT_FAMILY
+        prefix_run.font.size = Pt(DOCX_BODY_SIZE)
+        
+        # Parse choice text for HTML formatting
+        class ChoiceHTMLParser(_HTMLParser):
+            def __init__(self, para):
+                super().__init__()
+                self.para = para
+                self.formatting_stack = []
+            def handle_starttag(self, tag, attrs):
+                tag = tag.lower()
+                if tag in ('strong', 'b'):
+                    self.formatting_stack.append(('bold', True))
+                elif tag in ('em', 'i'):
+                    self.formatting_stack.append(('italic', True))
+            def handle_endtag(self, tag):
+                tag = tag.lower()
+                if tag in ('strong', 'b'):
+                    self.formatting_stack = [f for f in self.formatting_stack if f[0] != 'bold']
+                elif tag in ('em', 'i'):
+                    self.formatting_stack = [f for f in self.formatting_stack if f[0] != 'italic']
+            def handle_data(self, data):
+                if not data.strip():  # skip whitespace-only nodes (newlines between tags)
+                    return
+                is_bold = any(fmt[0] == 'bold' for fmt in self.formatting_stack)
+                is_italic = any(fmt[0] == 'italic' for fmt in self.formatting_stack)
+                run = self.para.add_run(data)  # use data directly to preserve spaces
+                run.font.name = DOCX_FONT_FAMILY
+                run.font.size = Pt(DOCX_BODY_SIZE)
+                run.bold = is_bold
+                run.italic = is_italic
+        
+        try:
+            parser = ChoiceHTMLParser(p)
+            parser.feed(choice)
+        except Exception:
+            # Fallback: just add as plain text
+            p.add_run(choice).font.name = DOCX_FONT_FAMILY
+        
         p.paragraph_format.left_indent = Inches(0.25)
         p.paragraph_format.space_before = Pt(DOCX_PARA_SPACING_BEFORE)
         p.paragraph_format.space_after = Pt(DOCX_PARA_SPACING_AFTER)
         p.paragraph_format.line_spacing = DOCX_LINE_SPACING
-        
-        # Style the text
-        for run in p.runs:
-            run.font.name = DOCX_FONT_FAMILY
-        run.font.size = Pt(DOCX_BODY_SIZE)
 
 
 def _add_matching_block(doc, pairs: List):
@@ -897,6 +1011,119 @@ def _clean_prompt_text(prompt: str) -> str:
     return cleaned.strip()
 
 
+def _detect_stimulus_format(raw_prompt: str) -> str:
+    """Detect stimulus format from raw prompt text before fence-stripping.
+    
+    Returns 'poetry' if a poetry/verse code fence is found, else 'text'.
+    """
+    if not raw_prompt:
+        return 'text'
+    if re.search(r'```\s*(poetry|verse)', raw_prompt, re.IGNORECASE):
+        return 'poetry'
+    return 'text'
+
+
+def _render_stimulus_boxed(raw_prompt: str, doc, stimulus_format: str = 'text',
+                           title: str = '', author: str = '') -> None:
+    """Render a stimulus with an attribution header followed by indented content.
+
+    Attribution (title + author) is printed before the passage in a slightly
+    larger font.  No border box — whitespace provides the visual separation.
+    Prose paragraphs are indented 1 tab (0.5").  Poetry uses a 2-tab text column
+    with line numbers sitting at the 1-tab (0.5") position.
+    """
+    from docx.shared import Pt, Inches
+
+    PROSE_INDENT = Inches(0.5)   # 1 default tab
+
+    # --- Attribution header (before content) ---
+    if title:
+        t_para = doc.add_paragraph()
+        t_para.paragraph_format.space_before = Pt(0)
+        t_para.paragraph_format.space_after = Pt(2)
+        t_run = t_para.add_run(f'\u201c{title}\u201d')
+        t_run.bold = True
+        t_run.font.name = DOCX_FONT_FAMILY
+        t_run.font.size = Pt(DOCX_HEADING_SIZE)
+
+    if author:
+        a_para = doc.add_paragraph()
+        a_para.paragraph_format.space_before = Pt(0)
+        a_para.paragraph_format.space_after = Pt(4)
+        a_run = a_para.add_run(author)
+        a_run.italic = True
+        a_run.font.name = DOCX_FONT_FAMILY
+        a_run.font.size = Pt(DOCX_BODY_SIZE)
+
+    # --- Stimulus content ---
+    if stimulus_format == 'poetry':
+        _render_poetry_to_doc(raw_prompt, doc)
+    else:
+        paras = _render_html_to_paragraph(
+            _clean_prompt_text(raw_prompt), doc,
+            apply_italic=True, number_paragraphs=True
+        )
+        # Apply 1-tab left indent to every prose paragraph
+        for p in (paras or []):
+            p.paragraph_format.left_indent = PROSE_INDENT
+
+
+def _render_poetry_to_doc(raw_prompt: str, doc) -> None:
+    """Render a poetry stimulus as individual line paragraphs.
+
+    Layout: all poem text sits at 2 tabs (1.0").
+    Every 5th line gets its number printed at 1 tab (0.5") in the left gutter,
+    and a tab character advances to the 1.0" text column.
+    """
+    from docx.shared import Pt, Inches
+    from docx.oxml.ns import qn
+    from docx.oxml import OxmlElement
+
+    TAB1 = 0.5   # inches — line-number column (1 default tab)
+    TAB2 = 1.0   # inches — poem text column  (2 default tabs)
+
+    def _set_tab_stop(para, inches):
+        """Add a single left-aligned tab stop at the given inch position."""
+        pPr = para._p.get_or_add_pPr()
+        tabs_elem = OxmlElement('w:tabs')
+        tab = OxmlElement('w:tab')
+        tab.set(qn('w:val'), 'left')
+        tab.set(qn('w:pos'), str(int(inches * 1440)))
+        tabs_elem.append(tab)
+        pPr.append(tabs_elem)
+
+    cleaned = _clean_prompt_text(raw_prompt)
+    lines = [ln for ln in cleaned.splitlines() if ln.strip()]
+
+    for line_num, line_text in enumerate(lines, start=1):
+        p = doc.add_paragraph()
+        p.paragraph_format.space_before = Pt(0)
+        p.paragraph_format.space_after = Pt(2)
+        p.paragraph_format.left_indent = Inches(TAB2)
+
+        is_numbered = (line_num % 5 == 0)
+
+        if is_numbered:
+            # Hang back to the number column, tab forward to the text column
+            p.paragraph_format.first_line_indent = -Inches(TAB1)
+            _set_tab_stop(p, TAB2)
+
+            num_run = p.add_run(str(line_num))
+            num_run.font.name = DOCX_FONT_FAMILY
+            num_run.font.size = Pt(DOCX_SMALL_SIZE)
+            num_run.italic = False
+            num_run.bold = False
+
+            tab_run = p.add_run('\t')
+            tab_run.font.name = DOCX_FONT_FAMILY
+            tab_run.font.size = Pt(DOCX_BODY_SIZE)
+
+        line_run = p.add_run(line_text.strip())
+        line_run.italic = True
+        line_run.font.name = DOCX_FONT_FAMILY
+        line_run.font.size = Pt(DOCX_BODY_SIZE)
+
+
 def _log_validation_stats(quiz: Quiz, log_path: str) -> None:
     """Write validation statistics to log file."""
     with open(log_path, 'a', encoding='utf-8') as log:
@@ -1044,3 +1271,101 @@ def _log_stimulus_analysis(quiz: Quiz, log):
         log.write(f"Questions per stimulus (avg): {len(questions_with_stimuli)/len(stimulus_groups):.1f}\n")
     
     log.write("\n")
+
+
+def _render_html_to_paragraph(html_string: str, doc, apply_italic: bool = False, number_paragraphs: bool = False) -> List:
+    """Parse HTML and render as formatted DOCX paragraphs and runs.
+    
+    Converts <p>, <strong>, <b>, <em>, <i>, <br> tags into proper python-docx formatting.
+    Any other tags are stripped and their text content is preserved as plain runs.
+    
+    Args:
+        html_string: Raw HTML string (e.g., "<p><strong>Bold</strong></p>")
+        doc: Document object to add paragraphs to
+        apply_italic: If True, apply italic to all runs (for stimulus text)
+        number_paragraphs: If True, add a small (n) number at the start of each <p> block
+        
+    Returns:
+        List of paragraphs created (for further formatting by caller if needed)
+    """
+    from docx.shared import Pt
+    from html.parser import HTMLParser
+    
+    if not html_string or not html_string.strip():
+        return []
+    
+    class HTMLToDocxParser(HTMLParser):
+        """Parse HTML into DOCX formatting."""
+        
+        def __init__(self):
+            super().__init__()
+            self.paragraphs = []
+            self.current_para = None
+            self.formatting_stack = []  # Stack of ('bold'|'italic', True) tuples
+            self.para_count = 0
+            self.needs_number = False
+            
+        def handle_starttag(self, tag, attrs):
+            tag = tag.lower()
+            if tag == 'p':
+                self.current_para = None
+                self.para_count += 1
+                self.needs_number = number_paragraphs
+            elif tag in ('strong', 'b'):
+                self.formatting_stack.append(('bold', True))
+            elif tag in ('em', 'i'):
+                self.formatting_stack.append(('italic', True))
+            elif tag == 'br':
+                self.current_para = None
+                
+        def handle_endtag(self, tag):
+            tag = tag.lower()
+            if tag in ('strong', 'b'):
+                self.formatting_stack = [f for f in self.formatting_stack if f[0] != 'bold']
+            elif tag in ('em', 'i'):
+                self.formatting_stack = [f for f in self.formatting_stack if f[0] != 'italic']
+                
+        def handle_data(self, data):
+            if not data.strip():  # skip whitespace-only nodes (newlines between tags)
+                return
+            
+            # Ensure we have a current paragraph
+            if self.current_para is None:
+                self.current_para = doc.add_paragraph()
+                self.paragraphs.append(self.current_para)
+                
+                # Paragraph number at start if requested
+                if self.needs_number:
+                    num_run = self.current_para.add_run(f'({self.para_count})\t')
+                    num_run.font.name = DOCX_FONT_FAMILY
+                    num_run.font.size = Pt(DOCX_SMALL_SIZE)
+                    num_run.bold = True
+                    num_run.italic = False
+                    self.needs_number = False
+            
+            # Determine formatting from stack
+            is_bold = any(fmt[0] == 'bold' for fmt in self.formatting_stack)
+            is_italic = any(fmt[0] == 'italic' for fmt in self.formatting_stack)
+            
+            # Use data directly (not stripped) to preserve spaces between words
+            run = self.current_para.add_run(data)
+            run.font.name = DOCX_FONT_FAMILY
+            run.font.size = Pt(DOCX_BODY_SIZE)
+            run.bold = is_bold
+            run.italic = is_italic or apply_italic
+    
+    try:
+        parser = HTMLToDocxParser()
+        parser.feed(html_string)
+        paragraphs_created = parser.paragraphs
+    except Exception:
+        # Fallback: treat as plain text
+        p = doc.add_paragraph(html_string)
+        for run in p.runs:
+            run.font.name = DOCX_FONT_FAMILY
+            run.font.size = Pt(DOCX_BODY_SIZE)
+            if apply_italic:
+                run.italic = True
+        paragraphs_created = [p]
+    
+    return paragraphs_created

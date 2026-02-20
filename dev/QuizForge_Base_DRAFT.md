@@ -292,6 +292,45 @@ If you need formatted code in answer choices, put it in the prompt and use descr
 - At least two `correct: true` for MA
 - Strongest distractor is plausibly correct but defendably inferior
 
+### Meta-Answers (Standardized Phrasings)
+**Meta-answers** are special answer choices that serve structural/logical purposes rather than content-based evaluation. These answers are **excluded from length-balance validation** because students evaluate them using different cognitive processes than substantive answers.
+
+**REQUIRED: Use these EXACT phrasings when appropriate:**
+
+**For editing/revision questions:**
+- `"No change is needed"` — Use when the original is correct as-is
+- Never use variations like "No changes are needed", "No change needed", "No correction required", etc.
+
+**For evidence/support questions:**
+- `"All of the above"` — Use when multiple choices are equally valid
+- `"None of the above"` — Use when no choice is correct
+- Never use variations like "All three choices", "All sentences equally support", "All are correct", etc.
+
+**For combined evaluation questions:**
+- `"Both A and B"` — Use when two labeled choices are both correct
+- `"Both A and C"` — Use when choices A and C are both correct
+- `"Both A and D"` — Use when choices A and D are both correct
+- `"Both B and C"` — Use when choices B and C are both correct
+- `"Both B and D"` — Use when choices B and D are both correct
+- `"Both C and D"` — Use when choices C and D are both correct
+- `"Neither is correct"` — Use for dual-option exclusion
+
+**WHY STANDARDIZATION MATTERS:**
+- Validators can detect meta-answers without regex patterns
+- Students see consistent phrasing across all quizzes
+- LLMs produce more reliable output with exact targets
+- Length-balance checks exclude these automatically
+
+**WHEN TO USE META-ANSWERS:**
+- Editing questions: "No change is needed" is a valid and important option
+- Multiple correct answers: Use MA (Multiple Answer) type instead of "All of the above" when possible
+- Evidence questions: Only use "All of the above" if choices are truly equivalent (rare)
+
+**WHEN NOT TO USE META-ANSWERS:**
+- Don't add "No change is needed" to every editing question just to have 4 choices
+- Don't use "All of the above" as lazy item design—test discrete knowledge
+- Don't use "None of the above" on Tier 1 questions—it increases cognitive load
+
 ## 11. RATIONALES (JSON)
 - Provide `rationales` as an array of objects:
 ```

@@ -1,0 +1,168 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Magellan and Donne: Exploration and Connection",
+  "metadata": {
+    "audience": "Grade 9-10 ELA / Social Studies",
+    "tier_default": "Tier 2"
+  },
+  "items": [
+    {
+      "id": "stim_magellan",
+      "type": "STIMULUS",
+      "format": "text",
+      "layout": "below",
+      "title": "The First Voyage Around the World",
+      "author": "adapted from Antonio Pigafetta",
+      "prompt": "<p>In the 16th century, an age of great marine and terrestrial exploration, Ferdinand Magellan led the first expedition to sail around the world. As a young Portuguese noble, he served the king of Portugal, but he became involved in the quagmire of political intrigue at court and lost the king's favor. After he was dismissed from service by the king of Portugal, he offered to serve the future Emperor Charles V of Spain.</p><p>A papal decree of 1493 had assigned all land in the New World west of 50 degrees W longitude to Spain and all the land east of that line to Portugal. Magellan offered to prove that the East Indies fell under Spanish authority. On September 20, 1519, Magellan set sail from Spain with five ships. More than a year later, one of these ships was exploring the topography of South America in search of a water route across the continent. This ship sank, but the remaining four ships searched along the southern peninsula of South America. Finally they found the passage they sought near 50 degrees S latitude. Magellan named this passage the Strait of All Saints, but today it is known as the Strait of Magellan.</p><p>One ship deserted while in this passage and returned to Spain, so fewer sailors were privileged to gaze at that first panorama of the Pacific Ocean. Those who remained crossed the meridian now known as the International Date Line in the early spring of 1521 after 98 days on the Pacific Ocean. During those long days at sea, many of Magellan's men died of starvation and disease.</p><p>Later, Magellan became involved in an insular conflict in the Philippines and was killed in a tribal battle. Only one ship and 17 sailors under the command of the Basque navigator Elcano survived to complete the westward journey to Spain and thus prove once and for all that the world is round, with no precipice at the edge.</p>"
+    },
+    {
+      "id": "mc_magellan_1",
+      "type": "MC",
+      "stimulus_id": "stim_magellan",
+      "prompt": "Why did Magellan shift his allegiance from Portugal to Spain?",
+      "choices": [
+        { "text": "He was dismissed from Portuguese service after losing favor at court through political conflict", "correct": true },
+        { "text": "Spain offered him a larger fleet and higher pay than the Portuguese king", "correct": false },
+        { "text": "A papal decree required him to serve the nation with the stronger navy", "correct": false },
+        { "text": "He had been born in Spain and returned to serve his native country", "correct": false }
+      ]
+    },
+    {
+      "id": "mc_magellan_2",
+      "type": "MC",
+      "stimulus_id": "stim_magellan",
+      "prompt": "What was the significance of the papal decree of 1493 to Magellan's mission?",
+      "choices": [
+        { "text": "It motivated Magellan to prove the East Indies were within Spain's assigned territory, giving Spain a claim over those trade routes", "correct": true },
+        { "text": "It gave Magellan legal authority to claim any land he discovered for Spain regardless of its location", "correct": false },
+        { "text": "It required all exploration ships to fly a papal flag as proof of Christian authority over new lands", "correct": false },
+        { "text": "It set the 50-degree S latitude boundary that determined where Magellan would search for the southern passage", "correct": false }
+      ]
+    },
+    {
+      "id": "mc_magellan_3",
+      "type": "MC",
+      "stimulus_id": "stim_magellan",
+      "prompt": "Which statement best describes the outcome of Magellan's expedition?",
+      "choices": [
+        { "text": "Magellan died before the voyage was complete, but his crew finished the journey and confirmed the earth is spherical", "correct": true },
+        { "text": "Magellan successfully circumnavigated the globe and returned to Spain with all five ships intact", "correct": false },
+        { "text": "The expedition failed because only one ship reached the Pacific before the fleet was forced to turn back", "correct": false },
+        { "text": "Elcano abandoned the mission after Magellan's death and the voyage was completed a decade later", "correct": false }
+      ]
+    },
+    {
+      "id": "ma_magellan_vocab",
+      "type": "MA",
+      "stimulus_id": "stim_magellan",
+      "prompt": "Select <strong>all</strong> words below that, based on context in the passage, suggest difficulty, complication, or danger.",
+      "choices": [
+        { "text": "quagmire (paragraph 1)", "correct": true },
+        { "text": "topography (paragraph 2)", "correct": false },
+        { "text": "deserted (paragraph 3)", "correct": true },
+        { "text": "precipice (paragraph 4)", "correct": true },
+        { "text": "meridian (paragraph 3)", "correct": false }
+      ]
+    },
+    {
+      "id": "stim_end_magellan",
+      "type": "STIMULUS_END",
+      "prompt": ""
+    },
+    {
+      "id": "stim_donne",
+      "type": "STIMULUS",
+      "format": "text",
+      "layout": "below",
+      "title": "No Man Is an Island",
+      "author": "John Donne",
+      "prompt": "```poetry\nNo man is an island,\nEntire of itself,\nEvery man is a piece of the continent,\nA part of the main.\nIf a clod be washed away by the sea,\nEurope is the less.\nAs well as if a promontory were.\nAs well as if a manor of thy friend's\nOr of thine own were:\nAny man's death diminishes me,\nBecause I am involved in mankind,\nAnd therefore never send to know for whom the bell tolls;\nIt tolls for thee.\n```"
+    },
+    {
+      "id": "mc_donne_1",
+      "type": "MC",
+      "stimulus_id": "stim_donne",
+      "prompt": "What is the central claim Donne makes in this poem?",
+      "choices": [
+        { "text": "Human beings are fundamentally connected, and the loss of any individual diminishes all of humanity", "correct": true },
+        { "text": "Death is a universal experience that should be celebrated rather than mourned by those who survive", "correct": false },
+        { "text": "Europe holds a unique place in the world because of its geography and its shared culture", "correct": false },
+        { "text": "Isolation is the most dangerous condition a person can face in a changing world", "correct": false }
+      ]
+    },
+    {
+      "id": "mc_donne_2",
+      "type": "MC",
+      "stimulus_id": "stim_donne",
+      "prompt": "In line 3, Donne compares \"every man\" to \"a piece of the continent.\" What does this figurative language suggest?",
+      "choices": [
+        { "text": "Each person is an essential part of a larger whole, and removing one weakens the entire structure", "correct": true },
+        { "text": "Human beings are as vast and complex as entire continents and should be explored like new territories", "correct": false },
+        { "text": "European civilization is the standard against which all individual lives should be measured", "correct": false },
+        { "text": "The land provides a more stable foundation for identity than religion or politics", "correct": false }
+      ]
+    },
+    {
+      "id": "tf_donne_speaker",
+      "type": "TF",
+      "stimulus_id": "stim_donne",
+      "prompt": "The speaker in the poem claims that another person's death has a direct effect on the speaker's own sense of self.",
+      "answer": true
+    },
+    {
+      "id": "stim_end_donne",
+      "type": "STIMULUS_END",
+      "prompt": ""
+    },
+    {
+      "id": "mc_synthesis",
+      "type": "MC",
+      "prompt": "Both the Magellan passage and the Donne poem deal with the idea of connection across distance. Which statement best captures how each text approaches this theme?",
+      "choices": [
+        { "text": "The Magellan passage shows physical connection through exploration and geography, while the Donne poem argues for a moral and spiritual connection among all people", "correct": true },
+        { "text": "Both texts argue that physical distance between people leads inevitably to misunderstanding and conflict", "correct": false },
+        { "text": "The Magellan passage focuses on the dangers of connection, while the Donne poem celebrates the freedom of isolation", "correct": false },
+        { "text": "Both texts use extended metaphors to compare the human body to the geography of the known world", "correct": false }
+      ]
+    },
+    {
+      "id": "essay_synthesis",
+      "type": "ESSAY",
+      "prompt": "Using evidence from both the Magellan passage and the Donne poem, explain how exploration and human interconnection are related themes. How does each text contribute a different perspective on what it means to be connected to others or to the wider world?",
+      "length_guidance": "4-6 paragraphs",
+      "rubric_hint": "Uses specific evidence from both texts; explains the relationship between the two themes rather than summarizing separately; makes a clear claim."
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "mc_magellan_1",
+      "rationale": "Paragraph 1 states directly that Magellan 'became involved in the quagmire of political intrigue at court and lost the king's favor' before being dismissed — the other options introduce details not supported by the text."
+    },
+    {
+      "item_id": "mc_magellan_2",
+      "rationale": "The decree divided territory between Spain and Portugal; Magellan's offer to prove the East Indies fell under Spanish authority gave Spain a legal and commercial incentive for the voyage — the decree was the jurisdictional framework motivating his mission."
+    },
+    {
+      "item_id": "mc_magellan_3",
+      "rationale": "Paragraph 4 confirms Magellan was killed in the Philippines, and only Elcano's crew of 17 completed the voyage — proving the earth is round."
+    },
+    {
+      "item_id": "ma_magellan_vocab",
+      "rationale": "Quagmire means a difficult entanglement; deserted implies abandonment under pressure; precipice suggests a dangerous edge — all carry connotations of peril or complication. Topography and meridian are neutral geographical terms."
+    },
+    {
+      "item_id": "mc_donne_1",
+      "rationale": "The poem's argument builds from the island metaphor to the direct claim 'any man's death diminishes me, because I am involved in mankind' — universal human interconnection is the central idea."
+    },
+    {
+      "item_id": "mc_donne_2",
+      "rationale": "A continent loses integrity when a piece breaks away; Donne applies this logic to human community — each person's loss weakens the whole, making the metaphor about essential belonging, not scale or exploration."
+    },
+    {
+      "item_id": "mc_synthesis",
+      "rationale": "The Magellan passage demonstrates physical/geographical connection through the circumnavigation; Donne argues for moral and spiritual interconnection — the two texts approach the same broad theme from different angles."
+    }
+  ]
+}
+</QUIZFORGE_JSON>
