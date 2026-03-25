@@ -33,12 +33,13 @@ ALLOWED_INPUT_EXTENSIONS = {".txt", ".json", ".md"}
 class QuizForgeOrchestrator:
     """Coordinate the quiz processing pipeline."""
     
-    def __init__(self, dropzone_path: str, output_path: str):
+    def __init__(self, dropzone_path: str, output_path: str, force: bool = False):
         """Initialize orchestrator with input/output paths.
         
         Args:
             dropzone_path: Path to DropZone directory (user input)
             output_path: Path to Finished_Exports directory (user output)
+            force: If True, demote length-bias FAIL to WEAK_PASS warning
         """
         self.dropzone = Path(dropzone_path)
         self.output = Path(output_path)
@@ -49,6 +50,8 @@ class QuizForgeOrchestrator:
         self.output.mkdir(parents=True, exist_ok=True)
         self.archive.mkdir(parents=True, exist_ok=True)
         
+        self.force = force
+
         # Initialize components
         self.validator = QuizValidator()
     
@@ -111,7 +114,20 @@ class QuizForgeOrchestrator:
         
         # Step 3: Route based on status
         if result.status == ValidationStatus.FAIL:
-            self._handle_validation_failure(filepath, original_text, result)
+            if self.force and result.quiz is not None and result.fix_log is not None:
+                # Demote length-bias hard-fail to a warning and proceed
+                from .validation.validator import ValidationResult
+                forced_result = ValidationResult(
+                    status=ValidationStatus.WEAK_PASS,
+                    quiz=result.quiz,
+                    fix_log=result.fix_log,
+                    errors=[],
+                    warnings=[f"[FORCED] {e}" for e in result.errors],
+                )
+                print(f"  -> FORCED override: length-bias check bypassed (not a clean pass)")
+                self._handle_validation_success(filepath, forced_result, forced=True)
+            else:
+                self._handle_validation_failure(filepath, original_text, result)
         else:
             self._handle_validation_success(filepath, result)
     
@@ -170,8 +186,8 @@ class QuizForgeOrchestrator:
         # Archive original file
         self._archive_file(filepath)
     
-    def _handle_validation_success(self, filepath: Path, result) -> None:
-        """Handle validation success by generating packages.""" 
+    def _handle_validation_success(self, filepath: Path, result, forced: bool = False) -> None:
+        """Handle validation success by generating packages."""
         quiz = result.quiz
         quiz_name = filepath.stem
         
@@ -201,8 +217,12 @@ class QuizForgeOrchestrator:
             return
         
         # Generate success log
-        status_label = "PASS" if result.status == ValidationStatus.PASS else "WEAK_PASS"
-        log_filename = f"log_{status_label}_FIXED.txt"
+        if forced:
+            log_filename = "log_FORCED_WEAK_PASS.txt"
+        elif result.status == ValidationStatus.PASS:
+            log_filename = "log_PASS_FIXED.txt"
+        else:
+            log_filename = "log_WEAK_PASS_FIXED.txt"
         log_content = generate_log(
             fix_log=result.fix_log,
             warnings=result.warnings,
@@ -210,6 +230,15 @@ class QuizForgeOrchestrator:
             total_points=quiz.total_points(),
             question_count=quiz.question_count()
         )
+        if forced:
+            force_banner = (
+                "!!! FORCED OUTPUT — LENGTH-BIAS CHECK BYPASSED !!!\n"
+                "This quiz was pushed through with --force and did NOT pass\n"
+                "the length-bias validation. Correct answers are consistently\n"
+                "the longest choice. Do not distribute as a validated quiz.\n"
+                "=" * 60 + "\n\n"
+            )
+            log_content = force_banner + log_content
         log_path = folder / log_filename
         write_file(folder, log_filename, log_content.encode('utf-8'))
 
@@ -289,8 +318,11 @@ def main():
     import sys
     
     # Get project root (where DropZone and Finished_Exports live)
-    if len(sys.argv) > 1:
-        project_root = Path(sys.argv[1])
+    force = "--force" in sys.argv
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+
+    if args:
+        project_root = Path(args[0])
     else:
         # Assume we're in QuizForge/engine/
         project_root = Path(__file__).parent.parent
@@ -304,11 +336,19 @@ def main():
     print(f"DropZone: {dropzone}")
     print(f"Output: {output}")
     print("=" * 60)
+    if force:
+        print()
+        print("!!! WARNING: --force flag is active !!!")
+        print("Length-bias failures will be bypassed. This is NOT")
+        print("a substitute for properly balanced answer choices.")
+        print("Output logs will be stamped FORCED_WEAK_PASS.")
+        print("=" * 60)
     print()
-    
+
     orchestrator = QuizForgeOrchestrator(
         dropzone_path=str(dropzone),
-        output_path=str(output)
+        output_path=str(output),
+        force=force
     )
     
     orchestrator.process_all()

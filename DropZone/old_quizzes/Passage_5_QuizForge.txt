@@ -1,0 +1,547 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Harry Potter and the Brainrot Curses — Passage 5: The Prophet Nobody Heard",
+  "instructions": "<p>Read <strong>Passage 5 — \"The Prophet Nobody Heard\"</strong> and answer the questions that follow.</p>",
+  "metadata": {
+    "course": "7th Grade ELA",
+    "unit": "Unit 4",
+    "passage": "Passage 5 — The Prophet Nobody Heard",
+    "teks_assessed": [
+      "7.5(F)",
+      "7.7(A)",
+      "7.7(D)",
+      "7.9(A)",
+      "7.9(F)",
+      "7.6(C)",
+      "7.5(E)",
+      "7.6(D)",
+      "7.2(B)"
+    ]
+  },
+  "items": [
+    {
+      "id": "q41",
+      "type": "MC",
+      "prompt": "<p>Why did Lily most likely decide to create the curses instead of continuing to warn adults?</p>",
+      "choices": [
+        {
+          "text": "She wanted to become famous and prove she was smarter than everyone else.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "No one would listen to her words, so she built something they could not ignore.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "She was angry at Harry personally and wanted to embarrass the Ministry.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "She needed money and discovered she could sell the curse objects for a profit.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q42",
+      "type": "MC",
+      "prompt": "<p>Harry's reaction to Lily's argument most likely shows that he —</p>",
+      "choices": [
+        {
+          "text": "completely agrees with everything Lily did and thinks she should keep going with her plan",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "thinks Lily is lying about the data and cannot be trusted",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "recognizes she is right about the problem but troubled that people were hurt",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "is too confused by her explanation to form an opinion",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q43",
+      "type": "MC",
+      "prompt": "<p>What message does the author develop through Lily's conversation with Harry?</p>",
+      "choices": [
+        {
+          "text": "Teenagers are often much smarter and more perceptive than the adults who are around them.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "When institutions ignore important warnings, the consequences can be serious and far-reaching.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "Breaking the law can be acceptable as long as you have a genuinely good reason for your actions.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Adults and children will likely struggle to truly understand each other's very different perspectives.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q44",
+      "type": "MC",
+      "prompt": "<p>What is surprising about how Lily acts during the confrontation?</p>",
+      "choices": [
+        {
+          "text": "She immediately tries to run away when she sees Harry.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "She is calm and composed instead of scared or angry, surprising Harry.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "She refuses to explain anything and demands a lawyer.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "She breaks down crying and apologizes for everything she has done.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q45",
+      "type": "MC",
+      "prompt": "<p>Why does the author include Lily's full explanation of her research?</p>",
+      "choices": [
+        {
+          "text": "To prove that Lily is the smartest character in the story",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "To confuse Harry so he cannot think clearly about the situation",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "To show Lily had evidence, not just anger, behind her actions",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "To explain how magic works so the reader understands the wizarding world",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q46",
+      "type": "MC",
+      "prompt": "<p>The fact that Lily is named after Harry's mother is important because it —</p>",
+      "choices": [
+        {
+          "text": "proves that Lily and Harry are actually related by blood",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "connects Lily to the poem's theme of being burdened by a dead person's name",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "explains why Lily decided to become a Ravenclaw instead of a Gryffindor",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "shows that Neville and Cho wanted to honor Harry by naming their daughter after his mother",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q47",
+      "type": "MC",
+      "prompt": "<p>Which detail from the passage best shows that the adults in Lily's life let her down?</p>",
+      "choices": [
+        {
+          "text": "Lily is sitting alone in a back room at the Hog's Head with no one around her.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "Her professors dismissed her work, and the Ministry sent a form letter.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "Harry took four days to find her instead of twenty minutes.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Lily goes by the nickname Lola instead of her real name.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q48",
+      "type": "MC",
+      "prompt": "<p>Lily's experience of being ignored by adults is most like —</p>",
+      "choices": [
+        {
+          "text": "a student who gets praised for raising an important concern in class",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "a child who reports a safety problem at school but is told not to worry",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "an athlete who loses a game but learns an important lesson from the coach",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "a teenager who keeps a secret because they are afraid of getting in trouble",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q49",
+      "type": "MC",
+      "prompt": "<p>Which sentence best summarizes what Lily tells Harry?</p>",
+      "choices": [
+        {
+          "text": "Lily says she created the curses just for fun and didn't realize people would get hurt.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "Lily says magic is dying and adults ignored her, so she built curses to harvest energy.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "Lily says she wanted revenge on the Ministry for ignoring her father's contributions.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Lily says the curses are harmless and will wear off on their own.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q50",
+      "type": "MC",
+      "prompt": "<p>Read this sentence from the passage:</p><blockquote style='margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;'>\"Concentrated ambient magical energy. Focalis. Created when large numbers of people pay attention to the same thing at the same time.\"</blockquote><p>As used in the passage, the word <em>concentrated</em> most likely means —</p>",
+      "choices": [
+        {
+          "text": "spread thinly across a wide area",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "gathered and strengthened into a more powerful form",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "created accidentally by unknown forces",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "slowly disappearing over a long period of time",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q41",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Lily shows no interest in fame. She stayed invisible, used others to distribute, and hid at the Hog's Head — the opposite of attention-seeking."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Lily says 'I stopped asking and started proving.' After professors, the Ministry, and Hermione all ignored her, she built something impossible to dismiss."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Lily never mentions Harry or personal anger toward him. Her frustration is with institutions that ignored data, not individuals."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Lily's goal was to harvest Focalis to prevent magical collapse, not to earn money. The Ministry bought from her, but profit wasn't her motive."
+        }
+      ]
+    },
+    {
+      "item_id": "q42",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Harry thinks about Mrs. Thistlecroft's grandmother stuck in a toilet — he clearly hasn't dismissed the harm, even if Lily's argument makes sense."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "Harry never questions Lily's data. He opens his mouth to argue but 'nothing came out' — he accepts her evidence is real."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "Harry admits Lily 'wasn't wrong about the big thing' but also holds that 'people still got hurt' — he sees both truths at once."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Harry clearly understands Lily's argument. His silence is moral conflict, not confusion — he can't argue because she's right."
+        }
+      ]
+    },
+    {
+      "item_id": "q43",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The passage shows one brilliant teenager, not a general claim about all teens. The message is about institutional failure, not age-based intelligence."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Lily warned every institution that would listen — professors, Ministry, Hermione — and all ignored her. The curses were the consequence of that silence."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Harry doesn't condone Lily's methods. The passage holds both truths — she was right about the problem, but people were still hurt."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Harry and Lily actually understand each other well by the end. The conflict is between Lily and institutions, not between generations."
+        }
+      ]
+    },
+    {
+      "item_id": "q44",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Lily says 'I'm not going to run' when Harry walks in. She expected him and stays seated — no attempt to flee."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Harry expected someone 'angry, or scared, or at least surprised.' Lily is 'calm the way people are calm when they've already decided they're fine.'"
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Lily immediately begins explaining her research. She's open and forthcoming, not defensive or evasive."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Lily shows no crying or apology. She is steady and factual throughout — exhaustion appears briefly, but never breakdown."
+        }
+      ]
+    },
+    {
+      "item_id": "q45",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The research isn't about proving Lily is smart — it's about showing her actions were based on real data that adults refused to examine."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "The explanation is clear and logical. Harry understands it well enough that he can't argue back — it clarifies, not confuses."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "Lily's detailed explanation of declining magic and Focalis shows the reader she acted on evidence, not emotion — her reasoning was scientific, not reckless."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "World-building is a side effect, not the purpose. The research exists to justify Lily's choices and show why adults should have listened."
+        }
+      ]
+    },
+    {
+      "item_id": "q46",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Being named after someone doesn't create a blood relationship. Lily is Neville and Cho's daughter, not Harry's relative."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "The poem in Passage 4 describes children burdened by dead people's names. Lily carrying Harry's mother's name makes her a living example of that theme."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "House sorting has nothing to do with her name. The passage never connects the two."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is background information about her parents' choice. The importance is the thematic connection to the poem, not the parents' motivation."
+        }
+      ]
+    },
+    {
+      "item_id": "q47",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Being alone at the Hog's Head shows she's hiding, but it doesn't directly show adults failing to respond to her specific attempts to reach them."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Professors called her work 'creative,' the Ministry sent a form letter, and Hermione replied six months late with two sentences — three specific failures in a row."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Four days shows Lily was hard to find, which reflects her intelligence, not how adults let her down."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Using a nickname shows identity friction, but it doesn't directly demonstrate adults failing to listen to her warnings."
+        }
+      ]
+    },
+    {
+      "item_id": "q48",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Praise is the opposite of Lily's experience. She was dismissed, not celebrated — her concern was minimized, not valued."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Reporting a real problem and being told not to worry mirrors Lily exactly — she brought data to adults who told her it wasn't important."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Learning from a coach implies a supportive adult who engages. Lily's adults dismissed her without engaging with her evidence."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Lily didn't keep a secret — she actively tried to share her findings. Her silence came later, after every attempt to speak was ignored."
+        }
+      ]
+    },
+    {
+      "item_id": "q49",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Lily's curses were deliberate and purposeful, not accidental. She designed them specifically to generate Focalis, not for fun."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Lily explains that ambient magic is declining, she warned adults who ignored her, and the curses harvest collective attention as energy to keep systems running."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Lily never mentions revenge or her father's career. Her motivation is the declining magical infrastructure, not personal grievance."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Lily acknowledges the curses cause real effects. She never claims they're harmless — she argues the alternative (magical collapse) is worse."
+        }
+      ]
+    },
+    {
+      "item_id": "q50",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "'Spread thinly' is the opposite of concentrated. Concentrated means brought together into a smaller, stronger form — not spread out."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Focalis is ambient energy gathered and intensified when many people pay attention at once — loose energy concentrated into something powerful and usable."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The sentence describes a deliberate process — people paying attention creates Focalis. 'Accidentally' contradicts the intentional design."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Disappearing describes ambient magic in general, not Focalis specifically. Concentrated means strengthened, not fading."
+        }
+      ]
+    }
+  ]
+}
+</QUIZFORGE_JSON>

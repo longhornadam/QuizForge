@@ -1,0 +1,217 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Harry Potter and the Brainrot Curses — Passage 1: The Dame and the Detective",
+  "instructions": "<p>Read <strong>Passage 1 — \"The Dame and the Detective\"</strong> and answer the questions that follow.</p>",
+  "metadata": {
+    "course": "7th Grade ELA",
+    "unit": "Unit 4",
+    "passage": "Passage 1 — The Dame and the Detective",
+    "teks_assessed": ["7.9(D)", "7.5(F)", "7.2(B)", "7.5(E)", "7.9(F)", "7.6(C)"]
+  },
+  "items": [
+    {
+      "id": "q1",
+      "type": "MC",
+      "prompt": "<p>Read this sentence from the passage:</p><blockquote style='margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;'>\"Now half the storefronts sat dark, like teeth missing from a smile.\"</blockquote><p>What does this comparison suggest about Diagon Alley?</p>",
+      "choices": [
+        { "text": "It has become a dangerous place where people get hurt.", "correct": false, "id": "A" },
+        { "text": "It looks incomplete and damaged compared to what it used to be.", "correct": true, "id": "B" },
+        { "text": "It is slowly being rebuilt after the war.", "correct": false, "id": "C" },
+        { "text": "It is a cheerful place that hides its problems.", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "MC",
+      "prompt": "<p>The author describes the quiet in Harry's office as \"not a peaceful quiet — the dead kind.\" What does this metaphor suggest about how Harry feels?</p>",
+      "choices": [
+        { "text": "He is afraid that something dangerous is about to happen.", "correct": false, "id": "A" },
+        { "text": "He is angry about how much Diagon Alley has changed.", "correct": false, "id": "B" },
+        { "text": "He feels emotionally empty, not just physically alone.", "correct": true, "id": "C" },
+        { "text": "He is bored and looking for something exciting to do.", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "MC",
+      "prompt": "<p>How does the author's description of Diagon Alley help the reader understand the story?</p>",
+      "choices": [
+        { "text": "It shows the wizarding world has not recovered since the war.", "correct": true, "id": "A" },
+        { "text": "It explains why Harry decided to open a detective agency.", "correct": false, "id": "B" },
+        { "text": "It proves that the brainrot curses have been happening for a long time.", "correct": false, "id": "C" },
+        { "text": "It suggests that Harry is one of the few people who still notices problems.", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "MC",
+      "prompt": "<p>What can the reader infer about Harry based on how he reacts to Mrs. Thistlecroft's case?</p>",
+      "choices": [
+        { "text": "He is excited because he needs the money she is offering.", "correct": false, "id": "A" },
+        { "text": "He takes the case quickly because having a purpose makes him feel alive again.", "correct": true, "id": "B" },
+        { "text": "He feels sorry for Mrs. Thistlecroft and wants to comfort her.", "correct": false, "id": "C" },
+        { "text": "He is confident he can solve the case because of his past experience.", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "MC",
+      "prompt": "<p>The detail about the photo in Harry's desk drawer suggests that Harry —</p>",
+      "choices": [
+        { "text": "is planning to contact Ginny about the case", "correct": false, "id": "A" },
+        { "text": "keeps the photo as a reminder to stay focused on his work", "correct": false, "id": "B" },
+        { "text": "still has strong feelings about Ginny even though she left", "correct": true, "id": "C" },
+        { "text": "wants to get rid of the photo but cannot bring himself to do it", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "MC",
+      "prompt": "<p>Read this sentence from the passage:</p><blockquote style='margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;'>\"She swept in. Immaculate robes. Pearl-topped wand tucked into her sleeve.\"</blockquote><p>What does the word <em>immaculate</em> most likely mean?</p>",
+      "choices": [
+        { "text": "expensive and rare", "correct": false, "id": "A" },
+        { "text": "perfectly clean and neat", "correct": true, "id": "B" },
+        { "text": "old-fashioned and formal", "correct": false, "id": "C" },
+        { "text": "brightly colored and decorative", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "MC",
+      "prompt": "<p>Which words from the passage help the reader understand what <em>immaculate</em> means?</p>",
+      "choices": [
+        { "text": "\"She sat down, placed her handbag on her lap\"", "correct": false, "id": "A" },
+        { "text": "\"The kind of witch who irons her hat\"", "correct": true, "id": "B" },
+        { "text": "\"her voice cracked — just barely, just for a second\"", "correct": false, "id": "C" },
+        { "text": "\"walked out without saying goodbye\"", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "MC",
+      "prompt": "<p>Harry's feelings at the beginning of the passage are most similar to someone who —</p>",
+      "choices": [
+        { "text": "just lost an important competition and wants a second chance", "correct": false, "id": "A" },
+        { "text": "finished a long project and doesn't know what to do next", "correct": true, "id": "B" },
+        { "text": "is angry at the world and wants to be left alone", "correct": false, "id": "C" },
+        { "text": "is waiting for the right moment to make a big decision", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q9",
+      "type": "MC",
+      "prompt": "<p>Why is the setting of the story important to understanding Harry's character?</p>",
+      "choices": [
+        { "text": "The tiny, quiet office shows that Harry has chosen a smaller, emptier life after the war.", "correct": true, "id": "A" },
+        { "text": "The office above a bookshop shows that Harry values education.", "correct": false, "id": "B" },
+        { "text": "The location in Diagon Alley shows that Harry is still respected by the community.", "correct": false, "id": "C" },
+        { "text": "The dark storefronts suggest that Harry is investigating a crime that started long ago.", "correct": false, "id": "D" }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "MC",
+      "prompt": "<p>Which detail from the passage best shows that Harry has lost his sense of purpose?</p>",
+      "choices": [
+        { "text": "He says that Hermione picked the font for his sign.", "correct": false, "id": "A" },
+        { "text": "He describes wondering if he should bother going home tonight.", "correct": true, "id": "B" },
+        { "text": "He notices a man lunging at a woman's meat pie.", "correct": false, "id": "C" },
+        { "text": "He grabs his coat and walks outside into Diagon Alley.", "correct": false, "id": "D" }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q1",
+      "choices": [
+        { "id": "A", "correct": false, "rationale": "The simile is about gaps and incompleteness, not danger. Nothing in the comparison suggests people are being harmed." },
+        { "id": "B", "correct": true, "rationale": "Missing teeth in a smile means something once whole now looks broken and incomplete — just like Diagon Alley after the war." },
+        { "id": "C", "correct": false, "rationale": "Dark, empty storefronts suggest decline, not rebuilding. The passage confirms the Alley has not recovered." },
+        { "id": "D", "correct": false, "rationale": "A smile missing teeth is not cheerful — the comparison emphasizes visible damage, not hidden problems." }
+      ]
+    },
+    {
+      "item_id": "q2",
+      "choices": [
+        { "id": "A", "correct": false, "rationale": "\"Dead\" quiet suggests emptiness, not suspense. Harry is not bracing for danger — he is sitting with nothing to do." },
+        { "id": "B", "correct": false, "rationale": "The passage shows numbness, not anger. Opening drawers for no reason and staring at a photo are passive, not frustrated, actions." },
+        { "id": "C", "correct": true, "rationale": "\"The dead kind\" of quiet connects silence to emotional numbness. Harry's empty routine confirms he feels hollow inside." },
+        { "id": "D", "correct": false, "rationale": "Boredom implies wanting stimulation. Harry's metaphor suggests something deeper — a lack of feeling, not a lack of entertainment." }
+      ]
+    },
+    {
+      "item_id": "q3",
+      "choices": [
+        { "id": "A", "correct": true, "rationale": "Dark storefronts, silence, and a shopkeeper sweeping an already-swept step show a world stuck in decline seventeen years after the war." },
+        { "id": "B", "correct": false, "rationale": "The setting describes the Alley's condition, not Harry's career decision. The passage never connects the two." },
+        { "id": "C", "correct": false, "rationale": "The brainrot curses appear to be new. The setting details describe post-war decline, not a long-running curse problem." },
+        { "id": "D", "correct": false, "rationale": "Other characters notice problems too — Mrs. Thistlecroft comes to Harry because she sees something is wrong with her grandmother." }
+      ]
+    },
+    {
+      "item_id": "q4",
+      "choices": [
+        { "id": "A", "correct": false, "rationale": "Harry says he took the case fast \"not because the money was good.\" The passage directly rules out this motivation." },
+        { "id": "B", "correct": true, "rationale": "Harry says having \"something to do\" felt \"like oxygen\" for \"a man with nothing left.\" He needs purpose, not payment." },
+        { "id": "C", "correct": false, "rationale": "Harry shows no comforting behavior. His fast acceptance is about his own need for meaning, not sympathy for Mrs. Thistlecroft." },
+        { "id": "D", "correct": false, "rationale": "Harry never expresses confidence about solving anything. His reaction is driven by desperation for purpose, not professional assurance." }
+      ]
+    },
+    {
+      "item_id": "q5",
+      "choices": [
+        { "id": "A", "correct": false, "rationale": "Nothing connects the photo to the case. Harry looks at the photo out of habit before Mrs. Thistlecroft arrives." },
+        { "id": "B", "correct": false, "rationale": "The photo is personal, not professional. It shows Ginny in a Christmas jumper — it distracts Harry, not focuses him." },
+        { "id": "C", "correct": true, "rationale": "Harry closes the drawer \"carefully, like there was something fragile in there.\" The fragility is emotional — he still cares deeply about Ginny." },
+        { "id": "D", "correct": false, "rationale": "The passage shows no desire to discard the photo. Harry handles it with care, signaling attachment, not conflict about keeping it." }
+      ]
+    },
+    {
+      "item_id": "q6",
+      "choices": [
+        { "id": "A", "correct": false, "rationale": "\"Immaculate\" describes condition, not cost. The context clues point to tidiness and care, not how much the robes are worth." },
+        { "id": "B", "correct": true, "rationale": "\"Immaculate robes\" paired with ironing her hat and a pearl-topped wand all suggest someone extremely neat and put-together." },
+        { "id": "C", "correct": false, "rationale": "Nothing in the context suggests old-fashioned style. The clues describe neatness and precision, not an outdated appearance." },
+        { "id": "D", "correct": false, "rationale": "Bright colors are never mentioned. \"Immaculate\" relates to cleanliness and order, not decoration." }
+      ]
+    },
+    {
+      "item_id": "q7",
+      "choices": [
+        { "id": "A", "correct": false, "rationale": "Sitting and placing a handbag describe polite behavior, not cleanliness. These details don't help define immaculate." },
+        { "id": "B", "correct": true, "rationale": "Ironing a hat is an act of making something perfectly crisp and neat, which directly shows what immaculate means." },
+        { "id": "C", "correct": false, "rationale": "A cracking voice reveals emotion, not appearance. This detail describes how she feels, not how she looks." },
+        { "id": "D", "correct": false, "rationale": "Walking out without a goodbye describes her exit manner, not her tidiness or appearance." }
+      ]
+    },
+    {
+      "item_id": "q8",
+      "choices": [
+        { "id": "A", "correct": false, "rationale": "Losing a competition implies drive to try again. Harry shows no competitive energy — he is passive and adrift." },
+        { "id": "B", "correct": true, "rationale": "Harry finished the war and his Auror career but now has nothing to fill the space — like someone between chapters of life." },
+        { "id": "C", "correct": false, "rationale": "Anger requires energy Harry doesn't show. He opens drawers for no reason and stares — that's numbness, not rage." },
+        { "id": "D", "correct": false, "rationale": "Waiting implies a plan. Harry has no plan — he wonders whether to even go home. He is stuck, not strategic." }
+      ]
+    },
+    {
+      "item_id": "q9",
+      "choices": [
+        { "id": "A", "correct": true, "rationale": "A broom-closet office, one desk, one chair, a pigeon outside — the setting mirrors Harry's shrunken, quiet life after the war." },
+        { "id": "B", "correct": false, "rationale": "The passage never mentions a bookshop. This detail is invented and has no support in the text." },
+        { "id": "C", "correct": false, "rationale": "The tired, empty Alley suggests decline, not community admiration. No one visits Harry or celebrates his presence." },
+        { "id": "D", "correct": false, "rationale": "The dark storefronts show the Alley's decay, not an old crime. Harry doesn't investigate until after Mrs. Thistlecroft arrives." }
+      ]
+    },
+    {
+      "item_id": "q10",
+      "choices": [
+        { "id": "A", "correct": false, "rationale": "The font detail is a humorous aside about Hermione, not evidence of lost purpose. It shows their friendship, not his emptiness." },
+        { "id": "B", "correct": true, "rationale": "Wondering whether to bother going home shows Harry sees no reason to be anywhere. That indifference is the clearest sign of lost purpose." },
+        { "id": "C", "correct": false, "rationale": "Harry notices the cursed man after he already has the case. This shows a new problem in the Alley, not Harry's purposelessness." },
+        { "id": "D", "correct": false, "rationale": "Grabbing his coat and walking outside shows Harry taking action — the opposite of purposelessness. This happens after he accepts the case." }
+      ]
+    }
+  ]
+}
+</QUIZFORGE_JSON>

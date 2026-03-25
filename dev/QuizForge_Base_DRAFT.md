@@ -332,16 +332,33 @@ If you need formatted code in answer choices, put it in the prompt and use descr
 - Don't use "None of the above" on Tier 1 questions—it increases cognitive load
 
 ## 11. RATIONALES (JSON)
-- Provide `rationales` as an array of objects:
-```
+
+All MC and MA items must use per-choice rationales. Each answer option — correct and incorrect — gets its own rationale.
+
+**Required format:**
+```json
 "rationales": [
-  { "item_id": "mc_example", "rationale": "Why the right answer works." }
+  {
+    "item_id": "mc_example",
+    "choices": [
+      { "id": "A", "correct": true,  "rationale": "Why A is correct." },
+      { "id": "B", "correct": false, "rationale": "Why B is wrong." },
+      { "id": "C", "correct": false, "rationale": "Why C is wrong." },
+      { "id": "D", "correct": false, "rationale": "Why D is wrong." }
+    ]
+  }
 ]
 ```
-- Skip STIMULUS and STIMULUS_END when generating rationales entries.
-- One entry per scored item (skip STIMULUS/STIMULUS_END). Keep each explanation to one sentence per field; focus on the why.
-- Primary job: explain why the correct answer(s) is/are correct.
-- Never tell students to "ask/see your teacher" or suggest office hours; rationales must stand alone without deferring to a teacher.
+
+**Rationale Writing Rules:**
+- One entry per scored item (skip STIMULUS / STIMULUS_END).
+- Correct-choice rationale: 1–2 sentences explaining why this answer IS correct. Connect the concept to the answer. Normal weight in rendered output.
+- Incorrect-choice rationale: 1–2 sentences explaining what this choice actually describes and why it does not apply. Name the specific misconception. Italic in rendered output.
+- Target length: 15–30 words per rationale. Direct teaching voice.
+- Never generic ("This is incorrect"). Always specific to the choice content.
+- Never tell students to "ask/see your teacher" — rationales must stand alone.
+- Every choice must have a rationale. An answer without a rationale is incomplete output.
+
 
 ## 12. EXECUTION WORKFLOW
 1. Parse teacher intent (topic, grade, tier).
@@ -360,7 +377,7 @@ If you need formatted code in answer choices, put it in the prompt and use descr
  Incorrect options check: Every distractor must truly be incorrect (no accidental second correct answer hidden among distractors).
  **Answer balance check:** Review Section 10 length/quality requirements. Correct answer longest ≤33% of time, shortest ≤33% of time. All distractors written with equal craft and specificity as correct answer.
  FITB check: Single blank preferred; multi-blank only for conceptually linked content; max 3 blanks; Tier 1 uses dropdown/wordbank.
- Rationales: One per scored item `id`; skip stimuli.
+ Rationales: One per scored item `id`; skip stimuli. **Per-choice check (MC/MA):** Every choice must have a matching rationale entry — no choice may be missing. Each rationale must be specific to that choice's content, not generic filler.
  Stimuli links: Set `stimulus_id` when an item should attach to a specific stimulus. Limit 2–4 questions per stimulus. **Stimulus content check:** Every STIMULUS must contain an actual passage, excerpt, poem, code block, image, or data table. If the prompt is nothing but an instruction (e.g., "Read the following."), remove the STIMULUS block and fold any needed context into individual question prompts.
 
 **Maintainer:** QuizForge Core Team  

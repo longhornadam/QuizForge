@@ -1,0 +1,1090 @@
+============================================================
+VALIDATION ERRORS DETECTED
+============================================================
+
+The quiz 'figurativelanguage-3 sections' has critical errors that must be fixed
+before it can be processed. Please fix the following issues:
+
+1. Parse error: 'RationalesEntry' object has no attribute 'rationale'
+
+============================================================
+INSTRUCTIONS FOR REVISION
+============================================================
+
+Please revise the quiz above to fix all the errors listed.
+Make sure:
+  - All required fields are present (Type, Prompt, Choices, etc.)
+  - MC questions have 2-7 choices with exactly 1 correct answer
+  - MA questions have at least 1 correct answer
+  - Numerical questions have valid answer/tolerance/range settings
+  - All questions have non-empty prompts
+
+Once fixed, save the revised quiz as a new .txt file and
+drop it back into the DropZone folder.
+
+============================================================
+ORIGINAL QUIZ (Contains Errors)
+============================================================
+
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Figurative Language: Single, Multiple, and Best Answer",
+  "instructions": "<p>This quiz has three sections.</p><p><strong>Section 1 - Single Application:</strong> Choose the one figurative language device that best fits each sentence.</p><p><strong>Section 2 - Multiple Application:</strong> Some sentences use more than one figurative language device. Choose the best answer.</p><p><strong>Section 3 - Best Answer:</strong> More than one answer may seem possible. Choose the figurative language device the author uses most clearly or primarily.</p>",
+  "metadata": {
+    "subject": "ELA",
+    "topic": "Figurative Language",
+    "grade_band": "middle school",
+    "section_counts": {
+      "single_application": 7,
+      "multiple_application": 6,
+      "best_answer": 7
+    }
+  },
+  "items": [
+    {
+      "id": "Q1",
+      "type": "MC",
+      "prompt": "<p><strong>Section 1 - Single Application</strong></p><p>The baby blanket felt as soft as a cloud.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Simile",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Metaphor",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Hyperbole",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Personification",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "type": "MC",
+      "prompt": "<p>The hallway was a river of students after the bell rang.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Metaphor",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Simile",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Idiom",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Alliteration",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "type": "MC",
+      "prompt": "<p>Mia marched into math class with 3,000 pounds of textbooks.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Hyperbole",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Metaphor",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Personification",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Onomatopoeia",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "type": "MC",
+      "prompt": "<p>The old floorboard complained with every step I took.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Personification",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Simile",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Idiom",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Hyperbole",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q5",
+      "type": "MC",
+      "prompt": "<p>Peter packed pickles, pretzels, and pears for the picnic.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Alliteration",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Onomatopoeia",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Simile",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Metaphor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q6",
+      "type": "MC",
+      "prompt": "<p>Bang! The balloon burst beside my desk.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Onomatopoeia",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Personification",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Hyperbole",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Idiom",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q7",
+      "type": "MC",
+      "prompt": "<p>After the test, Jake said it was a piece of cake.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Idiom",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Metaphor",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Simile",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Hyperbole",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q8",
+      "type": "MC",
+      "prompt": "<p><strong>Section 2 - Multiple Application</strong></p><p>The angry storm punched our windows all night and screamed through the whole town.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Personification and hyperbole",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Personification only",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Hyperbole only",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Simile and metaphor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q9",
+      "type": "MC",
+      "prompt": "<p>My phone shouted at me like an impatient coach from across the room.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Simile and personification",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Simile only",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Personification only",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Hyperbole and idiom",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "type": "MC",
+      "prompt": "<p>The cafeteria was a battlefield, and the trays crashed like thunder.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Metaphor and simile",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Hyperbole and idiom",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Personification and alliteration",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Simile only",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "type": "MC",
+      "prompt": "<p>The sun smiled over the field for a thousand golden hours.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Personification and hyperbole",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Personification only",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Hyperbole only",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Metaphor and idiom",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "type": "MC",
+      "prompt": "<p>Her backpack begged to stay on her shoulders like a stubborn little monkey.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Simile and personification",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Simile only",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Personification only",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Hyperbole and metaphor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q13",
+      "type": "MC",
+      "prompt": "<p>The fireworks danced across the sky with a loud boom over the lake.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Personification and onomatopoeia",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Onomatopoeia only",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Personification only",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Simile and metaphor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q14",
+      "type": "MC",
+      "prompt": "<p><strong>Section 3 - Best Answer</strong></p><p>The wind slapped my face the second I stepped outside.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Personification",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Hyperbole",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Metaphor",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Onomatopoeia",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "type": "MC",
+      "prompt": "<p>I've told you a million times to clean your room.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Hyperbole",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Idiom",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Metaphor",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Personification",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q16",
+      "type": "MC",
+      "prompt": "<p>The school bus was an oven by the afternoon.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Metaphor",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Hyperbole",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Simile",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Idiom",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q17",
+      "type": "MC",
+      "prompt": "<p>The bee buzzed past my ear like a tiny chainsaw.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Simile",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Onomatopoeia",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Hyperbole",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Personification",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q18",
+      "type": "MC",
+      "prompt": "<p>The clock stared at me from the classroom wall while I waited for lunch.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Personification",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Hyperbole",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Idiom",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Metaphor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q19",
+      "type": "MC",
+      "prompt": "<p>Her smile was sunshine in the middle of a miserable day.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Metaphor",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Hyperbole",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Personification",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Idiom",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": "Q20",
+      "type": "MC",
+      "prompt": "<p>Crash! The books tumbled from the shelf like falling bricks.</p>",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Onomatopoeia",
+          "correct": true
+        },
+        {
+          "id": "B",
+          "text": "Simile",
+          "correct": false
+        },
+        {
+          "id": "C",
+          "text": "Hyperbole",
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": "Personification",
+          "correct": false
+        }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "Q1",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the sentence compares the blanket to a cloud using the word as, which signals a simile."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because a metaphor makes a direct comparison without using like or as."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not exaggerate for effect."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the blanket is not given human actions or feelings."
+        }
+      ]
+    },
+    {
+      "item_id": "Q2",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the hallway is directly described as a river of students, making it a metaphor."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the comparison does not use like or as, so it is not a simile."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sentence is not a common expression with a figurative meaning."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because repeated beginning sounds are not the main feature of the sentence."
+        }
+      ]
+    },
+    {
+      "item_id": "Q3",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because 3,000 pounds of textbooks is an obvious exaggeration, which makes it hyperbole."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the textbooks are not directly compared to something else."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the textbooks are not given human actions or emotions."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because no word in the sentence imitates a sound."
+        }
+      ]
+    },
+    {
+      "item_id": "Q4",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the floorboard is described as complaining, which is a human action and shows personification."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because there is no comparison using like or as."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the phrase is not an established idiom with a nonliteral meaning."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the sentence is not mainly exaggerating."
+        }
+      ]
+    },
+    {
+      "item_id": "Q5",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because several nearby words begin with the same p sound, which creates alliteration."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not include a sound-imitating word."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because nothing is being compared with like or as."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because nothing is directly described as something else."
+        }
+      ]
+    },
+    {
+      "item_id": "Q6",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because Bang imitates the sound of the balloon bursting, which makes it onomatopoeia."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the balloon is not given a human quality or action."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not exaggerate."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because Bang is a sound word, not a figurative phrase with a hidden meaning."
+        }
+      ]
+    },
+    {
+      "item_id": "Q7",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because a piece of cake is an idiom that means something is easy."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence is using a common expression, not creating a fresh direct comparison."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because there is no comparison using like or as."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the sentence is not mainly exaggerating."
+        }
+      ]
+    },
+    {
+      "item_id": "Q8",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the storm is given human actions by punching and screaming, and the idea of it affecting the whole town adds exaggeration."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence includes more than personification; it also exaggerates the storm's reach."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because personification is clearly present when the storm punches and screams."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not use like or as for a simile, and it does not directly rename the storm as something else."
+        }
+      ]
+    },
+    {
+      "item_id": "Q9",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the phone is described as shouting, which is personification, and it is compared to a coach using like, which makes it a simile."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does more than compare; it also gives the phone a human action."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sentence includes an explicit comparison with like."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not use an idiom and is not mainly exaggeration."
+        }
+      ]
+    },
+    {
+      "item_id": "Q10",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the cafeteria is called a battlefield, which is a metaphor, and the trays crashed like thunder, which is a simile."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not include a common idiom, and exaggeration is not the main feature."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the trays are not given human traits, and repeated beginning sounds are not central here."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the sentence has a simile, but it also clearly includes a metaphor."
+        }
+      ]
+    },
+    {
+      "item_id": "Q11",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the sun is described as smiling, which is personification, and a thousand golden hours is exaggeration, which is hyperbole."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does more than personify the sun; it also exaggerates time."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sun is clearly given a human action, so personification is present too."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not directly rename one thing as another or use an established idiom."
+        }
+      ]
+    },
+    {
+      "item_id": "Q12",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the backpack is described as begging, which is personification, and it is compared to a monkey using like, which is a simile."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence also gives the backpack a human action."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sentence also includes an explicit comparison with like."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not exaggerate, and it does not directly call the backpack a monkey."
+        }
+      ]
+    },
+    {
+      "item_id": "Q13",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the fireworks are described as dancing, which is personification, and boom is a sound word, which is onomatopoeia."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence includes more than a sound word; it also gives the fireworks a human action."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sound word boom clearly adds onomatopoeia."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not compare using like or as, and it does not directly rename the fireworks as something else."
+        }
+      ]
+    },
+    {
+      "item_id": "Q14",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the best answer is personification: the wind is given the human action of slapping."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence is not mainly exaggerating."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the wind is not directly described as another thing."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because no word in the sentence imitates a sound."
+        }
+      ]
+    },
+    {
+      "item_id": "Q15",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because a million times is a clear exaggeration, so the best answer is hyperbole."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the phrase is not functioning as a fixed idiom with a hidden meaning."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because nothing is directly compared to something else."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because no nonhuman thing is given a human action."
+        }
+      ]
+    },
+    {
+      "item_id": "Q16",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the bus is directly described as an oven, making metaphor the best answer."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because even though the sentence feels extreme, the main figurative move is the direct comparison."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not use like or as."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the phrase is not a common idiom."
+        }
+      ]
+    },
+    {
+      "item_id": "Q17",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the bee is compared to a tiny chainsaw using like, so simile is the best answer."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because buzzed suggests sound, but the main figurative device is the comparison created with like."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sentence is not mainly exaggerating."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the bee is not given a human action or feeling."
+        }
+      ]
+    },
+    {
+      "item_id": "Q18",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the clock is described as staring, which is a human action and shows personification."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does not rely on exaggeration."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the phrase is not a common idiomatic expression."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the clock is not directly called something else."
+        }
+      ]
+    },
+    {
+      "item_id": "Q19",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because the smile is directly described as sunshine, which makes metaphor the best answer."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence is not mainly exaggerating."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the smile is not given human traits; it is being compared to something else."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the phrase is not an established idiom."
+        }
+      ]
+    },
+    {
+      "item_id": "Q20",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "This is correct because Crash directly imitates the sound of the books falling, so onomatopoeia is the best answer."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "This is not correct because the sentence does include a simile, but the sound word is the strongest and most immediate device."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "This is not correct because the sentence is not mainly exaggerating."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This is not correct because the books are not given human actions or feelings."
+        }
+      ]
+    }
+  ]
+}
+</QUIZFORGE_JSON>
+

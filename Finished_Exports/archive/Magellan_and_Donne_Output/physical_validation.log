@@ -1,0 +1,49 @@
+
+============================================================
+PHYSICAL QUIZ VALIDATION STATISTICS
+============================================================
+
+ANSWER CHOICE STATISTICS
+----------------------------------------
+Total MC questions: 6
+Average choice length: 98.6 chars
+Min choice length: 66 chars
+Max choice length: 163 chars
+
+Correct answer distribution:
+  A: 2 (33.3%)
+  B: 1 (16.7%)
+  C: 2 (33.3%)
+  D: 1 (16.7%)
+
+Questions eligible for 2-column layout: 0/6
+
+QUESTION LENGTH STATISTICS
+----------------------------------------
+Total questions: 13
+Average question length: 252.6 chars
+Min question length: 0 chars
+Max question length: 1860 chars
+
+Questions over 200 chars (may need formatting review):
+  Q1: 1860 chars
+  Q7: 403 chars
+  Q13: 255 chars
+
+POINT VALUE DISTRIBUTION
+----------------------------------------
+Total points: 100
+Average points per question: 11.11
+
+Point value breakdown:
+  8 pt: 6 questions (66.7%)
+  9 pt: 2 questions (22.2%)
+  34 pt: 1 questions (11.1%)
+
+STIMULUS USAGE STATISTICS
+----------------------------------------
+Questions with stimuli: 7/9
+Average stimulus length: 1131.5 chars
+Unique stimuli: 2
+Questions per stimulus (avg): 3.5
+

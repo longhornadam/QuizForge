@@ -1,0 +1,216 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "More Than a Whistle and Preserve Endangered Languages",
+"items": [
+{
+"id": "q1",
+"type": "MC",
+"prompt": "<p>What is one key similarity between the two texts?</p>",
+"choices": [
+{"id": "A", "text": "Both emphasize that language is important to culture and identity", "correct": true},
+{"id": "B", "text": "Both describe detailed steps for creating entirely new languages", "correct": false},
+{"id": "C", "text": "Both focus mainly on tourism as the central idea of the text", "correct": false},
+{"id": "D", "text": "Both argue against teaching languages in schools or communities", "correct": false}
+]
+},
+{
+"id": "q2",
+"type": "MC",
+"prompt": "<p>How do the authors purposes differ between the two texts?</p>",
+"choices": [
+{"id": "A", "text": "The first text persuades readers while the second text informs readers", "correct": true},
+{"id": "B", "text": "Both authors try mainly to entertain readers with interesting stories", "correct": false},
+{"id": "C", "text": "Both authors argue strongly against preserving languages today", "correct": false},
+{"id": "D", "text": "The first explains history while the second tells a fictional story", "correct": false}
+]
+},
+{
+"id": "q3",
+"type": "MC",
+"prompt": "<p>Which idea is presented in both texts?</p>",
+"choices": [
+{"id": "A", "text": "Languages can connect people to their heritage and cultural identity", "correct": true},
+{"id": "B", "text": "Languages should only be used to support tourism in communities", "correct": false},
+{"id": "C", "text": "Governments should eliminate smaller languages to simplify communication", "correct": false},
+{"id": "D", "text": "Modern life makes communication between people nearly impossible", "correct": false}
+]
+},
+{
+"id": "q4",
+"type": "MC",
+"prompt": "<p>How does each text address the issue of language loss?</p>",
+"choices": [
+{"id": "A", "text": "Both describe language loss as a serious concern that affects people", "correct": true},
+{"id": "B", "text": "Both ignore the issue and focus on unrelated topics instead", "correct": false},
+{"id": "C", "text": "Both explain that language loss is not important in modern society", "correct": false},
+{"id": "D", "text": "Only the second text discusses language loss as a problem", "correct": false}
+]
+},
+{
+"id": "q5",
+"type": "MC",
+"prompt": "<p>What is one difference in how the texts support their ideas?</p>",
+"choices": [
+{"id": "A", "text": "The first uses general arguments while the second uses a specific example", "correct": true},
+{"id": "B", "text": "The first uses only a story while the second relies entirely on opinions", "correct": false},
+{"id": "C", "text": "Both rely only on statistics without examples or explanation", "correct": false},
+{"id": "D", "text": "Both use fictional examples instead of real world evidence", "correct": false}
+]
+},
+{
+"id": "q6",
+"type": "MC",
+"prompt": "<p>How do the texts differ in their discussion of solutions?</p>",
+"choices": [
+{"id": "A", "text": "Both suggest preserving languages through education and community efforts", "correct": true},
+{"id": "B", "text": "Only the first text suggests solutions to language loss", "correct": false},
+{"id": "C", "text": "Only the second text suggests solutions to language loss", "correct": false},
+{"id": "D", "text": "Neither text offers any solutions to address language loss", "correct": false}
+]
+},
+{
+"id": "q7",
+"type": "MC",
+"prompt": "<p>What role do communities play in both texts?</p>",
+"choices": [
+{"id": "A", "text": "Communities help maintain and pass on language across generations", "correct": true},
+{"id": "B", "text": "Communities are not mentioned in either text at all", "correct": false},
+{"id": "C", "text": "Communities replace traditional languages with new invented ones", "correct": false},
+{"id": "D", "text": "Communities prevent people from learning and using languages", "correct": false}
+]
+},
+{
+"id": "q8",
+"type": "MC",
+"prompt": "<p>How is tone different between the two texts?</p>",
+"choices": [
+{"id": "A", "text": "The first is persuasive and urgent while the second is informative and descriptive", "correct": true},
+{"id": "B", "text": "Both texts are humorous and meant to entertain readers", "correct": false},
+{"id": "C", "text": "The first is angry while the second is fictional in tone", "correct": false},
+{"id": "D", "text": "Both texts are casual and informal in their presentation", "correct": false}
+]
+},
+{
+"id": "q9",
+"type": "MC",
+"prompt": "<p>How do the authors develop their ideas differently?</p>",
+"choices": [
+{"id": "A", "text": "The first presents reasons and arguments while the second explains a real example", "correct": true},
+{"id": "B", "text": "Both texts use only personal stories without supporting evidence", "correct": false},
+{"id": "C", "text": "Both texts use step by step instructions to explain their ideas", "correct": false},
+{"id": "D", "text": "The second text uses no evidence to support its ideas", "correct": false}
+]
+},
+{
+"id": "q10",
+"type": "MC",
+"prompt": "<p>What overall message do both texts share?</p>",
+"choices": [
+{"id": "A", "text": "Preserving language is valuable for individuals and for society overall", "correct": true},
+{"id": "B", "text": "Language preservation is unnecessary in the modern world today", "correct": false},
+{"id": "C", "text": "Languages should only be used for basic communication purposes", "correct": false},
+{"id": "D", "text": "Modern languages are more important than traditional languages", "correct": false}
+]
+},
+{
+"id": "scr1",
+"type": "ESSAY",
+"prompt": "<p>Compare how the two texts explain the importance of preserving language. Describe one similarity and one difference in how the authors present their ideas. Use evidence from both texts.</p>",
+"length_guidance": "5-7 sentences"
+}
+],
+"rationales": [
+{
+"item_id": "q1",
+"choices": [
+{"id": "A", "correct": true, "rationale": "Both texts show language connects to identity and culture making it valuable to preserve."},
+{"id": "B", "correct": false, "rationale": "Neither text explains how to create new languages."},
+{"id": "C", "correct": false, "rationale": "Tourism is mentioned but is not the main idea of both texts."},
+{"id": "D", "correct": false, "rationale": "Both texts support language learning rather than argue against it."}
+]
+},
+{
+"item_id": "q2",
+"choices": [
+{"id": "A", "correct": true, "rationale": "One text argues for preservation while the other explains and informs about language."},
+{"id": "B", "correct": false, "rationale": "The texts are informative and persuasive not mainly entertaining."},
+{"id": "C", "correct": false, "rationale": "Both texts support preservation rather than oppose it."},
+{"id": "D", "correct": false, "rationale": "Neither text is a fictional story."}
+]
+},
+{
+"item_id": "q3",
+"choices": [
+{"id": "A", "correct": true, "rationale": "Both texts explain how language connects people to their history and identity."},
+{"id": "B", "correct": false, "rationale": "Tourism is not the main shared idea."},
+{"id": "C", "correct": false, "rationale": "The texts do not support eliminating languages."},
+{"id": "D", "correct": false, "rationale": "Communication is shown as possible and meaningful."}
+]
+},
+{
+"item_id": "q4",
+"choices": [
+{"id": "A", "correct": true, "rationale": "Both texts treat language loss as important and something worth addressing."},
+{"id": "B", "correct": false, "rationale": "Both texts clearly discuss language loss."},
+{"id": "C", "correct": false, "rationale": "They do not dismiss the issue as unimportant."},
+{"id": "D", "correct": false, "rationale": "Both texts address language loss not just one."}
+]
+},
+{
+"item_id": "q5",
+"choices": [
+{"id": "A", "correct": true, "rationale": "One text uses broader arguments while the other focuses on a specific example."},
+{"id": "B", "correct": false, "rationale": "Both texts use more than just stories or opinions."},
+{"id": "C", "correct": false, "rationale": "They include explanations not only statistics."},
+{"id": "D", "correct": false, "rationale": "The examples are real not fictional."}
+]
+},
+{
+"item_id": "q6",
+"choices": [
+{"id": "A", "correct": true, "rationale": "Both texts suggest education and community action as ways to preserve language."},
+{"id": "B", "correct": false, "rationale": "The second text also includes solutions."},
+{"id": "C", "correct": false, "rationale": "The first text also includes solutions."},
+{"id": "D", "correct": false, "rationale": "Both texts offer ideas for addressing language loss."}
+]
+},
+{
+"item_id": "q7",
+"choices": [
+{"id": "A", "correct": true, "rationale": "Both texts highlight communities passing language to future generations."},
+{"id": "B", "correct": false, "rationale": "Communities are clearly discussed in both texts."},
+{"id": "C", "correct": false, "rationale": "Communities are shown preserving not replacing languages."},
+{"id": "D", "correct": false, "rationale": "Communities support rather than prevent learning."}
+]
+},
+{
+"item_id": "q8",
+"choices": [
+{"id": "A", "correct": true, "rationale": "The tones differ with one urging action and the other explaining information."},
+{"id": "B", "correct": false, "rationale": "The texts are not written for humor."},
+{"id": "C", "correct": false, "rationale": "The tone is not angry or fictional."},
+{"id": "D", "correct": false, "rationale": "The tone is more formal than casual."}
+]
+},
+{
+"item_id": "q9",
+"choices": [
+{"id": "A", "correct": true, "rationale": "One text argues using reasons while the other develops ideas through an example."},
+{"id": "B", "correct": false, "rationale": "They include more than personal stories."},
+{"id": "C", "correct": false, "rationale": "They are not written as instructions."},
+{"id": "D", "correct": false, "rationale": "The second text does include supporting details."}
+]
+},
+{
+"item_id": "q10",
+"choices": [
+{"id": "A", "correct": true, "rationale": "Both texts show preserving language benefits individuals and communities."},
+{"id": "B", "correct": false, "rationale": "Both argue preservation is important not unnecessary."},
+{"id": "C", "correct": false, "rationale": "They show language has deeper cultural value beyond communication."},
+{"id": "D", "correct": false, "rationale": "They do not claim modern languages are more important."}
+]
+}
+]
+}
+</QUIZFORGE_JSON>

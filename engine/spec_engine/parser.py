@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
-from .models import QuestionType, QuizPayload, RationalesEntry
+from .models import ChoiceRationale, QuestionType, QuizPayload, RationalesEntry
 
 TAG_OPEN = "<QUIZFORGE_JSON>"
 TAG_CLOSE = "</QUIZFORGE_JSON>"
@@ -116,8 +116,34 @@ def _sanitize_item(item: Dict[str, Any]) -> Dict[str, Any]:
     return item
 
 
+def _parse_choice_rationales(raw_choices: Any) -> Optional[List[ChoiceRationale]]:
+    """Parse a raw choices list into ChoiceRationale objects.
+
+    Returns None if the input is not a valid non-empty list; individual malformed
+    entries are silently skipped.
+    """
+    if not isinstance(raw_choices, list) or not raw_choices:
+        return None
+    result: List[ChoiceRationale] = []
+    for choice in raw_choices:
+        if not isinstance(choice, dict):
+            continue
+        choice_id = choice.get("id")
+        correct = choice.get("correct")
+        rationale_text = choice.get("rationale")
+        if not (isinstance(choice_id, str) and isinstance(correct, bool) and isinstance(rationale_text, str)):
+            continue
+        result.append(ChoiceRationale(id=choice_id, correct=correct, rationale=rationale_text))
+    return result if result else None
+
+
 def _parse_rationales(raw: Any) -> List[RationalesEntry]:
-    """Convert raw rationales list into RationalesEntry objects, skipping invalid shapes."""
+    """Convert raw rationales list into RationalesEntry objects, skipping invalid shapes.
+
+    Each entry must contain a ``choices`` array where each element has ``id``,
+    ``correct``, and ``rationale`` fields. Entries without a valid ``choices``
+    array are silently skipped.
+    """
     if raw is None:
         return []
     if not isinstance(raw, list):
@@ -127,11 +153,13 @@ def _parse_rationales(raw: Any) -> List[RationalesEntry]:
         if not isinstance(entry, dict):
             continue
         item_id = entry.get("item_id")
-        rationale_text = entry.get("rationale")
-        if not (isinstance(item_id, str) and isinstance(rationale_text, str)):
+        if not isinstance(item_id, str):
             continue
-        rationale = RationalesEntry(item_id=item_id, rationale=rationale_text)
-        entries.append(rationale)
+
+        parsed_choices = _parse_choice_rationales(entry.get("choices"))
+        if parsed_choices is not None:
+            entries.append(RationalesEntry(item_id=item_id, choices=parsed_choices))
+
     return entries
 
 

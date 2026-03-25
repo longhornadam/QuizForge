@@ -1,0 +1,546 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Harry Potter and the Brainrot Curses — Passage 2: CURSE CHAOS",
+  "instructions": "<p>Read <strong>Passage 2 — \"CURSE CHAOS: Ministry Says 'Nothing to Worry About' as Grandmothers Get Stuck in Toilets\"</strong> and answer the questions that follow.</p>",
+  "metadata": {
+    "course": "7th Grade ELA",
+    "unit": "Unit 4",
+    "passage": "Passage 2 — CURSE CHAOS",
+    "teks_assessed": [
+      "7.8(D)(i)",
+      "7.8(D)(iii)",
+      "7.9(A)",
+      "7.5(F)",
+      "7.5(G)",
+      "7.5(E)",
+      "7.6(D)",
+      "7.2(B)"
+    ]
+  },
+  "items": [
+    {
+      "id": "q11",
+      "type": "MC",
+      "prompt": "<p>What is the main idea of the Daily Prophet article?</p>",
+      "choices": [
+        {
+          "text": "The Ministry of Magic is doing everything in its power to stop the curses from spreading.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "Strange new curses are overwhelming the wizarding world, but the Ministry won't take them seriously.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "Healers at St. Mungo's have discovered the cause of the brainrot curses.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Street vendors in Diagon Alley are the masterminds behind the curse epidemic.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "MC",
+      "prompt": "<p>Which detail from the article best supports its main idea?</p>",
+      "choices": [
+        {
+          "text": "Gerald Fudge was 74 and on his way to buy socks.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "The Daily Prophet arrived by owl while Harry was sitting alone in his quiet office.",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Padma says the curses are spreading quickly, while the Ministry calls them isolated incidents.",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "Several victims bought small enchanted objects from unlicensed street vendors.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "MC",
+      "prompt": "<p>How is the information in this article mostly organized?</p>",
+      "choices": [
+        {
+          "text": "It compares the brainrot curses to other historical events in the wizarding world.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "It describes the problem of the curses and then presents the different responses to it.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "It lists the curses in the order they were discovered, from first to last.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "It starts with a solution and then explains the problem that led to it.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "MC",
+      "prompt": "<p>Why did the author most likely write this article?</p>",
+      "choices": [
+        {
+          "text": "To entertain readers with funny descriptions of the curses",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "To convince readers that the Ministry is handling the growing situation well and deserves trust",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "To inform the public about a crisis officials are not taking seriously",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "To explain the science behind how the brainrot curses work",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "MC",
+      "prompt": "<p>Based on what the Ministry spokesperson says, the reader can tell that the Ministry —</p>",
+      "choices": [
+        {
+          "text": "has been secretly working on a cure for the curses",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "is trying to minimize the problem and avoid public concern",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "does not know the curses exist yet",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "believes the Healers are exaggerating the situation on purpose",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "MC",
+      "prompt": "<p>What can the reader conclude from Healer Padma Patil's statement?</p>",
+      "choices": [
+        {
+          "text": "She thinks the Ministry is either uninformed or deliberately hiding the truth.",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "She believes the curses are simply variations of dangerous hexes that already exist in records.",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "She is confident that St. Mungo's will find a cure soon.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "She agrees with the Ministry that the situation is under control.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "MC",
+      "prompt": "<p>Which sentence best summarizes the section about the six people frozen in the café?</p>",
+      "choices": [
+        {
+          "text": "Six people were stuck in a café for days, and tourists stared.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "Six victims froze for days, including a teen, and the Ministry called it isolated.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "Healers discovered a counter-curse that could help the frozen victims at the café.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "A seventeen-year-old girl was the youngest victim of the freezing curse in Hogsmeade.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "MC",
+      "prompt": "<p>Which detail is most important for understanding how serious the brainrot problem is?</p>",
+      "choices": [
+        {
+          "text": "Witnesses described Gerald Fudge's dancing curse as \"kind of catchy.\"",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "The wizard who couldn't stop flirting tried a pickup line on a mop.",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Six people were frozen in a café for days, and Healers found no counter-curse.",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "The Daily Prophet arrived by owl through Harry's window that morning.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "MC",
+      "prompt": "<p>Read this sentence from the article:</p><blockquote style='margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;'>\"Mr. Bellweather declined to comment on a report, buried in the Ministry's own quarterly review, that noted ambient magical energy levels across Britain have dropped 4.7 percent.\"</blockquote><p>As used in the article, the word <em>ambient</em> most likely means —</p>",
+      "choices": [
+        {
+          "text": "artificial and manufactured by wizards",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "present in the surrounding environment",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "dangerous and unstable",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "visible to trained wizards",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "MC",
+      "prompt": "<p>The Ministry's response to the brainrot epidemic is most like —</p>",
+      "choices": [
+        {
+          "text": "a doctor who correctly diagnoses a patient and prescribes the right treatment",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "a teacher who listens to a student's concern and immediately takes action",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "a company that ignores customer complaints and insists everything is fine",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "a coach who pushes a team to work harder after a difficult loss",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q11",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The article shows the opposite — the Ministry calls the crisis \"isolated incidents\" and refuses to act. This contradicts A."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "The article documents forty-seven victims and overwhelmed Healers while the Ministry dismisses the crisis as nothing to worry about."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Healer Patil says the curses are new and don't match existing records. The cause has not been discovered."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Vendors are mentioned as sellers, but the article says Aurors haven't identified them. They are not confirmed masterminds."
+        }
+      ]
+    },
+    {
+      "item_id": "q12",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Gerald Fudge's age and errand are background details about one victim, not evidence of the main idea's tension between crisis and denial."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "The owl delivery is Harry's framing detail, not part of the article itself. It doesn't support the article's main idea."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "Padma's warning directly clashes with the Ministry's dismissal — this single detail captures both the crisis and the denial in one sentence."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The vendor detail supports the investigation, but it doesn't show the contrast between the crisis and the Ministry's denial."
+        }
+      ]
+    },
+    {
+      "item_id": "q13",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The article does not compare the brainrot curses to any historical events. No past incidents are mentioned."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "The article opens with curse examples, then shifts to the Healers' alarm and the Ministry's dismissal — problem first, then responses."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The curses are grouped by type, not listed in chronological order of discovery."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "No solution is presented at any point. The article ends with the problem still unresolved and the Ministry still denying it."
+        }
+      ]
+    },
+    {
+      "item_id": "q14",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Humor appears in the article, but the author uses it to show how people downplay the crisis. Entertainment is not the purpose."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "The article directly challenges the Ministry's position. Romilda Skeeter is exposing their failure, not defending it."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "The article presents forty-seven victims, overwhelmed Healers, and a dismissive Ministry — informing the public about a crisis being ignored."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The article never explains how the curses work scientifically. Healer Patil says they don't even match existing records."
+        }
+      ]
+    },
+    {
+      "item_id": "q15",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The spokesperson's statement says nothing about a cure or secret efforts. The Ministry's language is about downplaying, not solving."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Bellweather calls forty-seven cases \"a small number\" and says there is \"no reason for alarm\" — language designed to shrink the problem."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The Ministry says it is \"aware\" and \"monitoring\" — they know the curses exist, they just refuse to treat them as serious."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The statement never mentions or challenges the Healers. The Ministry avoids engaging with Patil's claims entirely."
+        }
+      ]
+    },
+    {
+      "item_id": "q16",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "Patil says anyone who calls this not serious \"hasn't looked at the data or doesn't want you to see it\" — pointing to ignorance or a cover-up."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "Patil says the opposite: the curses \"don't match anything in our records\" and are entirely new, not variations of known hexes."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Nothing in Patil's statement suggests confidence about a cure. She emphasizes how fast cases are arriving, not progress toward a solution."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Patil directly contradicts the Ministry. She calls the crisis serious and accuses officials of hiding or ignoring the truth."
+        }
+      ]
+    },
+    {
+      "item_id": "q17",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The tourists are from a different section about Gerald Fudge, not the café. This mixes details from two separate incidents."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "This captures the key facts: six people frozen for days, a teenager among them, and the Ministry still dismissing it as isolated."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The article says Healers could find no counter-curse. This choice states the opposite of what happened."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "This focuses on one victim and misses the larger point — six people were frozen, and the Ministry's response was inadequate."
+        }
+      ]
+    },
+    {
+      "item_id": "q18",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Calling the curse \"catchy\" is a bystander reaction that shows how people downplay the crisis. It doesn't show the severity itself."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "The flirting wizard is humorous and strange, but his curse was treatable — they sedated him. It doesn't show the worst-case danger."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "Six people frozen for days with no counter-curse shows the curses can be untreatable and long-lasting — the clearest evidence of real danger."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The owl delivery is Harry's personal detail, not part of the article's evidence about the brainrot problem's seriousness."
+        }
+      ]
+    },
+    {
+      "item_id": "q19",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "\"Artificial\" means made by humans. The sentence describes energy levels \"across Britain\" — a natural background presence, not something manufactured."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "\"Ambient magical energy levels across Britain\" describes magic that exists naturally in the environment, like background radiation or air temperature."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The sentence reports a decline in energy levels, not that the energy itself is dangerous. \"Ambient\" describes location, not safety."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The sentence says the energy dropped 4.7 percent — it was measured, not seen. \"Ambient\" describes where it exists, not who can detect it."
+        }
+      ]
+    },
+    {
+      "item_id": "q20",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "A correct diagnosis means identifying the problem. The Ministry refuses to acknowledge the problem exists — the opposite of good diagnosis."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "Listening and acting are the opposite of what the Ministry does. Bellweather dismisses the crisis without engaging with the evidence."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "The Ministry hears the complaints (forty-seven victims, overwhelmed Healers) and insists everything is fine — exactly like a company ignoring customers."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "A coach pushing harder means responding to failure with effort. The Ministry isn't pushing — it's pretending there's no failure to respond to."
+        }
+      ]
+    }
+  ]
+}
+</QUIZFORGE_JSON>

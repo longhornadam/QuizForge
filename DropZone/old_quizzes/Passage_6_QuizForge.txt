@@ -1,0 +1,547 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Harry Potter and the Brainrot Curses — Passage 6: An Open Letter to the Ministry of Magic",
+  "instructions": "<p>Read <strong>Passage 6 — \"An Open Letter to the Ministry of Magic\"</strong> and answer the questions that follow.</p>",
+  "metadata": {
+    "course": "7th Grade ELA",
+    "unit": "Unit 4",
+    "passage": "Passage 6 — An Open Letter to the Ministry of Magic",
+    "teks_assessed": [
+      "7.8(E)(i)",
+      "7.8(E)(ii)",
+      "7.8(E)(iii)",
+      "7.9(G)",
+      "7.9(A)",
+      "7.5(F)",
+      "7.5(G)",
+      "7.6(D)",
+      "7.6(C)"
+    ]
+  },
+  "items": [
+    {
+      "id": "q51",
+      "type": "MC",
+      "prompt": "<p>What is Hermione's main claim in the op-ed?</p>",
+      "choices": [
+        {
+          "text": "Lily Longbottom should be punished severely for creating the brainrot curses.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "The adults and institutions bear more responsibility for the crisis than the teenager who created the curses.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "The Ministry has been doing its best but needs more funding to solve the problem.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Young people should be allowed to break the law if their message is important enough.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q52",
+      "type": "MC",
+      "prompt": "<p>How does Hermione support her argument?</p>",
+      "choices": [
+        {
+          "text": "By comparing the brainrot curses to curses from the first wizarding war",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "By listing the ways adults ignored Lily's warnings and describing the harm the curses caused",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "By providing statistics from St. Mungo's proving that the curses are not actually dangerous",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "By quoting other Ministry officials who agree with her position publicly",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q53",
+      "type": "MC",
+      "prompt": "<p>Who is Hermione most likely trying to reach with this op-ed?</p>",
+      "choices": [
+        {
+          "text": "Lily Longbottom and her family, as a personal apology",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "The Healers at St. Mungo's who are treating curse victims",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "Ministry officials and the public who can change institutions",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "Students at Hogwarts who might want to create their own curses",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q54",
+      "type": "MC",
+      "prompt": "<p>Why does Hermione most likely begin the op-ed with the question, \"What happens when a child tries to warn us that the world is breaking, and we tell her to sit down?\"</p>",
+      "choices": [
+        {
+          "text": "To test whether the reader already knows the answer before reading the rest",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "To make readers consider the cost of ignoring young warnings",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "To suggest that she does not actually know the answer herself",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "To entertain the reader with a dramatic opening before getting to the facts",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q55",
+      "type": "MC",
+      "prompt": "<p>Hermione uses the phrase \"building the silence that made it necessary\" most likely to —</p>",
+      "choices": [
+        {
+          "text": "describe a specific construction project the Ministry was working on",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "suggest that the adults' failure to listen was deliberate, something they created through neglect",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "explain that Lily operated in secret and few people knew what she was doing",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "show that the wizarding world has become a quieter, more peaceful place since the war",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q56",
+      "type": "MC",
+      "prompt": "<p>What is Hermione's main purpose for writing this op-ed?</p>",
+      "choices": [
+        {
+          "text": "To entertain readers with the story of how she met Lily Longbottom",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "To defend Lily and argue the Ministry must take responsibility for ignoring her",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "To explain the scientific details of how Focalis and ambient magical energy work",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "To announce her resignation from the Ministry of Magic",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q57",
+      "type": "MC",
+      "prompt": "<p>Based on the op-ed, the reader can tell that Hermione feels — about not listening to Lily sooner.</p>",
+      "choices": [
+        {
+          "text": "relieved, because she thinks Lily's methods ended up working",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "indifferent, because she believes Lily's research was not convincing",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "guilty, because she personally failed to respond to Lily's letter in a meaningful way",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "confused, because she still does not fully understand what Lily was trying to say about magic",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q58",
+      "type": "MC",
+      "prompt": "<p>Which detail is most important to understanding Hermione's argument?</p>",
+      "choices": [
+        {
+          "text": "Hermione's title is Senior Advisor in the Department of Magical Law Enforcement.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "The op-ed was published in the widely read Daily Prophet newspaper.",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "The Ministry secretly bought the product Lily's curses created while denying the problem existed.",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "Forty-seven witches and wizards were struck by curses over the past two months.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q59",
+      "type": "MC",
+      "prompt": "<p>Which statement best summarizes the counterargument in Hermione's op-ed?</p>",
+      "choices": [
+        {
+          "text": "The Ministry believes the curses are beneficial and should continue.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "Some argue that Lily broke the law, created dangerous curses, and caused real harm.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "Critics say that Hermione is writing the op-ed primarily to protect her own professional reputation.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Other Ministry officials think ambient magical energy is not actually declining.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q60",
+      "type": "MC",
+      "prompt": "<p>Which piece of evidence from the op-ed best supports the idea that adults are more responsible than Lily?</p>",
+      "choices": [
+        {
+          "text": "Lily is a Ravenclaw student at Hogwarts with top marks in all of her classes.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "The Ministry secretly purchased Focalis from Lily while denying the problem existed for months.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "Hermione is a Senior Advisor in the Department of Magical Law Enforcement.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Forty-seven people were cursed over a two-month period across Britain.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q51",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Hermione says Lily 'must be held accountable' but argues the adults failed first. Severe punishment is not her claim."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Hermione writes: 'the adults and institutions of the wizarding world bear more responsibility for this crisis than the teenager who created the curses.'"
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Hermione criticizes the Ministry for buying Focalis secretly while denying the problem. She is not defending their efforts."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Hermione explicitly acknowledges Lily broke the law and caused harm. She does not argue that good intentions excuse illegal action."
+        }
+      ]
+    },
+    {
+      "item_id": "q52",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Hermione never references curses from the first wizarding war. Her evidence is about current institutional failures, not historical comparisons."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Hermione lists three specific dismissals (professors, Ministry form letter, her own two-sentence reply) and describes frozen café victims — failures paired with consequences."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Hermione describes the curses as genuinely harmful, including a mother holding her frozen daughter's hand for thirty-one hours. She does not downplay the danger."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Hermione doesn't quote allies. She uses her own experience, Lily's evidence, and victim stories — not other officials' support."
+        }
+      ]
+    },
+    {
+      "item_id": "q53",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Hermione mentions her own failure toward Lily, but the op-ed calls for institutional change, not a personal apology to one family."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "Healers are mentioned as overwhelmed, but they're not the audience. Hermione's three demands are directed at the Ministry and the public."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "Hermione publishes in the Daily Prophet and calls on the Ministry to acknowledge, reform, and meet with Lily — targeting officials and the public who can act."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Hermione never encourages imitation. Her argument is about institutional accountability, not inspiring more student-made curses."
+        }
+      ]
+    },
+    {
+      "item_id": "q54",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "A rhetorical question is designed to provoke thought, not test knowledge. Hermione already knows the answer — we're living with it."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "The question frames the entire op-ed: adults ignored a child's warning, and the curses are the result. It makes readers sit with that consequence immediately."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Hermione answers her own question in the next line: 'We are now living with the answer.' She is certain, not uncertain."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The opening is emotionally charged but purposeful — it establishes her argument's foundation, not entertainment value."
+        }
+      ]
+    },
+    {
+      "item_id": "q55",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "'Building the silence' is figurative. No literal construction project is described — Hermione is talking about institutional neglect."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "'Building' makes the silence active, not passive — the adults didn't just fail to listen, they constructed the conditions that forced Lily to act."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The phrase describes what adults did, not what Lily did. The 'silence' was created by institutions ignoring her, not by Lily operating secretly."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "'Silence' here means ignoring warnings, not peacefulness. Hermione is criticizing the quiet that let a crisis grow, not celebrating calm."
+        }
+      ]
+    },
+    {
+      "item_id": "q56",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The op-ed is serious policy argument, not storytelling. Hermione describes meeting a frozen victim's mother — that's evidence, not entertainment."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Hermione defends Lily's underlying cause, admits her own failure, and demands the Ministry take responsibility — defense paired with a call to action."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Focalis is mentioned briefly as context, not explained in scientific detail. The op-ed's purpose is institutional accountability, not science education."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Hermione never mentions resigning. She calls for the Ministry to reform from within, using her Senior Advisor position as leverage."
+        }
+      ]
+    },
+    {
+      "item_id": "q57",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Hermione describes frozen victims and a mother holding her daughter's hand for thirty-one hours. She clearly does not view the outcome as a relief."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "Hermione calls Lily 'one of the most gifted researchers I have encountered.' She takes the research seriously — indifference is the opposite of her tone."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "Hermione writes that she replied to Lily's letter six months late with two sentences and says 'That failure is mine, and I will carry it.'"
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Hermione clearly understands Lily's argument — she explains Focalis and declining magic. Her issue was not confusion but inaction."
+        }
+      ]
+    },
+    {
+      "item_id": "q58",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Hermione's title gives her credibility, but it doesn't prove adults are more responsible. It's about who she is, not what institutions did wrong."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "Where the op-ed was published is a distribution detail. It doesn't support the argument that adults failed to act."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "The Ministry buying Focalis while denying the problem proves institutional hypocrisy — they used Lily's product and pretended she was wrong. That's the strongest evidence of adult failure."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The victim count shows the crisis is real, but it doesn't directly prove adult responsibility. It shows harm, not who caused the conditions for it."
+        }
+      ]
+    },
+    {
+      "item_id": "q59",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "No one in the op-ed argues the curses are beneficial. The counterargument is about Lily's lawbreaking, not about endorsing the curses."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Hermione writes that critics are 'not entirely wrong' that Lily broke the law, created dangerous curses, and caused harm — that's the counterargument she addresses."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "No one in the op-ed accuses Hermione of writing for self-protection. This is not a counterargument Hermione acknowledges or addresses."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The op-ed doesn't present anyone challenging whether magic is actually declining. Hermione treats the decline as established fact."
+        }
+      ]
+    },
+    {
+      "item_id": "q60",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Lily's academic record shows she's talented, but it doesn't prove adults bear more responsibility than she does for the crisis."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "The Ministry secretly buying Focalis while publicly denying the problem is direct proof of institutional hypocrisy — they profited from what they claimed didn't exist."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Hermione's job title establishes her authority to speak, but it's not evidence that adults are more responsible than Lily."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The victim count shows the scope of harm, but it doesn't distinguish between Lily's responsibility and the adults' responsibility."
+        }
+      ]
+    }
+  ]
+}
+</QUIZFORGE_JSON>

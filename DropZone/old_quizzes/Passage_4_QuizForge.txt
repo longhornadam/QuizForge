@@ -1,0 +1,545 @@
+<QUIZFORGE_JSON>
+{
+  "version": "3.0-json",
+  "title": "Harry Potter and the Brainrot Curses — Passage 4: The Naming",
+  "instructions": "<p>Read <strong>Passage 4 — \"The Naming\"</strong> and answer the questions that follow.</p>",
+  "metadata": {
+    "course": "7th Grade ELA",
+    "unit": "Unit 4",
+    "passage": "Passage 4 — The Naming",
+    "teks_assessed": [
+      "7.8(C)",
+      "7.9(D)",
+      "7.7(A)",
+      "7.9(A)",
+      "7.2(B)",
+      "7.5(E)",
+      "7.5(F)"
+    ]
+  },
+  "items": [
+    {
+      "id": "q31",
+      "type": "MC",
+      "prompt": "<p>How does the structure of the poem help the reader understand its meaning?</p>",
+      "choices": [
+        {
+          "text": "The poem uses a question-and-answer format to present two sides of an argument.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "The first half shows burden, and the second shifts to self-definition.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "The poem tells a story from beginning to end, showing how the speaker's life changed.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "Each stanza introduces a different character who was named after someone who died.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "type": "MC",
+      "prompt": "<p>The poet repeats the word \"They\" at the beginning of several lines most likely to —</p>",
+      "choices": [
+        {
+          "text": "show that the speaker has many different enemies",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "emphasize how much pressure the adults have put on the speaker",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "suggest that the speaker does not know exactly who named them originally",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "create a rhythm that makes the poem easier to memorize",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "type": "MC",
+      "prompt": "<p>In the poem, what does the comparison of carrying a name to handing a child a glass vase suggest about the speaker?</p>",
+      "choices": [
+        {
+          "text": "The speaker was given something fragile and burdensome that they must protect without being asked.",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "The speaker feels proud to carry a name that represents something valuable.",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "The speaker is careless and has broken the trust that was given to them.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "The speaker wants to give the name back but does not know how.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "type": "MC",
+      "prompt": "<p>The poet writes, \"The name whispers to me at night.\" This line describes the name as if it were a living thing. This most likely shows that the speaker feels —</p>",
+      "choices": [
+        {
+          "text": "comforted by the connection to the person they were named after",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "haunted by a name that constantly reminds them of someone else's expectations",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "curious about the person they were named after and wants to learn much more about them",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "proud that the name carries so much meaning and history",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "type": "MC",
+      "prompt": "<p>What is the main message of the poem?</p>",
+      "choices": [
+        {
+          "text": "Young people should honor the sacrifices of past generations by living up to the names they were given.",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "Young people deserve to define themselves rather than be defined by expectations of the past.",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "War often leads to suffering that lasts across many generations.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "It is important to remember the people who died so their stories are not forgotten.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "type": "MC",
+      "prompt": "<p>How does the change in tone in the middle of the poem help develop the poem's message?</p>",
+      "choices": [
+        {
+          "text": "The shift from resentment to defiance shows the speaker moving from feeling trapped to choosing freedom.",
+          "correct": true,
+          "id": "A"
+        },
+        {
+          "text": "The shift from sadness to anger shows the speaker blaming adults for all of their problems.",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "The shift from joy to sorrow shows the speaker losing hope over time.",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "The shift from confusion to understanding shows the speaker finally learning exactly why they were named.",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "type": "MC",
+      "prompt": "<p>The poet most likely wrote this poem to —</p>",
+      "choices": [
+        {
+          "text": "convince adults to stop naming children after people who died",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "express how it feels to carry the weight of someone else's legacy",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "describe what life was like during the wizarding war for families",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "entertain readers with a creative and emotional story about old naming traditions",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "type": "MC",
+      "prompt": "<p>Read this sentence from the passage:</p><blockquote style='margin: 10px 0; padding: 12px 16px; border-left: 4px solid #4a90e2; background-color: #f8f9fa; font-style: italic;'>\"War memorabilia covered every wall — a cracked wand in a glass case, a scorch mark 'preserved from the Battle of Hogwarts,' framed photographs of people who died before most of the current customers were born.\"</blockquote><p>The word <em>memorabilia</em> most likely means —</p>",
+      "choices": [
+        {
+          "text": "decorations put up to make a room look more attractive",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "objects kept as reminders of events or people from the past",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "valuable antiques that are collected and sold for profit",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "magical artifacts that still contain traces of old spells",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "type": "MC",
+      "prompt": "<p>The speaker's experience of being named after someone is most similar to —</p>",
+      "choices": [
+        {
+          "text": "a student who is excited to follow in a parent's footsteps",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "a person who changes their name to start a new life",
+          "correct": false,
+          "id": "B"
+        },
+        {
+          "text": "a child who is constantly compared to an older sibling and expected to match them",
+          "correct": true,
+          "id": "C"
+        },
+        {
+          "text": "a teenager who chooses a role model and tries to copy everything they do",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "type": "MC",
+      "prompt": "<p>Based on the last lines of the poem, the reader can tell that the speaker —</p>",
+      "choices": [
+        {
+          "text": "has given up trying to be different from the person they were named after",
+          "correct": false,
+          "id": "A"
+        },
+        {
+          "text": "is ready to create their own identity even if adults do not support them",
+          "correct": true,
+          "id": "B"
+        },
+        {
+          "text": "plans to leave home and start over somewhere far from the adults who named them",
+          "correct": false,
+          "id": "C"
+        },
+        {
+          "text": "forgives the adults who named them and understands why they did it",
+          "correct": false,
+          "id": "D"
+        }
+      ]
+    }
+  ],
+  "rationales": [
+    {
+      "item_id": "q31",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The poem does not use questions and answers. It moves from describing weight to claiming independence — a shift, not a debate."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "The first lines describe being handed a name like a glass vase; the ending declares 'I am the word they haven't learned yet' — burden to self-definition."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The poem is not chronological narrative. It contrasts feelings about the past with a declaration about the future."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The poem has one speaker throughout. It does not introduce multiple named characters in separate stanzas."
+        }
+      ]
+    },
+    {
+      "item_id": "q32",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "'They' refers to the adults who named the speaker, not enemies. The tone is burdened, not combative."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "Repeating 'They' at each line's start stacks the weight of adult expectations — they gave, they said, they named, they watched — building pressure line by line."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The speaker clearly knows who 'They' are — the adults and family members who named them after war heroes."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Anaphora can create rhythm, but the poem's purpose is emotional weight, not memorability. The repetition builds pressure, not a beat."
+        }
+      ]
+    },
+    {
+      "item_id": "q33",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "A glass vase is fragile and burdensome — you must carry it carefully, and you never asked for it. The name works the same way."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "The vase comparison emphasizes burden, not pride. You hand a child something breakable and tell them 'don't drop it' — that's obligation, not honor."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The poem never suggests the speaker broke anything. The vase is still being carried — carefully, reluctantly, but not dropped."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The poem's ending is about self-definition, not returning the name. The speaker moves forward, not backward."
+        }
+      ]
+    },
+    {
+      "item_id": "q34",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "Whispering at night suggests something inescapable and unsettling, not comforting. Comfort would not keep the speaker awake."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "A name that whispers at night acts like a persistent, uninvited presence — always reminding the speaker of who they're supposed to be."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Curiosity implies wanting to learn more. The poem shows the speaker already knows too much about the expectations attached to the name."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Pride would make the whispering welcome. The poem frames it as intrusive — the name won't let the speaker rest."
+        }
+      ]
+    },
+    {
+      "item_id": "q35",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "This is the expectation the poem pushes against. The speaker rejects the idea that honoring the past means losing your own identity."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "The poem ends with 'I am the word they haven't learned yet — new, undefined, mine.' The speaker claims the right to self-definition."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "War's lasting effects appear in the poem, but as context, not the main message. The focus is on identity, not suffering."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Remembering the dead is what the adults do. The poem asks whether the living should be forced to carry that remembrance as their identity."
+        }
+      ]
+    },
+    {
+      "item_id": "q36",
+      "choices": [
+        {
+          "id": "A",
+          "correct": true,
+          "rationale": "The early lines express resentment about being burdened; the later lines shift to defiance with 'I am not a monument' — trapped to free."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "The speaker doesn't blame adults for everything. The shift is toward self-empowerment, not toward assigning total blame."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The poem never begins with joy. The opening lines describe the weight of a name — the tone starts heavy, not happy."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The speaker doesn't arrive at understanding of why they were named. The shift is from resentment to defiance, not confusion to clarity."
+        }
+      ]
+    },
+    {
+      "item_id": "q37",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The poem questions the practice but doesn't demand adults stop. It expresses how the naming feels, not what adults should do differently."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "The poem's core is emotional expression — what it feels like to grow up defined by someone else's story, carrying a legacy you didn't choose."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The war is background context. The poem focuses on the post-war generation's experience, not wartime events."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The poem is deeply personal and serious. Entertainment is not its purpose — it's a genuine statement about identity and pressure."
+        }
+      ]
+    },
+    {
+      "item_id": "q38",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The items are specifically connected to war events and dead people — they're preserved as memory, not hung up for looks."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "A cracked wand, a preserved scorch mark, and photos of the dead are all objects kept to remember the war — memorabilia means memory-objects."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "Nothing in the passage suggests the items are for sale. They're displayed on the pub walls, not in a shop."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "The passage doesn't say the objects still work or contain active magic. They're preserved as reminders, not as functional artifacts."
+        }
+      ]
+    },
+    {
+      "item_id": "q39",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The speaker is burdened, not excited. Following in footsteps implies enthusiasm — the poem conveys obligation and weight."
+        },
+        {
+          "id": "B",
+          "correct": false,
+          "rationale": "Changing your name is an active escape. The speaker hasn't escaped — they're still carrying the name and pushing against it from within."
+        },
+        {
+          "id": "C",
+          "correct": true,
+          "rationale": "Being constantly compared to someone and expected to match them is exactly the speaker's experience — measured against a person they never met."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Choosing a role model is voluntary. The speaker was given a name without being asked — there's no choice involved."
+        }
+      ]
+    },
+    {
+      "item_id": "q40",
+      "choices": [
+        {
+          "id": "A",
+          "correct": false,
+          "rationale": "The last lines are declarations of independence — 'new, undefined, mine.' Giving up would sound like resignation, not defiance."
+        },
+        {
+          "id": "B",
+          "correct": true,
+          "rationale": "'If they won't make room for me, I will make my own' shows the speaker is ready to build their own identity regardless of adult approval."
+        },
+        {
+          "id": "C",
+          "correct": false,
+          "rationale": "The poem says nothing about leaving home physically. The speaker is claiming emotional and identity independence, not running away."
+        },
+        {
+          "id": "D",
+          "correct": false,
+          "rationale": "Forgiveness is absent from the ending. The speaker asserts independence — 'I will make my own' — without offering understanding or reconciliation."
+        }
+      ]
+    }
+  ]
+}
+</QUIZFORGE_JSON>

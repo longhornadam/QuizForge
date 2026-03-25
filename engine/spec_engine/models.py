@@ -23,11 +23,24 @@ QuestionType = Literal[
 
 
 @dataclass
+class ChoiceRationale:
+    """Per-choice rationale entry for a single answer option."""
+
+    id: str
+    correct: bool
+    rationale: str
+
+
+@dataclass
 class RationalesEntry:
-    """Single rationale aligned to a scored item."""
+    """Rationale aligned to a scored item.
+
+    Each entry contains a ``choices`` list with one :class:`ChoiceRationale` per
+    answer option, covering both the correct answer and every distractor.
+    """
 
     item_id: str
-    rationale: str
+    choices: List[ChoiceRationale] = field(default_factory=list)
 
 
 @dataclass

@@ -253,92 +253,84 @@ def _create_answer_key(quiz: Quiz, output_folder: str) -> str:
 
 
 def _create_rationale_sheet(quiz: Quiz, output_folder: str) -> str:
-    """Generate student rationale/corrections sheet DOCX."""
-    from docx import Document
-    from docx.shared import Inches, Pt
-    
-    doc = Document()
-    
-    # Set margins
-    sections = doc.sections
-    for section in sections:
-        section.top_margin = Inches(DOCX_MARGIN_TOP)
-        section.bottom_margin = Inches(DOCX_MARGIN_BOTTOM)
-        section.left_margin = Inches(DOCX_MARGIN_LEFT)
-        section.right_margin = Inches(DOCX_MARGIN_RIGHT)
-    
-    # Add title
-    title = doc.add_paragraph(f"{quiz.title} - Rationales")
-    title_format = title.runs[0].font
-    title_format.name = DOCX_FONT_FAMILY
-    title_format.size = Pt(DOCX_TITLE_SIZE)
-    title_format.bold = True
-    
-    # Add instructions
-    instructions = doc.add_paragraph("Use this sheet to write corrections for questions you missed.")
-    instructions_format = instructions.runs[0].font
-    instructions_format.name = DOCX_FONT_FAMILY
-    instructions_format.size = Pt(DOCX_BODY_SIZE)
-    
-    doc.add_paragraph()  # blank line
-    
-    # Build rationale lookup by item_id if available
-    rationale_lookup = {}
-    for entry in quiz.rationales or []:
-        if isinstance(entry, dict):
-            item_id = entry.get("item_id")
-            if item_id:
-                rationale_lookup[item_id] = entry.get("text") or entry.get("correct") or ""
-        elif isinstance(entry, str):
-            # fallback parsing "id: text"
-            if ":" in entry:
-                item_id, text = entry.split(":", 1)
-                rationale_lookup[item_id.strip()] = text.strip()
-    
-    # Process questions
-    question_number = 1
+    """Generate per-choice rationale/corrections sheet DOCX via CorrectionDocRenderer."""
+    from engine.core.questions import StimulusItem, StimulusEnd, MCQuestion, MAQuestion
+    from engine.spec_engine.models import PackagedQuiz, RationalesEntry, ChoiceRationale
+    from engine.rendering.correction_doc import CorrectionDocRenderer
+
+    _CHOICE_IDS = "ABCDEFGHIJ"
+
+    # Build item dicts compatible with CorrectionDocRenderer
+    items: list = []
     for question in quiz.questions:
-        from engine.core.questions import StimulusItem, StimulusEnd
-        
-        # Skip non-scorable questions
         if isinstance(question, (StimulusItem, StimulusEnd)):
             continue
-        
-        # Skip ESSAY and FILEUPLOAD (no rationales needed)
-        if question.qtype in ['ESSAY', 'FILEUPLOAD']:
-            question_number += 1
+        item_dict: dict = {
+            "type": question.qtype,
+            "id": getattr(question, "forced_ident", None) or question.qtype,
+            "prompt": question.prompt,
+        }
+        if isinstance(question, (MCQuestion, MAQuestion)):
+            item_dict["choices"] = [
+                {"id": _CHOICE_IDS[i], "text": c.text, "correct": c.correct}
+                for i, c in enumerate(question.choices)
+            ]
+        items.append(item_dict)
+
+    # Reconstruct RationalesEntry objects, re-keying rationales to the current
+    # (possibly balance_answers-shuffled) item choices by normalised choice text.
+    # importers.py stores a "text" field on each rationale choice for exactly this.
+    item_choices_by_id = {
+        d["id"]: d.get("choices", [])
+        for d in items
+        if d.get("type") in ("MC", "MA")
+    }
+
+    rationales: list = []
+    for r in quiz.rationales or []:
+        if not (isinstance(r, dict) and r.get("choices")):
             continue
-        
-        rationale = None
-        q_id = getattr(question, "forced_ident", None)
-        if q_id and q_id in rationale_lookup:
-            rationale = rationale_lookup[q_id]
+        item_id = r["item_id"]
+        current_choices = item_choices_by_id.get(item_id, [])
+        if not current_choices:
+            continue
 
-        # Fallback to basic rationale if missing
-        if not rationale:
-            rationale = _format_rationale_with_answer(question)
-        
-        # Format: "Q# - Rationale text"
-        p = doc.add_paragraph()
-        q_prefix = p.add_run(f"Q{question_number} - ")
-        q_prefix.bold = True
-        q_prefix.font.name = DOCX_FONT_FAMILY
-        q_prefix.font.size = Pt(DOCX_BODY_SIZE)
-        
-        rationale_run = p.add_run(rationale)
-        rationale_run.font.name = DOCX_FONT_FAMILY
-        rationale_run.font.size = Pt(DOCX_BODY_SIZE)
-        
-        # No blank lines needed between rationales
-        
-        question_number += 1
-    
+        # Build normalised-text → stored-choice-dict lookup
+        text_to_stored = {}
+        for c in r["choices"]:
+            key = c.get("text", "").strip().lower()
+            if key:
+                text_to_stored[key] = c
 
-    # Footer removed as per updated requirements
-    
-    # Save document
+        # Align each current (possibly reordered) choice to its correct rationale
+        new_choices: list = []
+        for curr in current_choices:
+            curr_text = curr.get("text", "").strip().lower()
+            stored = text_to_stored.get(curr_text)
+            if stored:
+                new_choices.append(ChoiceRationale(
+                    id=curr["id"],
+                    correct=bool(curr.get("correct")),
+                    rationale=stored["rationale"],
+                ))
+
+        if new_choices:
+            rationales.append(RationalesEntry(item_id=item_id, choices=new_choices))
+
+    packaged = PackagedQuiz(
+        version="3.0-json",
+        title=quiz.title,
+        metadata={},
+        items=items,
+        rationales=rationales,
+        instructions=getattr(quiz, "instructions", "") or "",
+    )
+
+    renderer = CorrectionDocRenderer()
+    docx_bytes = renderer.render_docx(packaged)
+
     output_path = Path(output_folder) / f"{sanitize_filename(quiz.title)}_RATIONALE.docx"
-    doc.save(str(output_path))
+    output_path.write_bytes(docx_bytes)
     return str(output_path)
 
 

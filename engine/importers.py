@@ -316,11 +316,31 @@ def _packaged_to_domain(packaged) -> Quiz:
 
         questions.append(q)
 
+    # Build item_id → {choice_id: choice_text} so rationale entries can be
+    # matched by choice text later (choice order may be shuffled by balance_answers).
+    item_choice_text: dict = {}
+    for _item in packaged.items:
+        _iid = _item.get("id")
+        if _iid:
+            item_choice_text[_iid] = {
+                _c.get("id"): _c.get("text", "") for _c in _item.get("choices", [])
+            }
+
     rationale_entries = []
     for r in packaged.rationales:
-        rationale_entries.append(
-            {"item_id": r.item_id, "text": r.rationale}
-        )
+        choice_texts = item_choice_text.get(r.item_id, {})
+        rationale_entries.append({
+            "item_id": r.item_id,
+            "choices": [
+                {
+                    "id": c.id,
+                    "correct": c.correct,
+                    "rationale": c.rationale,
+                    "text": choice_texts.get(c.id, ""),
+                }
+                for c in r.choices
+            ],
+        })
 
     title = packaged.title or "Untitled Quiz"
     instructions = packaged.instructions or ""

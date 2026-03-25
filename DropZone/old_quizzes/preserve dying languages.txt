@@ -1,0 +1,256 @@
+<QUIZFORGE_JSON>
+{
+"version": "3.0-json",
+"title": "Preserve Endangered Languages",
+"items": [
+{
+"id": "q1",
+"type": "MC",
+"prompt": "<p>What is the central idea of the text about endangered languages?</p>",
+"choices": [
+{"id": "A", "text": "Governments should preserve endangered languages because they have important benefits", "correct": true},
+{"id": "B", "text": "Governments should stop funding language programs that serve small groups", "correct": false},
+{"id": "C", "text": "Endangered languages are too difficult for most people to learn today", "correct": false},
+{"id": "D", "text": "Only historians gain value from studying endangered languages today", "correct": false}
+]
+},
+{
+"id": "q2",
+"type": "MC",
+"prompt": "<p>Which sentence best supports the idea that language is part of culture?</p>",
+"choices": [
+{"id": "A", "text": "Language is more than a way to communicate", "correct": true},
+{"id": "B", "text": "Every year languages around the world disappear", "correct": false},
+{"id": "C", "text": "Schools can play an important role in preservation efforts", "correct": false},
+{"id": "D", "text": "Some argue governments should not spend time on this issue", "correct": false}
+]
+},
+{
+"id": "q3",
+"type": "MC",
+"prompt": "<p>What is the author main purpose in the text?</p>",
+"choices": [
+{"id": "A", "text": "To persuade readers that endangered languages should be preserved", "correct": true},
+{"id": "B", "text": "To explain how people can quickly learn many different languages", "correct": false},
+{"id": "C", "text": "To describe different categories and types of languages worldwide", "correct": false},
+{"id": "D", "text": "To entertain readers with stories about unusual languages", "correct": false}
+]
+},
+{
+"id": "q4",
+"type": "MC",
+"prompt": "<p>How is the text mainly organized?</p>",
+"choices": [
+{"id": "A", "text": "Problem and solution structure showing issue and possible actions", "correct": true},
+{"id": "B", "text": "Chronological order explaining events over time in sequence", "correct": false},
+{"id": "C", "text": "Compare and contrast between different language systems", "correct": false},
+{"id": "D", "text": "Cause and effect focusing only on results of language loss", "correct": false}
+]
+},
+{
+"id": "q5",
+"type": "MC",
+"prompt": "<p>Which option shows a benefit of preserving endangered languages?</p>",
+"choices": [
+{"id": "A", "text": "It supports cultural identity and strengthens community pride", "correct": true},
+{"id": "B", "text": "It reduces the total number of languages spoken worldwide", "correct": false},
+{"id": "C", "text": "It eliminates the need for global languages like English", "correct": false},
+{"id": "D", "text": "It replaces modern education systems with traditional ones", "correct": false}
+]
+},
+{
+"id": "q6",
+"type": "MC",
+"prompt": "<p>According to the text why can lost languages not be recreated?</p>",
+"choices": [
+{"id": "A", "text": "Their unique histories and knowledge disappear with them over time", "correct": true},
+{"id": "B", "text": "They are too difficult for modern people to relearn effectively", "correct": false},
+{"id": "C", "text": "They are no longer useful in modern global society today", "correct": false},
+{"id": "D", "text": "Governments do not allow those languages to return once lost", "correct": false}
+]
+},
+{
+"id": "q7",
+"type": "MC",
+"prompt": "<p>How do schools help preserve endangered languages?</p>",
+"choices": [
+{"id": "A", "text": "By offering classes that teach endangered languages to students", "correct": true},
+{"id": "B", "text": "By focusing only on widely used global languages for communication", "correct": false},
+{"id": "C", "text": "By reducing cultural programs connected to language learning", "correct": false},
+{"id": "D", "text": "By replacing traditional languages with more modern ones", "correct": false}
+]
+},
+{
+"id": "q8",
+"type": "MC",
+"prompt": "<p>What is one counterargument mentioned in the text?</p>",
+"choices": [
+{"id": "A", "text": "Resources should focus on science technology and global communication", "correct": true},
+{"id": "B", "text": "Endangered languages are easy to preserve with little effort", "correct": false},
+{"id": "C", "text": "Cultural identity has little importance in modern society", "correct": false},
+{"id": "D", "text": "All governments already support language preservation equally", "correct": false}
+]
+},
+{
+"id": "q9",
+"type": "MC",
+"prompt": "<p>What does the word safeguards most nearly mean in paragraph one?</p>",
+"choices": [
+{"id": "A", "text": "Protects something from harm or loss", "correct": true},
+{"id": "B", "text": "Ignores something that is not important", "correct": false},
+{"id": "C", "text": "Replaces something with a newer version", "correct": false},
+{"id": "D", "text": "Changes something into a different form", "correct": false}
+]
+},
+{
+"id": "q10",
+"type": "MC",
+"prompt": "<p>What does the word fade most nearly mean in paragraph two?</p>",
+"choices": [
+{"id": "A", "text": "Become unclear or gradually disappear over time", "correct": true},
+{"id": "B", "text": "Grow stronger and more widely used each year", "correct": false},
+{"id": "C", "text": "Spread quickly across many different regions", "correct": false},
+{"id": "D", "text": "Improve and become more effective for communication", "correct": false}
+]
+},
+{
+"id": "q11",
+"type": "MC",
+"prompt": "<p>What can the reader infer about the author view on modernization?</p>",
+"choices": [
+{"id": "A", "text": "Modernization and cultural preservation can exist together effectively", "correct": true},
+{"id": "B", "text": "Modernization is harmful and should be completely avoided", "correct": false},
+{"id": "C", "text": "Modernization should be ignored in favor of older traditions", "correct": false},
+{"id": "D", "text": "Traditional lifestyles should replace all modern developments", "correct": false}
+]
+},
+{
+"id": "q12",
+"type": "MC",
+"prompt": "<p>Which detail best supports the idea that endangered languages help researchers?</p>",
+"choices": [
+{"id": "A", "text": "Researchers and historians rely on languages to study the past", "correct": true},
+{"id": "B", "text": "Schools can play an important role in preserving languages", "correct": false},
+{"id": "C", "text": "Communities may experience growth in tourism over time", "correct": false},
+{"id": "D", "text": "Every year languages disappear around the world", "correct": false}
+]
+},
+{
+"id": "scr1",
+"type": "ESSAY",
+"prompt": "<p>Why might preserving endangered languages increase tourism? Use evidence from the text to support your response.</p>",
+"length_guidance": "4-6 sentences"
+}
+],
+"rationales": [
+{
+"item_id": "q1",
+"choices": [
+{"id": "A", "correct": true, "rationale": "This answer captures the full claim that preservation provides important cultural and practical benefits."},
+{"id": "B", "correct": false, "rationale": "This contradicts the text which argues for funding rather than eliminating programs."},
+{"id": "C", "correct": false, "rationale": "Difficulty is not the main focus of the text central idea."},
+{"id": "D", "correct": false, "rationale": "The text shows many groups benefit not just historians."}
+]
+},
+{
+"item_id": "q2",
+"choices": [
+{"id": "A", "correct": true, "rationale": "This statement shows language carries deeper meaning tied to identity and culture."},
+{"id": "B", "correct": false, "rationale": "This fact shows loss but does not explain cultural connection."},
+{"id": "C", "correct": false, "rationale": "This explains a solution not cultural significance."},
+{"id": "D", "correct": false, "rationale": "This introduces a counterargument not cultural meaning."}
+]
+},
+{
+"item_id": "q3",
+"choices": [
+{"id": "A", "correct": true, "rationale": "The author presents reasons and evidence to convince readers preservation is important."},
+{"id": "B", "correct": false, "rationale": "The text does not teach language learning methods."},
+{"id": "C", "correct": false, "rationale": "Describing types is not the main goal of the argument."},
+{"id": "D", "correct": false, "rationale": "The tone is informative and persuasive not entertaining."}
+]
+},
+{
+"item_id": "q4",
+"choices": [
+{"id": "A", "correct": true, "rationale": "The text presents language loss as a problem and offers preservation as a solution."},
+{"id": "B", "correct": false, "rationale": "Events are not arranged mainly by time sequence."},
+{"id": "C", "correct": false, "rationale": "The text does not compare two main subjects throughout."},
+{"id": "D", "correct": false, "rationale": "Cause and effect appears but is not the primary structure."}
+]
+},
+{
+"item_id": "q5",
+"choices": [
+{"id": "A", "correct": true, "rationale": "The text explains preservation strengthens identity and pride in communities."},
+{"id": "B", "correct": false, "rationale": "Preservation increases not reduces language diversity."},
+{"id": "C", "correct": false, "rationale": "The text does not argue global languages should disappear."},
+{"id": "D", "correct": false, "rationale": "Education is supported not replaced by preservation."}
+]
+},
+{
+"item_id": "q6",
+"choices": [
+{"id": "A", "correct": true, "rationale": "The text explains that once lost the knowledge and history cannot be recovered."},
+{"id": "B", "correct": false, "rationale": "Difficulty is not the reason given for loss permanence."},
+{"id": "C", "correct": false, "rationale": "Usefulness is not why they cannot be recreated."},
+{"id": "D", "correct": false, "rationale": "Government rules are not the cause described."}
+]
+},
+{
+"item_id": "q7",
+"choices": [
+{"id": "A", "correct": true, "rationale": "The text states schools can offer classes to help preserve languages."},
+{"id": "B", "correct": false, "rationale": "Focusing only on global languages does not preserve endangered ones."},
+{"id": "C", "correct": false, "rationale": "Reducing programs would harm preservation efforts."},
+{"id": "D", "correct": false, "rationale": "Replacing languages contradicts preservation."}
+]
+},
+{
+"item_id": "q8",
+"choices": [
+{"id": "A", "correct": true, "rationale": "This reflects the opposing view that resources should focus elsewhere."},
+{"id": "B", "correct": false, "rationale": "The text does not claim preservation is easy."},
+{"id": "C", "correct": false, "rationale": "The text argues cultural identity is important."},
+{"id": "D", "correct": false, "rationale": "The text does not state all governments already support it."}
+]
+},
+{
+"item_id": "q9",
+"choices": [
+{"id": "A", "correct": true, "rationale": "Safeguards means to protect or keep something safe."},
+{"id": "B", "correct": false, "rationale": "Ignore is the opposite of protect."},
+{"id": "C", "correct": false, "rationale": "Replace changes something not protects it."},
+{"id": "D", "correct": false, "rationale": "Change does not match the idea of protection."}
+]
+},
+{
+"item_id": "q10",
+"choices": [
+{"id": "A", "correct": true, "rationale": "Fade means to gradually disappear or become less visible."},
+{"id": "B", "correct": false, "rationale": "Grow stronger is the opposite meaning."},
+{"id": "C", "correct": false, "rationale": "Spread quickly does not match fading."},
+{"id": "D", "correct": false, "rationale": "Improve is unrelated to disappearing."}
+]
+},
+{
+"item_id": "q11",
+"choices": [
+{"id": "A", "correct": true, "rationale": "The author suggests both modernization and preservation can work together."},
+{"id": "B", "correct": false, "rationale": "The author does not reject modernization entirely."},
+{"id": "C", "correct": false, "rationale": "Ignoring modernization is not supported."},
+{"id": "D", "correct": false, "rationale": "The author does not favor only traditional lifestyles."}
+]
+},
+{
+"item_id": "q12",
+"choices": [
+{"id": "A", "correct": true, "rationale": "This directly shows researchers use languages to understand history."},
+{"id": "B", "correct": false, "rationale": "This relates to education not research use."},
+{"id": "C", "correct": false, "rationale": "Tourism is a different benefit not research."},
+{"id": "D", "correct": false, "rationale": "This shows loss not research value."}
+]
+}
+]
+}
+</QUIZFORGE_JSON>
