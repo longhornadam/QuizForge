@@ -33,9 +33,10 @@ from ...spec_engine.models import ChoiceRationale, PackagedQuiz, RationalesEntry
 
 HEADER_BG_HEX = "1F3864"        # dark blue — table header row background
 HEADER_FG_HEX = "FFFFFF"        # white    — table header row text
-CORRECT_ROW_BG_HEX = "E6F3E6"  # light green — correct-answer row background
-CORRECT_MARK_HEX = "006600"     # dark green — ✓ symbol colour
-INCORRECT_MARK_HEX = "CC0000"   # red        — ✗ symbol colour
+CORRECT_ROW_BG_HEX = "E6F3E6"   # light green — correct-answer row background
+CORRECT_MARK_HEX = "006600"     # dark green — ✓ symbol colour & correct text
+INCORRECT_ROW_BG_HEX = "F3E6E6" # light red — incorrect-answer row background
+INCORRECT_MARK_HEX = "CC0000"   # dark red — ✗ symbol colour & incorrect text
 QUESTION_HDR_HEX = "1F3864"     # dark blue — question stem paragraph
 
 # Fractional column widths (as proportions of usable page width).
@@ -186,30 +187,30 @@ def _render_docx_item(
             cr: Optional[ChoiceRationale] = choices_by_id.get(letter)
             rationale_text = cr.rationale if cr else _FALLBACK_RATIONALE
 
-            row_bg = CORRECT_ROW_BG_HEX if is_correct else None
+            row_bg = CORRECT_ROW_BG_HEX if is_correct else INCORRECT_ROW_BG_HEX
+            text_color = CORRECT_MARK_HEX if is_correct else INCORRECT_MARK_HEX
 
             # Apply row shading and populate cells
             cells = data_row.cells
 
             # Col 0 — letter
-            if row_bg:
-                _shade_cell(cells[0], row_bg)
+            _shade_cell(cells[0], row_bg)
             p0 = cells[0].paragraphs[0]
             r0 = p0.add_run(letter)
             r0.bold = True
+            r0.font.color.rgb = RGBColor.from_string(text_color)
             r0.font.size = Pt(10)
 
             # Col 1 — choice text
-            if row_bg:
-                _shade_cell(cells[1], row_bg)
+            _shade_cell(cells[1], row_bg)
             p1 = cells[1].paragraphs[0]
             r1 = p1.add_run(choice_text)
             r1.bold = is_correct
+            r1.font.color.rgb = RGBColor.from_string(text_color)
             r1.font.size = Pt(10)
 
             # Col 2 — ✓ / ✗ (centered)
-            if row_bg:
-                _shade_cell(cells[2], row_bg)
+            _shade_cell(cells[2], row_bg)
             p2 = cells[2].paragraphs[0]
             p2.alignment = WD_ALIGN_PARAGRAPH.CENTER
             mark = "✓" if is_correct else "✗"
@@ -220,11 +221,11 @@ def _render_docx_item(
             r2.font.size = Pt(10)
 
             # Col 3 — rationale
-            if row_bg:
-                _shade_cell(cells[3], row_bg)
+            _shade_cell(cells[3], row_bg)
             p3 = cells[3].paragraphs[0]
             r3 = p3.add_run(rationale_text)
             r3.italic = not is_correct
+            r3.font.color.rgb = RGBColor.from_string(text_color)
             r3.font.size = Pt(10)
 
         _set_col_widths(table, col_widths)
@@ -296,10 +297,13 @@ _HTML_TEMPLATE = """\
   .col-mark     {{ width: 5%;  text-align: center; font-weight: bold; }}
   .col-rationale{{ width: 55%; }}
   .correct-row  {{ background-color: #{correct_bg}; }}
+  .incorrect-row {{ background-color: #{incorrect_bg}; }}
   .correct-mark {{ color: #{correct_mark}; }}
   .incorrect-mark {{ color: #{incorrect_mark}; }}
-  .correct-choice {{ font-weight: bold; }}
-  .incorrect-rationale {{ font-style: italic; }}
+  .correct-choice {{ font-weight: bold; color: #{correct_mark}; }}
+  .incorrect-choice {{ color: #{incorrect_mark}; }}
+  .correct-text {{ color: #{correct_mark}; }}
+  .incorrect-text {{ color: #{incorrect_mark}; font-style: italic; }}
 </style>
 </head>
 <body>
@@ -329,11 +333,11 @@ def _render_html_item(q_number: int, item: Dict, entry: RationalesEntry) -> str:
             cr: Optional[ChoiceRationale] = choices_by_id.get(letter)
             rationale_text = cr.rationale if cr else _FALLBACK_RATIONALE
 
-            row_class = ' class="correct-row"' if is_correct else ""
+            row_class = ' class="correct-row"' if is_correct else ' class="incorrect-row"'
             mark = "✓" if is_correct else "✗"
             mark_class = "correct-mark" if is_correct else "incorrect-mark"
-            choice_class = "correct-choice" if is_correct else ""
-            rationale_class = "" if is_correct else "incorrect-rationale"
+            choice_class = "correct-choice" if is_correct else "incorrect-choice"
+            rationale_class = "correct-text" if is_correct else "incorrect-text"
 
             rows_html.append(
                 f'<tr{row_class}>'
@@ -472,6 +476,7 @@ class CorrectionDocRenderer:
             header_fg=HEADER_FG_HEX,
             q_hdr=QUESTION_HDR_HEX,
             correct_bg=CORRECT_ROW_BG_HEX,
+            incorrect_bg=INCORRECT_ROW_BG_HEX,
             correct_mark=CORRECT_MARK_HEX,
             incorrect_mark=INCORRECT_MARK_HEX,
         )
